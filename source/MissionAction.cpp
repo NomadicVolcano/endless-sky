@@ -33,6 +33,16 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 using namespace std;
 
 namespace {
+	void DoGiftShip(PlayerInfo &player, const std::shared_ptr<Ship> &ship, UI *ui)
+	{
+		string message = "The " + ship->Name() + " was added to your fleet!";
+
+		player.AddShip(ship);
+
+		if(ui)
+			ui->Push(new Dialog(message));
+	}
+
 	void DoGiftOutfit(PlayerInfo &player, const Outfit *outfit, int count, UI *ui)
 	{
 		Ship *flagship = player.Flagship();
