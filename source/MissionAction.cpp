@@ -212,9 +212,7 @@ void MissionAction::Load(const DataNode &node, const string &missionName)
 			std::cout << "shipName:" << shipName << "\n";
 			shared_ptr<Ship> ship(new Ship(*model));
 			ship->SetName(shipName);
-			ship->SetIsSpecial();
 			ship->FinishLoading(true);
-			ship->SetIsYours();
 
 			giftShips.push_back(ship);
 			std::cout << "giftShips.size()" << giftShips.size() << "\n";
