@@ -325,6 +325,8 @@ void MissionAction::Save(DataWriter &out) const
 		if(!conversation.IsEmpty())
 			conversation.Save(out);
 		
+		for(const auto &it : giftShips)
+			out.Write("ship", it->ModelName(), it->Name());
 		for(const auto &it : giftOutfits)
 			out.Write("outfit", it.first->Name(), it.second);
 		for(const auto &it : requiredOutfits)
