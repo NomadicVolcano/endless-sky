@@ -461,6 +461,9 @@ void MissionAction::Do(PlayerInfo &player, UI *ui, const System *destination, co
 		for(const auto &eit : it.second)
 			player.AddSpecialLog(it.first, eit.first, eit.second);
 	
+	for(const auto &it : giftShips)
+		DoGiftShip(player, it, ui);
+
 	// If multiple outfits are being transferred, first remove them before
 	// adding any new ones.
 	for(const auto &it : giftOutfits)
