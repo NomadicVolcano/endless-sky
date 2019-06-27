@@ -22,8 +22,8 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 #include <memory>
 #include <set>
 #include <string>
-#include <vector>
 #include <utility>
+#include <vector>
 
 class DataNode;
 class DataWriter;
