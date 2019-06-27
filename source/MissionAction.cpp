@@ -29,6 +29,7 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 #include <cstdlib>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -198,14 +199,17 @@ void MissionAction::Load(const DataNode &node, const string &missionName)
 			stockConversation = GameData::Conversations().Get(child.Token(1));
 		else if(key == "ship" && hasValue)
 		{
+			std::cout << "ship hasvalue\n";
 			string shipName;
 			string modelName = child.Token(1);
 			const Ship *model = GameData::Ships().Get(modelName);
+			std::cout << "modelName:" << modelName << "\n";
 			
 			if (child.Token(2).empty())
 				shipName = GameData::Phrases().Get("civilian")->Get();
 			else
 				shipName = child.Token(2);
+			std::cout << "shipName:" << shipName << "\n";
 			shared_ptr<Ship> ship(new Ship(*model));
 			ship->SetName(shipName);
 			ship->SetIsSpecial();
@@ -213,9 +217,12 @@ void MissionAction::Load(const DataNode &node, const string &missionName)
 			ship->SetIsYours();
 
 			giftShips.push_back(ship);
+			std::cout << "giftShips.size()" << giftShips.size() << "\n";
+			std::cout << "giftShips.back()->Name()" << giftShips.back()->Name() << "\n";
 		}
 		else if(key == "outfit" && hasValue)
 		{
+			std::cout << "outfit hasvalue\n";
 			int count = (child.Size() < 3 ? 1 : static_cast<int>(child.Value(2)));
 			if(count)
 				giftOutfits[GameData::Outfits().Get(child.Token(1))] = count;
@@ -324,11 +331,20 @@ void MissionAction::Save(DataWriter &out) const
 		}
 		if(!conversation.IsEmpty())
 			conversation.Save(out);
-		
+		std::cout << "before writes\n";
+		std::cout << "giftShips length: " << giftShips.size() << "\n";
 		for(const auto &it : giftShips)
+		{
 			out.Write("ship", it->ModelName(), it->Name());
+			std::cout << "gift ships write\n";
+			std::cout << "modelname: " << it->ModelName() << "\n";
+		}
 		for(const auto &it : giftOutfits)
+		{
 			out.Write("outfit", it.first->Name(), it.second);
+			std::cout << "gift outfits write\n";
+			std::cout << it.first->Name() << "\n";
+		}
 		for(const auto &it : requiredOutfits)
 			out.Write("require", it.first->Name(), it.second);
 		if(payment)
