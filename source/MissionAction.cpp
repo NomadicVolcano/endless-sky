@@ -196,6 +196,24 @@ void MissionAction::Load(const DataNode &node, const string &missionName)
 			conversation.Load(child);
 		else if(key == "conversation" && hasValue)
 			stockConversation = GameData::Conversations().Get(child.Token(1));
+		else if(key == "ship" && hasValue)
+		{
+			string shipName;
+			string modelName = child.Token(1);
+			const Ship *model = GameData::Ships().Get(modelName);
+			
+			if (child.Token(2).empty())
+				shipName = GameData::Phrases().Get("civilian")->Get();
+			else
+				shipName = child.Token(2);
+			shared_ptr<Ship> ship(new Ship(*model));
+			ship->SetName(shipName);
+			ship->SetIsSpecial();
+			ship->FinishLoading(true);
+			ship->SetIsYours();
+
+			giftShips.push_back(ship);
+		}
 		else if(key == "outfit" && hasValue)
 		{
 			int count = (child.Size() < 3 ? 1 : static_cast<int>(child.Value(2)));

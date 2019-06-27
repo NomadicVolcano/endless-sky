@@ -81,6 +81,7 @@ private:
 	Conversation conversation;
 	
 	std::map<const GameEvent *, std::pair<int, int>> events;
+	std::vector<std::shared_ptr<Ship>> giftShips;
 	std::map<const Outfit *, int> giftOutfits;
 	std::map<const Outfit *, int> requiredOutfits;
 	int64_t payment = 0;
