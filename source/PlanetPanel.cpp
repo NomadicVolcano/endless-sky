@@ -36,6 +36,7 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 #include "UI.h"
 
 #include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -81,8 +82,11 @@ void PlanetPanel::Step()
 	{
 		Mission *mission = player.MissionToOffer(Mission::LANDING);
 		if(mission)
+		{
+			cout<<"Do mission "<<mission->Name()<<" in PlanetPanel::Step"<<endl;
 			mission->Do(Mission::OFFER, player, GetUI());
-		else
+		}
+		else if(!player.HandleRefreshMissions(GetUI()))
 			player.HandleBlockedMissions(Mission::LANDING, GetUI());
 	}
 }
@@ -229,10 +233,15 @@ void PlanetPanel::TakeOffIfReady()
 	Mission *mission = player.MissionToOffer(Mission::LANDING);
 	if(mission)
 	{
+		cout<<"Do mission "<<mission->Name()<<" in PlanetPanel::TakeOffIfReady";
 		mission->Do(Mission::OFFER, player, GetUI());
 		return;
 	}
 	
+	// Update the completion and failure status of missions with the refresh flag set
+	if(player.HandleRefreshMissions(GetUI()))
+		return;
+
 	// Check whether the player should be warned before taking off.
 	if(player.ShouldLaunch())
 	{

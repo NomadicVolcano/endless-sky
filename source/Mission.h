@@ -96,6 +96,9 @@ public:
 	// Check whether we have full clearance to land and use the planet's
 	// services, or whether we are landing in secret ("infiltrating").
 	bool HasFullClearance() const;
+	// Should we check for this mission's failure and success after every
+	// step of logic?
+	bool HasRefreshFlag() const;
 	
 	// Check if it's possible to offer or complete this mission right now. The
 	// check for whether you can offer a mission does not take available space

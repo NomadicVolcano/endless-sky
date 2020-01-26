@@ -161,8 +161,11 @@ public:
 	void ClearActiveBoardingMission();
 	// If one of your missions cannot be offered because you do not have enough
 	// space for it, and it specifies a message to be shown in that situation,
-	// show that message.
-	void HandleBlockedMissions(Mission::Location location, UI *ui);
+	// show that message.  Returns true if such a mission was found, otherwise false
+	bool HandleBlockedMissions(Mission::Location location, UI *ui);\
+	// Check the failure or completion status of missions that have the refresh
+	// flag.  Returns true if such a mission is found, false otherwise.
+	bool HandleRefreshMissions(UI *ui);
 	// Callback for accepting or declining whatever mission has been offered.
 	void MissionCallback(int response);
 	// Basic callback for handling forced departure from a planet.
