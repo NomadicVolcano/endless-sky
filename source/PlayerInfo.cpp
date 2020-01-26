@@ -1523,8 +1523,9 @@ bool PlayerInfo::HandleBlockedMissions(Mission::Location location, UI *ui)
 
 
 
-// Check if any missions with the "refresh" flag set have failed or
-// completed.
+// Check if any missions have failed or completed.  Fail or complete
+// the first such mission found.  Return value is true iff such a
+// mission was found.
 bool PlayerInfo::RecheckMissions(UI *ui)
 {
 	for(auto it = missions.begin(); it != missions.end(); ++it)

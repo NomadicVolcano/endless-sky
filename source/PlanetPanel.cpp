@@ -235,7 +235,7 @@ void PlanetPanel::TakeOffIfReady()
 		return;
 	}
 	
-	// Update the completion and failure status of missions with the refresh flag set
+	// Update the completion and failure status of missions:
 	if(player.RecheckMissions(GetUI()))
 		return;
 
