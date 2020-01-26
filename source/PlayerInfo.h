@@ -163,9 +163,10 @@ public:
 	// space for it, and it specifies a message to be shown in that situation,
 	// show that message.  Returns true if such a mission was found, otherwise false
 	bool HandleBlockedMissions(Mission::Location location, UI *ui);\
-	// Check the failure or completion status of missions that have the refresh
-	// flag.  Returns true if such a mission is found, false otherwise.
-	bool HandleRefreshMissions(UI *ui);
+	// Check missions to find one that can be completed or failed.
+	// If one is found, complete or fail that mission and return true.
+	// Otherwise, return false.
+	bool RecheckMissions(UI *ui);
 	// Callback for accepting or declining whatever mission has been offered.
 	void MissionCallback(int response);
 	// Basic callback for handling forced departure from a planet.

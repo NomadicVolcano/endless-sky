@@ -42,7 +42,6 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 #include <cmath>
 #include <ctime>
 #include <sstream>
-#include <iostream>
 
 using namespace std;
 
@@ -1526,7 +1525,7 @@ bool PlayerInfo::HandleBlockedMissions(Mission::Location location, UI *ui)
 
 // Check if any missions with the "refresh" flag set have failed or
 // completed.
-bool PlayerInfo::HandleRefreshMissions(UI *ui)
+bool PlayerInfo::RecheckMissions(UI *ui)
 {
 	for(auto it = missions.begin(); it != missions.end(); ++it)
 	{
@@ -1536,15 +1535,11 @@ bool PlayerInfo::HandleRefreshMissions(UI *ui)
 			continue;
 		if(it->HasFailed(*this))
 		{
-			cout<<"Fail the refresh mission with id "<<it->Identifier()<<" and name "<<it->Name()<<" with description "
-				<<it->Description()<<" in RefreshMissions."<<endl;
 			RemoveMission(Mission::FAIL, *it, ui);
 			return true;
 		}
 		if(it->CanComplete(*this))
 		{
-			cout<<"Complete the refresh mission with id "<<it->Identifier()<<" and name "<<it->Name()<<" with description "
-				<<it->Description()<<" in RefreshMissions."<<endl;
 			RemoveMission(Mission::COMPLETE, *it, ui);
 			return true;
 		}
@@ -2484,8 +2479,6 @@ void PlayerInfo::StepMissions(UI *ui)
 				modifiedMissions=true;
 			}
 		}
-		if(modifiedMissions)
-			printf("modified missions on iteration %d\n",i);
 	}
 	
 	// Search for any missions that have failed but for which we are still

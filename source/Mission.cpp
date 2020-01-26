@@ -553,15 +553,6 @@ bool Mission::HasFullClearance() const
 
 
 
-// Should we check for this mission's failure and success after every
-// step of logic?
-bool Mission::HasRefreshFlag() const
-{
-	return true;
-}
-
-
-
 // Check if it's possible to offer or complete this mission right now.
 bool Mission::CanOffer(const PlayerInfo &player, const shared_ptr<Ship> &boardingShip) const
 {
