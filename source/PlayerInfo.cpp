@@ -1530,10 +1530,6 @@ bool PlayerInfo::RecheckMissions(UI *ui)
 {
 	for(auto it = missions.begin(); it != missions.end(); ++it)
 	{
-		if(!it->HasRefreshFlag())
-			continue;
-		if(it->Name()=="")
-			continue;
 		if(it->HasFailed(*this))
 		{
 			RemoveMission(Mission::FAIL, *it, ui);
