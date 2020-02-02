@@ -1384,19 +1384,19 @@ mission "Alexandria Hai Dissidents: Undiscovered"
 	on offer
 		conversation
 			`A library administrator and an Alexandria Seeker meet you at the dock.`
-			`	The seeker says, "We have a critical mission in Hai space.  Are you going there any time soon?"`
+			`	The seeker says, "We have a critical mission in Hai space. Are you going there any time soon?"`
 			choice
 				`	"Who or what is a 'Hai?'"`
 				`	"Where is Hai space?"`
 				`	"Nope."`
 					decline
 			`The seeker continues, "It's-"`
-			`	"Quiet," says the administrator.  "We're sworn not to divulge that information to anyone who has not found it themselves."`
+			`	"Quiet," says the administrator. "We're sworn not to divulge that information to anyone who has not found it themselves."`
 			choice
 				`	"Can you at least give me a hint?"`
-				`	"Keep your secrets.  Bye."`
+				`	"Keep your secrets. Bye."`
 					decline
-			`	"There's an expanse of uninhabited space between the Far North and the Syndicate's territory.  When you find what we need you to find, there will be a new Seek on the job board."`
+			`	"There's an expanse of uninhabited space between the Far North and the Syndicate's territory. When you find what we need you to find, there will be a new Seek on the job board."`
 				decline
 
 
@@ -1420,9 +1420,9 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 	destination Darkwaste
 	on offer
 		conversation
-			`The job details were vague, and mentioned a need for secrecy.  You are to meet another Seeker, "Lang Suir," who has the details of the mission.  The job details no description of her except, "you will know her when you see her.  She stands out."`
-			`	When you arrive at New Argentina, you immediately recognize the lead singer of the infamous band Nuclear Martini.  They perform a genre of classical music that was widely unpopular around the turn of the second millennium: Deathcore.`
-			`	Their "songs" have a beat faster than a heart attack accompanied by down-tuned guitars played so hard they're almost percussion instruments.  There are lyrics, but nobody knows what they are since they are screamed incomprehensibly in a guttural tone.  Their fans call the sound, "soothing."  Doctors call it, "carcinogenic."`
+			`The job details were vague, and mentioned a need for secrecy. You are to meet another Seeker, "Lang Suir," who has the details of the mission. The job details no description of her except, "you will know her when you see her. She stands out."`
+			`	When you arrive at New Argentina, you immediately recognize the lead singer of the infamous band Nuclear Martini. They perform a genre of classical music that was widely unpopular around the turn of the second millennium: Deathcore.`
+			`	Their "songs" have a beat faster than a heart attack accompanied by down-tuned guitars played so hard they're almost percussion instruments. There are lyrics, but nobody knows what they are since they are screamed incomprehensibly in a guttural tone. Their fans call the sound, "soothing." Doctors call it, "carcinogenic."`
 			choice
 				`	(Continue.)`
 				`	(Flee in terror.)`
@@ -1436,33 +1436,33 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 			label "actual questions"
 			choice
 				`	"What quest lies before me?"`
-					label quest
+					goto quest
 				`	"What death guards the path?"`
-					label death
+					goto death
 				`	"Who are our wards and how does Darkwaste conceal them?"`
-					label dissidents
+					goto dissidents
 				`	"What do you mean by, 'hiding their beloved misery?'"`
-					label dissidents
+					goto dissidents
 				`	"Are you always going to be this cryptic?"`
-					label cryptic
+					goto cryptic
 				`	"Let's go."`
 					goto accept
 				`	"Go haunt someone else."`
 					decline
 			label cryptic
 			`In a sorrowful tone, the woman whispers in her sing-song voice, "The pain of this world has shattered my soul. I speak through a thousand prisms as best I can."`
-			`	You begin to suspect her whispers are not for secrecy.  Perhaps, she chooses to speak this way.  Or, perhaps she suffering from throat damage inflicted by her Deathcore performances.`
+			`	You begin to suspect her whispers are not for secrecy. Perhaps, she chooses to speak this way. Or, perhaps she suffering from throat damage inflicted by her Deathcore performances.`
 				goto questions
 			label death
 			`"In ages passed, the Hai defeated a great enemy whose weapons now rest in secret bunkers on Cloudfire. Advanced technology arms elite Hai ships who battle their utopia's existential threats.`
 			`	"Slaying these elite ships may be beyond your means. You must hide or run."`
 				goto questions
 			label dissidents
-			`It a quiet whisper, Lang Suir explains in her ghostly voice, "A terrified few Hai conceal themselves on New Argentina. They speak of others hiding in Darkwaste.  We must seek them and save them from enforced bliss.`
-			`	"It isn't merely the dissidents we seek to help.  To the North we seek the Unfettered Hai.  The dissidents will be our messengers to the Unfettered."`
+			`It a quiet whisper, Lang Suir explains in her ghostly voice, "A terrified few Hai conceal themselves on New Argentina. They speak of others hiding in Darkwaste. We must seek them and save them from enforced bliss.`
+			`	"It isn't merely the dissidents we seek to help. To the North we seek the Unfettered Hai. The dissidents will be our messengers to the Unfettered."`
 				goto questions
 			label quest
-			`Lang Suir whispers loudly in her sing-song voice, "We are seekers of wisdom, <first>.  Fate compels us to guide those to whom wisdom is forbidden. To Hai, happiness is law. We bring them despair, anger, fear, and grief, to enjoy in secret."`
+			`Lang Suir whispers loudly in her sing-song voice, "We are seekers of wisdom, <first>. Fate compels us to guide those to whom wisdom is forbidden. To Hai, happiness is law. We bring them despair, anger, fear, and grief, to enjoy in secret."`
 				goto questions
 			choice
 				`	"That sounds evil."`
@@ -1476,7 +1476,7 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 					decline
 			`Her tone turns sour as she explains, "Have you ever lost someone you love? Been angry about abandonment or abuse? Cried from despair? Sat in terror at movie? A Hai cannot do those things.`
 			`	"All Hai must keep smiling, be happy, never fight back, and instantly forgive. Law demands they be smiling corpses dancing to the song of uncaring leaders.`
-			`	"Some Hai wish for moments of freedom.  We have literature, music, video, and an archive with a universe of emotions."`
+			`	"Some Hai wish for moments of freedom. We have literature, music, video, and an archive with a universe of emotions."`
 			choice
 				`	"I don't believe your conspiracy theory."`
 				`	(Change the subject.)`
@@ -1491,11 +1491,151 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 			`	"What atrocity does the Hai utopia conceal?`
 			`	"If I am wrong, you may rejoice. If I am right, you must help them."`
 				goto questions
+			label accept
+			`	"Beware the guardian of Darkwaste.  Bring a fast ship or a powerful fleet."`
+				accept
 	npc
 		government "Hai (Joymakers)"
 		personality heroic nemesis staying
 		ship "Shield Beetle (Joymaker Particle)"
 
+
+phrase "hostile disabled joymaker"
+	word
+		`I'm sorry for `
+		`I apologize for `
+		`I am saddened that `
+	word
+		`my failure to `
+		`failing to `
+		`my inability to `
+	word
+		`end your `
+		`terminate your `
+		`exterminate your`
+		`cure your `
+	word
+		`terrible `
+		`ceaseless `
+		`horrible `
+	word
+		`pain.`
+		`hardship.`
+		`depression.`
+		`sadness.`
+		`anger.`
+
+
+phrase "hostile disabled joymaker"
+	word
+		`Others will `
+		`Someone else will `
+		`Our brethren will `
+	word
+		`purify `
+		`end `
+		`pacify `
+		`cleanse `
+	word
+		"your "
+	word
+		"impure "
+		"unclean "
+		"tainted "
+		"foul "
+		"shameful "
+		"violent "
+		"greedy "
+		"immoral "
+		"belligerent "
+		"brutal "
+		"cruel "
+		"heartless "
+	word
+		"thoughts."
+		"beliefs."
+		"principles."
+		"intentions."
+		"resolves."
+		"heart."
+		"soul."
+
+
+phrase "hostile joymaker"
+	word
+		`Plagued one, `
+		`Joyless traveler, `
+		`Killjoy, `
+		`Beloved curmudgeon, `
+		`Depressed citizen, `
+		`Violent one, `
+	word
+		`it is our pleasure to `
+		`we are here to `
+		`please let us `
+	word
+		`end your pain`
+		`cure your pain `
+		`end your suffering`
+		`bring you eternal joy`
+		`give you eternal bliss`
+		`take you to the blissful hereafter`
+		`show your our kindness`
+	word
+		` swiftly.`
+		` quickly.`
+		` forcefully.`
+		`.`
+
+
+phrase "hostile joymaker"
+	word
+		`We just want to `
+		`We want to `
+		`Just let us `
+	word
+		`help you `
+		`guide you `
+		""
+	word
+		`end your `
+		`soothe your `
+		`treat your `
+	word
+		`pain.`
+		`suffering.`
+		`sadness.`
+
+
+phrase "hostile joymaker"
+	word
+		`Let us `
+		`We shall `
+		`We will `
+	word
+		`lovingly `
+		`gently `
+		`tenderly `
+	word
+		`hug you `
+		`kiss you `
+		`cuddle you `
+	word
+		`with our `
+	word
+		`armament of `
+		`weapons of `
+		`ships of `
+	word
+		`deadly `
+		`endless `
+		`final `
+		`inevitable `
+	word
+		`joy.`
+		`friendliness.`
+		`empathy.`
+		`sympathy.`
 
 
 ship "Lightning Bug" "Lightning Bug (Joymaker Disruptor)"

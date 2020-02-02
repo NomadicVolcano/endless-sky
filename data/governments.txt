@@ -130,6 +130,21 @@ government "Hai"
 	"hostile hail" "hostile hai"
 	"hostile disabled hail" "hostile disabled hai"
 
+government "Hai (Joymakers)"
+	swizzle 0
+	color .84 .52 .41
+	
+	"player reputation" 0
+	"attitude toward"
+		" Hai " 1
+		"Hai (Unfettered)" -.1
+		"Bounty Hunter Escort" -.01
+		`"Legitimate Businessmen"` -.01
+	"bribe" .2
+	"player reputation" -1000
+	"hostile hail" "hostile joymaker"
+	"hostile disabled hail" "hostile disabled joymaker"
+
 government " Hai "
 	"display name" "Hai"
 	swizzle 0
@@ -161,6 +176,7 @@ government "Hai (Unfettered)"
 		"Bounty Hunter Escort" -.01
 		`"Legitimate Businessmen"` -.01
 		"Kor Efret" -.01
+		"Hai (Joymakers)" -.2
 	"bribe" .02
 	"fine" 0
 	"friendly hail" "friendly unfettered"
@@ -411,6 +427,7 @@ government "Pirate"
 		`"Legitimate Businessmen"` -.1
 		`Bounty Hunter Escort` -.1
 		"Syndicate" -.01
+		"Hai (Joymakers)" -.1
 	"bribe" .05
 	"fine" 0
 	"friendly hail" "friendly pirate"
