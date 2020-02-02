@@ -1324,4 +1324,252 @@ mission "Access to Alexandria"
 	to fail
 		never
 
-		
+
+
+mission "Alexandria Hai Smuggling: Found Sunracer"
+	invisible
+	landing
+	source Sunracer
+	on offer
+		"landings south of hai" ++
+
+mission "Alexandria Hai Smuggling: Found Maelstrom"
+	invisible
+	landing
+	source Maelstrom
+	on offer
+		"landings south of hai" ++
+
+mission "Alexandria Hai Smuggling: Found Stormhold"
+	invisible
+	landing
+	source Stormhold
+	on offer
+		"landings south of hai" ++
+
+
+mission "Alexandria Hai Smuggling: Found Prime"
+	invisible
+	landing
+	source Prime
+	on offer
+		"landings north of hai" ++
+
+mission "Alexandria Hai Smuggling: Found Farpoint"
+	invisible
+	landing
+	source Farpoint
+	on offer
+		"landings north of hai" ++
+
+mission "Alexandria Hai Smuggling: Found Skillet"
+	invisible
+	landing
+	source Skillet
+	on offer
+		"landings north of hai" ++
+
+
+
+
+mission "Alexandria Hai Dissidents: Undiscovered"
+	invisible
+	landing
+	source Alexandria
+	to offer
+		has "library card"
+		has "landings south of hai"
+		has "landings north of hai"
+		has "Discovered Hai Space: offered"
+	on offer
+		conversation
+			`A library administrator and an Alexandria Seeker meet you at the dock.`
+			`	The seeker says, "We have a critical mission in Hai space.  Are you going there any time soon?"`
+			choice
+				`	"Who or what is a 'Hai?'"`
+				`	"Where is Hai space?"`
+				`	"Nope."`
+					decline
+			`The seeker continues, "It's-"`
+			`	"Quiet," says the administrator.  "We're sworn not to divulge that information to anyone who has not found it themselves."`
+			choice
+				`	"Can you at least give me a hint?"`
+				`	"Keep your secrets.  Bye."`
+					decline
+			`	"There's an expanse of uninhabited space between the Far North and the Syndicate's territory.  When you find what we need you to find, there will be a new Seek on the job board."`
+				decline
+
+
+
+mission "Alexandria Hai Dissidents: Intro"
+	job
+	name "Alexandria Seek: Hai Dissidents"
+	description "Meet an Alexandria Seeker on <destination> to arrange a book smuggling operation in Hai space"
+	source Alexandria
+	destination "New Argentina"
+	to offer
+		has "Alexandria Hai Dissidents: Undiscovered: done"
+
+
+
+mission "Alexandria Hai Dissidents: Darkstone Meeting"
+	landing
+	name "Alexandria Seek: Hai Dissidents"
+	description "Take Lang Suir to <destination> to meet Hai dissidents."
+	source "New Argentina"
+	destination Darkwaste
+	on offer
+		conversation
+			`The job details were vague, and mentioned a need for secrecy.  You are to meet another Seeker, "Lang Suir," who has the details of the mission.  The job details no description of her except, "you will know her when you see her.  She stands out."`
+			`	When you arrive at New Argentina, you immediately recognize the lead singer of the infamous band Nuclear Martini.  They perform a genre of classical music that was widely unpopular around the turn of the second millennium: Deathcore.`
+			`	Their "songs" have a beat faster than a heart attack accompanied by down-tuned guitars played so hard they're almost percussion instruments.  There are lyrics, but nobody knows what they are since they are screamed incomprehensibly in a guttural tone.  Their fans call the sound, "soothing."  Doctors call it, "carcinogenic."`
+			choice
+				`	(Continue.)`
+				`	(Flee in terror.)`
+					decline
+			`The woman walks towards you so gracefully she almost seems to float. She pulls her library card seemingly out of nowhere, and you can see the words, "Alexandria Master Seeker Lang Suir."`
+			`	You show her your library card, and she seems convinced.`
+			`	She whispers loudly, in sing-song voice, "A quest lies before you, <first>, but death guards its path. Darkwaste conceals our future wards, hiding their beloved misery. Shall we depart? Or shall I enlighten you further?"`
+				goto "actual questions"
+			label questions
+			`	"How shall I enlighten you?"`
+			label "actual questions"
+			choice
+				`	"What quest lies before me?"`
+					label quest
+				`	"What death guards the path?"`
+					label death
+				`	"Who are our wards and how does Darkwaste conceal them?"`
+					label dissidents
+				`	"What do you mean by, 'hiding their beloved misery?'"`
+					label dissidents
+				`	"Are you always going to be this cryptic?"`
+					label cryptic
+				`	"Let's go."`
+					goto accept
+				`	"Go haunt someone else."`
+					decline
+			label cryptic
+			`In a sorrowful tone, the woman whispers in her sing-song voice, "The pain of this world has shattered my soul. I speak through a thousand prisms as best I can."`
+			`	You begin to suspect her whispers are not for secrecy.  Perhaps, she chooses to speak this way.  Or, perhaps she suffering from throat damage inflicted by her Deathcore performances.`
+				goto questions
+			label death
+			`"In ages passed, the Hai defeated a great enemy whose weapons now rest in secret bunkers on Cloudfire. Advanced technology arms elite Hai ships who battle their utopia's existential threats.`
+			`	"Slaying these elite ships may be beyond your means. You must hide or run."`
+				goto questions
+			label dissidents
+			`It a quiet whisper, Lang Suir explains in her ghostly voice, "A terrified few Hai conceal themselves on New Argentina. They speak of others hiding in Darkwaste.  We must seek them and save them from enforced bliss.`
+			`	"It isn't merely the dissidents we seek to help.  To the North we seek the Unfettered Hai.  The dissidents will be our messengers to the Unfettered."`
+				goto questions
+			label quest
+			`Lang Suir whispers loudly in her sing-song voice, "We are seekers of wisdom, <first>.  Fate compels us to guide those to whom wisdom is forbidden. To Hai, happiness is law. We bring them despair, anger, fear, and grief, to enjoy in secret."`
+				goto questions
+			choice
+				`	"That sounds evil."`
+				`	"Great! I'm looking forward to it."`
+					goto questions
+				`	(Change the subject.)`
+					goto questions
+				`	"Let's go."`
+					goto accept
+				`	"Go haunt someone else."`
+					decline
+			`Her tone turns sour as she explains, "Have you ever lost someone you love? Been angry about abandonment or abuse? Cried from despair? Sat in terror at movie? A Hai cannot do those things.`
+			`	"All Hai must keep smiling, be happy, never fight back, and instantly forgive. Law demands they be smiling corpses dancing to the song of uncaring leaders.`
+			`	"Some Hai wish for moments of freedom.  We have literature, music, video, and an archive with a universe of emotions."`
+			choice
+				`	"I don't believe your conspiracy theory."`
+				`	(Change the subject.)`
+					goto questions
+				`	"Let's go."`
+					goto accept
+				`	"Go haunt someone else."`
+					decline
+			`Her ghostly sing-song voice whispers, "The southern Hai have a perfect utopia. Everyone is happy. There are no criminals and no prisons. No violence and no sociopaths.`
+			`	"The northern Hai have a culture of brutality, desperation, despair, and hate. Led by sociopaths, they make endless war.`
+			`	"The Hai are one species, so if the Unfettered can be violent, the utopians too. How is happiness enforced?`
+			`	"What atrocity does the Hai utopia conceal?`
+			`	"If I am wrong, you may rejoice. If I am right, you must help them."`
+				goto questions
+	npc
+		government "Hai (Joymakers)"
+		personality heroic nemesis staying
+		ship "Shield Beetle (Joymaker Particle)"
+
+
+
+ship "Lightning Bug" "Lightning Bug (Joymaker Disruptor)"
+	add attributes
+		"self-destruct" 0.6
+	outfits
+		Hyperdrive
+		"Korath Disruptor"
+		"Korath Fire-Lance"
+		"Systems Core (Small)"
+		"Large Heat Shunt"
+		"Chameleon Anti-Missile"
+		"Double Plasma Core"
+		`"Biroo" Atomic Thruster`
+		`"Biroo" Atomic Steering`
+		"Korath Repeater Rifle" 3
+		"Pulse Rifle" 7
+		"Outfits Expansion" 3
+
+ship "Lightning Bug" "Lightning Bug (Joymaker Slicer)"
+	add attributes
+		"self-destruct" 0.6
+	outfits
+		Hyperdrive
+		"Korath Slicer Turret"
+		"Systems Core (Small)"
+		"Large Heat Shunt"
+		"Chameleon Anti-Missile"
+		"Hai Fissure Batteries"
+		"Plasma Core"
+		`"Biroo" Atomic Thruster`
+		`"Biroo" Atomic Steering`
+		"Korath Repeater Rifle" 3
+		"Pulse Rifle" 7
+		"Outfits Expansion" 2
+
+ship "Shield Beetle" "Shield Beetle (Joymaker Particle)"
+	add attributes
+		"self-destruct" 0.5
+	outfits
+		"Outfits Expansion" 4
+		"Hyperdrive"
+		"Hai Diamond Regenerator"
+		"Bullfrog Anti-Missile" 2
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Hai Gorge Batteries"
+		"Fuel Pod"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 4
+		"Systems Core (Medium)"
+		"Thruster (Planetary Class)"
+		"Particle Cannon" 8
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
+
+ship "Shield Beetle" "Shield Beetle (Joymaker Detainer)"
+	add attributes
+		"self-destruct" 0.7
+	outfits
+		"Outfits Expansion" 4
+		"Hyperdrive"
+		"Hai Diamond Regenerator"
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Korath Repeater Turret" 2
+		"Geode Reactor"
+		"Fuel Pod"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 4
+		"Systems Core (Medium)"
+		"Thruster (Planetary Class)"
+		"Korath Detainer"
+		"Pulse Cannon" 7
+		"Small Heat Shunt"
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
