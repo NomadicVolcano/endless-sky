@@ -1429,7 +1429,7 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 					decline
 			`The woman walks towards you so gracefully she almost seems to float. She pulls her library card seemingly out of nowhere, and you can see the words, "Alexandria Master Seeker Lang Suir."`
 			`	You show her your library card, and she seems convinced.`
-			`	She whispers loudly, in sing-song voice, "A quest lies before you, <first>, but death guards its path. Darkwaste conceals our future wards, hiding their beloved misery. Shall we depart? Or shall I enlighten you further?"`
+			`	She whispers loudly, in sing-song voice, "A quest lies before you, <first>, but death guards its path. Darkwaste conceals our future wards, hiding their beloved misery. Shall we depart forthwith? Or shall I enlighten you further?"`
 				goto "actual questions"
 			label questions
 			`	"How shall I enlighten you?"`
@@ -1450,8 +1450,8 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 				`	"Go haunt someone else."`
 					decline
 			label cryptic
-			`In a sorrowful tone, the woman whispers in her sing-song voice, "The pain of this world has shattered my soul. I speak through a thousand prisms as best I can."`
-			`	You begin to suspect her whispers are not for secrecy. Perhaps, she chooses to speak this way. Or, perhaps she suffering from throat damage inflicted by her Deathcore performances.`
+			`In a sorrowful tone, the woman whispers in her sing-song voice, "The pain of this world has shattered my soul. I see through a thousand prisms as best I can."`
+			`	You begin to suspect her whispers are not for secrecy. Perhaps she chooses to speak this way. Or perhaps she suffering from throat damage inflicted by her Deathcore performances.`
 				goto questions
 			label death
 			`"In ages passed, the Hai defeated a great enemy whose weapons now rest in secret bunkers on Cloudfire. Advanced technology arms elite Hai ships who battle their utopia's existential threats.`
@@ -1582,8 +1582,8 @@ phrase "hostile joymaker"
 		`take you to the blissful hereafter`
 		`show your our kindness`
 	word
-		` swiftly.`
-		` quickly.`
+		` violently.`
+		` fiercely.`
 		` forcefully.`
 		`.`
 
