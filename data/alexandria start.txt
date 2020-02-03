@@ -311,51 +311,6 @@ mission "Alexandria Library Card: Second Volume: Step 2 Escort"
 
 
 
-ship "Sparrow" "Sparrow (Meteor Atomic)"
-	outfits
-		"Meteor Missile Launcher" 2
-		"Meteor Missile" 60
-		"nGVF-BB Fuel Cell"
-		"Supercapacitor" 4
-		"D14-RN Shield Generator"
-		"A120 Atomic Thruster"
-		"Chipmunk Plasma Steering"
-		"Hyperdrive"
-
-ship "Sparrow" "Sparrow (Javelin Atomic)"
-	outfits
-		"Javelin Pod" 1
-		"Javelin Storage Crate" 1
-		"Javelin" 300
-		"nGVF-BB Fuel Cell"
-		"D14-RN Shield Generator"
-		"LP036a Battery Pack"
-		"A120 Atomic Thruster"
-		"Chipmunk Plasma Steering"
-		"Hyperdrive"
-
-ship "Sparrow" "Sparrow (Heavy Atomic)"
-	outfits
-		"Heavy Rocket Launcher" 1
-		"Heavy Rocket" 20
-		"nGVF-BB Fuel Cell"
-		"Supercapacitor" 4
-		"D14-RN Shield Generator"
-		"A120 Atomic Thruster"
-		"Chipmunk Plasma Steering"
-		"Hyperdrive"
-
-ship "Sparrow" "Sparrow (Heavy Laser Atomic)"
-	outfits
-		"nGVF-BB Fuel Cell"
-		"Heavy Laser"
-		"LP036a Battery Pack"
-		"D14-RN Shield Generator"
-		"A120 Atomic Thruster"
-		"Chipmunk Plasma Steering"
-		"Hyperdrive"
-		"Supercapacitor"
-
 
 
 mission "Alexandria Library Card: Second Volume: Step 3"
@@ -1304,26 +1259,6 @@ mission "Alexandria Library Card: Completion"
 	on fail
 		fail "Access to Alexandria"
 
-mission "Access to Alexandria"
-	name "Access to Alexandria"
-	description "Access to Alexandria"
-	repeat
-	landing
-	source
-		not attributes uninhabited
-	invisible
-	destination Alexandria
-	clearance
-	to offer
-		has "Alexandria Library Card: Rescue: done"
-		or
-			has "Alexandria Library Card: Completion: done"
-			has "Alexandria Library Card: Completion: accepted"
-	to complete
-		never
-	to fail
-		never
-
 
 
 mission "Alexandria Hai Smuggling: Found Sunracer"
@@ -1422,14 +1357,14 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 		conversation
 			`The job details were vague, and mentioned a need for secrecy. You are to meet another Seeker, "Lang Suir," who has the details of the mission. The job details no description of her except, "you will know her when you see her. She stands out."`
 			`	When you arrive at New Argentina, you immediately recognize the lead singer of the infamous band Nuclear Martini. They perform a genre of classical music that was widely unpopular around the turn of the second millennium: Deathcore.`
-			`	Their "songs" have a beat faster than a heart attack accompanied by down-tuned guitars played so hard they're almost percussion instruments. There are lyrics, but nobody knows what they are since they are screamed incomprehensibly in a guttural tone. Their fans call the sound, "soothing." Doctors call it, "carcinogenic."`
+			`	Their "songs" have a beat faster than a heart attack accompanied by down-tuned guitars played so hard they're almost percussion instruments. There are lyrics, but nobody understands them they are since they are screamed incomprehensibly in a guttural tone. Their fans call the sound, "soothing." Doctors call it, "carcinogenic."`
 			choice
 				`	(Continue.)`
 				`	(Flee in terror.)`
 					decline
 			`The woman walks towards you so gracefully she almost seems to float. She pulls her library card seemingly out of nowhere, and you can see the words, "Alexandria Master Seeker Lang Suir."`
 			`	You show her your library card, and she seems convinced.`
-			`	She whispers loudly, in sing-song voice, "A quest lies before you, <first>, but death guards its path. Darkwaste conceals our future wards, hiding their beloved misery. Shall we depart forthwith? Or shall I enlighten you further?"`
+			`	She whispers loudly, in sing-song voice, "A quest lies before you, <first>, but death guards its path. Darkwaste conceals our future wards, hiding their beloved misery. Shall we depart forthwith? Or must I enlighten you further?"`
 				goto "actual questions"
 			label questions
 			`	"How shall I enlighten you?"`
@@ -1442,15 +1377,15 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 				`	"Who are our wards and how does Darkwaste conceal them?"`
 					goto dissidents
 				`	"What do you mean by, 'hiding their beloved misery?'"`
-					goto dissidents
+					goto misery
 				`	"Are you always going to be this cryptic?"`
 					goto cryptic
 				`	"Let's go."`
 					goto accept
-				`	"Go haunt someone else."`
+				`	"Go haunt someone else, you evil revenant!"`
 					decline
 			label cryptic
-			`In a sorrowful tone, the woman whispers in her sing-song voice, "The pain of this world has shattered my soul. I see through a thousand prisms as best I can."`
+			`Lang Suir thinks for a moment before whispering, "The pain of this world has shattered my soul. I see through a thousand prisms as best I can."`
 			`	You begin to suspect her whispers are not for secrecy. Perhaps she chooses to speak this way. Or perhaps she suffering from throat damage inflicted by her Deathcore performances.`
 				goto questions
 			label death
@@ -1465,31 +1400,31 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 			`Lang Suir whispers loudly in her sing-song voice, "We are seekers of wisdom, <first>. Fate compels us to guide those to whom wisdom is forbidden. To Hai, happiness is law. We bring them despair, anger, fear, and grief, to enjoy in secret."`
 				goto questions
 			choice
-				`	"That sounds evil."`
-				`	"Great! I'm looking forward to it."`
+				`	"Great! I'm looking forward to crushing the insufferable happiness of those over-excited squirrels."`
 					goto questions
+				`	"That sounds evil."`
 				`	(Change the subject.)`
 					goto questions
 				`	"Let's go."`
 					goto accept
-				`	"Go haunt someone else."`
+				`	"Go haunt someone else, you evil revenant!"`
 					decline
-			`Her tone turns sour as she explains, "Have you ever lost someone you love? Been angry about abandonment or abuse? Cried from despair? Sat in terror at movie? A Hai cannot do those things.`
-			`	"All Hai must keep smiling, be happy, never fight back, and instantly forgive. Law demands they be smiling corpses dancing to the song of uncaring leaders.`
-			`	"Some Hai wish for moments of freedom. We have literature, music, video, and an archive with a universe of emotions."`
+			label misery
+			`Her tone turns sour as she explains, "Have you ever lost someone you love? Seethed over abandonment or abuse? Fought against oppression? Cried from despair? Hai are forbidden from such emotion.`
+			`	"Hai law demands they be smiling corpses dancing to the song of uncaring leaders.`
+			`	"Some Hai wish for moments of freedom. We bring a universe of emotions."`
 			choice
 				`	"I don't believe your conspiracy theory."`
 				`	(Change the subject.)`
 					goto questions
 				`	"Let's go."`
 					goto accept
-				`	"Go haunt someone else."`
+				`	"Go haunt someone else, you evil revenant!"`
 					decline
-			`Her ghostly sing-song voice whispers, "The southern Hai have a perfect utopia. Everyone is happy. There are no criminals and no prisons. No violence and no sociopaths.`
+			label justification
+			`Her ghostly sing-song voice whispers, "The southern Hai have a perfect utopia. Everyone is happy. There are no criminals, no prisons, no violence, and no sociopaths.`
 			`	"The northern Hai have a culture of brutality, desperation, despair, and hate. Led by sociopaths, they make endless war.`
-			`	"The Hai are one species, so if the Unfettered can be violent, the utopians too. How is happiness enforced?`
-			`	"What atrocity does the Hai utopia conceal?`
-			`	"If I am wrong, you may rejoice. If I am right, you must help them."`
+			`	"The Hai are one species, so if the Unfettered can be violent, the utopians too.  What Hai atrocity enforces happiness?`
 				goto questions
 			label accept
 			`	"Beware the guardian of Darkwaste.  Bring a fast ship or a powerful fleet."`
@@ -1497,219 +1432,8 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 	npc
 		government "Hai (Joymakers)"
 		personality heroic nemesis staying
-		ship "Shield Beetle (Joymaker Particle)"
-
-
-phrase "hostile disabled joymaker"
-	word
-		`I'm sorry for `
-		`I apologize for `
-		`I am saddened that `
-	word
-		`my failure to `
-		`failing to `
-		`my inability to `
-	word
-		`end your `
-		`terminate your `
-		`exterminate your`
-		`cure your `
-	word
-		`terrible `
-		`ceaseless `
-		`horrible `
-	word
-		`pain.`
-		`hardship.`
-		`depression.`
-		`sadness.`
-		`anger.`
-
-
-phrase "hostile disabled joymaker"
-	word
-		`Others will `
-		`Someone else will `
-		`Our brethren will `
-	word
-		`purify `
-		`end `
-		`pacify `
-		`cleanse `
-	word
-		"your "
-	word
-		"impure "
-		"unclean "
-		"tainted "
-		"foul "
-		"shameful "
-		"violent "
-		"greedy "
-		"immoral "
-		"belligerent "
-		"brutal "
-		"cruel "
-		"heartless "
-	word
-		"thoughts."
-		"beliefs."
-		"principles."
-		"intentions."
-		"resolves."
-		"heart."
-		"soul."
-
-
-phrase "hostile joymaker"
-	word
-		`Plagued one, `
-		`Joyless traveler, `
-		`Killjoy, `
-		`Beloved curmudgeon, `
-		`Depressed citizen, `
-		`Violent one, `
-	word
-		`it is our pleasure to `
-		`we are here to `
-		`please let us `
-	word
-		`end your pain`
-		`cure your pain `
-		`end your suffering`
-		`bring you eternal joy`
-		`give you eternal bliss`
-		`take you to the blissful hereafter`
-		`show your our kindness`
-	word
-		` violently.`
-		` fiercely.`
-		` forcefully.`
-		`.`
-
-
-phrase "hostile joymaker"
-	word
-		`We just want to `
-		`We want to `
-		`Just let us `
-	word
-		`help you `
-		`guide you `
-		""
-	word
-		`end your `
-		`soothe your `
-		`treat your `
-	word
-		`pain.`
-		`suffering.`
-		`sadness.`
-
-
-phrase "hostile joymaker"
-	word
-		`Let us `
-		`We shall `
-		`We will `
-	word
-		`lovingly `
-		`gently `
-		`tenderly `
-	word
-		`hug you `
-		`kiss you `
-		`cuddle you `
-	word
-		`with our `
-	word
-		`armament of `
-		`weapons of `
-		`ships of `
-	word
-		`deadly `
-		`endless `
-		`final `
-		`inevitable `
-	word
-		`joy.`
-		`friendliness.`
-		`empathy.`
-		`sympathy.`
-
-
-ship "Lightning Bug" "Lightning Bug (Joymaker Disruptor)"
-	add attributes
-		"self-destruct" 0.6
-	outfits
-		Hyperdrive
-		"Korath Disruptor"
-		"Korath Fire-Lance"
-		"Systems Core (Small)"
-		"Large Heat Shunt"
-		"Chameleon Anti-Missile"
-		"Double Plasma Core"
-		`"Biroo" Atomic Thruster`
-		`"Biroo" Atomic Steering`
-		"Korath Repeater Rifle" 3
-		"Pulse Rifle" 7
-		"Outfits Expansion" 3
-
-ship "Lightning Bug" "Lightning Bug (Joymaker Slicer)"
-	add attributes
-		"self-destruct" 0.6
-	outfits
-		Hyperdrive
-		"Korath Slicer Turret"
-		"Systems Core (Small)"
-		"Large Heat Shunt"
-		"Chameleon Anti-Missile"
-		"Hai Fissure Batteries"
-		"Plasma Core"
-		`"Biroo" Atomic Thruster`
-		`"Biroo" Atomic Steering`
-		"Korath Repeater Rifle" 3
-		"Pulse Rifle" 7
-		"Outfits Expansion" 2
-
-ship "Shield Beetle" "Shield Beetle (Joymaker Particle)"
-	add attributes
-		"self-destruct" 0.5
-	outfits
-		"Outfits Expansion" 4
-		"Hyperdrive"
-		"Hai Diamond Regenerator"
-		"Bullfrog Anti-Missile" 2
-		`"Bufaer" Atomic Steering`
-		"Korath Warder"
-		"Hai Gorge Batteries"
-		"Fuel Pod"
-		"Triple Plasma Core"
-		"Large Heat Shunt" 4
-		"Systems Core (Medium)"
-		"Thruster (Planetary Class)"
-		"Particle Cannon" 8
-		"Korath Repeater Rifle" 10
-		"Pulse Rifle" 85
-
-ship "Shield Beetle" "Shield Beetle (Joymaker Detainer)"
-	add attributes
-		"self-destruct" 0.7
-	outfits
-		"Outfits Expansion" 4
-		"Hyperdrive"
-		"Hai Diamond Regenerator"
-		`"Bufaer" Atomic Steering`
-		"Korath Warder"
-		"Korath Repeater Turret" 2
-		"Geode Reactor"
-		"Fuel Pod"
-		"Triple Plasma Core"
-		"Large Heat Shunt" 4
-		"Systems Core (Medium)"
-		"Thruster (Planetary Class)"
-		"Korath Detainer"
-		"Pulse Cannon" 7
-		"Small Heat Shunt"
-		"Korath Repeater Rifle" 10
-		"Pulse Rifle" 85
+		system "Fah Root"
+		fleet
+			names "joymaker ship names"
+			variant
+				"Shield Beetle (Joymaker Particle)"
