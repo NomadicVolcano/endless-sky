@@ -114,7 +114,7 @@ government "Free Worlds"
 	raid "pirate raid"
 
 government "Hai"
-	swizzle 0
+	swizzle 5
 	color .84 .42 .81
 	
 	"player reputation" 0
@@ -130,17 +130,30 @@ government "Hai"
 	"hostile hail" "hostile hai"
 	"hostile disabled hail" "hostile disabled hai"
 
-government "Hai (Joymakers)"
+government "Hai Dissidents"
 	swizzle 0
+	color .52 .84 .41
+	
+	"player reputation" 100
+	"attitude toward"
+		"Hai (Unfettered)" .01
+		"Hai Joymakers" -.3
+	"bribe" .02
+	"friendly hail" "friendly hai dissident"
+	"friendly disabled hail" "friendly disabled hai dissident"
+	"hostile hail" "hostile hai dissident"
+	"hostile disabled hail" "hostile disabled hai dissident"
+
+government "Hai Joymakers"
+	swizzle 6
 	color .84 .52 .41
 	
 	"player reputation" 0
 	"attitude toward"
-		" Hai " 1
+		"Hai" 1
 		"Hai (Unfettered)" -.1
-		"Bounty Hunter Escort" -.01
-		`"Legitimate Businessmen"` -.01
-	"bribe" .2
+		"Hai Dissidents" -.3
+	"bribe" .1
 	"player reputation" -1000
 	"hostile hail" "hostile joymaker"
 	"hostile disabled hail" "hostile disabled joymaker"
@@ -176,7 +189,8 @@ government "Hai (Unfettered)"
 		"Bounty Hunter Escort" -.01
 		`"Legitimate Businessmen"` -.01
 		"Kor Efret" -.01
-		"Hai (Joymakers)" -.2
+		"Hai Joymakers" -.01
+		"Hai Dissidents" .05
 	"bribe" .02
 	"fine" 0
 	"friendly hail" "friendly unfettered"
@@ -280,6 +294,7 @@ government "Korath"
 	
 	"attitude toward"
 		"Kor Sestor" -.01
+		"Hai Joymakers" -.01
 	
 	"player reputation" -10
 
@@ -438,7 +453,8 @@ government "Pirate"
 		`"Legitimate Businessmen"` -.1
 		`Bounty Hunter Escort` -.1
 		"Syndicate" -.01
-		"Hai (Joymakers)" -.1
+		"Hai Joymakers" -.1
+		"Hai Dissidents" .05
 	"bribe" .05
 	"fine" 0
 	"friendly hail" "friendly pirate"

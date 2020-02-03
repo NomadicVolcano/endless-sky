@@ -1,0 +1,411 @@
+fleet "Hai Joymakers Small"
+	government "Hai Joymakers"
+	names "joymakers ship names"
+	cargo 0
+	personality
+		heroic vindictive opportunistic
+		confusion 20
+	variant 1
+		"Shield Beetle (Joymakers Particle)"
+
+fleet "Hai Joymakers Large"
+	government "Hai Joymakers"
+	names "joymakers ship names"
+	cargo 0
+	personality
+		heroic vindictive opportunistic
+		confusion 20
+	variant 1
+		"Shield Beetle (Joymakers Particle)" 3
+
+fleet "Hai Joymakers Small Advanced"
+	government "Hai Joymakers"
+	names "joymakers ship names"
+	cargo 0
+	personality
+		heroic vindictive opportunistic
+		confusion 20
+	variant 1
+		"Shield Beetle (Joymakers Detainer)"
+
+fleet "Hai Joymakers Large Advanced"
+	government "Hai Joymakers"
+	names "joymakers ship names"
+	cargo 0
+	personality
+		heroic vindictive opportunistic
+		confusion 20
+	variant 1
+		"Shield Beetle (Joymakers Detainer)" 3
+
+
+
+phrase "joymakers ship names"
+	phrase
+		"(joymakers) Hugbringer"
+		"(joymakers) Hug of Death"
+		"(joymakers) Hug of Death"
+		"(joymakers) Bringer of Deadly Hugs"
+		"(joymakers) Bringer of Deadly Hugs"
+
+phrase "(joymakers) Hugbringer"
+	phrase
+		"(joymakers) physical action expressing a positive emotion"
+	word
+		rider
+		beacon
+		bringer
+		sign
+		mark
+		crusher
+		mangler
+
+phrase "(joymakers) Hug of Death"
+	phrase
+		"(joymakers) physical action expressing a positive emotion"
+	word
+		" of "
+	phrase
+		"(joymakers) unfortunate state of being"
+		
+phrase "(joymakers) Bringer of Deadly Hugs"
+	phrase
+		"(joymakers) harbinger"
+		"(joymakers) prophecy or evidence of"
+	word
+		" of "
+	phrase
+		"(joymakers) final/deadly"
+	word
+		" "
+	phrase
+		"(joymakers) happy plural events or state of being"
+
+phrase "(joymakers) harbinger"
+	word
+		Harbinger
+		Herald
+		Bringer
+		Prophet
+		Envoy
+		Rider
+		Usher
+		Guide
+		Shepard
+		Forerunner
+		Deliverer
+		Vanguard
+		Beacon
+
+phrase "(joymakers) prophecy or evidence of"
+	word
+		Portent
+		Prophecy
+		Sign
+		Foreboding
+		Omen
+		Boding
+		Mark
+		Signal
+		Symbol
+
+phrase "(joymakers) final/deadly"
+	word
+		Deadly
+		Terminal
+		Final
+		Violent
+		Brutal
+		Fierce
+		Ominous
+		Inevitable
+		Unstoppable
+		Fatal
+		Toxic
+
+phrase "(joymakers) happy plural events or state of being"
+	word
+		Bliss
+		Kisses
+		Hugs
+		Cuddles
+		Snuggles
+		Joy
+		Friendship
+		Empathy
+		Sympathy
+		Tenderness
+		Smiles
+		Pettings
+		Love
+
+phrase "(joymakers) physical action expressing a positive emotion"
+	word
+		Hug
+		Handshake
+		Smile
+		Snuggle
+		Cuddle
+		Grin
+		Laugh
+		Giggle
+		Blush
+		Kiss
+
+phrase "(joymakers) unfortunate state of being"
+	word
+		"Doom"
+		"Pain"
+		"Agony"
+		"Torment"
+		"Madness"
+		"Insanity"
+		"Darkness"
+		"Nightmares"
+		"Destruction"
+		"Misfortune"
+		"Oppression"
+		"Might"
+		"Woe"
+		"Fury"
+		"Rage"
+		"Grief"
+		"Addiction"
+		"Mischief"
+		"Cataclysm"
+		"Wrath"
+		"Blackness"
+		"Death"
+
+
+
+phrase "hostile disabled joymakers"
+	word
+		`I'm sorry for `
+		`I apologize for `
+		`I am saddened at `
+	word
+		`my failure to `
+		`failing to `
+		`my inability to `
+	word
+		`end your `
+		`terminate your `
+		`exterminate your`
+		`cure your `
+	word
+		`terrible `
+		`ceaseless `
+		`horrible `
+		`perpetual `
+		`prolonged `
+		`timeless `
+		""
+	word
+		`pain.`
+		`agony.`
+		`hardship.`
+		`depression.`
+		`sadness.`
+		`anger.`
+
+phrase "hostile disabled joymakers"
+	word
+		`Others will `
+		`Someone else will `
+		`Our brethren will `
+	word
+		`purify `
+		`end `
+		`pacify `
+		`cleanse `
+	word
+		"your "
+	word
+		"impure "
+		"unclean "
+		"tainted "
+		"foul "
+		"shameful "
+		"violent "
+		"greedy "
+		"immoral "
+		"belligerent "
+		"brutal "
+		"cruel "
+		"heartless "
+	word
+		"thoughts."
+		"beliefs."
+		"principles."
+		"intentions."
+		"resolves."
+		"heart."
+		"soul."
+
+
+
+phrase "hostile joymakers"
+	word
+		`Plagued one, `
+		`Joyless traveler, `
+		`Killjoy, `
+		`Beloved curmudgeon, `
+		`Depressed citizen, `
+		`Violent one, `
+	word
+		`it is our pleasure to `
+		`we are here to `
+		`please let us `
+	word
+		`end your pain`
+		`cure your pain `
+		`end your suffering`
+		`bring you eternal joy`
+		`give you eternal bliss`
+		`take you to the blissful hereafter`
+		`show your our kindness`
+	word
+		` violently.`
+		` fiercely.`
+		` forcefully.`
+		` with finality.`
+		` brutally.`
+		` viciously.`
+		`.`
+
+phrase "hostile joymakers"
+	word
+		`We just want to `
+		`We want to `
+		`Just let us `
+	word
+		`help you `
+		`guide you to `
+		""
+	word
+		`end your `
+		`soothe your `
+		`treat your `
+		`heal your `
+		`cure your `
+	word
+		`pain.`
+		`suffering.`
+		`sadness.`
+		`misery.`
+		`anguish.`
+		`sorrow.`
+
+phrase "hostile joymakers"
+	word
+		`Let us `
+		`We shall `
+		`We will `
+	word
+		`lovingly `
+		`gently `
+		`tenderly `
+	word
+		`hug you `
+		`kiss you `
+		`cuddle you `
+		`snuggle you `
+		`nuzzle you `
+	word
+		`with our `
+	word
+		`armament of `
+		`weapons of `
+		`cannons of `
+		`guns of `
+		`ships of `
+	word
+		`deadly `
+		`fatal `
+		`ominous `
+		`final `
+		`inevitable `
+		`unstoppable `
+	word
+		`joy.`
+		`friendliness.`
+		`empathy.`
+		`bliss.`
+		`sympathy.`
+
+ship "Lightning Bug" "Lightning Bug (Joymakers Disruptor)"
+	add attributes
+		"self-destruct" 0.6
+	outfits
+		Hyperdrive
+		"Korath Disruptor"
+		"Korath Fire-Lance"
+		"Systems Core (Small)"
+		"Large Heat Shunt"
+		"Chameleon Anti-Missile"
+		"Double Plasma Core"
+		`"Biroo" Atomic Thruster`
+		`"Biroo" Atomic Steering`
+		"Korath Repeater Rifle" 3
+		"Pulse Rifle" 7
+		"Outfits Expansion" 3
+
+ship "Lightning Bug" "Lightning Bug (Joymakers Slicer)"
+	add attributes
+		"self-destruct" 0.6
+	outfits
+		Hyperdrive
+		"Korath Slicer Turret"
+		"Systems Core (Small)"
+		"Large Heat Shunt"
+		"Chameleon Anti-Missile"
+		"Hai Fissure Batteries"
+		"Plasma Core"
+		`"Biroo" Atomic Thruster`
+		`"Biroo" Atomic Steering`
+		"Korath Repeater Rifle" 3
+		"Pulse Rifle" 7
+		"Outfits Expansion" 2
+
+ship "Shield Beetle" "Shield Beetle (Joymakers Particle)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Outfits Expansion" 4
+		"Hyperdrive"
+		"Hai Diamond Regenerator"
+		"Bullfrog Anti-Missile" 2
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Hai Gorge Batteries"
+		"Fuel Pod"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 4
+		"Systems Core (Medium)"
+		"Thruster (Planetary Class)"
+		"Particle Cannon" 8
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
+
+ship "Shield Beetle" "Shield Beetle (Joymakers Detainer)"
+	add attributes
+		"self-destruct" 0.8
+	outfits
+		"Outfits Expansion" 4
+		"Hyperdrive"
+		"Hai Diamond Regenerator"
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Korath Repeater Turret" 2
+		"Geode Reactor"
+		"Fuel Pod"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 4
+		"Systems Core (Medium)"
+		"Thruster (Planetary Class)"
+		"Korath Detainer"
+		"Pulse Cannon" 7
+		"Small Heat Shunt"
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
