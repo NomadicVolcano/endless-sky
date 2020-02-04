@@ -132,10 +132,7 @@ government "Hai Joymakers"
 	
 	"player reputation" 0
 	"attitude toward"
-		"Hai" 1
-		"Hai (Unfettered)" -.1
 		"Hai Dissidents" -.3
-	"bribe" .1
 	"player reputation" -1000
 	"hostile hail" "hostile joymaker"
 	"hostile disabled hail" "hostile disabled joymaker"
@@ -168,7 +165,7 @@ government "Hai (Unfettered)"
 		"Merchant" -.01
 		"Kor Efret" -.01
 		"Hai Joymakers" -.01
-		"Hai Dissidents" .05
+		"Hai Dissidents" .02
 	"bribe" .02
 	"fine" 0
 	"friendly hail" "friendly unfettered"
@@ -402,8 +399,8 @@ government "Pirate"
 		"Korath" -.01
 		"Merchant" -.1
 		"Syndicate" -.01
-		"Hai Joymakers" -.1
-		"Hai Dissidents" .05
+		"Hai Joymakers" -.01
+		"Hai Dissidents" .01
 	"bribe" .05
 	"fine" 0
 	"friendly hail" "friendly pirate"
