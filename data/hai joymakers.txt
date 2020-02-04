@@ -1,3 +1,280 @@
+event "Hai Dissident Movement Begins"
+	planet "Darkwaste"
+		attributes "hai dissidents"
+		government "Hai Dissidents"
+		landscape land/canyon10-harro
+		outfitter "Hai Dissidents"
+		security 0
+		description `This nigh-uninhabitable planet is home to a small group of Hai dissidents.  Elsewhere in the Hai Dystopia, public displays of negative emotion are banned. Depressing or angry media are forbidden, and fighting against oppression caries the highest penalties. Here, all Dystopian mores are ignored, freedom of expression is the law, and thought is never a crime.`
+
+	# Darkwaste's system is a nonstop battle between Joymakers and
+	# Hai Dissidents.  The Joymakers usually win. The Quarg
+	# presence is unchanged but Hai and Merchants groups are now
+	# rare.  Syndicate and Pirate ships visit to smuggle goods to
+	# the dissidents.
+	system "Fah Root"
+		government "Hai Dissidents"
+		fleet "Hai Joymakers Small" 2000
+		fleet "Hai Joymakers Large" 6000
+		fleet "Hai Dissident Small" 400
+		fleet "Hai Dissident Large" 4000
+		fleet "Hai Surveillance" 3000
+		fleet "Small Northern Pirates" 10000
+		fleet "Large Northern Pirates" 25000
+		fleet "Small Syndicate" 10000
+		fleet "Large Syndicate" 25000
+		fleet "Small Hai" 15000
+		fleet "Large Hai" 15000
+		fleet "Small Human Merchants (Hai)" 20000
+		fleet "Large Human Merchants (Hai)" 30000
+		fleet Quarg 2000
+
+	# Major Dissident presence in Unfettered space.  Few Joymakers, but only the big ones.
+	system "Ehma Ti"
+		fleet "Small Unfettered" 500
+		fleet "Large Unfettered" 500
+		fleet "Unfettered Raid" 2500
+		fleet "Hai Dissident Small" 1000
+		fleet "Hai Joymakers Large" 20000
+	system "Hi Yahr"
+		fleet "Small Unfettered" 500
+		fleet "Large Unfettered" 500
+		fleet "Hai Dissident Small" 1000
+		fleet "Hai Joymakers Large" 20000
+	system "Wah Yoot"
+		fleet "Small Unfettered" 1000
+		fleet "Large Unfettered" 500
+		fleet "Hai Dissident Small Coward" 1000
+		fleet "Hai Joymakers Large" 10000
+
+	# Major presence of all groups in Wah Ki including some rare
+	# Tier 2 Joymakers.  A few more Unfettered to re-balance
+	# things:
+	system "Wah Ki"
+		fleet "Small Hai" 1200
+		fleet "Large Hai" 500
+		fleet "Large Unfettered" 700
+		fleet "Small Human Merchants (Hai)" 18000
+		fleet "Large Human Merchants (Hai)" 28000
+		fleet "Hai Surveillance" 1000
+		fleet "Hai Joymakers Large" 4000
+		fleet "Hai Joymakers Small Advanced" 20000
+		fleet "Hai Joymakers Large Advanced" 30000
+		fleet "Hai Dissident Small Coward" 1500
+
+	# In Hai space, Dissidents are more frequent on a course from
+	# Darkwaste to Waypoint.  Joymakers and Surveillance occur
+	# more in systems critical to society.  Syndicate and Pirate
+	# ships show up occasionally on a course from Darkwaste to
+	# Waypoint to smuggle goods to the dissidents.
+	system "Bore Fah"
+		fleet "Hai Surveillance" 2500
+		fleet "Hai Joymakers Small" 20000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 1000
+		fleet "Large Hai" 1000
+		fleet "Small Human Merchants (Hai)" 12000
+		fleet "Large Human Merchants (Hai)" 18000
+	system "Da Ent"
+		fleet "Hai Surveillance" 1000
+		fleet "Hai Joymakers Small" 7000
+		fleet "Hai Joymakers Large" 15000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 500
+		fleet "Large Hai" 1200
+		fleet "Small Human Merchants (Hai)" 9000
+		fleet "Large Human Merchants (Hai)" 10000
+	system "Da Lest"
+		fleet "Hai Surveillance" 2500
+		fleet "Hai Joymakers Small" 20000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 600
+		fleet "Large Hai" 1400
+		fleet "Small Human Merchants (Hai)" 7000
+		fleet "Large Human Merchants (Hai)" 8000
+	system "Due Yoot"
+		fleet "Hai Surveillance" 2500
+		fleet "Hai Joymakers Small" 10000
+		fleet "Hai Dissident Small" 1500
+		fleet "Small Northern Pirates" 10000
+		fleet "Large Northern Pirates" 25000
+		fleet "Small Syndicate" 10000
+		fleet "Large Syndicate" 25000
+		fleet "Small Hai" 700
+		fleet "Large Hai" 2000
+		fleet "Small Human Merchants (Hai)" 3000
+		fleet "Large Human Merchants (Hai)" 6000
+		fleet Quarg 2000
+	system "Fah Soom"
+		fleet "Hai Surveillance" 2500
+		fleet "Hai Joymakers Small" 20000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 600
+		fleet "Large Hai" 1600
+		fleet "Small Human Merchants (Hai)" 6000
+		fleet "Large Human Merchants (Hai)" 9000
+		fleet Quarg 1000
+	system "Heia Due"
+		fleet "Hai Surveillance" 1000
+		fleet "Hai Joymakers Small" 20000
+		fleet "Hai Dissident Small" 1500
+		fleet "Small Northern Pirates" 10000
+		fleet "Small Northern Pirates" 25000
+		fleet "Small Syndicate" 10000
+		fleet "Large Syndicate" 25000
+		fleet "Small Hai" 600
+		fleet "Large Hai" 2000
+		fleet "Small Human Merchants (Hai)" 2000
+		fleet "Large Human Merchants (Hai)" 5000
+	system "Imo Dep"
+		fleet "Hai Surveillance" 1000
+		fleet "Hai Joymakers Small" 7000
+		fleet "Hai Joymakers Large" 15000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 1000
+		fleet "Large Hai" 2000
+		fleet "Small Human Merchants (Hai)" 10000
+		fleet "Large Human Merchants (Hai)" 14000
+	system "Io Lowe"
+		fleet "Hai Surveillance" 2500
+		fleet "Hai Joymakers Small" 20000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 600
+		fleet "Large Hai" 1200
+		fleet "Small Human Merchants (Hai)" 4000
+		fleet "Large Human Merchants (Hai)" 7000
+	system "Io Mann"
+		fleet "Hai Surveillance" 1000
+		fleet "Hai Joymakers Small" 20000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 700
+		fleet "Large Hai" 1800
+		fleet "Small Human Merchants (Hai)" 3000
+		fleet "Large Human Merchants (Hai)" 6000
+	system "Lom Tahr"
+		fleet "Hai Surveillance" 1000
+		fleet "Hai Joymakers Small" 20000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 600
+		fleet "Large Hai" 1600
+		fleet "Small Human Merchants (Hai)" 6000
+		fleet "Large Human Merchants (Hai)" 9000
+		fleet Quarg 4000
+	system "Mei Yohn"
+		fleet "Hai Surveillance" 2500
+		fleet "Hai Joymakers Small" 20000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 600
+		fleet "Large Hai" 1000
+		fleet "Small Human Merchants (Hai)" 7000
+		fleet "Large Human Merchants (Hai)" 10000
+	system "Rati Cal"
+		fleet "Hai Surveillance" 2500
+		fleet "Hai Joymakers Small" 20000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 900
+		fleet "Large Hai" 1700
+		fleet "Small Human Merchants (Hai)" 8000
+		fleet "Large Human Merchants (Hai)" 11000
+	system "Ula Mon"
+		fleet "Hai Surveillance" 1000
+		fleet "Hai Joymakers Small" 7000
+		fleet "Hai Joymakers Large" 15000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 400
+		fleet "Large Hai" 900
+		fleet "Small Human Merchants (Hai)" 6000
+		fleet "Large Human Merchants (Hai)" 9000
+	system "Uwa Fahn"
+		fleet "Hai Surveillance" 1000
+		fleet "Hai Joymakers Small" 7000
+		fleet "Hai Joymakers Large" 15000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 700
+		fleet "Large Hai" 700
+		fleet "Small Human Merchants (Hai)" 11000
+		fleet "Large Human Merchants (Hai)" 16000
+	system "Wah Oh"
+		fleet "Hai Surveillance" 2500
+		fleet "Hai Joymakers Small" 7000
+		fleet "Hai Dissident Small" 1500
+		fleet "Small Northern Pirates" 10000
+		fleet "Small Northern Pirates" 25000
+		fleet "Small Syndicate" 10000
+		fleet "Small Syndicate" 25000
+		fleet "Small Hai" 500
+		fleet "Large Hai" 1500
+		fleet "Small Human Merchants (Hai)" 6000
+		fleet "Large Human Merchants (Hai)" 9000
+	system "Waypoint"
+		fleet "Hai Surveillance" 1000
+		fleet "Hai Joymakers Small" 20000
+		fleet "Hai Dissident Small" 1500
+		fleet "Small Northern Pirates" 10000
+		fleet "Small Northern Pirates" 25000
+		fleet "Small Syndicate" 10000
+		fleet "Small Syndicate" 25000
+		fleet "Small Hai" 1000
+		fleet "Small Human Merchants (Hai)" 18000
+		fleet "Large Human Merchants (Hai)" 28000
+	system "Ya Hai"	
+		fleet "Hai Surveillance" 1000
+		fleet "Hai Joymakers Small" 7000
+		fleet "Hai Joymakers Large" 15000
+		fleet "Hai Dissident Small" 3000
+		fleet "Small Hai" 400
+		fleet "Large Hai" 500
+		fleet "Small Human Merchants (Hai)" 12000
+		fleet "Large Human Merchants (Hai)" 17000
+		fleet Quarg 6000
+	system "Zuba Zub"
+		fleet "Hai Surveillance" 2500
+		fleet "Hai Dissident Small" 3000
+		fleet "Hai Joymakers Small" 20000
+		fleet "Small Hai" 1000
+		fleet "Large Hai" 800
+		fleet "Small Human Merchants (Hai)" 10000
+		fleet "Large Human Merchants (Hai)" 18000
+
+	# Higher security on some planets, reset others to default:
+	planet Allhome
+		security 0.4
+	planet Cloudfire
+		security 0.9
+	planet Darkmetal
+		security 0.3
+	planet Dustmaker
+		security 0.25
+	planet Farwater
+		security 0.4
+	planet Frostmark
+		security 0.25
+	planet Giverstone
+		security 0.25
+	planet Greenbloom
+		security 0.25
+	planet Greenwater
+		security 0.4
+	planet Hai-home
+		security 0.6
+	planet Heartvalley
+		security 0.25
+	planet Icelake
+		security 0.4
+	planet Makerplace
+		security 0.3
+	planet Mirrorlake
+		security 0.3
+	planet Newhome
+		security 0.3
+	planet Skyfarm
+		security 0.3
+	planet Snowfeather
+		security 0.3
+	planet Stonebreak
+		security 0.4
+
+
 fleet "Hai Joymakers Small"
 	government "Hai Joymakers"
 	names "joymakers ship names"
@@ -24,6 +301,7 @@ fleet "Hai Joymakers Small"
 		"Grasshopper (Joymakers Tracker)" 4
 		"Shield Beetle (Joymakers Tracker)"
 		"Lightning Bug (Joymakers Banish-Particle)" 2
+
 
 # Small Joymaker fleets for traveling to Human space.  You need 6 fuel
 # or the AI gets confused, so the non-advanced Grasshopper cannot chase

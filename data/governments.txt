@@ -116,9 +116,9 @@ government "Hai Dissidents"
 	swizzle 0
 	color .52 .84 .41
 	
-	"player reputation" 100
+	"player reputation" 10
 	"attitude toward"
-		"Hai (Unfettered)" .01
+		"Hai (Unfettered)" .003
 		"Hai Joymakers" -.3
 	"bribe" .02
 	"friendly hail" "friendly hai dissident"
@@ -133,6 +133,7 @@ government "Hai Joymakers"
 	"player reputation" 0
 	"attitude toward"
 		"Hai Dissidents" -.3
+		Syndicate -.01
 	"player reputation" -1000
 	"hostile hail" "hostile joymaker"
 	"hostile disabled hail" "hostile disabled joymaker"

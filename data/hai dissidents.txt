@@ -15,229 +15,19 @@ outfitter "Hai Dissidents"
 
 
 
-event "Hai Dissident Movement Begins"
-	planet "Darkwaste"
-		attributes "hai dissidents"
-		government "Hai Dissidents"
-		landscape land/canyon10-harro
-		outfitter "Hai Dissidents"
-		security 0
-		description `This nigh-uninhabitable planet is home to a small group of Hai dissidents.  Elsewhere in the Hai Dystopia, public displays of negative emotion are banned. Depressing or angry media are forbidden, and fighting against oppression caries the highest penalties. Here, all Dystopian mores are ignored, freedom of expression is the law, and thought is never a crime.`
-
-	# Darkwaste's system is a nonstop battle between Joymakers and Dissidents.
-	# The Joymakers always win.  Other groups are comparatively rare.
-	system "Fah Root"
-		fleet "Hai Joymakers Small" 3000
-		fleet "Hai Joymakers Large" 8000
-		fleet "Hai Dissident Small" 400
-		fleet "Hai Dissident Large" 5000
-		fleet "Small Hai" 10000
-		fleet "Large Hai" 15000
-		fleet "Small Human Merchants (Hai)" 20000
-		fleet "Large Human Merchants (Hai)" 30000
-		fleet Quarg 5000
-
-	# Major Dissident presence in Unfettered space.  Few Joymakers, but only the big ones.
-	system "Ehma Ti"
-		fleet "Small Unfettered" 500
-		fleet "Large Unfettered" 500
-		fleet "Unfettered Raid" 2500
-		fleet "Hai Dissident Small" 1000
-		fleet "Hai Joymakers Large" 20000
-	system "Hi Yahr"
-		fleet "Small Unfettered" 500
-		fleet "Large Unfettered" 500
-		fleet "Hai Dissident Small" 1000
-		fleet "Hai Joymakers Large" 20000
-	system "Wah Yoot"
-		fleet "Small Unfettered" 1000
-		fleet "Large Unfettered" 500
-		fleet "Hai Dissident Small" 1000
-		fleet "Hai Joymakers Large" 20000
-
-	# Major presence of all groups in Wah Ki.  A few more
-	# unfettered to re-balance things:
-	system "Wah Ki"
-		fleet "Small Hai" 1200
-		fleet "Large Hai" 500
-		fleet "Large Unfettered" 750
-		fleet "Small Human Merchants (Hai)" 18000
-		fleet "Large Human Merchants (Hai)" 28000
-		fleet "Hai Surveillance" 1000
-		fleet "Hai Joymakers Large" 5000
-		fleet "Hai Dissident Small" 1000
-
-	# In Dystopian Hai space, dissidents are more frequent on a
-	# course from Darkwaste to Waypoint.  Joymakers and
-	# Surveillance occur more in systems critical to society.
-	system "Bore Fah"
-		fleet "Hai Surveillance" 2500
-		fleet "Hai Joymakers Small" 30000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 1000
-		fleet "Large Hai" 1000
-		fleet "Small Human Merchants (Hai)" 12000
-		fleet "Large Human Merchants (Hai)" 18000
-	system "Da Ent"
-		fleet "Hai Surveillance" 1000
-		fleet "Hai Joymakers Small" 10000
-		fleet "Hai Joymakers Large" 20000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 500
-		fleet "Large Hai" 1200
-		fleet "Small Human Merchants (Hai)" 9000
-		fleet "Large Human Merchants (Hai)" 10000
-	system "Da Lest"
-		fleet "Hai Surveillance" 2500
-		fleet "Hai Joymakers Small" 30000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 600
-		fleet "Large Hai" 1400
-		fleet "Small Human Merchants (Hai)" 7000
-		fleet "Large Human Merchants (Hai)" 8000
-	system "Due Yoot"
-		fleet "Hai Surveillance" 2500
-		fleet "Hai Joymakers Small" 20000
-		fleet "Hai Dissident Small" 1500
-		fleet "Small Hai" 700
-		fleet "Large Hai" 2000
-		fleet "Small Human Merchants (Hai)" 3000
-		fleet "Large Human Merchants (Hai)" 6000
-		fleet Quarg 2000
-	system "Fah Soom"
-		fleet "Hai Surveillance" 2500
-		fleet "Hai Joymakers Small" 30000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 600
-		fleet "Large Hai" 1600
-		fleet "Small Human Merchants (Hai)" 6000
-		fleet "Large Human Merchants (Hai)" 9000
-		fleet Quarg 1000
-	system "Heia Due"
-		fleet "Hai Surveillance" 1000
-		fleet "Hai Joymakers Small" 30000
-		fleet "Hai Dissident Small" 1500
-		fleet "Small Hai" 600
-		fleet "Large Hai" 2000
-		fleet "Small Human Merchants (Hai)" 2000
-		fleet "Large Human Merchants (Hai)" 5000
-	system "Imo Dep"
-		fleet "Hai Surveillance" 1000
-		fleet "Hai Joymakers Small" 10000
-		fleet "Hai Joymakers Large" 20000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 1000
-		fleet "Large Hai" 2000
-		fleet "Small Human Merchants (Hai)" 10000
-		fleet "Large Human Merchants (Hai)" 14000
-	system "Io Lowe"
-		fleet "Hai Surveillance" 2500
-		fleet "Hai Joymakers Small" 30000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 600
-		fleet "Large Hai" 1200
-		fleet "Small Human Merchants (Hai)" 4000
-		fleet "Large Human Merchants (Hai)" 7000
-	system "Io Mann"
-		fleet "Hai Surveillance" 1000
-		fleet "Hai Joymakers Small" 30000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 700
-		fleet "Large Hai" 1800
-		fleet "Small Human Merchants (Hai)" 3000
-		fleet "Large Human Merchants (Hai)" 6000
-	system "Lom Tahr"
-		fleet "Hai Surveillance" 1000
-		fleet "Hai Joymakers Small" 30000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 600
-		fleet "Large Hai" 1600
-		fleet "Small Human Merchants (Hai)" 6000
-		fleet "Large Human Merchants (Hai)" 9000
-		fleet Quarg 4000
-	system "Mei Yohn"
-		fleet "Hai Surveillance" 2500
-		fleet "Hai Joymakers Small" 30000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 600
-		fleet "Large Hai" 1000
-		fleet "Small Human Merchants (Hai)" 7000
-		fleet "Large Human Merchants (Hai)" 10000
-	system "Rati Cal"
-		fleet "Hai Surveillance" 2500
-		fleet "Hai Joymakers Small" 30000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 900
-		fleet "Large Hai" 1700
-		fleet "Small Human Merchants (Hai)" 8000
-		fleet "Large Human Merchants (Hai)" 11000
-	system "Ula Mon"
-		fleet "Hai Surveillance" 1000
-		fleet "Hai Joymakers Small" 10000
-		fleet "Hai Joymakers Large" 20000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 400
-		fleet "Large Hai" 900
-		fleet "Small Human Merchants (Hai)" 6000
-		fleet "Large Human Merchants (Hai)" 9000
-	system "Uwa Fahn"
-		fleet "Hai Surveillance" 1000
-		fleet "Hai Joymakers Small" 10000
-		fleet "Hai Joymakers Large" 20000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 700
-		fleet "Large Hai" 700
-		fleet "Small Human Merchants (Hai)" 11000
-		fleet "Large Human Merchants (Hai)" 16000
-	system "Wah Oh"
-		fleet "Hai Surveillance" 2500
-		fleet "Hai Joymakers Small" 10000
-		fleet "Hai Dissident Small" 1500
-		fleet "Small Hai" 500
-		fleet "Large Hai" 1500
-		fleet "Small Human Merchants (Hai)" 6000
-		fleet "Large Human Merchants (Hai)" 9000
-	system "Waypoint"
-		fleet "Hai Surveillance" 1000
-		fleet "Hai Joymakers Small" 20000
-		fleet "Hai Dissident Small" 1500
-		fleet "Small Hai" 1000
-		fleet "Small Human Merchants (Hai)" 18000
-		fleet "Large Human Merchants (Hai)" 28000
-	system "Ya Hai"	
-		fleet "Hai Surveillance" 1000
-		fleet "Hai Joymakers Small" 10000
-		fleet "Hai Joymakers Large" 20000
-		fleet "Hai Dissident Small" 3000
-		fleet "Small Hai" 400
-		fleet "Large Hai" 500
-		fleet "Small Human Merchants (Hai)" 12000
-		fleet "Large Human Merchants (Hai)" 17000
-		fleet Quarg 6000
-	system "Zuba Zub"
-		fleet "Hai Surveillance" 2500
-		fleet "Hai Dissident Small" 3000
-		fleet "Hai Joymakers Small" 30000
-		fleet "Small Hai" 1000
-		fleet "Large Hai" 800
-		fleet "Small Human Merchants (Hai)" 10000
-		fleet "Large Human Merchants (Hai)" 18000
-
-
 phrase "hai dissident ship names"
 	phrase
 		"(hai dissident) Freedom is Going to Happen"
 		"(hai dissident) Fight/Die for Freedom"
 		"(hai dissident) Crime Committer"
 		"(hai dissident) Fight for a Long Time"
-		"(hai dissident) nouns that express democratic ideals!"
+		"(hai dissident) Democratic Ideal!"
 
-phrase "(hai dissident) nouns that express democratic ideals!"
+phrase "(hai dissident) Democratic Ideal!"
 	phrase
 		"(hai dissident) nouns that express democratic ideals"
 	word
 		"!"
-		""
 
 phrase "(hai dissident) Fight for a Long Time"
 	phrase
@@ -352,22 +142,53 @@ fleet "Hai Dissident Small"
 	government "Hai Dissidents"
 	names "hai dissident ship names"
 	cargo 0
-	personality heroic disables plunders harvests
+	personality heroic vindictive
 	variant 3
 		"Lightning Bug (Pulse)" 2
+		Grasshopper 2
+		"Grasshopper (Tracker)" 2
 	variant 3
 		"Lightning Bug" 2
+		Grasshopper 2
+		"Grasshopper (Tracker)" 2
 	variant
 		"Lightning Bug"
+		Grasshopper 3
+		"Grasshopper (Tracker)" 3
 	variant
 		"Lightning Bug (Pulse)"
+		Grasshopper 3
+		"Grasshopper (Tracker)" 3
+
+
+fleet "Hai Dissident Small Coward"
+	government "Hai Dissidents"
+	names "hai dissident ship names"
+	cargo 0
+	personality vindictive coward
+	variant 3
+		"Lightning Bug (Pulse)" 2
+		Grasshopper 2
+		"Grasshopper (Tracker)" 2
+	variant 3
+		"Lightning Bug" 2
+		Grasshopper 2
+		"Grasshopper (Tracker)" 2
+	variant
+		"Lightning Bug"
+		Grasshopper 3
+		"Grasshopper (Tracker)" 3
+	variant
+		"Lightning Bug (Pulse)"
+		Grasshopper 3
+		"Grasshopper (Tracker)" 3
 
 
 fleet "Hai Dissident Large"
 	government "Hai Dissidents"
 	names "hai dissident ship names"
 	cargo 0
-	personality heroic disables plunders harvests
+	personality heroic vindictive
 	variant 2
 		"Shield Beetle"
 		"Lightning Bug (Pulse)" 2
@@ -409,112 +230,6 @@ fleet "Hai Dissident Large"
 
 
 
-#########################################################################
-
-# Dissident military missions
-
-mission "Hai Dissident Strike Team"
-	job
-	repeat
-	name "Dissident Troops to <planet>"
-	description "Transport Hai Dissident troops to <destination> to capture a military facility for 700,000 credits. Capture is punishable by death."
-	illegal -1 "You see a wide-area broadcast message ordering your death on sight."
-	stealth
-	infiltrating
-	passengers 10 10 .4
-	cargo "Hai Dissident Weapons" 2 2 .5
-	source
-		attributes "hai dissidents"
-	destination
-		attributes hai
-		distance 4 10
-	to offer
-		random < 50
-		"reputation: Hai Dissidents" > 300
-		"combat rating" > 1000
-	on visit
-		dialog "generic cargo and passenger on visit"
-	npc
-		government "Hai Joymakers"
-		personality vindictive nemesis
-		system
-			attributes "hai dissidents"
-		fleet "Hai Joymakers Small Advanced"
-		fleet "Hai Joymakers Large"
-	on complete
-		payment 700000
-		"reputation: Hai Dissidents" += 5
-
-mission "Hai Dissident Joymaker Bombing"
-	job
-	repeat
-	name "Terrorist Bombing on <planet>"
-	description "Transport a Hai Dissident terrorist to <destination> to bomb a Joymaker facility for 1,000,000 credits. Capture is punishable by death."
-	illegal -1 "You see a wide-area broadcast message ordering your death on sight."
-	stealth
-	infiltrating
-	passengers 1
-	cargo "Terrorist Bombs" 1
-	source
-		attributes "hai dissidents"
-	destination
-		attributes hai
-		distance 4 10
-	to offer
-		random < 50
-		"reputation: Hai Dissidents" > 500
-		"combat rating" > 2000
-	on visit
-		dialog "generic cargo and passenger on visit"
-	npc
-		government "Hai Joymakers"
-		personality vindictive nemesis
-		system
-			attributes "hai dissidents"
-		fleet "Hai Joymakers Small Advanced"
-		fleet "Hai Joymakers Large" 2
-		fleet "Hai Joymakers Small" 3
-	on complete
-		payment 1000000
-		"reputation: Hai Dissidents" += 10
-
-mission "Hai Dissident Joymaker WMD"
-	job
-	repeat
-	name "Major Terrorist Bombing on <planet>"
-	description "Transport a Hai Dissident to <destination> bomb a large Joymaker facility and the surrounding area for 2,500,000 credits. Capture is punishable by death."
-	illegal -1 "You see a wide-area broadcast message ordering your death on sight."
-	stealth
-	infiltrating
-	passengers 1
-	cargo "Weapons of Mass Destruction" 1
-	source
-		attributes "hai dissidents"
-	destination
-		attributes hai
-		distance 4 10
-	on visit
-		dialog "generic cargo and passenger on visit"
-	to offer
-		random < 30
-		"reputation: Hai Dissidents" > 800
-		"combat rating" > 5000
-	npc
-		government "Hai Joymakers"
-		personality vindictive nemesis
-		system
-			attributes "hai dissidents"
-		fleet "Hai Joymakers Large Advanced"
-		fleet "Hai Joymakers Small Advanced" 2
-		fleet "Hai Joymakers Large" 3
-		fleet "Hai Joymakers Small" 4
-	on complete
-		payment 2500000
-		"reputation: Hai Dissidents" += 15
-
-
-
-
 ########################################################################
 
 # Missions from Darkwaste to Hai space
@@ -523,69 +238,66 @@ mission "Hai Dissident Joymaker WMD"
 mission "Hai Illegal Media to Dystopia [0]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 20,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
 	illegal 20000 `The officers look shamefully at you as they demand a 20,000 credit fine.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
-		payment 15000 200
+		payment 15000 250
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.03
 
 mission "Hai Illegal Media to Dystopia [1]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>. Fine is 23,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
 	illegal 23000 `The officers look shamefully at you as they demand a 23,000 credit fine.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
-		payment 15000 200
+		payment 15000 250
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.03
 
 mission "Hai Illegal Media to Dystopia [2]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>. Fine is 25,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
 	illegal 25000 `The officers look shamefully at you as they demand a 25,000 credit fine.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
-		payment 15000 200
+		payment 15000 250
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.03
 
@@ -594,69 +306,66 @@ mission "Hai Illegal Media to Dystopia [2]"
 mission "Hai Bulk Illegal Media to Dystopia [0]"
 	name "Bulk Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 40,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 10 5 .2
 	illegal 40000 `The officers look shamefully at you as they demand a 40,000 credit fine.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
-		payment 20000 200
+		payment 20000 250
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.03
 
 mission "Hai Bulk Illegal Media to Dystopia [1]"
 	name "Bulk Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>. Fine is 45,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 10 5 .2
 	illegal 45000 `The officers look shamefully at you as they demand a 45,000 credit fine.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
-		payment 20000 200
+		payment 20000 250
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.03
 
 mission "Hai Bulk Illegal Media to Dystopia [2]"
 	name "Bulk Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 50,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 10 5 .2
 	illegal 50000 `The officers look shamefully at you as they demand a 50,000 credit fine.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
-		payment 20000 200
+		payment 20000 250
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.03
 
@@ -664,24 +373,23 @@ mission "Hai Bulk Illegal Media to Dystopia [2]"
 mission "Hai Large Bulk Illegal Media to Dystopia [0]"
 	name "Large Bulk Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 85,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 40 10 .1
-	illegal 85000 `The officers look shamefully at you as they demand a 85,000 credit fine.`
+	illegal 85000 `The officers look shamefully at you as they demand an 85,000 credit fine.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
 		"cargo space" > 80
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
-		payment 20000 200
+		payment 30000 250
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.03
 
@@ -697,17 +405,17 @@ mission "Hai Dissidents to Dystopia [0]"
 	passengers 2 2 .5
 	illegal 30000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 30,000 credit fine instead.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
-		payment 15000 200
+		payment 15000 250
 		dialog `Your <passengers> thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.05
 
@@ -720,17 +428,17 @@ mission "Hai Dissidents to Dystopia [1]"
 	passengers 2 2 .5
 	illegal 35000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 35,000 credit fine instead.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
-		payment 15000 200
+		payment 15000 250
 		dialog `Your <passengers> thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.05
 
@@ -743,17 +451,17 @@ mission "Hai Dissidents to Dystopia [2]"
 	passengers 2 2 .5
 	illegal 40000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 40,000 credit fine instead.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
-		payment 15000 200
+		payment 15000 250
 		dialog `Your <passengers> thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.05
 
@@ -768,10 +476,10 @@ mission "Hai Dissident Organizers to Dystopia [0]"
 	passengers 10 10 .4
 	illegal 70000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 70,000 credit fine instead.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
@@ -789,12 +497,12 @@ mission "Hai Dissident Organizers to Dystopia [1]"
 	job
 	repeat
 	passengers 10 10 .4
-	illegal 80000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 80,000 credit fine instead.`
+	illegal 80000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay an 80,000 credit fine instead.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
@@ -819,10 +527,10 @@ mission "Hai Illegal Media from Humans [0]"
 	cargo "Hai Censored Media" 5 2 .2
 	illegal 60000 `The officers look shamefully at you as they demand a 60,000 credit fine.`
 	to offer
-		random < 50
+		has "event: Hai Dissident Movement Begins"
+		random < 30
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	stopover
 		attributes north
 	on stopover
@@ -842,10 +550,10 @@ mission "Hai Illegal Media from Humans [1]"
 	cargo "Hai Censored Media" 5 2 .2
 	illegal 65000 `The officers look shamefully at you as they demand a 65,000 credit fine.`
 	to offer
-		random < 50
+		has "event: Hai Dissident Movement Begins"
+		random < 30
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	stopover
 		attributes north
 	on stopover
@@ -865,10 +573,10 @@ mission "Hai Illegal Media from Humans [2]"
 	cargo "Hai Censored Media" 5 2 .2
 	illegal 70000 `The officers look shamefully at you as they demand a 70,000 credit fine.`
 	to offer
-		random < 50
+		has "event: Hai Dissident Movement Begins"
+		random < 30
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	stopover
 		attributes north
 	on stopover
@@ -888,10 +596,10 @@ mission "Hai Illegal Media from Humans [2]"
 	cargo "Hai Censored Media" 5 2 .2
 	illegal 75000 `The officers look shamefully at you as they demand a 75,000 credit fine.`
 	to offer
-		random < 50
+		has "event: Hai Dissident Movement Begins"
+		random < 30
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	stopover
 		attributes north
 	on stopover
@@ -909,12 +617,12 @@ mission "Hai Illegal Media from Humans [3]"
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
-	illegal 80000 `The officers look shamefully at you as they demand a 80,000 credit fine.`
+	illegal 80000 `The officers look shamefully at you as they demand an 80,000 credit fine.`
 	to offer
-		random < 50
+		has "event: Hai Dissident Movement Begins"
+		random < 30
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	stopover
 		attributes north
 	on stopover
@@ -932,12 +640,12 @@ mission "Hai Illegal Media from Humans [4]"
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
-	illegal 85000 `The officers look shamefully at you as they demand a 85,000 credit fine.`
+	illegal 85000 `The officers look shamefully at you as they demand an 85,000 credit fine.`
 	to offer
-		random < 50
+		has "event: Hai Dissident Movement Begins"
+		random < 30
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	stopover
 		attributes north
 	on stopover
@@ -949,6 +657,428 @@ mission "Hai Illegal Media from Humans [4]"
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.07
 	
+
+########################################################################
+
+# Dissident colony missions
+
+mission "Hai Dissident Colonists: Freedom"
+	name "Dissident Colonists to <planet>"
+	description "Take <bunks> and <cargo> to <destination> for 600,000 credits. Joymaker fleets will attack you."
+	job
+	repeat
+	passengers 20 10 .4
+	cargo supplies 20 10 .4
+	source Darkwaste
+	destination Freedom
+	to offer
+		has "event: Hai Dissident Movement Begins"
+		"dissident colony failed" < 40
+		has "Hai Dissident Colony: Freedom: done"
+		random < 20
+		"reputation: Hai Dissidents" > 70
+		"cargo space" > 20
+		bunks > 20
+		or
+			"combat rating" > 2500
+			"armament deterrence" > 20000
+			and
+				"combat rating" > 500
+				"armament deterrence" > 15000
+			and
+				"combat rating" > 1000
+				"armament deterrence" > 10000
+	on complete
+		payment 600000
+		dialog "The Hai Dissidents thank you for helping them expand their colony."
+		"dissident colony failed" -= .5
+	on fail
+		dialog "The Hai Dissidents are disappointed at the loss of their colonists.  If you fail too many more times, they may no longer rely on you for these critical missions."
+		"dissident colony failed" += 1
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Wayfarer
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Small Advanced" 1
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Small Advanced" 1
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Almaaz
+		fleet "Hai Joymakers Large Advanced" 1
+		fleet "Hai Joymakers Small Advanced" 2
+
+mission "Hai Dissident Colony: Freedom"
+	name "Found a Colony on <planet>"
+	description "Take <bunks> and <cargo> to colonize <destination> by <date> for 1.5M credits. Powerful fleets will attack you."
+	deadline 25
+	job
+	repeat
+	passengers 20 10 .4
+	cargo supplies 40 10 .1
+	source Darkwaste
+	destination Freedom
+	to offer
+		has "event: Hai Dissident Movement Begins"
+		"dissident colony failed" < 30
+		not "Hai Dissident Colony: Freedom: active"
+		not "Hai Dissident Colony: Freedom: done"
+		random < 20
+		"reputation: Hai Dissidents" > 150
+		"cargo space" > 50
+		bunks > 20
+		or
+			"combat rating" > 5000
+			"armament deterrence" > 30000
+			and
+				"combat rating" > 2500
+				"armament deterrence" > 15000
+			and
+				"combat rating" > 1000
+				"armament deterrence" > 22000
+	on complete
+		payment 1000000
+		dialog "The Hai Dissidents thank you for helping them establish a new colony. They encourage you to fly more colonists to <planet>."
+		"dissident colony failed" -= 2
+	on fail
+		dialog "The Hai Dissidents are disappointed at the loss of their colonists.  If you fail too many more times, they may no longer rely on you for these critical missions."
+		"dissident colony failed" += 5
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Wayfarer
+		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Large Advanced"
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Small Advanced" 3
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Almaaz
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 3
+
+mission "Hai Dissident Colonists: New Argentina"
+	name "Dissident Colonists to <planet>"
+	description "Take <bunks> and <cargo> to colonize <destination> for 850,000 credits. Joymaker fleets will attack you."
+	job
+	repeat
+	passengers 20 10 .4
+	cargo supplies 20 10 .4
+	source Darkwaste
+	destination "New Argentina"
+	to offer
+		has "event: Hai Dissident Movement Begins"
+		"dissident colony failed" < 35
+		has "Hai Dissident Colony: New Argentina: done"
+		random < 20
+		"reputation: Hai Dissidents" > 70
+		"cargo space" > 20
+		bunks > 20
+		or
+			"combat rating" > 5000
+			"armament deterrence" > 30000
+			and
+				"combat rating" > 2500
+				"armament deterrence" > 15000
+			and
+				"combat rating" > 1000
+				"armament deterrence" > 22000
+	on complete
+		payment 850000
+		dialog "The Hai Dissidents thank you for helping them expand their colony."
+		"dissident colony failed" -= .5
+	on fail
+		dialog "The Hai Dissidents are disappointed at the loss of their colonists.  If you fail too many more times, they may no longer rely on you for these critical missions."
+		"dissident colony failed" += 1
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Wayfarer
+		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system "Ultima Thule"
+		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Large Advanced"
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system Sol
+		fleet "Hai Joymakers Large Advanced"
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system Sol
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Vindemiatrix
+		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Small Advanced" 3
+
+mission "Hai Dissident Colony: New Argentina"
+	name "Found a Colony on <planet>"
+	description "Take <bunks> and <cargo> to colonize <destination> by <date> for 4M credits. Powerful fleets will attack you."
+	job
+	deadline 40
+	repeat
+	passengers 20 10 .4
+	cargo supplies 40 10 .1
+	source Darkwaste
+	destination "New Argentina"
+	to offer
+		has "event: Hai Dissident Movement Begins"
+		"dissident colony failed" < 25
+		not "Hai Dissident Colony: New Argentina: active"
+		not "Hai Dissident Colony: New Argentina: done"
+		random < 20
+		"reputation: Hai Dissidents" > 150
+		"cargo space" > 50
+		bunks > 20
+		or
+			"combat rating" > 7000
+			"armament deterrence" > 40000
+			and
+				"combat rating" > 3500
+				"armament deterrence" > 22000
+			and
+				"combat rating" > 1500
+				"armament deterrence" > 29000
+	on complete
+		payment 4000000
+		dialog "The Hai Dissidents thank you for helping them establish a new colony. They encourage you to fly more colonists to <planet>."
+		"dissident colony failed" -= 2
+	on fail
+		dialog "The Hai Dissidents are disappointed at the loss of their colonists.  If you fail too many more times, they may no longer rely on you for these critical missions."
+		"dissident colony failed" +=5
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Wayfarer
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 3
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system "Ultima Thule"
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 3
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Large Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Small Advanced" 3
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system Sol
+		fleet "Hai Joymakers Large Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system Sol
+		fleet "Hai Joymakers Small Advanced" 3
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Vindemiatrix
+		fleet "Hai Joymakers Large Advanced" 3
+		fleet "Hai Joymakers Small Advanced" 5
+
+mission "Hai Dissident Colonists: Humanika"
+	name "Dissident Colonists to <planet>"
+	description "Take <bunks> and <cargo> to <destination> for 1,000,000 credits. Joymaker fleets will attack you."
+	job
+	repeat
+	passengers 20 10 .4
+	cargo supplies 20 10 .4
+	source Darkwaste
+	destination Humanika
+	to offer
+		has "event: Hai Dissident Movement Begins"
+		"dissident colony failed" < 30
+		has "Hai Dissident Colony: Freedom: done"
+		random < 20
+		"reputation: Hai Dissidents" > 70
+		"cargo space" > 20
+		bunks > 20
+		or
+			"combat rating" > 2500
+			"armament deterrence" > 20000
+			and
+				"combat rating" > 500
+				"armament deterrence" > 15000
+			and
+				"combat rating" > 1000
+				"armament deterrence" > 10000
+	on complete
+		payment 1000000
+		dialog "The Hai Dissidents thank you for helping them expand their colony."
+		"dissident colony failed" -= .5
+	on fail
+		dialog "The Hai Dissidents are disappointed at the loss of their colonists.  If you fail too many more times, they may no longer rely on you for these critical missions."
+		"dissident colony failed" += 1
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Wayfarer
+		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system "Ultima Thule"
+		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Tarazed
+		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Large Advanced"
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system Sol
+		fleet "Hai Joymakers Large Advanced"
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system Sol
+		fleet "Hai Joymakers Small Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Sadalmelik
+		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Small Advanced" 2
+
+mission "Hai Dissident Colony: Humanika"
+	name "Found a Colony: <planet>"
+	description "Take <bunks> and <cargo> to colonize <destination> by <date> for 6,000,000 credits. Powerful fleets will attack you."
+	job
+	deadline 50
+	repeat
+	passengers 20 10 .4
+	cargo supplies 40 10 .1
+	source Darkwaste
+	destination "New Argentina"
+	to offer
+		has "event: Hai Dissident Movement Begins"
+		"dissident colony failed" < 20
+		not "Hai Dissident Colony: Humanika: active"
+		not "Hai Dissident Colony: Humanika: done"
+		random < 20
+		"reputation: Hai Dissidents" > 150
+		"cargo space" > 50
+		bunks > 20
+		or
+			"combat rating" > 7000
+			"armament deterrence" > 40000
+			and
+				"combat rating" > 3500
+				"armament deterrence" > 22000
+			and
+				"combat rating" > 1500
+				"armament deterrence" > 29000
+	on complete
+		payment 6000000
+		dialog "The Hai Dissidents thank you for helping them establish a new colony. They encourage you to fly more colonists to <planet>."
+		"dissident colony failed" -= 2
+	on fail
+		dialog "The Hai Dissidents are disappointed at the loss of their colonists.  If you fail too many more times, they may no longer rely on you for these critical missions."
+		"dissident colony failed" += 5
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Wayfarer
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 3
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system "Ultima Thule"
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 3
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Tarazed
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 3
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Large Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
+		fleet "Hai Joymakers Small Advanced" 3
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system Sol
+		fleet "Hai Joymakers Large Advanced" 2
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system Sol
+		fleet "Hai Joymakers Small Advanced" 3
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system Sadalmelik
+		fleet "Hai Joymakers Large Advanced" 3
+		fleet "Hai Joymakers Small Advanced" 5
+
 
 ########################################################################
 
@@ -964,17 +1094,20 @@ mission "Hai Dissidents from Dystopia [0]"
 	passengers 2 2 .5
 	illegal 30000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 30,000 credit fine instead.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	destination
 		attributes hai
 		distance 3 10
 	on visit
 		dialog phrase "generic passenger on visit"
+	on fail
+		"dissident colony failed" += 0.1
 	on complete
-		payment 15000 200
+		"dissident colony failed" -= 0.1
+		payment 15000 250
 		dialog `Your <passengers> thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.05
 
@@ -987,14 +1120,17 @@ mission "Hai Dissidents from Dystopia [1]"
 	passengers 2 2 .5
 	illegal 35000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 35,000 credit fine instead.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	on visit
 		dialog phrase "generic passenger on visit"
+	on fail
+		"dissident colony failed" += 0.1
 	on complete
-		payment 15000 200
+		"dissident colony failed" -= 0.1
+		payment 15000 250
 		dialog `Your <passengers> thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.05
 
@@ -1007,14 +1143,17 @@ mission "Hai Dissidents from Dystopia [2]"
 	passengers 2 2 .5
 	illegal 40000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 40,000 credit fine instead.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	on visit
 		dialog phrase "generic passenger on visit"
+	on fail
+		"dissident colony failed" += 0.1
 	on complete
-		payment 15000 200
+		"dissident colony failed" -= 0.1
+		payment 15000 250
 		dialog `Your <passengers> thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.05
 
@@ -1029,13 +1168,16 @@ mission "Hai Dissident Community from Dystopia [0]"
 	passengers 10 10 .4
 	illegal 70000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 70,000 credit fine instead.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	on visit
 		dialog phrase "generic passenger on visit"
+	on fail
+		"dissident colony failed" += 0.2
 	on complete
+		"dissident colony failed" -= 0.2
 		payment 30000 300
 		dialog `Your <passengers> thank you for advancing freedom of expression in the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.1
@@ -1047,15 +1189,163 @@ mission "Hai Dissident Community from Dystopia [1]"
 	job
 	repeat
 	passengers 10 10 .4
-	illegal 80000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 80,000 credit fine instead.`
+	illegal 80000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay an 80,000 credit fine instead.`
 	to offer
+		has "event: Hai Dissident Movement Begins"
 		random < 75
 		"reputation: Hai Dissidents" > 0
-	source
-		attributes "hai dissidents"
+	source Darkwaste
 	on visit
 		dialog phrase "generic passenger on visit"
+	on fail
+		"dissident colony failed" += 0.2
 	on complete
+		"dissident colony failed" -= 0.2
 		payment 30000 300
 		dialog `Your <passengers> thank you for advancing freedom of expression in the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.1
+
+#########################################################################
+
+# Dissident military missions
+
+mission "Hai Dissident Strike Team"
+	job
+	repeat
+	name "Dissident Troops to <planet>"
+	description "Transport Hai Dissident troops to <destination> to capture a military facility for 700,000 credits. Capture is punishable by death."
+	illegal -1 "You see a wide-area broadcast message ordering your death on sight."
+	stealth
+	infiltrating
+	passengers 10 10 .4
+	cargo "Hai Dissident Weapons" 2 2 .5
+	source Darkwaste
+	destination
+		attributes hai
+		distance 4 10
+	to offer
+		has "event: Hai Dissident Movement Begins"
+		random < 50
+		"reputation: Hai Dissidents" > 300
+		"combat rating" > 1000
+	on visit
+		dialog "generic cargo and passenger on visit"
+	npc
+		government "Hai Joymakers"
+		personality vindictive nemesis
+		planet Haihome
+		fleet "Hai Joymakers Small Advanced"
+		fleet "Hai Joymakers Large"
+	on complete
+		"dissident colony failed" -= 0.2
+		payment 700000
+		"reputation: Hai Dissidents" += 5
+		dialog "The Hai dissidents thank you for helping the war against the oppressive Hai Dystopia."
+	on fail
+		"reputation: Hai" <?= -1000
+		"dissident colony failed" += 0.2
+
+mission "Hai Dissident Joymaker Bombing"
+	job
+	repeat
+	name "Terrorist Bombing on <planet>"
+	description "Transport a Hai Dissident terrorist to <destination> to bomb a Joymaker facility for 1,000,000 credits. Capture is punishable by death."
+	illegal -1 "You see a wide-area broadcast message ordering your death on sight."
+	stealth
+	infiltrating
+	passengers 1
+	cargo "Hai Dissident Bombs" 20
+	source Darkwaste
+	destination
+		attributes hai
+		distance 4 10
+	to offer
+		has "event: Hai Dissident Movement Begins"
+		random < 50
+		"reputation: Hai Dissidents" > 500
+		"combat rating" > 2000
+	on visit
+		dialog "generic cargo and passenger on visit"
+	npc
+		government "Hai Joymakers"
+		personality vindictive nemesis
+		planet Haihome
+		fleet "Hai Joymakers Small Advanced"
+		fleet "Hai Joymakers Large" 2
+		fleet "Hai Joymakers Small Chase" 3
+	on complete
+		payment 1000000
+		"reputation: Hai Dissidents" += 10
+		dialog "The Hai dissidents thank you for helping the war against the oppressive Hai Dystopia."
+	on fail
+		"reputation: Hai" <?= -1000
+		
+mission "Hai Dissident Joymaker WMD"
+	job
+	repeat
+	name "Major Terrorist Bombing on <planet>"
+	description "Take a dissident to <destination> to bomb a Joymaker facility and the surrounding area for 2,500,000 credits. Capture is punishable by death."
+	illegal -1 "You see a wide-area broadcast message ordering your death on sight."
+	stealth
+	infiltrating
+	passengers 1
+	cargo "Weapons of Mass Destruction" 10
+	source Darkwaste
+	destination
+		attributes hai
+		distance 4 10
+	on visit
+		dialog "generic cargo and passenger on visit"
+	to offer
+		has "event: Hai Dissident Movement Begins"
+		random < 30
+		"reputation: Hai Dissidents" > 800
+		"combat rating" > 5000
+	npc
+		government "Hai Joymakers"
+		personality vindictive nemesis
+		planet Haihome
+		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Large" 3
+		fleet "Hai Joymakers Small Chase" 4
+	on complete
+		payment 2500000
+		"reputation: Hai Dissidents" += 15
+		dialog "The Hai dissidents thank you for helping the war against the oppressive Hai Dystopia."
+	on fail
+		"reputation: Hai" <?= -1000
+		
+mission "Hai Dissident Import WMD"
+	job
+	repeat
+	name "Highly Illegal Weapons to <planet>"
+	description "Smuggle highly illegal weapons from <stopovers> to <destination> for 1,500,000 credits. Capture is punishable by death."
+	illegal -1 "You see a wide-area broadcast message ordering your death on sight."
+	stealth
+	infiltrating
+	passengers 1
+	cargo "Weapons of Mass Destruction" 10
+	source Darkwaste
+	stopover
+		government Syndicate
+	on visit
+		dialog "generic cargo on visit"
+	to offer
+		has "event: Hai Dissident Movement Begins"
+		random < 30
+		"reputation: Hai Dissidents" > 600
+		"combat rating" > 5000
+	npc
+		government "Hai Joymakers"
+		personality vindictive nemesis
+		planet Haihome
+		fleet "Hai Joymakers Large Advanced" 2
+	on complete
+		payment 1500000
+		"reputation: Hai Dissidents" += 15
+		dialog "The Hai dissidents thank you for helping the war against the oppressive Hai Dystopia."
+	on fail
+		"reputation: Hai" <?= -1000
+
+

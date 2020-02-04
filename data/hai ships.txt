@@ -566,6 +566,28 @@ ship "Shield Beetle" "Shield Beetle (Jump)"
 	turret "Chameleon Anti-Missile"
 	turret "Chameleon Anti-Missile"
 
+ship "Shield Beetle" "Shield Beetle (Surveillance)"
+	outfits
+		"Ion Cannon" 4
+		"Hai Tracker Pod" 4
+		"Hai Tracker" 280
+		"Tracker Storage Pod" 2
+		"Chameleon Anti-Missile" 2
+		"Boulder Reactor"
+		"Geode Reactor"
+		"Hai Gorge Batteries"
+		"Hai Ravine Batteries"
+		"Hai Diamond Regenerator"
+		"Hai Williwaw Cooling" 2
+		"Quantum Keystone"
+		`"Bondir" Atomic Thruster`
+		`"Bufaer" Atomic Steering`
+		"Hyperdrive"
+		"Tactical Scanner"
+		"Outfit Scanner"
+		"Cargo Scanner"
+		"Pulse Rifle" 40
+
 ship "Shield Beetle" "Shield Beetle (Jump, Tracker)"
 	outfits
 		"Hai Tracker Pod" 8
