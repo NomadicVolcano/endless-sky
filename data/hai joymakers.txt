@@ -3,42 +3,156 @@ fleet "Hai Joymakers Small"
 	names "joymakers ship names"
 	cargo 0
 	personality
-		heroic vindictive opportunistic
+		heroic disables plunders
 		confusion 20
-	variant 1
+	variant 2
 		"Shield Beetle (Joymakers Particle)"
+		"Grasshopper (Joymakers Particle)" 4
+	variant 2
+		"Shield Beetle (Joymakers Thrower)"
+		"Grasshopper (Joymakers Tracker)" 4
+	variant 2
+		"Lightning Bug (Joymakers Pulse)" 2
+		"Lightning Bug (Joymakers Banish-Particle)" 2
+	variant 1
+		"Shield Beetle (Joymakers Tracker)"
+		"Shield Beetle (Joymakers Thrower)"
+	variant 1
+		"Lightning Bug (Joymakers Banish-Particle)" 4
+		"Grasshopper (Joymakers Tracker)" 7
+	variant 2
+		"Grasshopper (Joymakers Tracker)" 4
+		"Shield Beetle (Joymakers Tracker)"
+		"Lightning Bug (Joymakers Banish-Particle)" 2
+
+# Small Joymaker fleets for traveling to Human space.  You need 6 fuel
+# or the AI gets confused, so the non-advanced Grasshopper cannot chase
+fleet "Hai Joymakers Small Chase"
+	government "Hai Joymakers"
+	names "joymakers ship names"
+	cargo 0
+	personality
+		heroic disables plunders
+		confusion 20
+	variant 2
+		"Shield Beetle (Joymakers Particle)"
+		"Lightning Bug (Joymakers Pulse)" 2
+	variant 2
+		"Shield Beetle (Joymakers Thrower)"
+		"Lightning Bug (Joymakers Banish-Particle)" 2
+	variant 2
+		"Shield Beetle (Joymakers Tracker)"
+		"Lightning Bug (Joymakers Banish-Particle)" 2
+	variant 1
+		"Shield Beetle (Joymakers Tracker)"
+		"Shield Beetle (Joymakers Thrower)"
 
 fleet "Hai Joymakers Large"
 	government "Hai Joymakers"
 	names "joymakers ship names"
 	cargo 0
 	personality
-		heroic vindictive opportunistic
+		heroic disables plunders
 		confusion 20
 	variant 1
-		"Shield Beetle (Joymakers Particle)" 3
+		"Shield Beetle (Joymakers Particle)" 2
+		"Shield Beetle (Joymakers Tracker)" 3
+	variant 1
+		"Shield Beetle (Joymakers Thrower)" 5
+	variant 1
+		"Shield Beetle (Joymakers Thrower)" 3
+		"Shield Beetle (Joymakers Tracker)" 3
+	variant 2
+		"Shield Beetle (Joymakers Particle)"
+		"Shield Beetle (Joymakers Thrower)"
+		"Shield Beetle (Joymakers Tracker)"
+		"Lightning Bug (Joymakers Banish-Particle)" 3
+		"Lightning Bug (Joymakers Pulse)" 3
+	variant 2
+		"Shield Beetle (Joymakers Tracker)" 2
+		"Lightning Bug (Joymakers Banish-Particle)" 4
+		"Lightning Bug (Joymakers Pulse)" 4
+	variant 2
+		"Shield Beetle (Joymakers Particle)" 2
+		"Lightning Bug (Joymakers Pulse)" 8
+	variant 2
+		"Shield Beetle (Joymakers Thrower)" 2
+		"Lightning Bug (Joymakers Banish-Particle)" 8
 
 fleet "Hai Joymakers Small Advanced"
 	government "Hai Joymakers"
 	names "joymakers ship names"
 	cargo 0
 	personality
-		heroic vindictive opportunistic
+		heroic disables plunders
 		confusion 20
-	variant 1
-		"Shield Beetle (Joymakers Detainer)"
+	variant 2
+		"Grasshopper (Advanced Repeater)" 10
+		"Lightning Bug (Advanced Detainer)" 3
+	variant 2
+		"Lightning Bug (Advanced Detainer)" 3
+		"Lightning Bug (Advanced Repeater)" 3
+	variant 2
+		"Shield Beetle (Advanced Banish-Particle)"
+		"Lightning Bug (Advanced Detainer)" 2
+	variant 2
+		"Shield Beetle (Advanced Durable Grab-Pulse)"
+		"Grasshopper (Advanced Repeater)" 8
+	variant 2
+		"Shield Beetle (Advanced Ion Cannon)"
+		"Lightning Bug (Advanced Repeater)" 2
+	variant 2
+		"Shield Beetle (Joymakers Thrower)" 1
+		"Lightning Bug (Advanced Detainer)" 3
 
 fleet "Hai Joymakers Large Advanced"
 	government "Hai Joymakers"
 	names "joymakers ship names"
 	cargo 0
 	personality
-		heroic vindictive opportunistic
+		heroic disables plunders
 		confusion 20
+	variant 2
+		"Shield Beetle (Joymakers Thrower)" 4
+		"Shield Beetle (Joymakers Tracker)" 4
+	variant 2
+		"Shield Beetle (Advanced Ion Cannon)" 3
+		"Grasshopper (Advanced Repeater)" 16
+	variant 2
+		"Shield Beetle (Advanced Durable Grab-Pulse)" 2
+		"Shield Beetle (Joymakers Tracker)" 4
+	variant 2
+		"Shield Beetle (Advanced Banish-Particle)" 3
+		"Lightning Bug (Joymakers Banish-Particle)" 8
+	variant 2
+		"Shield Beetle (Advanced Ion Cannon)" 3
+		"Lightning Bug (Advanced Detainer)" 4
+		"Grasshopper (Advanced Repeater)" 12
 	variant 1
-		"Shield Beetle (Joymakers Detainer)" 3
-
-
+		"Shield Beetle (Advanced Ion Cannon)" 2
+		"Shield Beetle (Advanced Durable Grab-Pulse)" 2
+		"Shield Beetle (Joymakers Tracker)" 3
+	variant 2
+		"Shield Beetle (Joymakers Tracker)" 4
+		"Lightning Bug (Advanced Detainer)" 8
+		"Grasshopper (Advanced Repeater)" 10
+	variant 2
+		"Shield Beetle (Advanced Durable Grab-Pulse)" 5
+	variant 1
+		"Shield Beetle (Advanced Durable Grab-Pulse)" 4
+		"Lightning Bug (Advanced Repeater)" 8
+	variant 2
+		"Shield Beetle (Advanced Durable Grab-Pulse)" 2
+		"Shield Beetle (Advanced Ion Cannon)" 2
+		"Lightning Bug (Advanced Repeater)" 4
+	variant 1
+		"Shield Beetle (Advanced Ion Cannon)" 3
+		"Lightning Bug (Advanced Detainer)" 5
+		"Lightning Bug (Advanced Repeater)" 5
+	variant 2
+		"Lightning Bug (Advanced Repeater)" 6
+		"Lightning Bug (Advanced Detainer)" 6
+		"Lightning Bug (Joymakers Banish-Particle)" 6
 
 phrase "joymaker ship names"
 	phrase
@@ -336,7 +450,7 @@ phrase "hostile joymakers"
 
 ########################################################################
 
-# Regular Joymakers
+# Joymakers with tier 1.5 equipment
 
 ship "Grasshopper" "Grasshopper (Joymakers Particle)"
 	add attributes
@@ -354,9 +468,25 @@ ship "Grasshopper" "Grasshopper (Joymakers Particle)"
 		`Steering (Comet Class)`
 		Hyperdrive
 
-ship "Lightning Bug" "Lightning Bug (Joymakers Pulse)"
+ship "Grasshopper" "Grasshopper (Joymakers Tracker)"
 	add attributes
 		"self-destruct" 0.4
+	outfits
+		"Hai Tracker Pod" 2
+		"Hai Tracker" 112
+		"Outfits Expansion"
+		"Generator (Furnace Class)"
+		"Hai Corundum Regenerator"
+		"Hai Chasm Batteries" 2
+		"Fuel Pod"
+		"Small Heat Shunt"
+		`Thruster (Comet Class)`
+		`Steering (Comet Class)`
+		Hyperdrive
+
+ship "Lightning Bug" "Lightning Bug (Joymakers Pulse)"
+	add attributes
+		"self-destruct" 0.6
 	outfits
 		"Pulse Cannon"
 		"Pulse Turret"
@@ -371,7 +501,7 @@ ship "Lightning Bug" "Lightning Bug (Joymakers Pulse)"
 
 ship "Lightning Bug" "Lightning Bug (Joymakers Banish-Particle)"
 	add attributes
-		"self-destruct" 0.4
+		"self-destruct" 0.6
 	outfits
 		"Pulse Cannon"
 		"Pulse Turret"
@@ -386,7 +516,7 @@ ship "Lightning Bug" "Lightning Bug (Joymakers Banish-Particle)"
 
 ship "Shield Beetle" "Shield Beetle (Joymakers Particle)"
 	add attributes
-		"self-destruct" 0.4
+		"self-destruct" 0.5
 	outfits
 		"Outfits Expansion" 4
 		"Hyperdrive"
@@ -406,7 +536,7 @@ ship "Shield Beetle" "Shield Beetle (Joymakers Particle)"
 
 ship "Shield Beetle" "Shield Beetle (Joymakers Thrower)"
 	add attributes
-		"self-destruct" 0.4
+		"self-destruct" 0.5
 	outfits
 		"Outfits Expansion" 4
 		"Hyperdrive"
@@ -426,13 +556,13 @@ ship "Shield Beetle" "Shield Beetle (Joymakers Thrower)"
 
 ship "Shield Beetle" "Shield Beetle (Joymakers Tracker)"
 	add attributes
-		"self-destruct" 0.4
+		"self-destruct" 0.5
 	outfits
 		"Outfits Expansion" 4
 		"Hyperdrive"
 		"Hai Diamond Regenerator"
-		"Tracker Storage Pod" 4
-		"Korath Grab-Strike" 2
+		"Tracker Storage Pod" 6
+		"Korath Banisher" 2
 		`"Bufaer" Atomic Steering`
 		"Korath Warder"
 		"Fuel Pod"
@@ -442,7 +572,7 @@ ship "Shield Beetle" "Shield Beetle (Joymakers Tracker)"
 		"Systems Core (Medium)"
 		"Thruster (Planetary Class)"
 		"Hai Tracker Pod" 8
-		"Hai Tracker" 264
+		"Hai Tracker" 616
 		Supercapacitor 2
 		"Korath Repeater Rifle" 10
 		"Pulse Rifle" 85
@@ -450,7 +580,7 @@ ship "Shield Beetle" "Shield Beetle (Joymakers Tracker)"
 
 ########################################################################
 
-# Advanced Joymakers
+# Joymakers with tier 2 equipment
 
 ship "Grasshopper" "Grasshopper (Advanced Repeater)"
 	add attributes
@@ -460,6 +590,7 @@ ship "Grasshopper" "Grasshopper (Advanced Repeater)"
 		"Outfits Expansion"
 		"Generator (Furnace Class)"
 		"Systems Core (Small)"
+		# Fuel processor allows travel to Human space
 		"Fuel Processor"
 		"Small Heat Shunt" 2
 		`Thruster (Comet Class)`
@@ -501,7 +632,7 @@ ship "Lightning Bug" "Lightning Bug (Advanced Detainer)"
 
 ship "Shield Beetle" "Shield Beetle (Advanced Banish-Particle)"
 	add attributes
-		"self-destruct" 0.6
+		"self-destruct" 0.7
 	outfits
 		"Outfits Expansion" 4
 		"Hyperdrive"
@@ -519,32 +650,9 @@ ship "Shield Beetle" "Shield Beetle (Advanced Banish-Particle)"
 		"Korath Repeater Rifle" 10
 		"Pulse Rifle" 85
 
-ship "Shield Beetle" "Shield Beetle (Advanced Grab-Tracker)"
-	add attributes
-		"self-destruct" 0.6
-	outfits
-		"Outfits Expansion" 4
-		"Hyperdrive"
-		"Hai Diamond Regenerator"
-		"Tracker Storage Pod" 4
-		"Korath Grab-Strike" 2
-		`"Bufaer" Atomic Steering`
-		"Korath Warder"
-		"Fuel Pod"
-		"Triple Plasma Core"
-		"Large Heat Shunt" 3
-		"Small Heat Shunt" 2
-		"Systems Core (Medium)"
-		"Thruster (Planetary Class)"
-		"Hai Tracker Pod" 8
-		"Hai Tracker" 264
-		Supercapacitor 2
-		"Korath Repeater Rifle" 10
-		"Pulse Rifle" 85
-
 ship "Shield Beetle" "Shield Beetle (Advanced Durable Grab-Pulse)"
 	add attributes
-		"self-destruct" 0.6
+		"self-destruct" 0.7
 	outfits
 		"Outfits Expansion" 5
 		"Hyperdrive"
@@ -565,7 +673,7 @@ ship "Shield Beetle" "Shield Beetle (Advanced Durable Grab-Pulse)"
 
 ship "Shield Beetle" "Shield Beetle (Advanced Ion Cannon)"
 	add attributes
-		"self-destruct" 0.6
+		"self-destruct" 0.7
 	outfits
 		"Outfits Expansion" 5
 		"Hyperdrive"

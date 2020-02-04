@@ -686,7 +686,7 @@ mission "Hai Dissidents to Dystopia [0]"
 	job
 	repeat
 	passengers 2 2 .5
-	illegal 30000 `Stern-looking Hai drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 30,000 credit fine instead.`
+	illegal 30000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 30,000 credit fine instead.`
 	to offer
 		random < 75
 		"reputation: Hai Dissidents" > 0
@@ -709,7 +709,7 @@ mission "Hai Dissidents to Dystopia [1]"
 	job
 	repeat
 	passengers 2 2 .5
-	illegal 35000 `Stern-looking Hai drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 35,000 credit fine instead.`
+	illegal 35000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 35,000 credit fine instead.`
 	to offer
 		random < 75
 		"reputation: Hai Dissidents" > 0
@@ -732,7 +732,7 @@ mission "Hai Dissidents to Dystopia [2]"
 	job
 	repeat
 	passengers 2 2 .5
-	illegal 40000 `Stern-looking Hai drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 40,000 credit fine instead.`
+	illegal 40000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 40,000 credit fine instead.`
 	to offer
 		random < 75
 		"reputation: Hai Dissidents" > 0
@@ -757,7 +757,7 @@ mission "Hai Dissident Organizers to Dystopia [0]"
 	job
 	repeat
 	passengers 10 10 .4
-	illegal 70000 `Stern-looking Hai drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 70,000 credit fine instead.`
+	illegal 70000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 70,000 credit fine instead.`
 	to offer
 		random < 75
 		"reputation: Hai Dissidents" > 0
@@ -780,7 +780,7 @@ mission "Hai Dissident Organizers to Dystopia [1]"
 	job
 	repeat
 	passengers 10 10 .4
-	illegal 80000 `Stern-looking Hai drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 80,000 credit fine instead.`
+	illegal 80000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 80,000 credit fine instead.`
 	to offer
 		random < 75
 		"reputation: Hai Dissidents" > 0
@@ -805,7 +805,6 @@ mission "Hai Dissident Organizers to Dystopia [1]"
 mission "Hai Illegal Media from Humans [0]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 60,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
@@ -829,7 +828,6 @@ mission "Hai Illegal Media from Humans [0]"
 mission "Hai Illegal Media from Humans [1]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 65,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
@@ -853,7 +851,6 @@ mission "Hai Illegal Media from Humans [1]"
 mission "Hai Illegal Media from Humans [2]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 70,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
@@ -877,7 +874,6 @@ mission "Hai Illegal Media from Humans [2]"
 mission "Hai Illegal Media from Humans [2]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 75,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
@@ -901,7 +897,6 @@ mission "Hai Illegal Media from Humans [2]"
 mission "Hai Illegal Media from Humans [3]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 80,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
@@ -925,7 +920,6 @@ mission "Hai Illegal Media from Humans [3]"
 mission "Hai Illegal Media from Humans [4]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 85,000 credits if caught."
-	stealth
 	job
 	repeat
 	cargo "Hai Censored Media" 5 2 .2
@@ -959,7 +953,7 @@ mission "Hai Dissidents from Dystopia [0]"
 	job
 	repeat
 	passengers 2 2 .5
-	illegal 30000 `Stern-looking Hai drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 30,000 credit fine instead.`
+	illegal 30000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 30,000 credit fine instead.`
 	to offer
 		random < 75
 		"reputation: Hai Dissidents" > 0
@@ -982,7 +976,7 @@ mission "Hai Dissidents from Dystopia [1]"
 	job
 	repeat
 	passengers 2 2 .5
-	illegal 35000 `Stern-looking Hai drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 35,000 credit fine instead.`
+	illegal 35000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 35,000 credit fine instead.`
 	to offer
 		random < 75
 		"reputation: Hai Dissidents" > 0
@@ -1002,7 +996,7 @@ mission "Hai Dissidents from Dystopia [2]"
 	job
 	repeat
 	passengers 2 2 .5
-	illegal 40000 `Stern-looking Hai drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 40,000 credit fine instead.`
+	illegal 40000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 40,000 credit fine instead.`
 	to offer
 		random < 75
 		"reputation: Hai Dissidents" > 0
@@ -1024,7 +1018,7 @@ mission "Hai Dissident Community from Dystopia [0]"
 	job
 	repeat
 	passengers 10 10 .4
-	illegal 70000 `Stern-looking Hai drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 70,000 credit fine instead.`
+	illegal 70000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 70,000 credit fine instead.`
 	to offer
 		random < 75
 		"reputation: Hai Dissidents" > 0
@@ -1044,7 +1038,7 @@ mission "Hai Dissident Community from Dystopia [1]"
 	job
 	repeat
 	passengers 10 10 .4
-	illegal 80000 `Stern-looking Hai drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 80,000 credit fine instead.`
+	illegal 80000 `Stern-looking officers drag away screaming dissidents and promise to, "teach them to be happy." They offer to, "make you happy too," but you opt to pay a 80,000 credit fine instead.`
 	to offer
 		random < 75
 		"reputation: Hai Dissidents" > 0
