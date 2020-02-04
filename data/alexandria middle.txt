@@ -175,7 +175,7 @@ mission "Alexandria Hai Dissidents: Darkstone Meeting"
 		fleet
 			names "joymaker ship names"
 			variant
-				"Shield Beetle (Joymaker Particle)"
+				"Shield Beetle (Joymakers Particle)"
 
 
 mission "Alexandria Hai Dissidents: Underground Railroad: Allhome"
@@ -184,5 +184,3 @@ mission "Alexandria Hai Dissidents: Underground Railroad: Allhome"
 	description `Take Lang Suir to <destination> to begin an "Underground Railroad" that will smuggle Hai to Human space.`
 	source Darkwaste
 	destination Allhome
-	on offer
-		conversation

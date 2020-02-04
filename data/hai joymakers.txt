@@ -40,7 +40,7 @@ fleet "Hai Joymakers Large Advanced"
 
 
 
-phrase "joymakers ship names"
+phrase "joymaker ship names"
 	phrase
 		"(joymakers) Hugbringer"
 		"(joymakers) Hug of Death"
@@ -334,6 +334,249 @@ phrase "hostile joymakers"
 		`bliss.`
 		`sympathy.`
 
+########################################################################
+
+# Regular Joymakers
+
+ship "Grasshopper" "Grasshopper (Joymakers Particle)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Particle Cannon"
+		"Outfits Expansion"
+		"Generator (Furnace Class)"
+		"Hai Corundum Regenerator"
+		"Hai Chasm Batteries" 2
+		Supercapacitor 2
+		"Fuel Pod" 2
+		"Small Heat Shunt"
+		`Thruster (Comet Class)`
+		`Steering (Comet Class)`
+		Hyperdrive
+
+ship "Lightning Bug" "Lightning Bug (Joymakers Pulse)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Pulse Cannon"
+		"Pulse Turret"
+		"Korath Warder"
+		"Boulder Reactor"
+		"Systems Core (Small)"
+		"Hai Williwaw Cooling" 3
+		"Outfits Expansion" 3
+		`"Biroo" Atomic Thruster`
+		`"Biroo" Atomic Steering`
+		"Hyperdrive"
+
+ship "Shield Beetle" "Shield Beetle (Joymakers Particle)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Outfits Expansion" 4
+		"Hyperdrive"
+		"Hai Diamond Regenerator"
+		"Bullfrog Anti-Missile" 2
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Hai Gorge Batteries"
+		"Fuel Pod"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 4
+		"Systems Core (Medium)"
+		"Thruster (Planetary Class)"
+		"Particle Cannon" 8
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
+
+ship "Shield Beetle" "Shield Beetle (Joymakers Thrower)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Outfits Expansion" 4
+		"Hyperdrive"
+		"Hai Diamond Regenerator"
+		"Korath Grab-Strike" 3
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Pulse Cannon" 8
+		"Fuel Pod"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 4
+		"Systems Core (Medium)"
+		"Thruster (Planetary Class)"
+		Supercapacitor 2
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
+
+ship "Shield Beetle" "Shield Beetle (Joymakers Tracker)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Outfits Expansion" 4
+		"Hyperdrive"
+		"Hai Diamond Regenerator"
+		"Tracker Storage Pod" 4
+		"Korath Grab-Strike" 2
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Fuel Pod"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 3
+		"Small Heat Shunt" 2
+		"Systems Core (Medium)"
+		"Thruster (Planetary Class)"
+		"Hai Tracker Pod" 8
+		"Hai Tracker" 264
+		Supercapacitor 2
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
+
+
+########################################################################
+
+# Advanced Joymakers
+
+ship "Grasshopper" "Grasshopper (Advanced Repeater)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Korath Repeater" 2
+		"Outfits Expansion"
+		"Generator (Furnace Class)"
+		"Systems Core (Small)"
+		"Fuel Processor"
+		"Small Heat Shunt" 2
+		`Thruster (Comet Class)`
+		`Steering (Comet Class)`
+		Hyperdrive
+
+ship "Lightning Bug" "Lightning Bug (Advanced Repeater)"
+	add attributes
+		"self-destruct" 0.6
+	outfits
+		"Korath Repeater Turret"
+		"Chameleon Anti-Missile"
+		"Heavy Rocket Launcher"
+		"Heavy Rocket" 20
+		"Plasma Core"
+		"Generator (Candle Class)"
+		"Systems Core (Medium)"
+		"Large Heat Shunt"
+		Supercapacitor
+		"Outfits Expansion" 3
+		`"Biroo" Atomic Thruster`
+		`"Biroo" Atomic Steering`
+		"Hyperdrive"
+
+ship "Lightning Bug" "Lightning Bug (Advanced Detainer)"
+	add attributes
+		"self-destruct" 0.6
+	outfits
+		"Korath Detainer"
+		"Bullfrog Anti-Missile"
+		"Plasma Core"
+		"Generator (Candle Class)"
+		"Systems Core (Medium)"
+		"Small Heat Shunt" 2
+		"Outfits Expansion" 3
+		`Thruster (Lunar Class)`
+		`"Biroo" Atomic Steering`
+		"Hyperdrive"
+
+ship "Shield Beetle" "Shield Beetle (Advanced Banish-Particle)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Outfits Expansion" 4
+		"Hyperdrive"
+		"Korath Banisher"
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Hai Chasm Batteries"
+		"Hai Fissure Batteries"
+		"Fuel Pod"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 4
+		"Systems Core (Large)"
+		"Thruster (Planetary Class)"
+		"Particle Cannon" 8
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
+
+ship "Shield Beetle" "Shield Beetle (Advanced Grab-Tracker)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Outfits Expansion" 4
+		"Hyperdrive"
+		"Hai Diamond Regenerator"
+		"Tracker Storage Pod" 4
+		"Korath Grab-Strike" 2
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Fuel Pod"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 3
+		"Small Heat Shunt" 2
+		"Systems Core (Medium)"
+		"Thruster (Planetary Class)"
+		"Hai Tracker Pod" 8
+		"Hai Tracker" 264
+		Supercapacitor 2
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
+
+ship "Shield Beetle" "Shield Beetle (Advanced Durable Grab-Pulse)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Outfits Expansion" 5
+		"Hyperdrive"
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Pulse Cannon" 7
+		"Korath Grab-Strike" 2
+		"Fuel Pod"
+		"Geode Reactor"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 4
+		"Small Heat Shunt" 1
+		"Systems Core (Large)"
+		"Systems Core (Medium)"
+		"Thruster (Planetary Class)"
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
+
+ship "Shield Beetle" "Shield Beetle (Advanced Ion Cannon)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Outfits Expansion" 5
+		"Hyperdrive"
+		`"Bufaer" Atomic Steering`
+		"Korath Warder"
+		"Bullfrog Anti-Missile" 2
+		"Ion Cannon" 6
+		"Fuel Pod"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 4
+		"Small Heat Shunt"
+		"Systems Core (Large)"
+		"Thruster (Planetary Class)"
+		"Korath Repeater Rifle" 10
+		"Pulse Rifle" 85
+
+
+
+
+
+########################################################################
+
+# untested
+
+
+
 ship "Lightning Bug" "Lightning Bug (Joymakers Disruptor)"
 	add attributes
 		"self-destruct" 0.6
@@ -367,26 +610,6 @@ ship "Lightning Bug" "Lightning Bug (Joymakers Slicer)"
 		"Korath Repeater Rifle" 3
 		"Pulse Rifle" 7
 		"Outfits Expansion" 2
-
-ship "Shield Beetle" "Shield Beetle (Joymakers Particle)"
-	add attributes
-		"self-destruct" 0.4
-	outfits
-		"Outfits Expansion" 4
-		"Hyperdrive"
-		"Hai Diamond Regenerator"
-		"Bullfrog Anti-Missile" 2
-		`"Bufaer" Atomic Steering`
-		"Korath Warder"
-		"Hai Gorge Batteries"
-		"Fuel Pod"
-		"Triple Plasma Core"
-		"Large Heat Shunt" 4
-		"Systems Core (Medium)"
-		"Thruster (Planetary Class)"
-		"Particle Cannon" 8
-		"Korath Repeater Rifle" 10
-		"Pulse Rifle" 85
 
 ship "Shield Beetle" "Shield Beetle (Joymakers Detainer)"
 	add attributes
