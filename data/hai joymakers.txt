@@ -369,6 +369,21 @@ ship "Lightning Bug" "Lightning Bug (Joymakers Pulse)"
 		`"Biroo" Atomic Steering`
 		"Hyperdrive"
 
+ship "Lightning Bug" "Lightning Bug (Joymakers Banish-Particle)"
+	add attributes
+		"self-destruct" 0.4
+	outfits
+		"Pulse Cannon"
+		"Pulse Turret"
+		"Korath Warder"
+		"Boulder Reactor"
+		"Systems Core (Small)"
+		"Hai Williwaw Cooling" 3
+		"Outfits Expansion" 3
+		`"Biroo" Atomic Thruster`
+		`"Biroo" Atomic Steering`
+		"Hyperdrive"
+
 ship "Shield Beetle" "Shield Beetle (Joymakers Particle)"
 	add attributes
 		"self-destruct" 0.4
@@ -471,7 +486,7 @@ ship "Lightning Bug" "Lightning Bug (Advanced Repeater)"
 
 ship "Lightning Bug" "Lightning Bug (Advanced Detainer)"
 	add attributes
-		"self-destruct" 0.6
+		"self-destruct" 0.8
 	outfits
 		"Korath Detainer"
 		"Bullfrog Anti-Missile"
@@ -486,7 +501,7 @@ ship "Lightning Bug" "Lightning Bug (Advanced Detainer)"
 
 ship "Shield Beetle" "Shield Beetle (Advanced Banish-Particle)"
 	add attributes
-		"self-destruct" 0.4
+		"self-destruct" 0.6
 	outfits
 		"Outfits Expansion" 4
 		"Hyperdrive"
@@ -506,7 +521,7 @@ ship "Shield Beetle" "Shield Beetle (Advanced Banish-Particle)"
 
 ship "Shield Beetle" "Shield Beetle (Advanced Grab-Tracker)"
 	add attributes
-		"self-destruct" 0.4
+		"self-destruct" 0.6
 	outfits
 		"Outfits Expansion" 4
 		"Hyperdrive"
@@ -529,7 +544,7 @@ ship "Shield Beetle" "Shield Beetle (Advanced Grab-Tracker)"
 
 ship "Shield Beetle" "Shield Beetle (Advanced Durable Grab-Pulse)"
 	add attributes
-		"self-destruct" 0.4
+		"self-destruct" 0.6
 	outfits
 		"Outfits Expansion" 5
 		"Hyperdrive"
@@ -550,7 +565,7 @@ ship "Shield Beetle" "Shield Beetle (Advanced Durable Grab-Pulse)"
 
 ship "Shield Beetle" "Shield Beetle (Advanced Ion Cannon)"
 	add attributes
-		"self-destruct" 0.4
+		"self-destruct" 0.6
 	outfits
 		"Outfits Expansion" 5
 		"Hyperdrive"
