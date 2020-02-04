@@ -230,7 +230,14 @@ phrase "hai dissident ship names"
 		"(hai dissident) Fight/Die for Freedom"
 		"(hai dissident) Crime Committer"
 		"(hai dissident) Fight for a Long Time"
+		"(hai dissident) nouns that express democratic ideals!"
+
+phrase "(hai dissident) nouns that express democratic ideals!"
+	phrase
 		"(hai dissident) nouns that express democratic ideals"
+	word
+		"!"
+		""
 
 phrase "(hai dissident) Fight for a Long Time"
 	phrase
@@ -239,6 +246,10 @@ phrase "(hai dissident) Fight for a Long Time"
 		" "
 	phrase
 		"(hai dissident) for a Long Time"
+	word
+		"!"
+		"!"
+		""
 
 phrase "(hai dissident) for a Long Time"
 	word
@@ -275,14 +286,13 @@ phrase "(hai dissident) Fight/Die for Freedom"
 	word
 		"!"
 		""
-		""
 
 phrase "(hai dissident) Fight"
 	word
 		"Fight"
-		"Kill"
 		"Battle"
 		"Strike"
+		"Resist"
 
 phrase "(hai dissident) Die"
 	word
@@ -306,7 +316,6 @@ phrase "(hai dissident) Freedom is Going to Happen"
 		"(hai dissident) is Going to Happen"
 	word
 		"!"
-		""
 		""
 
 phrase "(hai dissident) nouns that express democratic ideals"
@@ -332,8 +341,8 @@ phrase "(hai dissident) is Going to Happen"
 		"is Indomitable"
 		"is Inevitable"
 		"is Fated"
-		"cannot be Stopped"
-		"cannot be Denied"
+		"Cannot be Stopped"
+		"Cannot be Denied"
 		"or Death"
 		"or War"
 		"or Martyrdom"

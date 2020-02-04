@@ -154,17 +154,23 @@ fleet "Hai Joymakers Large Advanced"
 		"Lightning Bug (Advanced Detainer)" 6
 		"Lightning Bug (Joymakers Banish-Particle)" 6
 
+########################################################################
+
+# Joymakers are fanatics that genuinely believe they are working to
+# make you happier, or end your pain.
+
 phrase "joymaker ship names"
 	phrase
 		"(joymakers) Hugbringer"
 		"(joymakers) Hug of Death"
-		"(joymakers) Hug of Death"
+		"(joymakers) Death Hug"
+		"(joymakers) Deadly Hugger"
 		"(joymakers) Bringer of Deadly Hugs"
 		"(joymakers) Bringer of Deadly Hugs"
 
 phrase "(joymakers) Hugbringer"
 	phrase
-		"(joymakers) physical action expressing a positive emotion"
+		"(joymakers) (short) physical action expressing a positive emotion"
 	word
 		rider
 		beacon
@@ -174,6 +180,14 @@ phrase "(joymakers) Hugbringer"
 		crusher
 		mangler
 
+phrase "(joymakers) Deadly Hugger"
+	phrase
+		"(joymakers) final/deadly"
+	word
+		" "
+	phrase
+		"(joymakers) someone who causes a positive emotion"
+
 phrase "(joymakers) Hug of Death"
 	phrase
 		"(joymakers) physical action expressing a positive emotion"
@@ -181,6 +195,14 @@ phrase "(joymakers) Hug of Death"
 		" of "
 	phrase
 		"(joymakers) unfortunate state of being"
+		
+phrase "(joymakers) Death Hug"
+	phrase
+		"(joymakers) unfortunate state of being"
+	word
+		" "
+	phrase
+		"(joymakers) physical action expressing a positive emotion"
 		
 phrase "(joymakers) Bringer of Deadly Hugs"
 	phrase
@@ -263,8 +285,33 @@ phrase "(joymakers) physical action expressing a positive emotion"
 		Grin
 		Laugh
 		Giggle
-		Blush
 		Kiss
+
+phrase "(joymakers) (short) physical action expressing a positive emotion"
+	word
+		Hug
+		Smile
+		Snuggle
+		Cuddle
+		Grin
+		Laugh
+		Giggle
+		Kiss
+
+phrase "(joymakers) someone who causes a positive emotion"
+	word
+		Hugger
+		Snuggler
+		Cuddler
+		Kisser
+		Therapist
+		Doctor
+		Comedian
+		Masseuse
+		Clown
+		Mime
+		Smiler
+		Giggler
 
 phrase "(joymakers) unfortunate state of being"
 	word
@@ -294,6 +341,14 @@ phrase "(joymakers) unfortunate state of being"
 
 
 phrase "hostile disabled joymakers"
+	phrase
+		"hostile disabled joymakers apology"
+		"hostile disabled joymakers apology"
+		"hostile disabled joymakers threat"
+		"hostile disabled joymakers threat"
+		"hostile disabled joymakers threat"
+
+phrase "hostile disabled joymakers apology"
 	word
 		`I'm sorry for `
 		`I apologize for `
@@ -305,7 +360,7 @@ phrase "hostile disabled joymakers"
 	word
 		`end your `
 		`terminate your `
-		`exterminate your`
+		`exterminate your `
 		`cure your `
 	word
 		`terrible `
@@ -323,7 +378,7 @@ phrase "hostile disabled joymakers"
 		`sadness.`
 		`anger.`
 
-phrase "hostile disabled joymakers"
+phrase "hostile disabled joymakers threat"
 	word
 		`Others will `
 		`Someone else will `
@@ -358,27 +413,35 @@ phrase "hostile disabled joymakers"
 		"soul."
 
 
-
 phrase "hostile joymakers"
+	phrase
+		"hostile joymakers comfort"
+		"hostile joymakers offer"
+		"hostile joymakers snuggle"
+		"hostile joymakers snuggle"
+
+phrase "hostile joymakers comfort"
 	word
 		`Plagued one, `
 		`Joyless traveler, `
 		`Killjoy, `
 		`Beloved curmudgeon, `
 		`Depressed citizen, `
-		`Violent one, `
+		`Citizen, `
+		`Traveler, `
 	word
 		`it is our pleasure to `
 		`we are here to `
 		`please let us `
 	word
 		`end your pain`
-		`cure your pain `
+		`cure your pain`
 		`end your suffering`
 		`bring you eternal joy`
-		`give you eternal bliss`
+		`give you bliss`
 		`take you to the blissful hereafter`
 		`show your our kindness`
+		`befriend you`
 	word
 		` violently.`
 		` fiercely.`
@@ -386,16 +449,16 @@ phrase "hostile joymakers"
 		` with finality.`
 		` brutally.`
 		` viciously.`
-		`.`
 
-phrase "hostile joymakers"
+phrase "hostile joymakers offer"
 	word
 		`We just want to `
 		`We want to `
 		`Just let us `
 	word
 		`help you `
-		`guide you to `
+		`help you `
+		`teach you to `
 		""
 	word
 		`end your `
@@ -411,7 +474,7 @@ phrase "hostile joymakers"
 		`anguish.`
 		`sorrow.`
 
-phrase "hostile joymakers"
+phrase "hostile joymakers snuggle"
 	word
 		`Let us `
 		`We shall `
@@ -441,12 +504,19 @@ phrase "hostile joymakers"
 		`final `
 		`inevitable `
 		`unstoppable `
+		""
+		""
+		""
+		""
+		""
 	word
 		`joy.`
-		`friendliness.`
+		`friendship.`
 		`empathy.`
+		`love.`
 		`bliss.`
 		`sympathy.`
+		`smiles.`
 
 ########################################################################
 
