@@ -276,7 +276,7 @@ event "Hai Dissident Movement Begins"
 
 fleet "Hai Joymakers Small"
 	government "Hai Joymakers"
-	names "joymakers ship names"
+	names hai
 	cargo 0
 	personality
 		heroic disables plunders
@@ -309,7 +309,7 @@ fleet "Hai Joymakers Small"
 # or the AI gets confused, so the non-advanced Grasshoppers cannot chase
 fleet "Hai Joymakers Small Chase"
 	government "Hai Joymakers"
-	names "joymakers ship names"
+	names hai
 	cargo 0
 	personality
 		heroic disables plunders
@@ -330,7 +330,7 @@ fleet "Hai Joymakers Small Chase"
 
 fleet "Hai Joymakers Large"
 	government "Hai Joymakers"
-	names "joymakers ship names"
+	names hai
 	cargo 0
 	personality
 		heroic disables plunders
@@ -357,7 +357,7 @@ fleet "Hai Joymakers Large"
 
 fleet "Hai Joymakers Small Advanced"
 	government "Hai Joymakers"
-	names "joymakers ship names"
+	names hai
 	cargo 0
 	personality
 		heroic disables plunders
@@ -388,7 +388,7 @@ fleet "Hai Joymakers Small Advanced"
 
 fleet "Hai Joymakers Large Advanced"
 	government "Hai Joymakers"
-	names "joymakers ship names"
+	names hai
 	cargo 0
 	personality
 		heroic disables plunders
@@ -623,15 +623,15 @@ phrase "(joymakers) unfortunate state of being"
 
 
 
-phrase "hostile disabled joymakers"
+phrase "hostile disabled joymaker"
 	phrase
-		"hostile disabled joymakers apology"
-		"hostile disabled joymakers apology"
-		"hostile disabled joymakers threat"
-		"hostile disabled joymakers threat"
-		"hostile disabled joymakers threat"
+		"hostile disabled joymaker apology"
+		"hostile disabled joymaker apology"
+		"hostile disabled joymaker threat"
+		"hostile disabled joymaker threat"
+		"hostile disabled joymaker threat"
 
-phrase "hostile disabled joymakers apology"
+phrase "hostile disabled joymaker apology"
 	word
 		`I'm sorry for `
 		`I apologize for `
@@ -661,7 +661,7 @@ phrase "hostile disabled joymakers apology"
 		`sadness.`
 		`anger.`
 
-phrase "hostile disabled joymakers threat"
+phrase "hostile disabled joymaker threat"
 	word
 		`Others will `
 		`Someone else will `
@@ -696,14 +696,14 @@ phrase "hostile disabled joymakers threat"
 		"soul."
 
 
-phrase "hostile joymakers"
+phrase "hostile joymaker"
 	phrase
-		"hostile joymakers comfort"
-		"hostile joymakers offer"
-		"hostile joymakers snuggle"
-		"hostile joymakers snuggle"
+		"hostile joymaker comfort"
+		"hostile joymaker offer"
+		"hostile joymaker snuggle"
+		"hostile joymaker snuggle"
 
-phrase "hostile joymakers comfort"
+phrase "hostile joymaker comfort"
 	word
 		`Plagued one, `
 		`Joyless traveler, `
@@ -733,7 +733,7 @@ phrase "hostile joymakers comfort"
 		` brutally.`
 		` viciously.`
 
-phrase "hostile joymakers offer"
+phrase "hostile joymaker offer"
 	word
 		`We just want to `
 		`We want to `
@@ -757,7 +757,7 @@ phrase "hostile joymakers offer"
 		`anguish.`
 		`sorrow.`
 
-phrase "hostile joymakers snuggle"
+phrase "hostile joymaker snuggle"
 	word
 		`Let us `
 		`We shall `
@@ -839,7 +839,7 @@ ship "Grasshopper" "Grasshopper (Joymakers Tracker)"
 
 ship "Lightning Bug" "Lightning Bug (Joymakers Pulse)"
 	add attributes
-		"self-destruct" 0.6
+		"self-destruct" 0.5
 	outfits
 		"Pulse Cannon"
 		"Pulse Turret"
@@ -854,7 +854,7 @@ ship "Lightning Bug" "Lightning Bug (Joymakers Pulse)"
 
 ship "Lightning Bug" "Lightning Bug (Joymakers Banish-Particle)"
 	add attributes
-		"self-destruct" 0.6
+		"self-destruct" 0.5
 	outfits
 		"Pulse Cannon"
 		"Pulse Turret"
@@ -869,7 +869,7 @@ ship "Lightning Bug" "Lightning Bug (Joymakers Banish-Particle)"
 
 ship "Shield Beetle" "Shield Beetle (Joymakers Particle)"
 	add attributes
-		"self-destruct" 0.5
+		"self-destruct" 0.6
 	outfits
 		"Outfits Expansion" 4
 		"Hyperdrive"
@@ -889,7 +889,7 @@ ship "Shield Beetle" "Shield Beetle (Joymakers Particle)"
 
 ship "Shield Beetle" "Shield Beetle (Joymakers Thrower)"
 	add attributes
-		"self-destruct" 0.5
+		"self-destruct" 0.6
 	outfits
 		"Outfits Expansion" 4
 		"Hyperdrive"
@@ -909,7 +909,7 @@ ship "Shield Beetle" "Shield Beetle (Joymakers Thrower)"
 
 ship "Shield Beetle" "Shield Beetle (Joymakers Tracker)"
 	add attributes
-		"self-destruct" 0.5
+		"self-destruct" 0.6
 	outfits
 		"Outfits Expansion" 4
 		"Hyperdrive"
@@ -937,7 +937,7 @@ ship "Shield Beetle" "Shield Beetle (Joymakers Tracker)"
 
 ship "Grasshopper" "Grasshopper (Advanced Repeater)"
 	add attributes
-		"self-destruct" 0.4
+		"self-destruct" 0.7
 	outfits
 		"Korath Repeater" 2
 		"Outfits Expansion"
@@ -952,7 +952,7 @@ ship "Grasshopper" "Grasshopper (Advanced Repeater)"
 
 ship "Lightning Bug" "Lightning Bug (Advanced Repeater)"
 	add attributes
-		"self-destruct" 0.6
+		"self-destruct" 0.7
 	outfits
 		"Korath Repeater Turret"
 		"Chameleon Anti-Missile"
@@ -985,7 +985,7 @@ ship "Lightning Bug" "Lightning Bug (Advanced Detainer)"
 
 ship "Shield Beetle" "Shield Beetle (Advanced Banish-Particle)"
 	add attributes
-		"self-destruct" 0.7
+		"self-destruct" 0.8
 	outfits
 		"Outfits Expansion" 4
 		"Hyperdrive"
@@ -1005,7 +1005,7 @@ ship "Shield Beetle" "Shield Beetle (Advanced Banish-Particle)"
 
 ship "Shield Beetle" "Shield Beetle (Advanced Durable Grab-Pulse)"
 	add attributes
-		"self-destruct" 0.7
+		"self-destruct" 0.8
 	outfits
 		"Outfits Expansion" 5
 		"Hyperdrive"

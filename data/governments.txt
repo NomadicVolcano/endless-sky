@@ -122,9 +122,9 @@ government "Hai Dissidents"
 		"Hai Joymakers" -.3
 	"bribe" .02
 	"friendly hail" "friendly hai dissident"
-	"friendly disabled hail" "friendly disabled hai dissident"
+	"friendly disabled hail" "disabled hai dissident"
 	"hostile hail" "hostile hai dissident"
-	"hostile disabled hail" "hostile disabled hai dissident"
+	"hostile disabled hail" "disabled hai dissident"
 
 government "Hai Joymakers"
 	swizzle 6

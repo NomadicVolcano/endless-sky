@@ -1471,3 +1471,89 @@ mission "Pirate Troubles [4]"
 		"reputation: Hai" += 40
 		payment 500000
 		dialog `With the freighters safely returned, the Hai thank you for resolving the situation with Scar's Legion and hand you <payment> for your help.`
+
+mission "Hai Dissidents: Leaflet"
+	name "Hai Dissident Wee-On to <planet>"
+	description "Take Wee-On to <destination> and evade advanced warships for 150,000 credits. Fine of 50,000 if caught."
+	illegal 50000
+	source
+		attributes hai
+	destination Darkwaste
+	passengers 1
+	cargo "sealed crates" 20
+	#to offer
+	#	has "event: war begins"
+	#	or
+	#		"combat rating" > 100
+	#		"armament deterrence" > 5000
+	#	random < 30
+	on offer
+		conversation
+			`As you walk through the spaceport, you see a few dozen Hai handing out leaflets. Many Hai police in riot gear barge in and arrest them. One of the leaflets falls on the ground next to you.`
+			choice
+				"	(Read it.)"
+				"	(Walk away.)"
+					decline
+			`The leaflet accuses the Hai government of mandating "harmony" and "nonviolence" by law. You had wondered how laws were enforced in a civilization with no jails. Even in this utopia, there will be crimes of passion, and the occasional sociopath. Yet, you have not seen such problems here.`
+			`	According to the leaflet, the Hai have an authoritarian oligarchy of elders who mandate harsh punishments. Human dissenters are exiled back to Human space. Hai dissenters are either sent to fight at Cloudfire or are exiled to Unfettered space. To prevent these problems, there are strict censorship laws, and unapproved political activities are banned.`
+			`	The leaflet calls for a peaceful uprising against the authoritarian elders, establishment of a democracy, and assurances of basic rights.`
+			`	As you leave the scene, a Hai in a dark alley beckons you.`
+			choice
+				"	(See what the Hai has to say.)"
+				"	(Walk away.)"
+					decline
+			`A Hai woman is surrounded by several large Hai who appear to have concealed weapons. She tells you, "I'm the leader of a local Hai Dissident cell. We need a good pilot to take one of our leaders to meet contacts on... other worlds.`
+			`	"The pay will be excellent, but the journey will be dangerous."`
+				goto "actual questions"
+			label questions
+			`"Do you have any more questions?"`
+			label "actual questions"
+			choice
+				`	"Is this illegal?"`
+					goto illegal
+				`	"I don't want to be a fugitive in Hai space."`
+					goto fugitive
+				`	"What is the danger?"`
+					goto danger
+				`	"Who is the passenger and how much will you pay me?"`
+					goto passenger
+				`	"I will not help you."`
+					decline
+				`	"Sounds good. Let's go."`
+					goto accept
+			label illegal
+			`"The man you will transport has committed no crime, except for speaking his mind in public. Transporting him is a misdemeanor, so you won't risk exile.  There is a small fine if you're caught: 50,000 credits."`
+				goto questions
+			label fugitive
+			`"This mission will not make you a fugitive.`
+			`	"To be a fugitive in Hai space, you need to be politically active, or commit violence against the state. Minor crimes won't carry severe penalties unless you're caught many times. All I'm asking you to do is transport someone, and that won't risk any legal trouble.`
+			`	"Your ship will be chased by Joymakers during the mission though, but they're chasing your passenger, not you."`
+			choice
+				`	"Who or what is a Joymaker?"`
+					goto danger
+				`	(Change the subject.)`
+					goto questions
+				`	"I will not help you."`
+					decline
+				`	"Sounds good. Let's go."`
+					goto accept
+			label danger
+			`"The Hai have an elite police force that fights existential threats to the regime. They're known by the euphemism, "Joymakers." They run "Joy Facilities" where people are brainwashed into being docile and sympathetic. You go in angry, and you come out elated. None of the Joymaker's victims remembers what happens in a Joy Facility.`
+			`	"For more serious threats, the Joymakers have powerful ships. They import Human weapons that are superior to our own. They also have a stash of Korath outfits leftover from the Hai-Korath war.`
+			`	"The Joymakers don't know about you yet, so you'll only have to dodge some of their smaller warships in this trip. In later missions, you'll need to survive Shield Beetles with advanced outfits."`
+				goto questions
+			label passenger
+			`"He is known as Professor Wee-On. He used to be a prominent doctor until he spoke out publicly against brainwashing. Now he is a fugitive and our top negotiator. We need you to smuggle him and his cargo to groups that are sympathetic to our political views.`
+			`	"Your payment will be 150,000 credits when he arrives on <planet>."`
+				goto questions
+			label accept
+			`"Excellent. The professor and his cargo are ready immediately. Your first destination is <destination>. You will need to dodge some Lightning Bugs and Grasshoppers equipped with advanced outfits."`
+				accept
+	npc
+		government "Hai Joymakers"
+		personality heroic vindictive nemesis staying
+		system "Fah Root"
+		fleet
+			variant
+				"Lightning Bug (Joymakers Banish-Particle)" 3
+				"Grasshopper (Joymakers Tracker)" 4

@@ -121,7 +121,7 @@ phrase "(hai dissident) kill (gently)"
 phrase Hai
 	word
 		Hai
-		Hai-Home
+		Hai-home
 
 phrase "(hai dissident) This rebellion will not end with my death!"
 	word
@@ -285,7 +285,7 @@ phrase "(hai dissident) Down with the establishment!"
 		"oppressive "
 		"evil "
 		"authoritarian "
-		"Hai-Home "
+		"Hai-home "
 		"totalitarian "
 		"censorship "
 		""
@@ -303,6 +303,7 @@ phrase "(hai dissident) government"
 		"establishment"
 		"dynasty"
 		"empire"
+		"elders"
 
 phrase "hai dissident ship names"
 	phrase
@@ -929,7 +930,7 @@ mission "Hai Illegal Media from Humans [2]"
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.07
 
-mission "Hai Illegal Media from Humans [2]"
+mission "Hai Illegal Media from Humans [3]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 75,000 credits if caught."
 	job
@@ -952,7 +953,7 @@ mission "Hai Illegal Media from Humans [2]"
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.07
 
-mission "Hai Illegal Media from Humans [3]"
+mission "Hai Illegal Media from Humans [4]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 80,000 credits if caught."
 	job
@@ -975,7 +976,7 @@ mission "Hai Illegal Media from Humans [3]"
 		dialog `The recipients thank you for helping them evade the oppressive Hai regime.`
 		"reputation: Hai Dissidents" += 0.07
 
-mission "Hai Illegal Media from Humans [4]"
+mission "Hai Illegal Media from Humans [5]"
 	name "Illegal Media to <planet>"
 	description "Take <cargo> to <destination> in violation of censorship laws for <payment>.  Fine is 85,000 credits if caught."
 	job
@@ -1039,24 +1040,24 @@ mission "Hai Dissident Colonists: Freedom"
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
-		system Wayfarer
+		system Waypoint
+		fleet "Hai Joymakers Small Advanced" 4
+	npc
+		government "Hai Joymakers"
+		personality heroic nemesis
+		system "Ya Hai"
 		fleet "Hai Joymakers Small Advanced" 2
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Small Advanced" 1
-	npc
-		government "Hai Joymakers"
-		personality heroic nemesis
-		system "Ya Hai"
-		fleet "Hai Joymakers Small Advanced" 1
+		fleet "Hai Joymakers Small Advanced" 2
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system Almaaz
-		fleet "Hai Joymakers Large Advanced" 1
-		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 
 mission "Hai Dissident Colony: Freedom"
 	name "Found a Colony on <planet>"
@@ -1096,25 +1097,25 @@ mission "Hai Dissident Colony: Freedom"
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
-		system Wayfarer
-		fleet "Hai Joymakers Large Advanced"
-		fleet "Hai Joymakers Small Advanced" 2
+		system Waypoint
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Large Advanced" 2
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Small Advanced" 3
+		fleet "Hai Joymakers Small Advanced" 6
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system Almaaz
-		fleet "Hai Joymakers Large Advanced" 2
-		fleet "Hai Joymakers Small Advanced" 3
+		fleet "Hai Joymakers Large Advanced" 4
+		fleet "Hai Joymakers Small Advanced" 6
 
 mission "Hai Dissident Colonists: New Argentina"
 	name "Dissident Colonists to <planet>"
@@ -1152,30 +1153,30 @@ mission "Hai Dissident Colonists: New Argentina"
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
-		system Wayfarer
-		fleet "Hai Joymakers Large Advanced"
-		fleet "Hai Joymakers Small Advanced" 2
+		system Waypoint
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system "Ultima Thule"
-		fleet "Hai Joymakers Large Advanced"
-		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Large Advanced" 2
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system Sol
-		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Large Advanced" 2
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
@@ -1185,8 +1186,8 @@ mission "Hai Dissident Colonists: New Argentina"
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system Vindemiatrix
-		fleet "Hai Joymakers Large Advanced"
-		fleet "Hai Joymakers Small Advanced" 3
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 6
 
 mission "Hai Dissident Colony: New Argentina"
 	name "Found a Colony on <planet>"
@@ -1222,45 +1223,45 @@ mission "Hai Dissident Colony: New Argentina"
 		"dissident colony failed" -= 2
 	on fail
 		dialog "The Hai Dissidents are disappointed at the loss of their colonists.  If you fail too many more times, they may no longer rely on you for these critical missions."
-		"dissident colony failed" +=5
+		"dissident colony failed" += 5
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
-		system Wayfarer
-		fleet "Hai Joymakers Large Advanced" 2
-		fleet "Hai Joymakers Small Advanced" 3
+		system Waypoint
+		fleet "Hai Joymakers Large Advanced" 4
+		fleet "Hai Joymakers Small Advanced" 6
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system "Ultima Thule"
-		fleet "Hai Joymakers Large Advanced" 2
-		fleet "Hai Joymakers Small Advanced" 3
+		fleet "Hai Joymakers Large Advanced" 4
+		fleet "Hai Joymakers Small Advanced" 6
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Large Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Small Advanced" 3
+		fleet "Hai Joymakers Small Advanced" 6
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system Sol
-		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Large Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system Sol
-		fleet "Hai Joymakers Small Advanced" 3
+		fleet "Hai Joymakers Small Advanced" 6
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system Vindemiatrix
-		fleet "Hai Joymakers Large Advanced" 3
-		fleet "Hai Joymakers Small Advanced" 5
+		fleet "Hai Joymakers Large Advanced" 6
+		fleet "Hai Joymakers Small Advanced" 10
 
 mission "Hai Dissident Colonists: Humanika"
 	name "Dissident Colonists to <planet>"
@@ -1298,47 +1299,47 @@ mission "Hai Dissident Colonists: Humanika"
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
-		system Wayfarer
-		fleet "Hai Joymakers Large Advanced"
-		fleet "Hai Joymakers Small Advanced" 2
+		system Waypoint
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system "Ultima Thule"
-		fleet "Hai Joymakers Large Advanced"
-		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system Tarazed
-		fleet "Hai Joymakers Large Advanced"
-		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Large Advanced" 2
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system Sol
-		fleet "Hai Joymakers Large Advanced"
+		fleet "Hai Joymakers Large Advanced" 2
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system Sol
-		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system Sadalmelik
-		fleet "Hai Joymakers Large Advanced"
-		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
 
 mission "Hai Dissident Colony: Humanika"
 	name "Found a Colony: <planet>"
@@ -1378,47 +1379,47 @@ mission "Hai Dissident Colony: Humanika"
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
-		system Wayfarer
-		fleet "Hai Joymakers Large Advanced" 2
-		fleet "Hai Joymakers Small Advanced" 3
+		system Waypoint
+		fleet "Hai Joymakers Large Advanced" 4
+		fleet "Hai Joymakers Small Advanced" 6
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system "Ultima Thule"
-		fleet "Hai Joymakers Large Advanced" 2
-		fleet "Hai Joymakers Small Advanced" 3
+		fleet "Hai Joymakers Large Advanced" 4
+		fleet "Hai Joymakers Small Advanced" 6
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system Tarazed
-		fleet "Hai Joymakers Large Advanced" 2
-		fleet "Hai Joymakers Small Advanced" 3
+		fleet "Hai Joymakers Large Advanced" 4
+		fleet "Hai Joymakers Small Advanced" 6
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Large Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system "Ya Hai"
-		fleet "Hai Joymakers Small Advanced" 3
+		fleet "Hai Joymakers Small Advanced" 6
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system Sol
-		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Large Advanced" 4
 	npc
 		government "Hai Joymakers"
 		personality heroic nemesis
 		system Sol
-		fleet "Hai Joymakers Small Advanced" 3
+		fleet "Hai Joymakers Small Advanced" 6
 	npc
 		government "Hai Joymakers"
 		personality heroic vindictive nemesis staying
 		system Sadalmelik
-		fleet "Hai Joymakers Large Advanced" 3
-		fleet "Hai Joymakers Small Advanced" 5
+		fleet "Hai Joymakers Large Advanced" 6
+		fleet "Hai Joymakers Small Advanced" 10
 
 
 ########################################################################
@@ -1554,7 +1555,7 @@ mission "Hai Dissident Strike Team"
 	job
 	repeat
 	name "Dissident Troops to <planet>"
-	description "Transport Hai Dissident troops to <destination> to capture a military facility for 700,000 credits. Capture is punishable by death."
+	description "Transport Hai Dissident troops to <destination> to capture a Joymaker facility for 700,000 credits. Capture is punishable by death."
 	illegal -1 "You see a wide-area broadcast message ordering your death on sight."
 	stealth
 	infiltrating
@@ -1574,9 +1575,9 @@ mission "Hai Dissident Strike Team"
 	npc
 		government "Hai Joymakers"
 		personality vindictive nemesis
-		planet Haihome
-		fleet "Hai Joymakers Small Advanced"
-		fleet "Hai Joymakers Large"
+		planet Hai-home
+		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Large" 2
 	on complete
 		"dissident colony failed" -= 0.2
 		payment 700000
@@ -1610,10 +1611,10 @@ mission "Hai Dissident Joymaker Bombing"
 	npc
 		government "Hai Joymakers"
 		personality vindictive nemesis
-		planet Haihome
-		fleet "Hai Joymakers Small Advanced"
-		fleet "Hai Joymakers Large" 2
-		fleet "Hai Joymakers Small Chase" 3
+		planet Hai-home
+		fleet "Hai Joymakers Small Advanced" 2
+		fleet "Hai Joymakers Large" 4
+		fleet "Hai Joymakers Small Chase" 6
 	on complete
 		payment 1000000
 		"reputation: Hai Dissidents" += 10
@@ -1638,6 +1639,7 @@ mission "Hai Dissident Joymaker WMD"
 	on visit
 		dialog "generic cargo and passenger on visit"
 	to offer
+		has "main plot completed"
 		has "event: Hai Dissident Movement Begins"
 		random < 30
 		"reputation: Hai Dissidents" > 800
@@ -1645,17 +1647,20 @@ mission "Hai Dissident Joymaker WMD"
 	npc
 		government "Hai Joymakers"
 		personality vindictive nemesis
-		planet Haihome
-		fleet "Hai Joymakers Large Advanced"
-		fleet "Hai Joymakers Small Advanced" 2
-		fleet "Hai Joymakers Large" 3
-		fleet "Hai Joymakers Small Chase" 4
+		planet Hai-home
+		fleet "Hai Joymakers Large Advanced" 2
+		fleet "Hai Joymakers Small Advanced" 4
+		fleet "Hai Joymakers Large" 6
+		fleet "Hai Joymakers Small Chase" 8
 	on complete
 		payment 2500000
 		"reputation: Hai Dissidents" += 15
 		dialog "The Hai dissidents thank you for helping the war against the oppressive Hai Dystopia."
 	on fail
 		"reputation: Hai" <?= -1000
+		"reputation: Free Worlds" <?= -1000
+		"reputation: Republic" <?= -1000
+		"reputation: Neutral" <?= -1000
 		
 mission "Hai Dissident Import WMD"
 	job
@@ -1673,6 +1678,7 @@ mission "Hai Dissident Import WMD"
 	on visit
 		dialog "generic cargo on visit"
 	to offer
+		has "main plot completed"
 		has "event: Hai Dissident Movement Begins"
 		random < 30
 		"reputation: Hai Dissidents" > 600
@@ -1680,13 +1686,18 @@ mission "Hai Dissident Import WMD"
 	npc
 		government "Hai Joymakers"
 		personality vindictive nemesis
-		planet Haihome
-		fleet "Hai Joymakers Large Advanced" 2
+		planet Hai-home
+		fleet "Hai Joymakers Large Advanced" 4
 	on complete
 		payment 1500000
 		"reputation: Hai Dissidents" += 15
 		dialog "The Hai dissidents thank you for helping the war against the oppressive Hai Dystopia."
 	on fail
 		"reputation: Hai" <?= -1000
+		"reputation: Free Worlds" <?= -1000
+		"reputation: Republic" <?= -1000
+		"reputation: Neutral" <?= -1000
+
+
 
 
