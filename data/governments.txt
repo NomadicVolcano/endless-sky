@@ -98,7 +98,7 @@ government "Free Worlds"
 	raid "pirate raid"
 
 government "Hai"
-	swizzle 5
+	swizzle 0
 	color .84 .42 .81
 	
 	"player reputation" 0
@@ -113,7 +113,7 @@ government "Hai"
 	"hostile disabled hail" "hostile disabled hai"
 
 government "Hai Dissidents"
-	swizzle 0
+	swizzle 5
 	color .52 .84 .41
 	
 	"player reputation" 10
