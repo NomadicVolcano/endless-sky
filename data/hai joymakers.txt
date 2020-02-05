@@ -1135,8 +1135,8 @@ mission "Joymaker Encounter: Death Metal"
 				`	(Leave.)`
 					decline
 			`A large number of Hai police officers in riot gear and gas masks enter the atrium. Each officer's shield is painted with a smiling face and an encouraging word above it: "Happiness," "Harmony," "Nonviolence," "Forgive." That is in stark contrast to the gas grenades and electrified stun prods they're holding.`
-				action
-					set "stayed for death metal concert"
+			apply
+				set "stayed for death metal concert"
 			`	You maneuver yourself to the edge of the crowd to appear as an unwitting bystander. The police block all exits from the room and arrest everyone, stunning or gassing anyone who tries to fight back or escape. They herd you into a cage with other concert-goers.`
 			choice
 				`	(Continue.)`
@@ -1145,9 +1145,9 @@ mission "Joymaker Encounter: Death Metal"
 			choice
 				`	(Continue.)`
 			`A Hai elder gives a speech about how Death Metal conflicts with society's needs for sympathy, forgiveness, and friendship. Everyone seems excited to agree, even the band members still wearing their corpse paint. You're surprised to find yourself cheering in elation; it's almost a reflex.`
-				apply
-					"hai joymaker punishments" ++
-					"noticed by dissidents" ++
+			apply
+				"hai joymaker punishments" ++
+				"noticed by dissidents" ++
 			`	It seems your experience in the Joymaker facility changed you more than you realize. Perhaps they used drugs and electroshock therapy, or a similar alien technique. The effect slowly dissipates over the next few hours, but you've learned a good lesson on censorship and enforcement among the Hai.`
 				decline
 
@@ -1173,9 +1173,9 @@ mission "Joymaker Encounter: Blues"
 			choice
 				`	(Continue.)`
 			`	After the concert ends, a Hai elder takes the stage, surrounded by a dozen riot police. He explains that Blues encourages depression among the populace, and can act as a gateway to worse behaviors. As punishment, he says, "Everyone in the concert will get a warning, except chronic offenders. They will learn to serve society in another way."`
-				apply
-					"hai joymaker punishments" ++
-					"noticed by dissidents" ++
+			apply
+				"hai joymaker punishments" ++
+				"noticed by dissidents" ++
 			`	Guards drag away three Hai who chant "Freedom!" while everyone else calmly files through the exit. You're handed a white card with a happy face on it. On the back, you see a list of venues with acceptable music, and a hotline to call if you're feeling depressed.`
 				decline
 
@@ -1202,9 +1202,9 @@ mission "Joymaker Encounter: Leaflet"
 			choice
 				`	(Continue.)`
 			`A guard sees you reading the leaflet. It appears they've been carefully picking up each one and putting it into a portable incinerator. You're arrested and brought to a holding area with other prisoners.`
-				apply
-					"hai joymaker punishments" ++
-					"noticed by dissidents" ++
+			apply
+				"hai joymaker punishments" ++
+				"noticed by dissidents" ++
 			`	The guards take you to a white room labeled in several languages, "Joymakers" and "Learn to be Happy!" You're forcefully strapped to a chair and you see various equipment surrounding you. A nurse walks in and exclaims, "They're supposed to be sedated first!" You feel a needle enter your arm and you lose consciousness.`
 			choice
 				`	(Continue.)`
