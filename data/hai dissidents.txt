@@ -14,6 +14,295 @@ outfitter "Hai Dissidents"
 	"Local Map"
 
 
+phrase "friendly hai dissident"
+	phrase
+		"(hai dissident) Help us fight for democracy!"
+		"(hai dissident) Down with the establishment!"
+
+phrase "hostile hai dissident"
+	phrase
+		"(hai dissident) Down with the establishment!"
+		"(hai dissident) The unstoppable rebellion will crush you!"
+		"(hai dissident) The unstoppable rebellion will crush you!"
+		"(hai dissident) Kill me if you want, but a thousand people will take my place!"
+
+phrase "disabled hai dissident"
+	phrase
+		"(hai dissident) This rebellion will not end with my death!"
+		"(hai dissident) Kill me if you want, but a thousand people will take my place!"
+		"(hai dissident) Kill me if you want, but a thousand people will take my place!"
+		"(hai dissident) Down with the establishment!"
+
+phrase "(hai dissident) The unstoppable rebellion will crush you!"
+	word
+		"This"
+		"My"
+		"Our"
+		"The"
+	word
+		" "
+	phrase
+		"(hai dissident) unstoppable (rebellion)"
+		"(hai dissident) unstoppable (rebellion)"
+		"(hai dissident) unstoppable (rebellion)"
+		Hai
+	word
+		" "
+	phrase
+		"(hai dissident) nouns that express democratic ideals"
+	word
+		" "
+	phrase
+		"(hai dissident) rebellion or rebels"
+	word
+		" will "
+	phrase
+		"(hai dissident) crush/destroy/mangle"
+	word
+		" you"
+	word
+		"!"
+		"."
+
+phrase "(hai dissident) crush/destroy/mangle"
+	word
+		crush
+		smash
+		dismember
+		destroy
+		mangle
+		annihilate
+		obliterate
+		atomize
+		pulverize
+		vaporize
+		end
+		mutilate
+		exterminate
+		eviscerate
+		decimate
+
+phrase "(hai dissident) Crush/Destroy/Mangle"
+	word
+		Crush
+		Smash
+		Dismember
+		Destroy
+		Mangle
+		Annihilate
+		Obliterate
+		Atomize
+		Pulverize
+		Vaporize
+		End
+		Mutilate
+		Exterminate
+		Eviscerate
+		Decimate
+
+phrase "(hai dissident) Kill (gently)"
+	word
+		Martyr
+		Kill
+		End
+		Destroy
+		Atomize
+		Vaporize
+
+phrase "(hai dissident) kill (gently)"
+	word
+		martyr
+		kill
+		end
+		destroy
+		atomize
+		vaporize
+
+phrase Hai
+	word
+		Hai
+		Hai-Home
+
+phrase "(hai dissident) This rebellion will not end with my death!"
+	word
+		"This"
+		"My"
+		"Our"
+		"The"
+	word
+		" "
+	phrase
+		"(hai dissident) unstoppable (rebellion)"
+		"(hai dissident) unstoppable (rebellion)"
+		"(hai dissident) unstoppable (rebellion)"
+		Hai
+	word
+		" "
+	phrase
+		"(hai dissident) nouns that express democratic ideals"
+	word
+		" "
+	phrase
+		"(hai dissident) rebellion or rebels"
+	word
+		" "
+	word
+		"will never end"
+		"will not end with me"
+		"will not end in my death"
+		"is eternal"
+	word
+		"!"
+		"."
+
+phrase "(hai dissident) rebellion or rebels"
+	word
+		rebellion
+		insurgency
+		revolution
+		movement
+		uprising
+		dissidents
+		rebels
+
+phrase "(hai dissident) unstoppable (rebellion)"
+	word
+		unstoppable
+		inevitable
+		unwavering"
+		relentless
+		unfaltering
+		invincible
+
+phrase "(hai dissident) Kill me if you want, but a thousand people will take my place!"
+	phrase
+		"(hai dissident) Kill me if you want, but"
+		"(hai dissident) For every soldier that falls"
+	word
+		" "
+	phrase
+		"(hai dissident) many more"
+	word
+		" "
+	phrase
+		"(hai dissident) will take my place"
+	word
+		"!"
+		"."
+
+phrase "(hai dissident) You might kill me, but"
+	phrase
+		"(hai dissident) You might kill (gently)"
+	word
+		" me, but"
+		" us, but"
+		" my crew, but"
+
+phrase "(hai dissident) Kill me if you want, but"
+	phrase
+		"(hai dissident) Kill (gently)"
+	word
+		" me "
+		" us "
+		" my crew "
+	word
+		"if you must"
+		"if you can"
+	word
+		", but"
+
+phrase "(hai dissident) You might kill (gently)"
+	word
+		"You may "
+		"You might "
+		"You could "
+	phrase
+		"(hai dissident) kill (gently)"
+
+phrase "(hai dissident) For every soldier that falls"
+	word
+		"For every martyr"
+		"For every one of us you kill"
+		"You may slay me, but"
+		"End me and"
+		"Your victory is futile because"
+
+phrase "(hai dissident) many more"
+	word
+		"a thousand more"
+		"hundreds more"
+		"myriads"
+		"numerous others"
+		"millions"
+
+phrase "(hai dissident) will take my place"
+	word
+		"will rise up"
+		"will join the battle"
+		"will join the fight"
+		"shall rebel"
+	word
+		" to replace me"
+		" in my place"
+		" to take my place"
+		" in my wake"
+
+phrase "(hai dissident) Help/Join us"
+	word
+		"Help us"
+		"We will"
+		"Join us and"
+
+phrase "(hai dissident) Help us fight for democracy!"
+	phrase
+		"(hai dissident) Help/Join us"
+	word
+		" "
+	phrase
+		"(hai dissident) fight"
+		"(hai dissident) strive/seek"
+	word
+		" for "
+	phrase
+		"(hai dissident) nouns that express democratic ideals"
+	word
+		". "
+		"! "
+
+phrase "Down with"
+	word
+		"Down with"
+
+phrase "(hai dissident) Down with the establishment!"
+	phrase
+		"Down with"
+		"(hai dissident) Crush/Destroy/Mangle"
+		"(hai dissident) Fight"
+	word
+		" the "
+	word
+		"Hai "
+		"oppressive "
+		"evil "
+		"authoritarian "
+		"Hai-Home "
+		"totalitarian "
+		"censorship "
+		""
+		""
+	phrase
+		"(hai dissident) government"
+	word
+		"!"
+
+phrase "(hai dissident) government"
+	word
+		"regime"
+		"dystopia"
+		"government"
+		"establishment"
+		"dynasty"
+		"empire"
 
 phrase "hai dissident ship names"
 	phrase
@@ -25,7 +314,7 @@ phrase "hai dissident ship names"
 
 phrase "(hai dissident) Democratic Ideal!"
 	phrase
-		"(hai dissident) nouns that express democratic ideals"
+		"(hai dissident) Nouns that express democratic ideals"
 	word
 		"!"
 
@@ -50,7 +339,7 @@ phrase "(hai dissident) for a Long Time"
 
 phrase "(hai dissident) Crime Committer"
 	phrase
-		"(hai dissident) nouns that express democratic ideals"
+		"(hai dissident) Nouns that express democratic ideals"
 	word
 		" "
 	phrase
@@ -72,10 +361,16 @@ phrase "(hai dissident) Fight/Die for Freedom"
 	word
 		" "
 	phrase
-		"(hai dissident) nouns that express democratic ideals"
+		"(hai dissident) Nouns that express democratic ideals"
 	word
 		"!"
 		""
+
+phrase "(hai dissident) fight"
+	word
+		"fight"
+		"battle"
+		"strike"
 
 phrase "(hai dissident) Fight"
 	word
@@ -84,11 +379,22 @@ phrase "(hai dissident) Fight"
 		"Strike"
 		"Resist"
 
+phrase "(hai dissident) strive/seek"
+	word
+		"strive"
+		"struggle"
+
 phrase "(hai dissident) Die"
 	word
 		"Die"
 		"Perish"
 		"Martyr"
+
+phrase "(hai dissident) die"
+	word
+		"die"
+		"perish"
+		"martyr"
 
 phrase "(hai dissident) Fight/Die for"
 	phrase
@@ -97,9 +403,16 @@ phrase "(hai dissident) Fight/Die for"
 	word
 		" for"
 
+phrase "(hai dissident) fight/die for"
+	phrase
+		"(hai dissident) fight"
+		"(hai dissident) die"
+	word
+		" for"
+
 phrase "(hai dissident) Freedom is Going to Happen"
 	phrase
-		"(hai dissident) nouns that express democratic ideals"
+		"(hai dissident) Nouns that express democratic ideals"
 	word
 		" "
 	phrase
@@ -108,7 +421,7 @@ phrase "(hai dissident) Freedom is Going to Happen"
 		"!"
 		""
 
-phrase "(hai dissident) nouns that express democratic ideals"
+phrase "(hai dissident) Nouns that express democratic ideals"
 	word
 		"Freedom"
 		"Liberty"
@@ -121,6 +434,20 @@ phrase "(hai dissident) nouns that express democratic ideals"
 		"Reconciliation"
 		"Equality"
 		"Representation"
+
+phrase "(hai dissident) nouns that express democratic ideals"
+	word
+		"freedom"
+		"liberty"
+		"justice"
+		"unionization"
+		"unification"
+		"truth"
+		"democracy"
+		"free speech"
+		"reconciliation"
+		"equality"
+		"representation"
 		
 
 phrase "(hai dissident) is Going to Happen"
@@ -136,6 +463,20 @@ phrase "(hai dissident) is Going to Happen"
 		"or Death"
 		"or War"
 		"or Martyrdom"
+
+phrase "(hai dissident) is going to happen"
+	word
+		"is eternal"
+		"is sacrosanct"
+		"is life"
+		"is indomitable"
+		"is inevitable"
+		"is fated"
+		"cannot be stopped"
+		"cannot be denied"
+		"or death"
+		"or war"
+		"or martyrdom"
 
 
 fleet "Hai Dissident Small"

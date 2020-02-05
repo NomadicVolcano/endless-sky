@@ -48,8 +48,7 @@ event "Hai Dissident Movement Begins"
 		fleet "Hai Joymakers Large" 10000
 
 	# Major presence of all groups in Wah Ki including some rare
-	# Tier 2 Joymakers.  A few more Unfettered to re-balance
-	# things:
+	# Tier 2 Joymakers.  A few more Unfettered to balance things:
 	system "Wah Ki"
 		fleet "Small Hai" 1200
 		fleet "Large Hai" 500
@@ -283,28 +282,31 @@ fleet "Hai Joymakers Small"
 		heroic disables plunders
 		confusion 20
 	variant 2
-		"Shield Beetle (Joymakers Particle)"
-		"Grasshopper (Joymakers Particle)" 4
-	variant 2
-		"Shield Beetle (Joymakers Thrower)"
-		"Grasshopper (Joymakers Tracker)" 4
-	variant 2
 		"Lightning Bug (Joymakers Pulse)" 2
-		"Lightning Bug (Joymakers Banish-Particle)" 2
 	variant 1
-		"Shield Beetle (Joymakers Tracker)"
-		"Shield Beetle (Joymakers Thrower)"
+		"Lightning Bug (Joymakers Pulse)"
 	variant 1
-		"Lightning Bug (Joymakers Banish-Particle)" 4
-		"Grasshopper (Joymakers Tracker)" 7
+		"Lightning Bug (Joymakers Banish-Particle)"
 	variant 2
-		"Grasshopper (Joymakers Tracker)" 4
-		"Shield Beetle (Joymakers Tracker)"
+		"Lightning Bug (Joymakers Pulse)"
+		"Lightning Bug (Joymakers Banish-Particle)"
+	variant 2
 		"Lightning Bug (Joymakers Banish-Particle)" 2
+	variant 3
+		"Lightning Bug (Joymakers Banish-Particle)" 3
+	variant 2
+		"Grasshopper (Joymakers Particle)" 3
+		"Lightning Bug (Joymakers Pulse)"
+	variant 2
+		"Grasshopper (Joymakers Particle)" 3
+		"Grasshopper (Joymakers Tracker)" 3
+	variant 2
+		"Grasshopper (Joymakers Tracker)" 3
+		"Lightning Bug (Joymakers Banish-Particle)"
 
 
 # Small Joymaker fleets for traveling to Human space.  You need 6 fuel
-# or the AI gets confused, so the non-advanced Grasshopper cannot chase
+# or the AI gets confused, so the non-advanced Grasshoppers cannot chase
 fleet "Hai Joymakers Small Chase"
 	government "Hai Joymakers"
 	names "joymakers ship names"
@@ -313,17 +315,18 @@ fleet "Hai Joymakers Small Chase"
 		heroic disables plunders
 		confusion 20
 	variant 2
-		"Shield Beetle (Joymakers Particle)"
 		"Lightning Bug (Joymakers Pulse)" 2
-	variant 2
-		"Shield Beetle (Joymakers Thrower)"
-		"Lightning Bug (Joymakers Banish-Particle)" 2
-	variant 2
-		"Shield Beetle (Joymakers Tracker)"
-		"Lightning Bug (Joymakers Banish-Particle)" 2
 	variant 1
-		"Shield Beetle (Joymakers Tracker)"
-		"Shield Beetle (Joymakers Thrower)"
+		"Lightning Bug (Joymakers Pulse)"
+	variant 1
+		"Lightning Bug (Joymakers Banish-Particle)"
+	variant 2
+		"Lightning Bug (Joymakers Pulse)"
+		"Lightning Bug (Joymakers Banish-Particle)"
+	variant 2
+		"Lightning Bug (Joymakers Banish-Particle)" 2
+	variant 3
+		"Lightning Bug (Joymakers Banish-Particle)" 3
 
 fleet "Hai Joymakers Large"
 	government "Hai Joymakers"
@@ -332,30 +335,25 @@ fleet "Hai Joymakers Large"
 	personality
 		heroic disables plunders
 		confusion 20
-	variant 1
-		"Shield Beetle (Joymakers Particle)" 2
-		"Shield Beetle (Joymakers Tracker)" 3
-	variant 1
-		"Shield Beetle (Joymakers Thrower)" 5
-	variant 1
-		"Shield Beetle (Joymakers Thrower)" 3
-		"Shield Beetle (Joymakers Tracker)" 3
-	variant 2
-		"Shield Beetle (Joymakers Particle)"
-		"Shield Beetle (Joymakers Thrower)"
-		"Shield Beetle (Joymakers Tracker)"
-		"Lightning Bug (Joymakers Banish-Particle)" 3
-		"Lightning Bug (Joymakers Pulse)" 3
-	variant 2
-		"Shield Beetle (Joymakers Tracker)" 2
-		"Lightning Bug (Joymakers Banish-Particle)" 4
-		"Lightning Bug (Joymakers Pulse)" 4
 	variant 2
 		"Shield Beetle (Joymakers Particle)" 2
-		"Lightning Bug (Joymakers Pulse)" 8
 	variant 2
 		"Shield Beetle (Joymakers Thrower)" 2
-		"Lightning Bug (Joymakers Banish-Particle)" 8
+	variant 1
+		"Shield Beetle (Joymakers Tracker)" 2
+	variant 1
+		"Shield Beetle (Joymakers Particle)"
+		"Lightning Bug (Joymakers Banish-Particle)" 2
+	variant 1
+		"Shield Beetle (Joymakers Thrower)"
+		"Lightning Bug (Joymakers Banish-Particle)" 2
+	variant 1
+		"Shield Beetle (Joymakers Tracker)"
+		"Lightning Bug (Joymakers Pulse)" 2
+	variant 1
+		"Shield Beetle (Joymakers Tracker)"
+		"Lightning Bug (Joymakers Banish-Particle)" 3
+
 
 fleet "Hai Joymakers Small Advanced"
 	government "Hai Joymakers"
@@ -365,23 +363,28 @@ fleet "Hai Joymakers Small Advanced"
 		heroic disables plunders
 		confusion 20
 	variant 2
-		"Grasshopper (Advanced Repeater)" 10
-		"Lightning Bug (Advanced Detainer)" 3
-	variant 2
-		"Lightning Bug (Advanced Detainer)" 3
-		"Lightning Bug (Advanced Repeater)" 3
-	variant 2
-		"Shield Beetle (Advanced Banish-Particle)"
+		"Grasshopper (Advanced Repeater)" 4
 		"Lightning Bug (Advanced Detainer)" 2
 	variant 2
-		"Shield Beetle (Advanced Durable Grab-Pulse)"
-		"Grasshopper (Advanced Repeater)" 8
+		"Grasshopper (Advanced Repeater)" 7
+		"Lightning Bug (Advanced Detainer)"
 	variant 2
-		"Shield Beetle (Advanced Ion Cannon)"
+		"Lightning Bug (Advanced Detainer)"
 		"Lightning Bug (Advanced Repeater)" 2
 	variant 2
-		"Shield Beetle (Joymakers Thrower)" 1
-		"Lightning Bug (Advanced Detainer)" 3
+		"Lightning Bug (Advanced Detainer)"
+		"Lightning Bug (Joymakers Banish-Particle)" 2
+	variant 2
+		"Lightning Bug (Advanced Repeater)" 2
+		"Grasshopper (Advanced Repeater)" 4
+	variant 1
+		"Lightning Bug (Advanced Repeater)"
+		"Lightning Bug (Joymakers Banish-Particle)"
+	variant 1
+		"Lightning Bug (Advanced Detainer)" 2
+	variant 1
+		"Grasshopper (Advanced Repeater)" 10
+	
 
 fleet "Hai Joymakers Large Advanced"
 	government "Hai Joymakers"
@@ -391,46 +394,46 @@ fleet "Hai Joymakers Large Advanced"
 		heroic disables plunders
 		confusion 20
 	variant 2
-		"Shield Beetle (Joymakers Thrower)" 4
-		"Shield Beetle (Joymakers Tracker)" 4
+		"Shield Beetle (Joymakers Thrower)"
+		"Shield Beetle (Joymakers Tracker)" 2
 	variant 2
-		"Shield Beetle (Advanced Ion Cannon)" 3
-		"Grasshopper (Advanced Repeater)" 16
-	variant 2
-		"Shield Beetle (Advanced Durable Grab-Pulse)" 2
-		"Shield Beetle (Joymakers Tracker)" 4
-	variant 2
-		"Shield Beetle (Advanced Banish-Particle)" 3
-		"Lightning Bug (Joymakers Banish-Particle)" 8
-	variant 2
-		"Shield Beetle (Advanced Ion Cannon)" 3
-		"Lightning Bug (Advanced Detainer)" 4
-		"Grasshopper (Advanced Repeater)" 12
-	variant 1
 		"Shield Beetle (Advanced Ion Cannon)" 2
-		"Shield Beetle (Advanced Durable Grab-Pulse)" 2
-		"Shield Beetle (Joymakers Tracker)" 3
-	variant 2
-		"Shield Beetle (Joymakers Tracker)" 4
-		"Lightning Bug (Advanced Detainer)" 8
 		"Grasshopper (Advanced Repeater)" 10
 	variant 2
-		"Shield Beetle (Advanced Durable Grab-Pulse)" 5
+		"Shield Beetle (Advanced Durable Grab-Pulse)"
+		"Shield Beetle (Joymakers Tracker)" 2
+	variant 2
+		"Shield Beetle (Advanced Banish-Particle)" 2
+		"Lightning Bug (Joymakers Banish-Particle)" 5
+	variant 2
+		"Shield Beetle (Advanced Ion Cannon)" 2
+		"Lightning Bug (Advanced Detainer)" 3
+		"Grasshopper (Advanced Repeater)" 8
 	variant 1
-		"Shield Beetle (Advanced Durable Grab-Pulse)" 4
-		"Lightning Bug (Advanced Repeater)" 8
+		"Shield Beetle (Advanced Ion Cannon)"
+		"Shield Beetle (Advanced Durable Grab-Pulse)"
+		"Shield Beetle (Joymakers Tracker)"
+	variant 2
+		"Shield Beetle (Joymakers Tracker)" 2
+		"Lightning Bug (Advanced Detainer)" 5
+		"Grasshopper (Advanced Repeater)" 8
 	variant 2
 		"Shield Beetle (Advanced Durable Grab-Pulse)" 2
-		"Shield Beetle (Advanced Ion Cannon)" 2
+	variant 1
+		"Shield Beetle (Advanced Durable Grab-Pulse)" 2
+		"Lightning Bug (Advanced Repeater)" 5
+	variant 2
+		"Shield Beetle (Advanced Durable Grab-Pulse)"
+		"Shield Beetle (Advanced Ion Cannon)"
 		"Lightning Bug (Advanced Repeater)" 4
 	variant 1
 		"Shield Beetle (Advanced Ion Cannon)" 3
-		"Lightning Bug (Advanced Detainer)" 5
-		"Lightning Bug (Advanced Repeater)" 5
+		"Lightning Bug (Advanced Detainer)" 2
+		"Lightning Bug (Advanced Repeater)" 2
 	variant 2
-		"Lightning Bug (Advanced Repeater)" 6
-		"Lightning Bug (Advanced Detainer)" 6
-		"Lightning Bug (Joymakers Banish-Particle)" 6
+		"Lightning Bug (Advanced Repeater)" 4
+		"Lightning Bug (Advanced Detainer)" 4
+		"Lightning Bug (Joymakers Banish-Particle)" 4
 
 ########################################################################
 
@@ -441,7 +444,7 @@ phrase "joymaker ship names"
 	phrase
 		"(joymakers) Hugbringer"
 		"(joymakers) Hug of Death"
-		"(joymakers) Death Hug"
+		"(joymakers) Deadly Hug"
 		"(joymakers) Deadly Hugger"
 		"(joymakers) Bringer of Deadly Hugs"
 		"(joymakers) Bringer of Deadly Hugs"
@@ -474,9 +477,9 @@ phrase "(joymakers) Hug of Death"
 	phrase
 		"(joymakers) unfortunate state of being"
 		
-phrase "(joymakers) Death Hug"
+phrase "(joymakers) Deadly Hug"
 	phrase
-		"(joymakers) unfortunate state of being"
+		"(joymakers) final/deadly"
 	word
 		" "
 	phrase
@@ -536,6 +539,8 @@ phrase "(joymakers) final/deadly"
 		Unstoppable
 		Fatal
 		Toxic
+		Excruciating
+		Gruesome
 
 phrase "(joymakers) happy plural events or state of being"
 	word
@@ -630,11 +635,11 @@ phrase "hostile disabled joymakers apology"
 	word
 		`I'm sorry for `
 		`I apologize for `
-		`I am saddened at `
+		`Please forgive me for `
 	word
-		`my failure to `
 		`failing to `
 		`my inability to `
+		`being unable to `
 	word
 		`end your `
 		`terminate your `
