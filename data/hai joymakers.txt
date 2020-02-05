@@ -1122,6 +1122,8 @@ mission "Joymaker Encounter: Death Metal"
 		not "joined hai dissidents"
 	on offer
 		conversation
+			apply
+				"noticed by dissidents" ++
 			`When you enter the spaceport, you hear a loud, deep, noise that sounds like a combination of guitars and guttural yelling. There is a beat so loud you can feel the ground shake.`
 			choice
 				`	(Investigate.)`
@@ -1132,21 +1134,24 @@ mission "Joymaker Encounter: Death Metal"
 				`	(Stay and see what happens.)`
 				`	(Leave.)`
 					decline
-			`A large number of Hai police officers in riot gear and gas masks enter the atrium. Each officer's shield is painted white with a smiling face and an encouraging word above it: "Happiness," "Sympathize," "Conform," "Forgive." That is in stark contrast to the gas grenades and electrified stun prods they're holding.`
-				set "stayed for death metal concert"
+			`A large number of Hai police officers in riot gear and gas masks enter the atrium. Each officer's shield is painted with a smiling face and an encouraging word above it: "Happiness," "Harmony," "Nonviolence," "Forgive." That is in stark contrast to the gas grenades and electrified stun prods they're holding.`
+				action
+					set "stayed for death metal concert"
 			`	You maneuver yourself to the edge of the crowd to appear as an unwitting bystander. The police block all exits from the room and arrest everyone, stunning or gassing anyone who tries to fight back or escape. They herd you into a cage with other concert-goers.`
 			choice
 				`	(Continue.)`
-			`A truck carries your cage to a white building with a giant smiling face on it. On the building you see the words, "Joymaker" and, "Learn to be Happy!" The last thing you remember is a thick mist, a strange smell, and a bright green light.`
-			`	What feels like moments later, you are back in the spaceport being served a "happiness buffet" accompanied by a lecture by a Hai elder. Looking at your arms, you see several scars from needles, and burns from electric shocks, though you can't remember receiving them. Checking your watch, you notice seven hours have passed since you entered the "Joymaker" building.`
+			`A truck carries your cage to a white building with a giant smiling face on it. On the building you see the words, "Joymaker" and, "Learn to be Happy!" in several languages. The last thing you remember is a thick mist, a strange smell, and a bright green light.`
+			`	What feels like moments later, you are back in the spaceport being served a delicious "Happiness Buffet" accompanied by a lecture by a Hai elder. Looking at your arms, you see several scars from needles, and burns from electric shocks, though you can't remember receiving them. Checking the time, you notice seven hours have passed since the concert ended.`
 			choice
 				`	(Continue.)`
-			`A Hai elder gives a speech about how Death Metal conflicts with society's needs for sympathy, forgiveness, and friendship. Everyone seems excited to agree, even the band members still wearing their corpse paint. You cheer in elation, though you can't understand why.`
-				"hai joymaker punishments" ++
+			`A Hai elder gives a speech about how Death Metal conflicts with society's needs for sympathy, forgiveness, and friendship. Everyone seems excited to agree, even the band members still wearing their corpse paint. You're surprised to find yourself cheering in elation; it's almost a reflex.`
+				apply
+					"hai joymaker punishments" ++
+					"noticed by dissidents" ++
 			`	It seems your experience in the Joymaker facility changed you more than you realize. Perhaps they used drugs and electroshock therapy, or a similar alien technique. The effect slowly dissipates over the next few hours, but you've learned a good lesson on censorship and enforcement among the Hai.`
 				decline
 
-mission "Joymaker Encounter: Jazz"
+mission "Joymaker Encounter: Blues"
 	invisible
 	source
 		attributes hai
@@ -1156,18 +1161,22 @@ mission "Joymaker Encounter: Jazz"
 		has "Joymaker Encounter: Death Metal: declined"
 	on offer
 		conversation
+			apply
+				"noticed by dissidents" ++
 			`As you walk into the main area of the spaceport, you hear a saxophone playing in a nearby auditorium. It sounds like a Blues concert.`
 			choice
 				`	(Investigate.)`
 				`	(Ignore it.)`
 					decline
-			`You walk to the concert hall and notice two doors: entrance and exit. You walk to the entrance and the Hai selling tickets lets you through for free. He explains, "We waive the 3 credit charge for first-time concert-goers."
-			`	You enjoy the music for an hour or so when you notice riot police start showing up. They are blocking the exit, and letting nobody out through the entrance. Other concert-goers seem unconcerned.`
+			`You walk to the concert hall and notice two doors: entrance and exit. You walk to the entrance and the Hai selling tickets lets you through for free. He explains, "We waive the 3 credit charge for first-time concert-goers."`
+			`	You enjoy the music for an hour or so when you notice riot police start showing up. They are blocking the exit, and letting nobody out through the entrance. New concert-goers are allowed in though. Nobody seem unconcerned.`
 			choice
 				`	(Continue.)`
-			`	After the concert ends, a Hai elder takes the stage. He explains that Blues encourages depression among the populace, and can act as a gateway to worse behaviors. As punishment, he says, "Everyone in the concert will get a warning, except chronic offenders. They will learn to serve society in another way."`
-				"hai joymaker punishments" ++
-			`	Three Hai in the concert hall are dragged off screaming, while the rest calmly file through the exit. You're handed a white card with a happy face on it. On the back, you see a list of laws you broke, and a hotline to call if you're feeling depressed.`
+			`	After the concert ends, a Hai elder takes the stage, surrounded by a dozen riot police. He explains that Blues encourages depression among the populace, and can act as a gateway to worse behaviors. As punishment, he says, "Everyone in the concert will get a warning, except chronic offenders. They will learn to serve society in another way."`
+				apply
+					"hai joymaker punishments" ++
+					"noticed by dissidents" ++
+			`	Guards drag away three Hai who chant "Freedom!" while everyone else calmly files through the exit. You're handed a white card with a happy face on it. On the back, you see a list of venues with acceptable music, and a hotline to call if you're feeling depressed.`
 				decline
 
 mission "Joymaker Encounter: Leaflet"
@@ -1177,9 +1186,11 @@ mission "Joymaker Encounter: Leaflet"
 	to offer
 		random < 30
 		not "joined hai dissidents"
-		has "Joymaker Encounter: Jazz: declined"
+		has "Joymaker Encounter: Blues: declined"
 	on offer
 		conversation
+			apply
+				"noticed by dissidents" ++
 			`As you walk through the spaceport, you see a few dozen Hai handing out leaflets. Many Hai police in riot gear barge in and arrest them. The prisoners don't resist, and the guards promise to "make them happy." One of the leaflets falls on the ground next to you.`
 			choice
 				"	(Read it.)"
@@ -1190,11 +1201,13 @@ mission "Joymaker Encounter: Leaflet"
 			`	The leaflet calls for a peaceful uprising against the authoritarian elders, establishment of a democracy, and assurances of basic rights.`
 			choice
 				`	(Continue.)`
-			`A guard sees you reading the leaflet. It appears they've been carefully picking up each one and putting it in a bag labeled, "incinerate." You're arrested and brought to a holding area with the other prisoners.`
-				"hai joymaker punishments" ++
-			`	The guards take you to a white room labeled "Joymakers" and "Learn to be Happy!" You're forcefully strapped to a chair and you see various equipment surrounding you. A nurse walks in and exclaims, "They're supposed to be sedated first!" You feel a needle enter your arm and you lose consciousness.`
+			`A guard sees you reading the leaflet. It appears they've been carefully picking up each one and putting it into a portable incinerator. You're arrested and brought to a holding area with other prisoners.`
+				apply
+					"hai joymaker punishments" ++
+					"noticed by dissidents" ++
+			`	The guards take you to a white room labeled in several languages, "Joymakers" and "Learn to be Happy!" You're forcefully strapped to a chair and you see various equipment surrounding you. A nurse walks in and exclaims, "They're supposed to be sedated first!" You feel a needle enter your arm and you lose consciousness.`
 			choice
 				`	(Continue.)`
-			`	You awaken hours later at the entrance to your spaceship feeling happier than you've ever felt in your life. You have several new scars, and you can barely remember the leaflet, but you don't mind. Every color in the room feels so bright, you're excited to be alive, and you feel stronger than ever!`
+			`	You awaken hours later at the entrance to your spaceship feeling happier than you've ever felt in your life. You have several new scars, and you can barely remember the leaflet, but you don't mind. Every color in the room feels so bright, you're excited to be alive, and you feel better than ever!`
 			`	Or perhaps you're just high from the drugs.`
 				decline
