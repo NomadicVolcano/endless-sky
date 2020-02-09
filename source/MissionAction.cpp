@@ -163,8 +163,6 @@ void MissionAction::Load(const DataNode &node, const string &missionName)
 		trigger = node.Token(1);
 	if(node.Size() >= 3)
 		system = node.Token(2);
-    if(node.Size() >= 2)
-        shipName = node.Token(2);
 
 	for(const DataNode &child : node)
 	{
@@ -207,20 +205,22 @@ void MissionAction::Load(const DataNode &node, const string &missionName)
         else if(key == "ship" && hasValue)
 		{
 			std::cout << "ship hasvalue\n";
-			string shipName = child.Token(2);
+			string shipName;
 			string modelName = child.Token(1);
+            if(child.Size() >= 2)
+                shipName = child.Token(2);
+
 			const Ship *model = GameData::Ships().Get(modelName);
 
 			std::cout << "modelName:" << modelName << "\n";
 
-			if (child.Token(2).empty())
-				shipName = GameData::Phrases().Get("civilian")->Get();
+			if(child.Size() <= 2)
+                shipName = GameData::Phrases().Get("civilian")->Get();
 			else if(!child.Token(2).empty())
             {
                 shipName = child.Token(2);
-            }
-            else
                 child.PrintTrace("Uh Oh");
+            }
 
             //cerr<<child.Token(2)<<endl;
 			std::cout << "shipName:" << shipName << "\n";
@@ -238,7 +238,7 @@ void MissionAction::Load(const DataNode &node, const string &missionName)
 			/*giftShips.back()->Disable();
 			giftShips.back()->RequiredCrew();
 			giftShips.back()->SetName(shipName);
-			/*giftShips.back()->SetIsSpecial();
+			giftShips.back()->SetIsSpecial();
 			giftShips.back()->SetIsYours();
 			giftShips.back()->SetGovernment(GameData::PlayerGovernment());*/
 			std::cout << "giftShips.size()" << giftShips.size() << "\n";
@@ -575,10 +575,8 @@ MissionAction MissionAction::Instantiate(map<string, string> &subs, const System
     {
         result.giftShips.push_back(ship);//shared_ptr<Ship>(new Ship()));
         result.giftShips.back()->SetSystem(origin);
-        crew result.giftShips.back()->Attributes().Get("bunks") - result.giftShips.back()->RequiredCrew();
         result.giftShips.back()->SetGovernment(GameData::PlayerGovernment());
         result.giftShips.back()->Disable();
-        //result.giftShips.back()->AddCrew(RequiredCrew());
 
     }
 	//result.giftShips = giftShips;
