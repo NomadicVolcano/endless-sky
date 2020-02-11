@@ -828,15 +828,32 @@ void PlayerInfo::AddShip(const shared_ptr<Ship> &ship)
 
 
 
-// Buy a ship of the given model, and give it the given name.
-void PlayerInfo::BuyShip(const Ship *model, const string &name)
+// Charge the player the cost of a ship and give it the specified name:
+void PlayerInfo::BuyShip(const Ship *model, const std::string &name)
+{
+	ReceiveShip(model,name,DEFAULT_COST,true);
+}
+
+
+
+// Receive a ship as a gift
+shared_ptr<Ship> PlayerInfo::GiftShip(const Ship *model, const std::string &name, bool record_depriciation)
+{
+	return ReceiveShip(model,name,0,record_depriciation);
+}
+
+
+
+// Purchase or receive a gift of a ship of the given model and name
+shared_ptr<Ship> PlayerInfo::ReceiveShip(const Ship *model, const string &name,int64_t cost,bool record_depriciation)
 {
 	if(!model)
-		return;
+		return nullptr;
 	
 	int day = date.DaysSinceEpoch();
-	int64_t cost = stockDepreciation.Value(*model, day);
-	if(accounts.Credits() >= cost)
+	if(cost == DEFAULT_COST)
+		cost = stockDepreciation.Value(*model, day);
+	if(cost <= 0 || accounts.Credits() >= cost)
 	{
 		ships.push_back(shared_ptr<Ship>(new Ship(*model)));
 		ships.back()->SetName(name);
@@ -846,14 +863,20 @@ void PlayerInfo::BuyShip(const Ship *model, const string &name)
 		ships.back()->SetIsYours();
 		ships.back()->SetGovernment(GameData::PlayerGovernment());
 		
-		accounts.AddCredits(-cost);
+		if(cost)
+			accounts.AddCredits(-cost);
 		flagship.reset();
 		
 		// Record the transfer of this ship in the depreciation and stock info.
-		depreciation.Buy(*model, day, &stockDepreciation);
-		for(const auto &it : model->Outfits())
-			stock[it.first] -= it.second;
+		if(record_depriciation)
+		{
+			depreciation.Buy(*model, day, &stockDepreciation);
+			for(const auto &it : model->Outfits())
+				stock[it.first] -= it.second;
+		}
+		return ships.back();
 	}
+	return nullptr;
 }
 
 

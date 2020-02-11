@@ -28,6 +28,7 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 #include <string>
 #include <utility>
 #include <vector>
+#include <limits>
 
 class Government;
 class Outfit;
@@ -121,8 +122,9 @@ public:
 	std::map<const std::shared_ptr<Ship>, const std::string> FlightCheck() const;
 	// Add a captured ship to your fleet.
 	void AddShip(const std::shared_ptr<Ship> &ship);
-	// Buy or sell a ship.
+	// Buy a ship, receive a gifted ship, or sell a ship.
 	void BuyShip(const Ship *model, const std::string &name);
+	std::shared_ptr<Ship> GiftShip(const Ship *model, const std::string &name, bool record_depriciation);
 	void SellShip(const Ship *selected);
 	void DisownShip(const Ship *selected);
 	void ParkShip(const Ship *selected, bool isParked);
@@ -246,6 +248,9 @@ public:
 	
 	
 private:
+	// Internal implementation of BuyShip and GiftShip
+	std::shared_ptr<Ship> ReceiveShip(const Ship *model, const std::string &name,int64_t cost,bool record_depriciation);
+	
 	// Don't allow anyone else to copy this class, because pointers won't get
 	// transferred properly.
 	PlayerInfo(const PlayerInfo &) = default;
@@ -269,7 +274,11 @@ private:
 	
 	// Check that this player's current state can be saved.
 	bool CanBeSaved() const;
-	
+
+public:
+	// Special value sent to ReceiveShip to tell it to use the ship cost from
+	// the game data files:
+	static const int64_t DEFAULT_COST=std::numeric_limits<int64_t>::min();
 	
 private:
 	std::string firstName;

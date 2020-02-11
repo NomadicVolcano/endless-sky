@@ -34,17 +34,23 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 using namespace std;
 
 namespace {
-	void DoGiftShip(PlayerInfo &player, const std::shared_ptr<Ship> &ship, UI *ui)
+	void DoGiftShip(PlayerInfo &player, const std::string &modelName, const std::string &name, UI *ui)
 	{
+		cerr<<"DO GIFT SHIP "<<modelName<<" "<<name<<endl;
+		const Ship *model = GameData::Ships().Get(modelName);
+		
+		string shipName=name;
+		if(shipName.empty())
+			shipName=GameData::Phrases().Get("civilian")->Get();
+		
+		shared_ptr<Ship> ship=player.GiftShip(model,shipName,false);
+		if(ship == nullptr)
+		{
+			cerr<<"NULL SHIP "<<modelName<<" "<<name<<endl;
+			return;
+		}
+		       
 		string message = "The " + ship->Name() + " was added to your fleet!";
-
-		player.AddShip(ship);
-		for(const Ship::Bay &bay : ship->Bays())
-        {
-            if(bay.ship)
-                player.AddShip(bay.ship);
-        }
-
 		if(ui)
 			ui->Push(new Dialog(message));
 	}
@@ -204,45 +210,49 @@ void MissionAction::Load(const DataNode &node, const string &missionName)
 			stockConversation = GameData::Conversations().Get(child.Token(1));
         else if(key == "ship" && hasValue)
 		{
-			std::cout << "ship hasvalue\n";
-			string shipName;
-			string modelName = child.Token(1);
-            if(child.Size() >= 2)
-                shipName = child.Token(2);
+			cerr<<"LOAD SHIP"<<endl;
+			if(child.Size()>2 && !child.Token(2).empty())
+				giftShips.push_back(make_pair(child.Token(1),child.Token(2)));
+			else
+				giftShips.push_back(make_pair(child.Token(1),string()));
+// if(1==2) {
+// 			std::cout << "ship hasvalue\n";
+// 			string shipName;
+// 			string modelName = child.Token(1);
+// 			const Ship *model = GameData::Ships().Get(modelName);
 
-			const Ship *model = GameData::Ships().Get(modelName);
+// 	    		if(child.Size()>2 && !child.Token(2).empty())
+// 	    			shipName = child.Token(2);
 
-			std::cout << "modelName:" << modelName << "\n";
+//             // //cerr<<child.Token(2)<<endl;
+// 	    // 		std::cout << "shipName:" << shipName << "\n";
+// 	    // 		shared_ptr<Ship> ship(new Ship(*model));
 
-			if(child.Size() <= 2)
-                shipName = GameData::Phrases().Get("civilian")->Get();
-			else if(!child.Token(2).empty())
-            {
-                shipName = child.Token(2);
-                child.PrintTrace("Uh Oh");
-            }
-
-            //cerr<<child.Token(2)<<endl;
-			std::cout << "shipName:" << shipName << "\n";
-			shared_ptr<Ship> ship(new Ship(*model));
-
-            //giftShips.push_back(ship);
-			ship->SetName(shipName);
-			ship->GetSystem();
-			//ship->Attributes().Get("bunks") - ship->RequiredCrew();
-			ship->RequiredCrew();
-			ship->Disable();
-			ship->FinishLoading(false);
-
-			giftShips.push_back(ship);//shared_ptr<Ship> (new Ship(*model)));
-			/*giftShips.back()->Disable();
-			giftShips.back()->RequiredCrew();
-			giftShips.back()->SetName(shipName);
-			giftShips.back()->SetIsSpecial();
-			giftShips.back()->SetIsYours();
-			giftShips.back()->SetGovernment(GameData::PlayerGovernment());*/
-			std::cout << "giftShips.size()" << giftShips.size() << "\n";
-			std::cout << "giftShips.back()->Name()" << giftShips.back()->Name() << "\n";
+//             // //giftShips.push_back(ship);
+// 	    // 		ship->SetName(shipName);
+// 	    // 		ship->GetSystem();
+// 	    // 		//ship->Attributes().Get("bunks") - ship->RequiredCrew();
+// 	    // 		ship->RequiredCrew();
+// 	    // 		ship->FinishLoading(false);
+// 	    // 		ships->RequiredCrew();
+// 	    // 		ships->SetName(shipName);
+// 	    // 		ships->SetIsSpecial();
+// 	    // 		ships->SetIsYours();
+// 	    // 		ships->SetGovernment(GameData::PlayerGovernment());
+// //			shared_ptr<Ship> ship=player.GiftShip(model,shipName,0,false);
+// 			if(ship != nullptr)
+// 			{
+// //				giftShips.push_back(ship);//shared_ptr<Ship> (new Ship(*model)));
+// 				/*giftShips.back()->Disable();
+// 				giftShips.back()->RequiredCrew();
+// 				giftShips.back()->SetName(shipName);
+// 				giftShips.back()->SetIsSpecial();
+// 				giftShips.back()->SetIsYours();
+// 				giftShips.back()->SetGovernment(GameData::PlayerGovernment());*/
+// //				std::cout << "giftShips.size()" << giftShips.size() << "\n";
+// //				std::cout << "giftShips.back()->Name()" << giftShips.back()->Name() << "\n";
+// 			}
+// }
 		}
 		else if(key == "outfit" && hasValue)
 		{
@@ -362,9 +372,10 @@ void MissionAction::Save(DataWriter &out) const
 		std::cout << "giftShips length: " << giftShips.size() << "\n";
 		for(const auto &it : giftShips)
 		{
-			out.Write("ship", it->ModelName(), it->Name());
+			out.Write("ship", it.first, it.second);
+			//out.Write("ship", it->ModelName(), it->Name());
 			std::cout << "gift ships write\n";
-			std::cout << "modelname: " << it->ModelName() << "\n";
+			std::cout << "modelname: " << it.first << "\n";
 		}
 		for(const auto &it : giftOutfits)
 		{
@@ -520,8 +531,10 @@ void MissionAction::Do(PlayerInfo &player, UI *ui, const System *destination, co
 			player.AddSpecialLog(it.first, eit.first, eit.second);
 
 	for(const auto &it : giftShips)
-        if(it > 0)
-            DoGiftShip(player, it, ui);
+	{
+		cerr<<"DoGiftShip "<<it.first<<" "<<it.second<<endl;
+		DoGiftShip(player, it.first, it.second, ui);
+	}
 	// If multiple outfits are being transferred, first remove them before
 	// adding any new ones.
 	for(const auto &it : giftOutfits)
@@ -571,15 +584,15 @@ MissionAction MissionAction::Instantiate(map<string, string> &subs, const System
 		int day = it.second.first + Random::Int(it.second.second - it.second.first + 1);
 		result.events[it.first] = make_pair(day, day);
 	}
-	for(const shared_ptr<Ship> &ship : giftShips)
-    {
-        result.giftShips.push_back(ship);//shared_ptr<Ship>(new Ship()));
-        result.giftShips.back()->SetSystem(origin);
-        result.giftShips.back()->SetGovernment(GameData::PlayerGovernment());
-        result.giftShips.back()->Disable();
+    // 	for(const shared_ptr<Ship> &ship : giftShips)
+    // {
+    //     result.giftShips.push_back(ship);//shared_ptr<Ship>(new Ship()));
+    //     result.giftShips.back()->SetSystem(origin);
+    //     result.giftShips.back()->SetGovernment(GameData::PlayerGovernment());
+    //     result.giftShips.back()->Disable();
 
-    }
-	//result.giftShips = giftShips;
+    // }
+	result.giftShips = giftShips;
 	result.giftOutfits = giftOutfits;
 	result.requiredOutfits = requiredOutfits;
 	result.payment = payment + (jumps + 1) * payload * paymentMultiplier;
