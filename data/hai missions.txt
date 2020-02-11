@@ -1599,7 +1599,7 @@ mission "Acorn Delights: Part 4"
 			`	"A trauma surgeon for the Unfettered Hai? I wonder if she planned this years in advance?"`
 				goto questions
 			label accept
-			`"If Anoo went anywhere, it would be Darkcloak. The largest Unfettered hospital is there. Many soldiers come back from raids injured on Darkcloak. A trauma surgeon would have a lot of work on Darkcloak."`
+			`"If Anoo went anywhere, it would be Darkcloak. The largest Unfettered hospital is there. Many soldiers come back from raids injured on Darkcloak. A trauma surgeon would have a lot of work to do."`
 				accept
 			
 mission "Acorn Delights: Part 5"
@@ -1617,12 +1617,12 @@ mission "Acorn Delights: Part 5"
 	on offer
 		"salary: Acorn Delights Dividends" = 500
 		payment 30000
-		log `Helped the famous Hai chef Eeeya find her granddaughter, a trauma surgeon named Anoo. Both joined the Unfettered hoping they can "set them on a more productive path." Received shares of Acorn Delights stock which pay 500 credits a day in dividends.`
+		log `Helped the famous Hai chef Eeeya find her granddaughter, a trauma surgeon named Anoo. Both joined the Unfettered hoping they can, "set them on a more productive path." Received shares of Acorn Delights stock which pay 500 credits a day in dividends.`
 		conversation
 			`You're ushered quickly from the landing platform to a private office in a nearby hospital. When the office door opens, Eeeya and Anoo run to each other's arms. After a few minutes, they begin to speak. Eventually, the conversation turns to Anoo's new occupation.`
 			`	"Why did you come here, Anoo? The Unfettered hate us."`
 			`	"They don't hate US, grandma. They hate what we've become: frivolous, uninventive, and self-important. Our race is fading into history through a slow death of mediocrity. Most Unfettered see warfare as our only salvation.`
-			`	"We think of them as mindless brutes, but they're not! They have scientists, doctors, musicians, and writers. Our resources dwarf theirs, but they thrive with what little they have.  Soon the Unfettered will have many more planets and almost unlimited resources. The era of scarcity will be over, and they'll have the power to choose their future.`
+			`	"We think of them as mindless brutes, but they're not! They have scientists, doctors, musicians, and writers. Our resources dwarf theirs, but they thrive with what little they have. Soon the Unfettered will have many more planets and almost unlimited resources. The era of scarcity will be over, and they'll have the power to choose their future.`
 			`	"If enough good people join the Unfettered, we can change their minds; set them on a more productive path. They'll need good doctors."`
 			`	Eeeya smiles at her granddaughter, "They'll need a good cook to."`
 			choice
