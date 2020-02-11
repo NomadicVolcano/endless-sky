@@ -215,44 +215,6 @@ void MissionAction::Load(const DataNode &node, const string &missionName)
 				giftShips.push_back(make_pair(child.Token(1),child.Token(2)));
 			else
 				giftShips.push_back(make_pair(child.Token(1),string()));
-// if(1==2) {
-// 			std::cout << "ship hasvalue\n";
-// 			string shipName;
-// 			string modelName = child.Token(1);
-// 			const Ship *model = GameData::Ships().Get(modelName);
-
-// 	    		if(child.Size()>2 && !child.Token(2).empty())
-// 	    			shipName = child.Token(2);
-
-//             // //cerr<<child.Token(2)<<endl;
-// 	    // 		std::cout << "shipName:" << shipName << "\n";
-// 	    // 		shared_ptr<Ship> ship(new Ship(*model));
-
-//             // //giftShips.push_back(ship);
-// 	    // 		ship->SetName(shipName);
-// 	    // 		ship->GetSystem();
-// 	    // 		//ship->Attributes().Get("bunks") - ship->RequiredCrew();
-// 	    // 		ship->RequiredCrew();
-// 	    // 		ship->FinishLoading(false);
-// 	    // 		ships->RequiredCrew();
-// 	    // 		ships->SetName(shipName);
-// 	    // 		ships->SetIsSpecial();
-// 	    // 		ships->SetIsYours();
-// 	    // 		ships->SetGovernment(GameData::PlayerGovernment());
-// //			shared_ptr<Ship> ship=player.GiftShip(model,shipName,0,false);
-// 			if(ship != nullptr)
-// 			{
-// //				giftShips.push_back(ship);//shared_ptr<Ship> (new Ship(*model)));
-// 				/*giftShips.back()->Disable();
-// 				giftShips.back()->RequiredCrew();
-// 				giftShips.back()->SetName(shipName);
-// 				giftShips.back()->SetIsSpecial();
-// 				giftShips.back()->SetIsYours();
-// 				giftShips.back()->SetGovernment(GameData::PlayerGovernment());*/
-// //				std::cout << "giftShips.size()" << giftShips.size() << "\n";
-// //				std::cout << "giftShips.back()->Name()" << giftShips.back()->Name() << "\n";
-// 			}
-// }
 		}
 		else if(key == "outfit" && hasValue)
 		{
@@ -584,14 +546,6 @@ MissionAction MissionAction::Instantiate(map<string, string> &subs, const System
 		int day = it.second.first + Random::Int(it.second.second - it.second.first + 1);
 		result.events[it.first] = make_pair(day, day);
 	}
-    // 	for(const shared_ptr<Ship> &ship : giftShips)
-    // {
-    //     result.giftShips.push_back(ship);//shared_ptr<Ship>(new Ship()));
-    //     result.giftShips.back()->SetSystem(origin);
-    //     result.giftShips.back()->SetGovernment(GameData::PlayerGovernment());
-    //     result.giftShips.back()->Disable();
-
-    // }
 	result.giftShips = giftShips;
 	result.giftOutfits = giftOutfits;
 	result.requiredOutfits = requiredOutfits;
