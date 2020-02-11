@@ -1,0 +1,9 @@
+mission "Get Rich Quick!"
+	landing
+	repeat
+	on offer
+		ship "Ibis" "Testing"
+		ship "Albatross"
+		ship "Albatross"
+		conversation
+			`"I love free ships!"`
