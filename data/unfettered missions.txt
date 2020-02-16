@@ -1,0 +1,127 @@
+mission "Warfeed Terraforming [0]"
+	name "Warfeed Terraforming: <planet>"
+	description "Visit <planet> to discuss a secret terraforming operation."
+	source
+		attributes "hai"
+		not planet Snowfeather
+	destination Snowfeather
+	to offer
+		has "First Contact: Unfettered: offered"
+		"combat rating" > 100
+		or
+			not "chosen sides"
+			has "main plot completed"
+	on offer
+		`As you peruse the spaceport establishments, an Hai beckons you from a dark stairwell.`
+		choice
+			`	(See what he wants.)`
+			`	(Walk away.)`
+				defer
+		`He takes you deeper into the stairwell and explains himself, pausing to choose his words. "I represent... a company that is interested in terraforming... a planet near here. We need... an enterprising captain that is willing to... make arrangements in Human space."`
+		choice
+			`	"Is this something illegal?"`
+				goto illegal
+			`	"What company do you represent?"`
+				goto details
+			`	"What arrangements do you need in Human space?"`
+				goto details
+			`	"I'll do it."`
+				goto accept
+			`	"You'll have to find a different captain."`
+				decline
+		label illegal
+		`"Yes, you will have to smuggle goods, but none are immoral. Just terraforming supplies and equipment. The worst that will happen to you is a few fines; the payment should be enough to compensate."`
+		choice
+			`	"What company do you represent?"`
+				goto details
+			`	"What arrangements do you need in Human space?"`
+				goto details
+			`	"I'll do it."`
+				goto accept
+			`	"You'll have to find a different captain."`
+				decline
+		label details
+		`"No more details here. If you're interested, go to <destination> and find Whispering Rose."`
+		choice
+			`	"I'll do it."`
+				accept
+			`	"You'll have to find a different captain."`
+				decline
+		label accept
+		`"Excellent. You will get mission details at <destination> from Whispering Rose."`
+			accept
+
+
+mission "Warfeed Terraforming [1]"
+	name "Warfeed Terraforming: <planet>"
+	description `Meet "White River" at <destination>. Payment is <payment>.`
+	source Snowfeather
+	destination Makerplace
+	landing
+	to offer
+		has "Warfeed Terraforming [0]: done"
+	on offer
+		`You struggle to find a person or place called "Whispering Rose" to no avail. Eventually you stumble upon a red store that sells wind chimes, and has a rose as its emblem. The rose originates from Human space, so it is suspiciously out-of-place here.`
+		`	A Hai child pokes your side with her paw and says, "You <first>? There. There. Go." She points towards the back of the shop at a door labeled, "Staff Only."`
+		`	Beyond the door, you meet a Hai woman; from appearances, she is probably the child's mother.`
+		choice
+			`	(Continue.)`
+		`She smiles as you approach. You know me as, "Whispering Rose. You have heard of the True Hai; the Unfettered Hai, yes?"`
+		`	You nod.`
+		`	"They live on three dying planets to the north. Only one planet still gives food: Warfeed. Even there, the land can barely be farmed. The planet is too far gone for normal terraforming. Only expensive, advanced, methods can work. The True Hai have too few terraforming supplies. In two years, the environment will collapse. In ten, the planet will not be farmed.`
+		`	"The False Hai, the Fettered Hai, refuse to help terraform Warfeed. They fear it would make the True Hai strong. That fell deed burns their conscience. They send food out of guilt, so the True Hai will not starve. My brethren call it tribute, for they cannot face the truth."`
+		`	"Please help us. We will smuggle supplies from Humans."`
+		choice
+			`	"What is your plan?"`
+			`	"I will not help the Unfettered Hai."`
+				decline
+		`"A traveler told us that Follow in Human space tries to terraform. They have many supplies and much determination. They lack knowledge, and have simple equipment. We have knowledge and good equipment but no supplies. A trade would help us both.`
+		`	"The True Hai cannot fly to Human space. The False Hai kill us if we try. We must smuggle supplies across Hai space, through the uninhabited wastes, deep into your Human Republic. That is too far for one ship's journey."`
+		choice
+			`	"If it is too far for one ship, how do you propose to smuggle the goods?"`
+			`	"I will not help the Unfettered Hai."`
+				decline
+		`"There are people among the False Hai with... unwell minds? They have no honor, no cause, except money. You might call them... mafias? gangs? cartels? They will take True Hai goods to Allhome."`
+		`	"Merchants will fly goods to your Human Syndicate."`
+		`	"Humans in the Syndicate take bribes. The goods will find themselves at Kraken Station."`
+		`	"Our goods will hide in deuterium pods until Follower."`
+		`	"Humans at Follower will send goods back the same route."`
+		choice
+			`	"What do you need me to do?"`
+			`	"I will not help the Unfettered Hai."`
+				decline
+		`"Terraformers on Follower know of this plan. They have heard our plea and answered it."`
+		`	"You must walk the route of the packages. Arrange each leg of the journey. Start with the False Hai of unwell minds. Meet White River on <destination>. You will be paid at every stop."`
+			`	"Okay, I'll do this for you."`
+				accept
+			`	"I will not help the Unfettered Hai."`
+				decline
+	on complete
+		payment 35000
+
+mission "Warfeed Terraforming [2]"
+	landing
+	invisible
+	source Snowfeather
+	to offer
+		has "Warfeed Terraforming [1]: done"
+	on offer
+		`You see an extraordinarily fat Hai next to a large fountain that drains into a reflecting pool. Due to the ceiling and lighting, the reflecting pool looks almost like a white river. You are surprised by his carnivorous meal; you have never before seen a Hai eat meat, especially squirrel meat.`
+		`	"Ah, you must be Captain <last>. I'm White River. I'm a problem solver, and I hear you have a problem?"`
+		`	You explain what Whispering Rose told you.`
+		`	"Yes, I heard rumors about the impending catastrophic collapse of Warfeed. It isn't common knowledge among the Hai, for obvious reasons. I was wondering when the Unfettered would come crawling to us for help.`
+		`	"Setting up a large-scale smuggling operation through Syndicate space will require some dangerous trades. I hope you're up to it."`
+		choice
+			`	"What do I need to do?"`
+			`	"Nope. I'm done with this. The Unfettered can find another fool for their errand."`
+				decline
+		`"Any operation of this scale will attract the attention of pirates. We'll have to make deals with them. All of them. You'll need to fly to their 'capital,' of sorts: Greenrock."`
+		`	"You will also need to pay a hefty bribe to Syndicate executives, and they'll want something bigger than money."`
+		`	"Even shielded by deuterium cells, a Navy scan might detect the terraforming equipment heading from Kraken Station to Follower. That means you have to convince them not to scan it... or come up with better shielding."`
+		choice
+			`	"What, specifically, do I need to do?"`
+			`	"Nope. I'm done with this. The Unfettered can find another fool for their errand."`
+				decline
+		`"I see. You're the kind of person that needs everything spelled out for you."
+		`	"Your best contact with the Syndicate is the boss of the Argoth Corporation employee's union on Shroud. The Syndicate secretly funds its competitor's unions, so he can introduce you to his Syndicate contact."`
+#		`	"
