@@ -1,4 +1,6 @@
-mission "Warfeed Terraforming [0]"
+### Warfeed Smuggling: introduction missions
+
+mission "Warfeed Terraforming [H00] Intro"
 	name "Warfeed Terraforming: <planet>"
 	description "Visit <planet> to discuss a secret terraforming operation."
 	source
@@ -7,121 +9,358 @@ mission "Warfeed Terraforming [0]"
 	destination Snowfeather
 	to offer
 		has "First Contact: Unfettered: offered"
-		"combat rating" > 100
+		"combat rating" > 50
 		or
 			not "chosen sides"
 			has "main plot completed"
 	on offer
-		`As you peruse the spaceport establishments, an Hai beckons you from a dark stairwell.`
-		choice
-			`	(See what he wants.)`
-			`	(Walk away.)`
-				defer
-		`He takes you deeper into the stairwell and explains himself, pausing to choose his words. "I represent... a company that is interested in terraforming... a planet near here. We need... an enterprising captain that is willing to... make arrangements in Human space."`
-		choice
-			`	"Is this something illegal?"`
-				goto illegal
-			`	"What company do you represent?"`
-				goto details
-			`	"What arrangements do you need in Human space?"`
-				goto details
-			`	"I'll do it."`
-				goto accept
-			`	"You'll have to find a different captain."`
-				decline
-		label illegal
-		`"Yes, you will have to smuggle goods, but none are immoral. Just terraforming supplies and equipment. The worst that will happen to you is a few fines; the payment should be enough to compensate."`
-		choice
-			`	"What company do you represent?"`
-				goto details
-			`	"What arrangements do you need in Human space?"`
-				goto details
-			`	"I'll do it."`
-				goto accept
-			`	"You'll have to find a different captain."`
-				decline
-		label details
-		`"No more details here. If you're interested, go to <destination> and find Whispering Rose."`
-		choice
-			`	"I'll do it."`
+		conversation
+			`As you peruse the spaceport establishments, an Hai beckons you from a dark stairwell.`
+			choice
+				`	(See what he wants.)`
+				`	(Walk away.)`
+					defer
+			`He takes you deeper into the stairwell and explains himself, pausing to choose his words. "I represent... a consortium that is interested in terraforming... a planet near here. We need... an enterprising captain that is willing to... make arrangements in Human space."`
+			choice
+				`	"Is this something illegal?"`
+					goto illegal
+				`	"What company do you represent?"`
+					goto details
+				`	"What arrangements do you need in Human space?"`
+					goto details
+				`	"I'll do it."`
+					goto accept
+				`	"You'll have to find a different captain."`
+					decline
+			label illegal
+			`"Yes, you will have to smuggle goods, but none are immoral. Just terraforming supplies and equipment. The worst that will happen to you is a few fines; the payment should be enough to compensate."`
+			choice
+				`	"What company do you represent?"`
+					goto details
+				`	"What arrangements do you need in Human space?"`
+					goto details
+				`	"I'll do it."`
+					goto accept
+				`	"You'll have to find a different captain."`
+					decline
+			label details
+			`"No more details here. If you're interested, go to <destination> and find Whispering Rose."`
+			choice
+				`	"I'll do it."`
+					accept
+				`	"You'll have to find a different captain."`
+					decline
+			label accept
+			`"Excellent. You will get mission details at <destination> from Whispering Rose."`
 				accept
-			`	"You'll have to find a different captain."`
-				decline
-		label accept
-		`"Excellent. You will get mission details at <destination> from Whispering Rose."`
-			accept
 
 
-mission "Warfeed Terraforming [1]"
+
+mission "Warfeed Terraforming [H01] Whispering Rose"
 	name "Warfeed Terraforming: <planet>"
 	description `Meet "White River" at <destination>. Payment is <payment>.`
 	source Snowfeather
 	destination Makerplace
 	landing
 	to offer
-		has "Warfeed Terraforming [0]: done"
+		has "Warfeed Terraforming [H00] Intro: done"
 	on offer
-		`You struggle to find a person or place called "Whispering Rose" to no avail. Eventually you stumble upon a red store that sells wind chimes, and has a rose as its emblem. The rose originates from Human space, so it is suspiciously out-of-place here.`
-		`	A Hai child pokes your side with her paw and says, "You <first>? There. There. Go." She points towards the back of the shop at a door labeled, "Staff Only."`
-		`	Beyond the door, you meet a Hai woman; from appearances, she is probably the child's mother.`
-		choice
-			`	(Continue.)`
-		`She smiles as you approach. You know me as, "Whispering Rose. You have heard of the True Hai; the Unfettered Hai, yes?"`
-		`	You nod.`
-		`	"They live on three dying planets to the north. Only one planet still gives food: Warfeed. Even there, the land can barely be farmed. The planet is too far gone for normal terraforming. Only expensive, advanced, methods can work. The True Hai have too few terraforming supplies. In two years, the environment will collapse. In ten, the planet will not be farmed.`
-		`	"The False Hai, the Fettered Hai, refuse to help terraform Warfeed. They fear it would make the True Hai strong. That fell deed burns their conscience. They send food out of guilt, so the True Hai will not starve. My brethren call it tribute, for they cannot face the truth."`
-		`	"Please help us. We will smuggle supplies from Humans."`
-		choice
-			`	"What is your plan?"`
-			`	"I will not help the Unfettered Hai."`
-				decline
-		`"A traveler told us that Follow in Human space tries to terraform. They have many supplies and much determination. They lack knowledge, and have simple equipment. We have knowledge and good equipment but no supplies. A trade would help us both.`
-		`	"The True Hai cannot fly to Human space. The False Hai kill us if we try. We must smuggle supplies across Hai space, through the uninhabited wastes, deep into your Human Republic. That is too far for one ship's journey."`
-		choice
-			`	"If it is too far for one ship, how do you propose to smuggle the goods?"`
-			`	"I will not help the Unfettered Hai."`
-				decline
-		`"There are people among the False Hai with... unwell minds? They have no honor, no cause, except money. You might call them... mafias? gangs? cartels? They will take True Hai goods to Allhome."`
-		`	"Merchants will fly goods to your Human Syndicate."`
-		`	"Humans in the Syndicate take bribes. The goods will find themselves at Kraken Station."`
-		`	"Our goods will hide in deuterium pods until Follower."`
-		`	"Humans at Follower will send goods back the same route."`
-		choice
-			`	"What do you need me to do?"`
-			`	"I will not help the Unfettered Hai."`
-				decline
-		`"Terraformers on Follower know of this plan. They have heard our plea and answered it."`
-		`	"You must walk the route of the packages. Arrange each leg of the journey. Start with the False Hai of unwell minds. Meet White River on <destination>. You will be paid at every stop."`
-			`	"Okay, I'll do this for you."`
-				accept
-			`	"I will not help the Unfettered Hai."`
-				decline
+		conversation
+			`You struggle to find a person or place called "Whispering Rose" to no avail. Eventually you stumble upon a red store that sells wind chimes, and has a rose as its emblem. The rose originates from Human space, so it is suspiciously out-of-place here.`
+			`	A Hai child pokes your side with her paw and says, "You <first>? There. There. Go." She points towards the back of the shop at a door labeled, "Staff Only."`
+			`	Beyond the door, you meet a Hai woman; from appearances, she is probably the child's mother.`
+			choice
+				`	(Continue.)`
+			`She smiles as you approach. "You know me as, 'Whispering Rose.' You have heard of the True Hai; the Unfettered Hai, yes?"`
+			`	You nod.`
+			`	"They live on three dying planets to the north. Only one planet still gives food: Warfeed. Even there, the land can barely be farmed. The planet is too far gone for normal terraforming. Only expensive, advanced, methods can work. The True Hai have too few terraforming supplies. In two years, the environment will collapse. In ten, the planet will not be farmed.`
+			`	"The False Hai, the Fettered Hai, refuse to help terraform Warfeed. They fear it would make the True Hai strong. That fell deed burns their conscience. They send food out of guilt, so the True Hai will not starve. My brethren call it tribute, for they cannot face the truth."`
+			`	"Please help us. We will smuggle terraforming supplies from Humans."`
+			choice
+				`	"What is your plan?"`
+				`	"I will not help the Unfettered Hai."`
+					decline
+			`"A traveler told us that Follower in Human space tries to terraform. They have many supplies and much determination. They lack knowledge, and have simple equipment. We have knowledge and good equipment but no supplies. A trade would help us both.`
+			`	"The True Hai cannot fly to Human space. The False Hai kill us if we try. We must smuggle supplies across Hai space, through the uninhabited wastes, deep into your Human Republic. That is too far for one ship's journey."`
+			choice
+				`	"If it is too far for one ship, how do you propose to smuggle the goods?"`
+				`	"I will not help the Unfettered Hai."`
+					decline
+			`"There are people among the False Hai with... unwell minds? They have no honor, no cause, except money. You might call them... mafias? gangs? cartels? They will take True Hai goods to Allhome."`
+			`	"Merchants will fly goods to your Human Syndicate."`
+			`	"Humans in the Syndicate take bribes. The goods will find themselves at Kraken Station."`
+			`	"Our goods will hide in deuterium pods until Follower."`
+			`	"Humans at Follower will send goods back the same route."`
+			choice
+				`	"What do you need me to do?"`
+				`	"I will not help the Unfettered Hai."`
+					decline
+			`"Terraformers on Follower know of this plan. They have heard our plea and answered it."`
+			`	"You must walk the route of the packages. Arrange each leg of the journey. Start with the False Hai of unwell minds. Meet White River on <destination>. The True Hai will pay you at every stop."`
+			choice
+				`	"Okay, I'll do this for you."`
+					accept
+				`	"I will not help the Unfettered Hai."`
+					decline
 	on complete
 		payment 35000
 
-mission "Warfeed Terraforming [2]"
+
+
+mission "Warfeed Terraforming [H02] White River"
 	landing
 	invisible
 	source Snowfeather
 	to offer
-		has "Warfeed Terraforming [1]: done"
+		has "Warfeed Terraforming [H01] Whispering Rose: done"
 	on offer
-		`You see an extraordinarily fat Hai next to a large fountain that drains into a reflecting pool. Due to the ceiling and lighting, the reflecting pool looks almost like a white river. You are surprised by his carnivorous meal; you have never before seen a Hai eat meat, especially squirrel meat.`
-		`	"Ah, you must be Captain <last>. I'm White River. I'm a problem solver, and I hear you have a problem?"`
-		`	You explain what Whispering Rose told you.`
-		`	"Yes, I heard rumors about the impending catastrophic collapse of Warfeed. It isn't common knowledge among the Hai, for obvious reasons. I was wondering when the Unfettered would come crawling to us for help.`
-		`	"Setting up a large-scale smuggling operation through Syndicate space will require some dangerous trades. I hope you're up to it."`
-		choice
-			`	"What do I need to do?"`
-			`	"Nope. I'm done with this. The Unfettered can find another fool for their errand."`
-				decline
-		`"Any operation of this scale will attract the attention of pirates. We'll have to make deals with them. All of them. You'll need to fly to their 'capital,' of sorts: Greenrock."`
-		`	"You will also need to pay a hefty bribe to Syndicate executives, and they'll want something bigger than money."`
-		`	"Even shielded by deuterium cells, a Navy scan might detect the terraforming equipment heading from Kraken Station to Follower. That means you have to convince them not to scan it... or come up with better shielding."`
-		choice
-			`	"What, specifically, do I need to do?"`
-			`	"Nope. I'm done with this. The Unfettered can find another fool for their errand."`
-				decline
-		`"I see. You're the kind of person that needs everything spelled out for you."
-		`	"Your best contact with the Syndicate is the boss of the Argoth Corporation employee's union on Shroud. The Syndicate secretly funds its competitor's unions, so he can introduce you to his Syndicate contact."`
-#		`	"
+		conversation
+			`You see an extraordinarily fat Hai next to a large fountain that drains into a reflecting pool. Due to the ceiling and lighting, the reflecting pool looks almost like a white river.`
+			`	"Ah, you must be Captain <last>. I'm White River. I'm a problem solver, and I hear you have a problem?"`
+			`	You explain what Whispering Rose told you.`
+			`	"Yes, I heard rumors about the impending catastrophic collapse of Warfeed's biosphere. It isn't common knowledge among the Hai, for obvious reasons. I was wondering when the Unfettered would come crawling to us for help.`
+			`	"Setting up a large-scale smuggling operation through Syndicate space will require some dangerous trades. I hope you're up to it."`
+			choice
+				`	"What do I need to do?"`
+				`	"Nope. I'm done with this. The Unfettered can find another fool for their errand."`
+					decline
+			`"I'll take care of smuggling through Hai space, so you just have to arrange the rest of the route.`
+			`	"Any operation of this scale will attract the attention of pirates. We'll have to make deals with them. You'll need to get an audiance at their 'capital,' of sorts: Greenrock.`
+			`	"You will also need to pay a hefty bribe to Syndicate executives, and they'll want something bigger than money.`
+			`	"Even shielded by deuterium cells, a Navy scan might detect the terraforming equipment heading from Kraken Station to Follower. That means you have to convince them not to scan it... or come up with better shielding."`
+			choice
+				`	"What, specifically, do I need to do?"`
+				`	"Nope. I'm done with this. The Unfettered can find another fool for their errand."`
+					decline
+			`"I see. You're the kind of person that needs everything spelled out for you."`
+			`	"Your best contact with the Syndicate is Guncrag Watson, the boss of the Argoth Corporation employee's union on Shroud. The Syndicate secretly funds its competitor's unions, so he can introduce you to his Syndicate contact.`
+			`	"As for the pirates, there's a bounty hunter near Freedom that they despise. Her name is Deviled Smegs. Visit Earth and arrange for a bounty on yourself. Take down the hunter and you may get noticed by someone who is heard at Greenrock.`
+			`	"Talk to the terraformers at Follower to find a way to smuggle their goods at the last leg of the journey.`
+			`	"Now begone. Other people are waiting for me to solve problems." You notice several Hai in the crowd eagerly eyeing White River.`
+			choice
+				`	"Okay, I'll get started."`
+					accept
+				`	"No, this is too dangerous for me."`
+					decline
+	on complete
+		payment 35000
+
+
+### Warfeed Smuggling Syndicate leg: Syndicate Internal Affairs
+
+
+
+### Warfeed Smuggling North leg: negotiate with the pirates
+
+
+ship "Marauder Firebird" "Marauder Firebird (Hai Fuel)"
+	add attributes
+		# Enough fuel to go from North to Syndicate without
+		# AI getting confused and stuck
+		"fuel capacity" 200
+		# Plus a small ramscoop to make it harder for the
+		# player to run away
+		"ramscoop" 0.5
+	outfits
+		Hyperdrive
+		"Outfits Expansion"
+		"Security Station"
+		"Particle Cannon" 2
+		"Liquid Nitrogen Cooler"
+		"Ion Cannon" 2
+		"Boulder Reactor"
+		"Water Coolant System"
+		`"Benga" Atomic Thruster`
+		"Bullfrog Anti-Missile" 2
+		"Hai Diamond Regenerator"
+		`"Bondir" Atomic Steering`
+		"Pulse Rifle" 25
+		"LP072a Battery Pack"
+		"Brig"
+
+
+mission "Warfeed Terraforming [N01] Bounty"
+	name "Warfeed North Smuggling: Bounty (<planet>)"
+	description `Fly to <destination> to pay the bounty hunter "Deviled Smegs" to hunt you. Payment is <payment>.`
+	landing
+	source Snowfeather
+	destination Earth
+	to offer
+		has "Warfeed Terraforming [H02] White River: done"
+	on complete
+		payment 35000
+
+
+mission "Warfeed Terraforming [N02] Bounty"
+	name "Warfeed North Smuggling: Deviled Smegs"
+	description `Kill "Deviled Smegs," the bounty hunter you hired to kill you. Beware her modified Firebird. Payment is <payment>.`
+	source Earth
+	landing
+	to offer
+		has "Warfeed Terraforming [N01] Bounty: done"
+	on offer
+		conversation
+			`"When you reach Earth, you head to the local security office to post a bounty on yourself. You search for the bounty hunter White River named, "Deviled Smegs." Apparently she has a dangerous record of catching pirate captains using a Marauder Firebird she modified."`
+			`	You can contact her almost immediately.`
+			choice
+				`	(Pay the bounty hunter Deviled Smegs to hunt you.)`
+				`	(Abort the mission. Let the Unfettered find someone else to do their dirty work.)`
+					fail
+			`	She answers your call, "Who do you want, and how much will you pay?"`
+			choice
+				`	"I want you to kill <first> <last>, and I'll pay 250,000 credits for his head."`
+				`	"I need you to capture <first> <last> for me, and I'll pay 250,000 credits."`
+			`"Is this a crank call? The data stream says '<first> <last>' is your name."`
+			choice
+				`	"That jerk <first> <last> stole my name."`
+					goto stole
+				`	"The data stream is forged."`
+					goto forged
+			label stole
+			`"That's the most idiotic thing I've heard all week. I've worked for dumber folk than you though. I'll do it for 800,000 credits, but I want to keep Captain <last>'s ship and cargo."`
+				goto accept
+			label forged
+			`"Yes, I do see some inconsistencies in the data stream. You must be good; I assumed it was just interference. I'll do it for 400,000 credits, but I want to keep Captain <last>'s ship and cargo."`
+				goto accept
+			label accept
+			`You say, "I agree to your terms."`
+			`	"If you don't pay after I finish the job, I'll hunt you next."`
+			`	Hopefully Deviled Smegs is as bad at piloting as she is at reasoning.`
+				accept
+	on complete
+		payment 35000
+	npc kill
+		government "Bounty Hunter"
+		personality nemesis plunders waiting
+		system
+			distance 6 9
+		ship "Marauder Firebird (Hai Fuel)" "Deviled Smegs"
+
+
+mission "Warfeed Terraforming [N03] Anarchist Letter"
+	name "Warfeed North Smuggling: Visit <planet>"
+	description "Fly to <destination> to find the anarchist who thanked you."
+	clearance "You read the anarchist's letter and the authorities let you land."
+	landing
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination Freedom
+	clearance "You pass on the information you received and the authorities send you a landing vector. You're cleared to land."
+	to offer
+		has "Warfeed Terraforming [N02] Bounty: done"
+	on offer
+		conversation
+			`Upon landing, someone brings you a letter thanking you for killing Deviled Smegs. "Smegs killed both of my sisters, and now you've avenged them. If you want more work, find me on <planet>." There is a set of landing coordinates outside an anarchist city on <destination>.`
+	on complete
+		payment 35000
+
+
+mission "Warfeed Terraforming [N04] Blue Women"
+	name "Warfeed North Smuggling: Search <planet>"
+	description "Find a blue woman on <destination>. Payment is <payment>. Return her for another 400,000 credits."
+	landing
+	source Freedom
+	destination Alfheim
+	infiltrating
+	to offer
+		has "Warfeed Terraforming [N03] Anarchist Letter: done"
+	on offer
+		conversation
+			`You follow the directions on the letter to an old shack in the desert. A pregnant woman, perhaps 23 years old, answers the door. She's wearing a shawl and a head scarf, which are too hot for the climate.`
+			`	"Are you <first> <last>? Did you kill Deviled Smegs?"`
+			`	"Yes."`
+			`	She sounds disappointed, or at least despondent. "I see. Come with me."`
+			`	You follow her into a large closet. She closes the door and turns a broom handle.`
+			choice
+				`	(Continue.)`
+			`You feel the room falling; apparently this is an elevator. It stops after a few seconds and the door opens to a hot hallway. You see an elaborate laboratory staffed entirely by short, blue-haired, women.`
+			`	Your pregnant guide takes you to a conference room where a stern-looking woman looks up at you.`
+			`	"Deviled Smegs was one of the Navy's most successful bounty hunters at catching accused Alphas. Thanks to you, I and my sisters can travel the galaxy in less fear than before. If you can help us one more time, we will pay you well."`
+				goto "actual questions"
+			label questions"
+			`	"If you can help us one more time, we will pay you well."`
+			label "actual questions"
+			choice
+				`	(Explain your Warfeed Terraforming task.)`
+					goto explain
+				`	"Accused Alphas?"`
+					goto alphas
+				`	"Help with what?"`
+					goto help
+				`	"Of course I'll help you."`
+					goto accept
+				`	"Sorry, but I'm done with this mission."`
+					fail
+			label alphas
+			`"We're the descendants of escaped laboratory specimens. During the era of the Alphas, there was a project to create women that could birth viable Alpha children. We can birth viable children of an Alpha, but the children are not Alphas. With a few more genetic tweaks, the scientists would have succeeded. The Republic found out about us and ordered the entire 'stock' destroyed; all of us. Some of us escaped, but the Republic has been hunting us since then.`
+			`	"We are different than normal Humans; better in some ways and worse in others. Our strength and agility is inferior to Alphas, but slightly superior to Humans. We lack the Alpha psychosis; instead we're chronically depressed. Our immune system is comparable to yours, but we have an extremely fast metabolism. Our lifespans are thirty to fifty years, and our body temperature is very high. Our main strength is our minds: we learn quickly, our memories are excellent, and the most foolish among us would be brilliant among Humans.`
+			`	"Unfortunately, those differences matter not to the Republic. The danger we represent is too great, so they call us Alphas and hunt us as they do the true Alphas. Our science and resourcefulness has saved us from the Republic's genocidal rage, and from enslavement by the Alphas."`
+				goto questions
+			label help
+			`"We spend most of our time here doing research; primarily medical, but some is directed towards keeping us hidden. My sister was testing a new device, but she was detected by a Navy Carrier. "I believe she is at <destination>, hidden in the wreckage of her vehicle. If you can bring her back, we'll pay you 400,000 credits."`
+				goto questions
+			label explain
+			`"A most distressing story. Our voice is heard by the pirates at Greenrock, and we can negotiate a deal for you. Sadly, it is so tiring to live without my sister that I cannot negotiate with pirates. Perhaps if you bring her back to me, I'll feel differently."`
+				goto questions
+			label accept
+			`She hands you an orb with a blinking light on top. "This is a locator; it will home in on her signal. Fly to <destination> and bring her back here. You will be fined 75,000 credits every time a government vessel detects her in your ship. Hopefully our payment of 400,000 credits will be higher than the fines."`
+				accept
+	on complete
+		payment 35000
+
+
+mission "Warfeed Terraforming [N05] Lilith"
+	name "Warfeed North Smuggling: Search <planet>"
+	description "Take Lilith to <destination>. Payment is <payment>. Fine when caught is 75,000 credits."
+	landing
+	source Alfheim
+	destination Greenrock
+	passengers 1
+	illegal 75000
+	to offer
+		has "Warfeed Terraforming [N04] Blue Women: done"
+	on offer
+		conversation
+			`You set your ship down near the position your locator orb provided and you see a crashed ship concealed nearby. The hull is torn, and you notice a layer of padding that looks like interference plating. Oddly, the plating is an oily green material instead of the usual silver.`
+			`	As you're admiring the handiwork, someone behind you kicks you to the ground and points your gun at the back of your head.`
+			`	An angry female voice yells, "Who are you? Why do you have a device from the Veiled Suns?"`
+			choice
+				`	"I'm <first> <last> and I was sent to rescue you."`
+				`	"I found it on in a gift shop and followed it here."`
+				`	(Explain everything.)`
+					goto explain
+			`	She doesn't believe your story and makes her point painfully clear by firing your gun. The shot hits the ground next to your head and the sound temporarily deafens your left ear.`
+			choice
+				`	(Explain everything and hope she doesn't kill you.)`
+			label explain
+			`You explain yourself and wait a while. You begin to wonder whether she'll say anything at all.`
+			`	"You poor, gullible, fool." She helps you up. You turn around and see a blue-haired teenager girl, perhaps seventeen years of age.`
+			`	She returns your gun and explains, "You were sent by a rival laboratory to catch me. All they do is medical research; they have no contact with the pirate leadership. They want you to take me to them so my invention can be theirs. You won't get any help from them after that.`
+			`	"I can give you a better deal. Unlike the Veiled Sun, I do have the ears of the pirates: I'm negotiating a price for my new interference plating. I can negotiate for the Unfettered Hai as well. I'll give you 800,000 credits after our negotiations at Greenrock."`
+			label questions
+			`	"Will you let me help you?"`
+			choice
+				`	"Who are you?"`
+					goto who
+				`	"What is your invention?"`
+					goto invention
+				`	"Yes. Let's go."`
+					goto accept
+				`	"No, I'm done with this quest."`
+					fail
+			label who
+			`"I'm Lilith Ashwarden, born on the pirate planet Haven. I didn't want to live in a medical lab, so I ran away from home when I was thirteen. I've been running ever since, and I'll never be caught alive. My stealth inventions command a high price from the right clientele. Unfortunately... Deep Security shot me down when I was testing the limits of my latest interference plating."`
+				goto questions
+			`"I've been trying to make a new hull material that is totally invisible to sensors. I haven't succeeded yet... but I can make something nine times stronger than regular interference plating. It has to be built into new hulls though; it cannot be installed as an outfit. That means I need to talk to shipyard owners and shipwrights."`
+				goto questions
+			label accept
+			`After you leave, Lilith detonates the self-destruct device on her ship. You don't see an explosion, instead there is an implosion. The ground and air rush inward as if into a small black hole. All that is left is a smoking crater.`
+			`	She gives you a affectionately demonic grin when she sees the surprised look on your face.`
+				accept
+	on complete
+		payment 835000
+		conversation
+			`You arrive on Greenrock with a teenage mad scientist. She presents her new interference plating to pirates who drool with delight at the thought of hiding forbidden riches. Soon after, you're brought to a room entirely black but for one spotlight in the middle. You sit on a chair in the darkness while Lilith speaks in the light.`
+			`	The conversation goes on for almost ten minutes as the shadow-veiled audience inquires about the invention, and the proposed deal with the Hai. They seem extremely intelligent, level-headed, and well-informed, not a trait of the pirate stereotype.`
+			`	Eventually Lilith negotiates two settlements. There will be mass-production of her interference plating with 4% of sales going to her. The Unfettered smuggling operation will be off-limits to pirates, so long as the sending planet (Follower or Warfeed) pay 70 credits per ton of cargo.`
+			`	Your newly-rich friend hands you 800,000 credits and a contract from the pirates. "Come find me on Greenrock again sometime. Good luck with your terraforming!"`
