@@ -212,7 +212,9 @@ mission "Warfeed Terraforming [F02] Deep"
 
 mission "Warfeed Terraforming [F03] Refusal"
 	name "Warfeed Republic Smuggling: <planet>"
-	description "Meet atmospheric physicists on <destination> to make a deal with Deep Security. Payment is <payment>."
+	description "Meet atmospheric physicists on <destination> to make a deal with Deep Security. Payment is 35,000 credits."
+	# Reported payment is intentionally wrong since the player gets a
+	# spontaneous 100,000 credit bribe they can't anticipate.
 	destination Follower
 	landing
 	source Valhalla 
@@ -220,8 +222,6 @@ mission "Warfeed Terraforming [F03] Refusal"
 		has "Warfeed Terraforming [F02] Deep: done"
 	on fail
 		set "warfeed epic fail"
-	on complete
-		payment 35000
 	on offer
 		`It takes a while to find the atmospheric physics researchers among the thousands of research projects on Valhalla. Eventually you find an intern studying the use of polygonal eyewalls in persistent polar storms on gas giants to determine details of the giants' solid cores. Her words are hard to parse, as many of them are technical jargon, four to eight syllables long. After a few minutes, she stops talking long enough for you to explain your problem. Her eyes glow like a lightbulb and she takes you to the head of her research group.`
 		`	The strongest and tallest pregnant woman the human race has ever produced stands before you, next to a giant panel of equations and plots. You recognize some of the equations from your pilot training. One group of equations are the laws of motion for matter exiting hyperspace. Another group is the Navier-Stokes equations. Somehow the two groups of equations are mixed, resulting in terraforming, though you can't follow the reasoning. The math is a decade or two of education beyond your introductory knowledge.`
@@ -231,23 +231,8 @@ mission "Warfeed Terraforming [F03] Refusal"
 		`	"Of course we want Hai terraforming technology, but you need to understand Deep Security's limitations. The reason they have permission to travel without Navy surveillance is that they never smuggle goods. Breaking that rule would cause long-term harm to all of The Deep. I wish I could help Follower, but I can't.
 		`	"Your only option left is the Syndicate. The Paradise Planets would turn you in if you even suggested such a plan, and the Navy is to honorable to smuggle.`
 		`	"Please convey my apology to the terraformers on Follower."`
-
-
-mission "Warfeed Terraforming [F04] Plan B"
-	name "Warfeed Republic Smuggling: <planet>"
-	description "Meet the terraformers on <destination> to report your failure. Payment is 35,000 credits."
-	# Reported payment is intentionally wrong since the player gets a
-	# spontaneous 100,000 credit bribe they can't anticipate.
-	source Valhalla
-	landing
-	destination Follower
-	to offer
-		has "Warfeed Terraforming [F03] Refusal"
-	on fail
-		set "warfeed epic fail"
 	on complete
 		payment 135000
-	on offer
 		conversation
 			`You're quickly led to the terraformers, who already suspect the answer.`
 			`	"Yes, our only hope is the Syndicate. Your best option is for them to come to you. Get noticed, and then explain our problem."`
@@ -256,7 +241,7 @@ mission "Warfeed Terraforming [F04] Plan B"
 			`	"You can try talking to unions; the Syndicate often funds their competitors' unions. Talk to Guncrag Watson on Shroud. See what happens.`
 			`	"Come back to us when you have a solution. You'll be well paid, of course."`
 			`	The terraformer hands you 100,000 credits. "There will be a lot more of that when you set up this smuggling operation."`
-		
+	
 
 
 ########################################################################
@@ -275,7 +260,121 @@ mission "Warfeed Terraforming [S01] Union Boss"
 		set "warfeed epic fail"
 	on complete
 		payment 35000
+		conversation
+			`The union is hard to find; they have many reasons to hide on a planet with no labor rights laws. Eventually you locate them. The discussion is brief. You begin to describe the problem and you're immediately interrupted.`
+			`	"Our arrangement with the Syndicate is precarious. If we betray them, they'll turn us in to the Argoth Corporation."`
+			`	He looks at the workers behind you, "Explain it to Captain <first> 'Dunce' <last>."'
+			`	You feel three fists hit you at once. The room vanishes after a minute of beatings, and you wake up at your ship.`
+			`	If the union informed the Syndicate, you might be hunted.`
 
+mission "Warfeed Terraforming [S02] Syndicate Hunt"
+	invisible
+	landing
+	repeat
+	deadline 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		has "Warfeed Terraforming [S01] Union Boss: done"
+		not "Warfeed Terraforming [S02] Syndicate Hunt: active"
+		not "Warfeed Terraforming [S03] Syndicate Capture: offered"
+		not "warfeed epic fail"
+		random < 25
+	npc kill
+		government "Syndicate?"
+		personality nemesis harvests plunders
+		fleet "Large Syndicate" 2
+		fleet "Small Syndicate" 3
+
+mission "Warfeed Terraforming [S03] Syndicate Capture"
+	name "Warfeed Syndicate Smuggling: <planet>"
+	description "Get a list of White River's operatives from the Unfettered at <destination>. Payment is <payment>."
+	landing
+	source government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		has "Warfeed Terraforming [S02] Syndicate Hunt: offered"
+		has "Warfeed Terraforming [F03] Refusal: done"
+		or
+			not "chosen sides"
+			has "main plot completed"
+		or
+			"Warfeed Terraforming [N02s] Smeg Bounty: done"
+			"Warfeed Terraforming [N02e] Endless Epiphany: done"
+			"Warfeed Terraforming [N02w] Wonton Bounty: done"
+			"Warfeed Terraforming [N02n] Snuggles Bounty: done"
+	on offer
+		conversation
+			`As you walk out your ship, the ground collapses from underneath your feet and you're trapped in a net. You feel a powerful electric shock, and you fall painfully asleep.`
+			`	Not long after, you wake to a pair of Syndicate employees holding meat hooks and cattle prods. From the lack of farm animals in the room, you suspect the implements are intended for you.`
+			`	"We don't take kindly to people killing Syndicate agents. Are you working for White River?"`
+			choice
+				`	"I didn't kill any Syndicate agents."`
+				`	"I don't work for White River."`
+				`	"Who are you people?"`
+					goto "we ask the questions"
+				`	"Yes, I work for White River."`
+					goto "white river"
+			`An agent starts zapping various uncomfortable parts of your body with electricity. Another agent raises a meat hook, preparing to smash it into your leg.`
+				goto "last chance"
+			label "we ask the questions"
+			`"We ask the questions!" yells one agent. Another scratches your arm with a meat hook and zaps the wound with a cattle prod.
+				goto "last chance"
+			label "last chance"
+			`"This is your last chance. Do you work for White River?"`
+			choice
+				`	"Yes."`
+					goto "white river"
+				`	"No."`
+				`	"Just send me back to my ship!"`
+				`	(Remain silent.)`
+			label die
+			`As the Syndicate agents beat you more and more, you are increasingly surprised at the amount of pain and abuse a Human body can take before dying.`
+			    die
+			label "white river"
+			`"Why did you kill the Syndicate agents?"`
+			`	You say, "What Syndicate agents?"`
+			`	"Hit him some more!" yells one.`
+			`	Another says, "No, I think he really doesn't know."`
+			`	Turning to you, your benefactor explains, "The bounty hunters you killed worked for the Syndicate, hunting White River's operatives. River's been stealing Syndicate technology and selling elsewhere in Human and Hai space. Tell us everything you know, and you'll walk out of here alive."`
+			choice
+				`	(Explain the smuggling operation.)`
+				`	"I won't tell you anything"`
+					goto die
+			`"That sounds like a good deal for the Syndicate, but we know White River will back-stab us. Help us shut down his corporate espionage operation, and we'll make sure the goods get to Kraken station.`
+			`	"You'll still need to find a way to get the goods from Kraken to Follower. I can't see any way the Syndicate can help you with that. Try Deep Security or the Navy. Or get creative."`
+			choice
+				`	"How do I shut down White River's corporate espionage operations?"`
+				`	"I don't think I should betray White River."`
+					goto die
+			`"For this to work, we have to avoid taking out White River entirely. You said the Unfettered Hai aren't fond of this man. Perhaps they can get a list of names for us? Once you give us names, we can do the rest."`
+			choice
+				`	"We have a deal."`
+				`	"No, I think I'm done with this operation."`
+					goto die
+			`"You will, of course, be paid quite well for this information."`
+
+mission "Warfeed Terraforming [S04] List of Names"
+	name "Warfeed Syndicate Smuggling: <planet>"
+	description "Get a list of White River's operatives from the Unfettered at <destination>. Payment is <payment>."
+	landing
+	source government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		has "Warfeed Terraforming [S03] Syndicate Capture: done"
+	on offer
+		conversation
+			`You find the same wind chime store and your young greeter meets you again, smiling expectantly.`
+			`	"<first> <last> is back? You have news? We need good. Too much bad in life."`
+			`	"You're better at speaking Human. You learn quickly. I do have some good news."`
+			`	The child smiles and claps its paws gleefully. You see Whispering Rose in the distance.`
+			choice
+				`	(Walk to her.)`
+			`You explain your progress to Whispering Rose.`
+			`	"Of course," she laughs, "We keep records on the False Hai."`
+			`	She walks to a nearby curtain which parts to reveal a long-range communicator. After a few brief conversation in Hai, she records some names on a disk and hands it to you.`
+			`	"This is enough names. Land on Maker. Give this to the Syndicate. They will expect you.`
+			`	"White River will suspect you. Don't let his ship see you land. Don't attack the ship either. The Hai will hunt you if you do."`
+	npc evade save
+		personality FIXME
 
 ########################################################################
 
@@ -551,13 +650,28 @@ mission "Warfeed Terraforming [N02n] Snuggles Bounty"
 		conversation
 			`You contact this mysterious bounty hunter and you get a video feed. She's a little girl, about six years old, cuddling a teddy bear. You notice several children of various ages behind her, controlling alien turrets. They're giggling while ships explode on their monitors.`
 			`	"I love you so much! I want to teach bad people to love. Who needs love?`
-			`	You provide your pilot license number to the darling little girl. Whoever gave these kids a warship was insane for doing so.`
+			`	You provide your pilot license number to the little darling. Whoever gave these kids a warship was insane.`
 			`	"Awwww. This person needs love. I'll love them a lot. I have big guns of happiness! No money for this. I just need love. How much do you love me?"`
 			choice
 				`	"I love you sooooo much."`
 					goto love
 				`	"I don't know you. How could I love you?"`
+					goto confused
+				`	"Who could possibly ever love a horrible little brat like you?"`
+					goto brat
+				`	"Do what I say or I'll put you on time-out!"`
+					goto timeout
+			label timeout
+			`"No! I'll be good. I'll make <first> <last> go away forever. I promise."`
+			`	She looks very guilty as she cuts the feed.`
+				accept
+			label brat
 			`The child's face turns bright red and she screams, "You're so mean! I'll teach you love. I'll teach you real hard." She cackles maniacally as the feed cuts off.`
+				accept
+			label confused
+			`The child looks very confused for a second.`
+			`	"Oh. I'll help you know me. I'll help you with my guns. Then you can love me."`
+			`	She smiles sweetly and the feed cuts off.`
 				accept
 			label love
 			`"I love you too!" The child giggles and the feed cuts off.`

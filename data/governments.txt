@@ -456,6 +456,16 @@ government "Republic"
 	"hostile hail" "hostile navy"
 	raid "pirate raid"
 
+# Syndicate employees that act like bounty hunters:
+government "Syndicate?"
+	swizzle 6
+	color .78 0 0
+
+	"player reputation" -1000
+	"bribe" .1
+	"fine" 0
+	"hostile hail" "hostile syndicate"
+
 government "Syndicate"
 	swizzle 4
 	color 0 .41 .71
