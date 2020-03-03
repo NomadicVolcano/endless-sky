@@ -64,14 +64,14 @@ mission "00 Warfeed Epic Fail (landing)"
 	on offer
 		fail "Warfeed Terraforming [H01] Whispering Rose"
 		fail "Warfeed Terraforming [H02] White River"
-		fail "Warfeed Terraforming [N01] Bounty"
-		fail "Warfeed Terraforming [N02n] Snuggles Bounty"
-		fail "Warfeed Terraforming [N02w] Wonton Bounty"
-		fail "Warfeed Terraforming [N02e] Endless Epiphany"
-		fail "Warfeed Terraforming [N02s] Smeg Bounty"
-		fail "Warfeed Terraforming [N03] Anarchist Letter"
-		fail "Warfeed Terraforming [N04] Blue Women"
-		fail "Warfeed Terraforming [N05] Lilith"
+		fail "Warfeed Terraforming [P01] Bounty"
+		fail "Warfeed Terraforming [P02n] Snuggles Bounty"
+		fail "Warfeed Terraforming [P02w] Wonton Bounty"
+		fail "Warfeed Terraforming [P02e] Endless Epiphany"
+		fail "Warfeed Terraforming [P02s] Smeg Bounty"
+		fail "Warfeed Terraforming [P03] Anarchist Letter"
+		fail "Warfeed Terraforming [P04] Blue Women"
+		fail "Warfeed Terraforming [P05] Lilith"
 
 
 mission "Warfeed Terraforming [H01] Whispering Rose"
@@ -195,20 +195,21 @@ mission "Warfeed Terraforming [F02] Deep"
 	on complete
 		payment 35000
 	on offer
-		`You quickly find the headquarters of Follower's terraforming efforts, as it is the largest operation on the planet. The shuffle you to a private room to meet with the executives who plan to smuggle goods.`
-		`	"This is a good deed that you do, <first> <last>. You'll save a lot of lives and make numerous new jobs. It's a pity that it's all illegal.`
-		`	"We've been analyzing options for transporting goods. The shear quantity, hundreds of thousands of tons, is beyond what any smugglers can handle. That means we need to set up a large-scale operation, which means we need governments behind us.
-		`	"The best option is to find a group that can transport goods without being scanned by the Navy. In this area, that would be the Navy, Navy Intelligence, Republic Intelligence, and Deep Security."`
-		choice
-			`	(Continue.)`
-		`	"Navy and Republic are right out, but Deep Sky may be interested in alien terraforming equipment. They hold a lot of sway with Deep Security, so they could arrange something, if they're interested.`
-		`	"We'll consider the Syndicate to be a backup plan. They'll want a high price, but they know how to keep secrets. We've... done business with them before.`
-		`	"For now, we need you to go to <destination> to talk to atmospheric physics researchers about their interest in Hai technology."`
-		choice
-			`	"That's a great plan. I'll do it."`
-				accept
-			`	"I don't like the direction this is taking me, straight down into illegality. Find another messenger."
-				decline
+		conversation
+			`You quickly find the headquarters of Follower's terraforming efforts, as it is the largest operation on the planet. The shuffle you to a private room to meet with the executives who plan to smuggle goods.`
+			`	"This is a good deed that you do, <first> <last>. You'll save a lot of lives and make numerous new jobs. It's a pity that it's all illegal.`
+			`	"We've been analyzing options for transporting goods. The shear quantity, hundreds of thousands of tons, is beyond what any smugglers can handle. That means we need to set up a large-scale operation, which means we need governments behind us.
+			`	"The best option is to find a group that can transport goods without being scanned by the Navy. In this area, that would be the Navy, Navy Intelligence, Republic Intelligence, and Deep Security."`
+			choice
+				`	(Continue.)`
+			`	"Navy and Republic are right out, but Deep Sky may be interested in alien terraforming equipment. They hold a lot of sway with Deep Security, so they could arrange something, if they're interested.`
+			`	"We'll consider the Syndicate to be a backup plan. They'll want a high price, but they know how to keep secrets. We've... done business with them before.`
+			`	"For now, we need you to go to <destination> to talk to atmospheric physics researchers about their interest in Hai technology."`
+			choice
+				`	"That's a great plan. I'll do it."`
+					accept
+				`	"I don't like the direction this is taking me, straight down into illegality. Find another messenger."
+					decline
 
 mission "Warfeed Terraforming [F03] Refusal"
 	name "Warfeed Republic Smuggling: <planet>"
@@ -223,14 +224,15 @@ mission "Warfeed Terraforming [F03] Refusal"
 	on fail
 		set "warfeed epic fail"
 	on offer
-		`It takes a while to find the atmospheric physics researchers among the thousands of research projects on Valhalla. Eventually you find an intern studying the use of polygonal eyewalls in persistent polar storms on gas giants to determine details of the giants' solid cores. Her words are hard to parse, as many of them are technical jargon, four to eight syllables long. After a few minutes, she stops talking long enough for you to explain your problem. Her eyes glow like a lightbulb and she takes you to the head of her research group.`
-		`	The tallest pregnant woman the human race has ever produced stands before you, next to a giant panel of equations and plots. You recognize some of the equations from your pilot training. One group of equations are the laws of motion for matter exiting hyperspace. Another group is the Navier-Stokes equations. Somehow the two groups of equations mix to create terraforming, though you can't follow the reasoning. The math is a decade or two of education beyond your introductory knowledge.`
-		choice
-			`	(Continue.)`
-		`	You explain the matter in detail to the research group head, who turns out to be a better listener than her intern.`
-		`	"Of course we want Hai terraforming technology, but you need to understand Deep Security's limitations. The reason they have permission to travel without Navy surveillance is that they never smuggle goods. Breaking that rule would cause long-term harm to all of The Deep. I wish I could help Follower, but I can't.
-		`	"Your only option left is the Syndicate. The Paradise Planets would turn you in if you even suggested such a plan, and the Navy is to honorable to smuggle.`
-		`	"Please convey my apology to the terraformers on Follower."`
+		conversation
+			`It takes a while to find the atmospheric physics researchers among the thousands of research projects on Valhalla. Eventually you find an intern studying the use of polygonal eyewalls in persistent polar storms on gas giants to determine details of the giants' solid cores. Her words are hard to parse, as many of them are technical jargon, four to eight syllables long. After a few minutes, she stops talking long enough for you to explain your problem. Her eyes glow like a lightbulb and she takes you to the head of her research group.`
+			`	The tallest pregnant woman the human race has ever produced stands before you, next to a giant panel of equations and plots. You recognize some of the equations from your pilot training. One group of equations are the laws of motion for matter exiting hyperspace. Another group is the Navier-Stokes equations. Somehow the two groups of equations mix to create terraforming, though you can't follow the reasoning. The math is a decade or two of education beyond your introductory knowledge.`
+			choice
+				`	(Continue.)`
+			`	You explain the matter in detail to the research group head, who turns out to be a better listener than her intern.`
+			`	"Of course we want Hai terraforming technology, but you need to understand Deep Security's limitations. The reason they have permission to travel without Navy surveillance is that they never smuggle goods. Breaking that rule would cause long-term harm to all of The Deep. I wish I could help Follower, but I can't.
+			`	"Your only option left is the Syndicate. The Paradise Planets would turn you in if you even suggested such a plan, and the Navy is to honorable to smuggle.`
+			`	"Please convey my apology to the terraformers on Follower."`
 	on complete
 		payment 135000
 		conversation
@@ -299,10 +301,10 @@ mission "Warfeed Terraforming [S03] Syndicate Capture"
 			not "chosen sides"
 			has "main plot completed"
 		or
-			"Warfeed Terraforming [N02s] Smeg Bounty: done"
-			"Warfeed Terraforming [N02e] Endless Epiphany: done"
-			"Warfeed Terraforming [N02w] Wonton Bounty: done"
-			"Warfeed Terraforming [N02n] Snuggles Bounty: done"
+			"Warfeed Terraforming [P02s] Smeg Bounty: done"
+			"Warfeed Terraforming [P02e] Endless Epiphany: done"
+			"Warfeed Terraforming [P02w] Wonton Bounty: done"
+			"Warfeed Terraforming [P02n] Snuggles Bounty: done"
 	on offer
 		conversation
 			`As you walk out your ship, the ground collapses from underneath your feet and you're trapped in a net. You feel a powerful electric shock, and you fall painfully asleep.`
@@ -375,46 +377,51 @@ mission "Warfeed Terraforming [S04] List of Names"
 			`	"Of course," she laughs, "We keep records on the False Hai and their criminals."`
 			`	She walks to nearby curtains which part to reveal a long-range communicator. After a few brief conversation in Hai, she records some names on a disk and hands it to you.`
 			`	"This is enough names. Land on Maker. Give this to the Syndicate. They will expect you.`
-			`	"White River will suspect you. Don't let his ship see you land. Don't attack the ship. The False Hai will hunt you if you do."`
+			`	"White River will suspect you. Don't let his ship see you land. Don't attack the ship or the False Hai will hunt you."`
 	npc evade save
-		government "Hai"
-		personality heroic staying target harvests plunders
-		system Ultima Thule
-		ship "Shield Beetle (Jump)" "White River's Spy"
+		government " Hai "
+		personality target harvests plunders disables
+		system Sol
+		ship "Shield Beetle (Toss)" "White River's Spy"
+	on complete
+		payment 535000
+		conversation
+			`You meet some eager Syndicate agents who had abused you before, and hand them the list of names.`
+			`	One says, "Yes, we can confirm some of these are correct. Others are new..."`
+			`	Another, "You've done well. Here's your payment as promised." He hands you 500,000 credits.`
+			`	"Unfortunately," he continues, "we have no way to pass the goods between Kraken Station and Follower. Once you solve that problem, we'll all get a lot richer off those angry northern squirrels and over-payed Follower terraformers."`
 
-ship "Shield Beetle" "Shield Beetle (Jump)"
+# White River is insanely wealthy, so he's had a chance to trade for,
+# steal, or smuggle, advanced outfits.  The Hai pillaged Korath
+# outfits during the Korath raids, and White River obtained them
+# through illicit means. The Jump Drive was purchased from the
+# Unfettered at great cost. Human coolers were imported legally.
+
+ship "Shield Beetle" "Shield Beetle (Toss)"
 	outfits
-		"Plasma Cannon" 4
+		"Pulse Cannon" 8
+		"Korath Grab-Strike" 2
 		"Chameleon Anti-Missile" 2
-		"Boulder Reactor" 2
-		"Hai Gorge Batteries"
-		"Outfits Expansion" 4
-		"Hai Diamond Regenerator" 2
-		"Fuel Pod" 3
-		"Liquid Helium Cooler"
-		"Pulse Rifle" 55
-		`"Bondir" Atomic Thruster`
-		`"Bufaer" Atomic Steering`
+		"Outfits Expansion" 3
 		"Jump Drive"
-	gun "Ion Cannon"
-	gun "Ion Cannon"
-	gun "Hai Tracker Pod"
-	gun "Hai Tracker Pod"
-	gun "Ion Cannon"
-	gun "Ion Cannon"
-	gun "Hai Tracker Pod"
-	gun "Hai Tracker Pod"
-	turret
-	turret
-	turret "Chameleon Anti-Missile"
-	turret "Chameleon Anti-Missile"
+		"Quantum Keystone"
+		"Hai Diamond Regenerator" 2
+		"Liquid Helium Cooler"
+		"Liquid Nitrogen Cooler"
+		"Fuel Pod"
+		"Fuel Processor"
+		"Thruster (Planetary Class)"
+		`"Bufaer" Atomic Steering`
+		"Boulder Reactor" 2
+		"Pebble Core"
+		"Hai Gorge Batteries"
 
 
 ########################################################################
 
 ### Warfeed Smuggling North leg: negotiate with the pirates
 
-mission "Warfeed Terraforming [N01] Bounty"
+mission "Warfeed Terraforming [P01] Bounty"
 	name "Warfeed North Smuggling: Bounty (<planet>)"
 	description `Fly to <destination> to pay the bounty hunter "Deviled Smegs" to hunt you. Payment is <payment>.`
 	landing
@@ -424,7 +431,7 @@ mission "Warfeed Terraforming [N01] Bounty"
 		has "Warfeed Terraforming [H02] White River: done"
 	on complete
 		conversation
-			`When you reach Earth, you head to the local security office to post a bounty on yourself. There are four names on White River's list. The officers provide information about each bounty hunter. Which hunter will you hire to kill you?`
+			`When you reach Earth, you head to the local security office to post a bounty on yourself. There are four names on White River's list. A database provide information about each bounty hunter. Which hunter will you hire to kill you?`
 			choice
 				`	"Deviled Smegs," who pilots a Marauder Firebird she's modified with Hai technology.`
 					set "smeg bounty"
@@ -435,7 +442,7 @@ mission "Warfeed Terraforming [N01] Bounty"
 				`	"Wonton Mastication," a retired chef who pilots a well-armed Shield Beetle.`
 					set "wonton bounty"
 					accept
-				`	"Sparkle Snuggles." The hunter database has detailed descriptions and a log of kills for all hunters except this one.  All it says is, "This bounty hunter's massive ship of an unrecognized model has defeated entire pirate fleets in seconds. It could easily out-gun a carrier group. Warning: the hunter is dangerously unstable. Hire as a last resort, and maybe not even then."`
+				`	"Sparkle Snuggles." The database says, "This bounty hunter's massive ship has defeated entire pirate fleets in seconds. WARNING: the hunter is dangerously unstable. Hire as a last resort, and maybe not even then."`
 					set "snuggles bounty"
 					accept
 		payment 35000
@@ -444,17 +451,17 @@ mission "Warfeed Terraforming [N01] Bounty"
 
 
 
-mission "Warfeed Terraforming [N02n] Snuggles Bounty"
+mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 	name "Warfeed North Smuggling: Sparkle Snuggles"
 	description "Disable Sparkle Snuggles's ship but don't destroy or capture it. Murdering children is wrong. Payment is <payment>."
 	source Earth
 	landing
 	to offer
-		has "Warfeed Terraforming [N01] Bounty: done"
+		has "Warfeed Terraforming [P01] Bounty: done"
 		has "snuggles bounty"
 	on offer
 		conversation
-			`You contact this mysterious bounty hunter and you get a video feed. She's a little girl, about six years old, cuddling a teddy bear. You notice several teenagers behind her, controlling alien turrets. They're laughing while ships explode on their monitors.`
+			`You contact this mysterious bounty hunter and you get a video feed. She's a little girl, about six years old, cuddling a teddy bear. You notice several teenagers behind her, controlling alien turrets. They're laughing while ships explode on their monitors. It seems the girl, "Sparkle Snuggles," is their mascot.`
 			`	"I love you so much! I want to teach bad people to love. Who needs love?`
 			`	You provide your pilot license number to the little darling. Whoever gave these kids a warship was insane.`
 			`	"Awwww. This person needs love. I'll love them a lot. I have big guns of happiness! No money for this. I just need love. How much do you love me?"`
@@ -467,36 +474,36 @@ mission "Warfeed Terraforming [N02n] Snuggles Bounty"
 					goto brat
 				`	"Do what I say or I'll put you on time-out!"`
 					goto timeout
-			label timeout
-			`	"No~o! I'll be good. I'll make <first> <last> go away forever. I promise."`
-			`	She looks very guilty as she cuts the feed.`
-				accept
-			label brat
-			`	The child's face turns bright red and she screams, "You're so mean! I'll teach you love. I'll teach you real hard." She cackles maniacally as the feed cuts off.`
+			label love
+			`	"I love you too!" The child giggles and the feed cuts off.`
 				accept
 			label confused
 			`	The child looks very confused for a second.`
 			`	"Oh. I'll help you know me. I'll help you with my guns. Then you can love me."`
 			`	She smiles sweetly and the feed cuts off.`
 				accept
-			label love
-			`	"I love you too!" The child giggles and the feed cuts off.`
+			label brat
+			`	The child's face turns bright red and she screams, "You're so mean! I'll teach you love. I'll teach you real hard." She cackles maniacally as the feed cuts off.`
+				accept
+			label timeout
+			`	"No~o! I'll be good. I'll make <first> <last> go away forever. I promise."`
+			`	She looks very guilty as she cuts the feed.`
 				accept
 	on complete
 		payment 35000
 	on fail
 		set "warfeed epic fail"
 		conversation
-			`You are a horrible person for killing those five children. Even the Syndicate and Unfettered Hai have enough morals not to murder children. No more quest rewards for you.`
+			`You are a horrible person for killing those five children. Even the Syndicate has enough morals not to murder children. No more quest rewards for you.`
 	npc disable save
 		government "Bounty Hunter"
 		personality nemesis plunders waiting target
 		system
 			distance 6 9
-		ship "Model 256 (Snuggles)" "Sparkle Snuggles"
+		ship "Model 256 (Snuggle)" "Sparkle Snuggles"
 		dialog "You have disabled the ship, and the parents of these children will pick them up after you land. Pillage their ship if you must, but please don't capture it. You don't have to murder children."
 
-ship "Model 256" "Model 256 (Snuggles)"
+ship "Model 256" "Model 256 (Snuggle)"
 	outfits
 		"Outfits Expansion" 3
 		"Bunk Room"
@@ -519,14 +526,14 @@ ship "Model 256" "Model 256 (Snuggles)"
 		"Pug Biodefenses" 5
 
 # Text-stalking from a six-year-old girl with a super-weapon and serious emotional issues.
-# Must be lexically ordered last so the real missions will cancel it.
+# The mission ID must be lexically ordered last so the real missions will cancel it.
 mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
 	invisible
 	repeat
 	source
 		not attributes uninhabited
 	to offer
-		has "Warfeed Terraforming [N02n] Snuggles Bounty: active"
+		has "Warfeed Terraforming [P02n] Snuggles Bounty: active"
 	on offer
 		conversation
 			# The random thresholds are chosen so each option has about a 1 in 20 chance
@@ -581,7 +588,7 @@ mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
 			label nine
 			branch ten
 				random < 8
-			`You receive a message from your pursuer, "You're not playing fair. I don't like you any more."`
+			`You receive a message from your pursuer, "You don't play fair. I don't like you anymore."`
 				fail
 				
 			label ten
@@ -593,13 +600,13 @@ mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
 			label eleven
 			branch twelve
 				random < 10
-			`You receive a message from your pursuer, "I'm bored. I won't hunt you any more. Hee heeee."`
+			`You receive a message from your pursuer, "I'm bored. I won't hunt you any more."`
 				fail
 				
 			label twelve
 			branch thirteen
 				random < 11
-			`You receive a message from your pursuer, "Make me pancakes and I'll forgive you for not playing with me."`
+			`You receive a message from your pursuer, "Make me pancakes and I'll forgive you for not playing with me. :-p"`
 				fail
 				
 			label thirteen
@@ -629,33 +636,33 @@ mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
 			label seventeen
 			branch eighteen
 				random < 25
-			`You receive a message from your pursuer, "Can you smile for me? I want to see you smile before I blow you up."`
+			`You receive a message from your pursuer, "Can you smile for me? I want to see you smile before you get blown up."`
 				fail
 				
 			label eighteen
 			branch nineteen
 				random < 33
-			`You receive a message from your pursuer, "Your ship looks so cute and tiny on my screen! I want to make it go, 'splat!' like a bug!"`
+			`You receive a message from your pursuer, "Your ship looks so cute and tiny! I want to make it, 'splat!' like a bug!"`
 				fail
 				
 			label nineteen
 			branch twenty
 				random < 50
-			`You receive a message from your pursuer, "Gimme your toes and nose as my birthday present! I wanna eat them! Nom nom nom."`
+			`You receive a message from your pursuer, "Gimme your toes and nose as my birday present! I wanna eat 'em! Nom nom nom."`
 				fail
 				
 			label twenty
-			`You receive a message from your pursuer, "I just lost one of my baby teeth and I named it <first> <last>!"`
+			`You receive a message from your pursuer, "My boogers are cleaner than your face!"`
 				fail
 
 
-mission "Warfeed Terraforming [N02w] Wonton Bounty"
+mission "Warfeed Terraforming [P02w] Wonton Bounty"
 	name "Warfeed North Smuggling: Wonton Mastication"
 	description "Destroy Wonton Mastication's ship, the bounty hunter you hired to kill you. Payment is <payment>."
 	source Earth
 	landing
 	to offer
-		has "Warfeed Terraforming [N01] Bounty: done"
+		has "Warfeed Terraforming [P01] Bounty: done"
 		has "wonton bounty"
 	on offer
 		conversation
@@ -695,13 +702,13 @@ ship "Shield Beetle" "Shield Beetle (Plasma)"
 
 
 
-mission "Warfeed Terraforming [N02e] Endless Epiphany"
+mission "Warfeed Terraforming [P02e] Endless Epiphany"
 	name "Warfeed North Smuggling: Endless Epiphany"
 	description "Destroy Endless Epiphany's fleet, the bounty hunter you paid to kill you. Payment is <payment>.`
 	source Earth
 	landing
 	to offer
-		has "Warfeed Terraforming [N02] Bounty: done"
+		has "Warfeed Terraforming [P02] Bounty: done"
 		has "endless bounty"
 	on offer
 		conversation
@@ -770,13 +777,13 @@ ship "Headhunter" "Headhunter (Plasma)"
 
 
 
-mission "Warfeed Terraforming [N02s] Smeg Bounty"
+mission "Warfeed Terraforming [P02s] Smeg Bounty"
 	name "Warfeed North Smuggling: Deviled Smegs"
 	description `Kill "Deviled Smegs," the bounty hunter you hired to kill you. Beware her modified Firebird. Payment is <payment>.`
 	source Earth
 	landing
 	to offer
-		has "Warfeed Terraforming [N02] Bounty: done"
+		has "Warfeed Terraforming [P02] Bounty: done"
 		has "smeg bounty"
 	on offer
 		conversation
@@ -809,7 +816,7 @@ mission "Warfeed Terraforming [N02s] Smeg Bounty"
 				accept
 	on complete
 		payment 35000
-		set "Warfeed Terraforming [N02] Bounty (Any)"
+		set "Warfeed Terraforming [P02] Bounty (Any)"
 	npc kill
 		government "Bounty Hunter"
 		personality nemesis plunders waiting
@@ -846,7 +853,7 @@ ship "Marauder Firebird" "Marauder Firebird (Smeg)"
 
 
 
-mission "Warfeed Terraforming [N03] Anarchist Letter"
+mission "Warfeed Terraforming [P03] Anarchist Letter"
 	name "Warfeed North Smuggling: Visit <planet>"
 	description "Fly to <destination> to find the anarchist who thanked you."
 	clearance "You read the anarchist's letter and the authorities let you land."
@@ -857,10 +864,10 @@ mission "Warfeed Terraforming [N03] Anarchist Letter"
 	clearance "You pass on the information you received and the authorities send you a landing vector. You're cleared to land."
 	to offer
 		or
-			has "Warfeed Terraforming [N02n] Snuggles Bounty"
-			has "Warfeed Terraforming [N02e] Endless Bounty"
-			has "Warfeed Terraforming [N02w] Wonton Bounty"
-			has "Warfeed Terraforming [N02s] Smeg Bounty"
+			has "Warfeed Terraforming [P02n] Snuggles Bounty"
+			has "Warfeed Terraforming [P02e] Endless Bounty"
+			has "Warfeed Terraforming [P02w] Wonton Bounty"
+			has "Warfeed Terraforming [P02s] Smeg Bounty"
 	on offer
 		conversation
 			`Upon landing, someone brings you a letter thanking you for eliminating the bounty hunter. "This hunter killed one of my sisters, and now you've avenged her. If you want more work, find me on <planet>." There is a set of landing coordinates outside an anarchist city on <destination>.`
@@ -872,7 +879,7 @@ mission "Warfeed Terraforming [N03] Anarchist Letter"
 
 
 
-mission "Warfeed Terraforming [N04] Blue Women"
+mission "Warfeed Terraforming [P04] Blue Women"
 	name "Warfeed North Smuggling: Search <planet>"
 	description "Find a blue woman on <destination>. Payment is <payment>. Return her for another 400,000 credits."
 	landing
@@ -880,7 +887,7 @@ mission "Warfeed Terraforming [N04] Blue Women"
 	destination Alfheim
 	infiltrating
 	to offer
-		has "Warfeed Terraforming [N03] Anarchist Letter: done"
+		has "Warfeed Terraforming [P03] Anarchist Letter: done"
 	on offer
 		conversation
 			`You follow the directions on the letter to an old shack in the desert. A pregnant woman, perhaps 23 years old, answers the door. She's wearing a shawl and a head scarf, which are too hot for the climate.`
@@ -935,7 +942,7 @@ mission "Warfeed Terraforming [N04] Blue Women"
 
 
 
-mission "Warfeed Terraforming [N05] Lilith"
+mission "Warfeed Terraforming [P05] Lilith"
 	name "Warfeed North Smuggling: Search <planet>"
 	description "Take Lilith to <destination>. Payment is <payment>. Fine when caught is 75,000 credits."
 	landing
@@ -944,7 +951,7 @@ mission "Warfeed Terraforming [N05] Lilith"
 	passengers 1
 	illegal 75000
 	to offer
-		has "Warfeed Terraforming [N04] Blue Women: done"
+		has "Warfeed Terraforming [P04] Blue Women: done"
 	on offer
 		conversation
 			`You set your ship down near the position your locator orb provided and you see a crashed ship concealed nearby. The hull is torn, and you notice a layer of padding that looks like interference plating. Oddly, the plating is an oily green material instead of the usual silver.`
@@ -992,3 +999,115 @@ mission "Warfeed Terraforming [N05] Lilith"
 			`	The conversation goes on for almost ten minutes as the shadow-veiled audience inquires about the invention, and the proposed deal with the Hai. They seem extremely intelligent, level-headed, and well-informed, not a trait of the pirate stereotype.`
 			`	Eventually Lilith negotiates two settlements. There will be mass-production of her interference plating with 9% of sales going to her. The Unfettered smuggling operation will be off-limits to pirates, so long as the sending planet (Follower or Warfeed) pay 70 credits per ton of cargo.`
 			`	Your newly-rich friend hands you 800,000 credits and a contract from the pirates. "Come find me on Greenrock again sometime. Good luck with your terraforming project!"`
+
+
+########################################################################
+
+### Warfeed Terraforming Conclusion
+
+# At this point, the player has set up the Hai, Pirate, and Syndicate
+# legs of the smuggling route, but has run out of options for the last
+# leg: Kraken Station to Follower and back.
+
+mission "Warfeed Terraforming [C01] Failure"
+	name "Warfeed Republic Terraforming: <planet>"
+	description "Head to the pirate capital of <destination> to discuss a deal with Lilith."
+	destination Greenrock
+	clearance "When you describe the lucrative plan to the pirates, they eagerly let you land."
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		random < 20
+		has "Warfeed Terraforming [F03] Refusal: done"
+		has "Warfeed Terraforming [S04] List of Names: done"
+		has "Warfeed Terraforming [P05] Lilith"
+	on offer
+		conversation
+			`You receive a video link request from the terraformers on Follower. Do you want to talk to them or wait until later?`
+			choice
+				`	(Talk to them.)`
+				`	(Wait until later.)`
+					defer
+			`	"What is the status, Captain <last>?"`
+			`	You explain everything that has happened so far: the Syndicate deal, the Pirate deal, Lilith, blueberry-headed women, and the lack of a Kraken-Follower route.`
+			`	"Well, the answer seems obvious. If we have better interference plating, we can shield the deuterium fuel pods from Navy scans. They'll just look like full fuel pods. See if you can arrange something with Lilith and her pirate patrons."`
+			choice
+				`	(Agree.)`
+				`	"Pirate space sounds too dangerous to me. You'll have to find another pilot for this route"`
+					decline
+	on complete
+		payment 35000
+	on decline
+		set "warfeed epic fail"
+	on fail
+		set "warfeed epic fail"
+
+mission "Warfeed Terraforming [C02] Lilith's Inventions"
+	name "Warfeed Republic Terraforming: <planet>"
+	description "Fly to <destination> to arrange a shipment of materials. Payment is <payment>."
+	clearance "When you describe the lucrative plan to the pirates, they eagerly clear you to land."
+	source Greenrock
+	destination Snowfeather
+	to offer
+		has "Warfeed Terraforming [C01] Failure: done"
+	on offer
+		`You find Lilith between a pair of blushing teenage pirate girls fawning over her. You suspect the girls were all drinking, but at first glance, Lilith appears largely functional. You explain the problem to her.
+		`	She answers, "Wow! Yeah. Wow. Yeah, it could. I mean, the interference. We'd need a lot of it. Or, no. Wait.`
+		`	"Okay, okay. Here's the thing. The bedding, er, patting, er, plating, is mostly easy to man'facture except one bite. Bit. Pie. Piece. Right. Therez this piece, it looks like so." She hands you a piece of paper from a notebook. It has technical specifications on it. "Thissis hard to make. If the Furries can make some, we can-"`
+		`	She's interrupted by the fawning girls tickling her. She collapses on the floor blushing in a fit of laughter.`
+		choice
+			`	(Continue.)`
+		`	"No! Stop! I gotta finish. Thiz important." The girls help her stand up.`
+		`	"Okay, so, Furries use these bits on their big reactors. Bite her? Butter? Bolder? No, Boulder. Yes! Boulder reactors! Insulates against radiation n' keeps umm cool. Bring... I donno... 431 tons?`
+		`	"No, wait... 134 tons... ? Oh, I gotta math it out. Can't frellin' math like this." She frowns.`
+		`	You respond, "I'll come back after you sober up."`
+		`	"Yef. I mean, uh... yes. We're gonna test my new invention. Be back later."`
+		`	She pinches the girls and the triad wander off blushing.`
+		choice
+			`	(Wait.)`
+		`	A few hours later, Lilith returns with a notebook.`
+		`	"Sorry. Here's what we need." She hands you technical specifications of a completely different part than before. "The one I handed you before was the vibration mechanism of... never mind.`
+		`	"One ton of these gadgets will make eleven tons of plating. Bring us 91 tons, and expect some fines when you're caught. Ironically, these bits are easy to scan until they're incorporated into the full plating.`
+		`	"This is an insanely-hard smuggling job: all the way from Unfettered Hai space to Greenrock with 91 tons of illegal goods. You'll be paid quite well. I can't give an exact figure without talking to my employers, but expect seven digits. Probably beginning with a one, but I'm pretty sure the second digit will be at least a four."`
+			accept
+	on complete
+		payment 35000
+	on decline
+		set "warfeed epic fail"
+	on fail
+		set "warfeed epic fail"
+
+
+mission "Warfeed Terraforming [C03] Shipment Negotiation"
+	name "Warfeed Republic Terraforming: <planet>"
+	description "Fly to <destination> to arrange a shipment of materials. Payment is <payment>."
+	clearance
+	source Snowfeather
+	destination Darkcloak
+	to offer
+		has "Warfeed Terraforming [C02] Lilith's Inventions: done"
+	on offer
+		`As you approach Whispering Rose's store, her child greets you, "Well come back, Captain <last>! Do you have more good news?"`
+		`	It's amazing how quickly she's learning to speak your language. You decide not to correct her minor error. "Yes, I have great news, but I need some materials."`
+		branch liked
+			"reputation: Hai (Unfettered)" > 0
+		`	Whispering Rose meets you and hears your story. "Insulation for 21 Boulder Reactors? Easy. Lilith is right; you must go to a True Hai planet. Go to Darkcloak. It will be ready when you arrive."`
+			accept
+		label liked
+		`	Whispering Rose meets you and hears your story. "Insulation for 21 Boulder Reactors? Easy. Lilith is right; you must go to a True Hai planet. Go to Darkcloak. Other True Hai don't know of our plan. They may attack you. Planet authorities will let you land though."`
+	on complete
+		payment 35000
+	on decline
+		set "warfeed epic fail"
+	on fail
+		set "warfeed epic fail"
+
+# mission "Warfeed Terraforming [C04] Greenrock Delivery"
+# 	name "Warfeed Republic Terraforming: <planet>"
+# 	description "Fly to <destination> to arrange a shipment of materials. Payment is <payment>."
+# 	clearance
+# 	source Darkcloak
+# 	destination Greenrock
+# 	to offer
+# 		has "Warfeed Terraforming [C03] Shipment Negotiation: done"
+# 	on offer
