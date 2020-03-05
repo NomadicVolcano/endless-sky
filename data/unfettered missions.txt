@@ -1236,9 +1236,9 @@ mission "Warfeed Terraforming [R03] Haven Message"
 			`	On the terminal, you see a giant smiling face made of text characters. Examining closely, you see that they say, "Lilith Armor Haven," repeated over and over in the shape of a smile. The terminal goes black a few seconds later.`
 				accept
 	on complete
-		set "license: Marauder"
+		"helped marauders" ++
 		conversation
-			`You meet Lilith near the equator of Haven at what looks like a desert resort. Her two usual companions are sunbathing next to her, as she fiddles with gadgets and notebooks. She is so absorbed that she doesn't notice your approach until you're a few paces away.`
+			`You meet Lilith near the equator of Haven at what looks like a desert resort. Her two usual companions are sunbathing next to her as she fiddles with gadgets and notebooks. She is so absorbed that she doesn't notice your approach until you're a few paces away.`
 			`	"Hi, <first>! I have... a bit of an apology, and a present. Let's talk in private."`
 			choice
 				`	(Continue.)`
@@ -1251,4 +1251,4 @@ mission "Warfeed Terraforming [R03] Haven Message"
 			`	You're in a large room, and you see a pile of slimy reptile scales made of metal. It looks like a stronger version of the armor in Lilith's crashed ship.`
 			`	"This isn't the armor I invented. It isn't what we stole from the Syndicate either. This is the original. It is all that remains of a wrecked ship - a formerly living ship - on Stormhold.`
 			`	"It is very old. Impossibly old. Probably older than Earth. Telltale signs of hyperspace activity show it entered hyperspace millions of times. Judging from the radiation and scorch marks, it must have flown through the centers of stars. It may have even lived in them. When this... skin... was new, it would have been nearly invincible and could render the creature completely invisible. Even in its dormant state, this is the strongest material I know of.`
-			`	"I don't want to think about what would happen if the Marauders or Syndicate mastered its technology. Really, this technology is too advanced for anyone. Please take it away. Meet me in the spaceport when you have 13 tons of space free in your cargo hold."`
+			`	"I don't want to think about what would happen if the Marauders or Syndicate mastered its technology. Really, this technology is too advanced for anyone. Please find a way to destroy it. Meet me in the spaceport when you have 13 tons of outfit space free."`

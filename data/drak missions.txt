@@ -87,3 +87,157 @@ mission "Drak guarding Void Sprites"
 		personality heroic vindictive staying
 		system Nenia
 		ship "Archon (Cloaked)" "Sleeping Dragon"
+
+########################################################################
+
+mission "Ancient Skin [0] Installation"
+	name "Ancient Skin: Quarg"
+	description "Ask the Quarg about the ancient skin. Visit a Quarg world or station with the skin outfitted on your ship."
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	destination Haven
+	clearance "When hailing the planet, you receive only landing coordinates."
+	to offer
+		has "Warfeed Terraforming [R03] Haven Message: done"
+	to complete
+		never
+	on offer
+		outfit "Ancient Skin"
+		log `Lilith installed skin from an ancient alien ship. It clung to my hull, repairing it in minutes, and rendered my ship invisible to scanners and radar. She asked me to destroy it so it does not fall into the wrong hands.`
+		conversation
+			`Lilith has you move your ship to the outfitter where the alien skin is attached to a crane. It is slowly lowered to the middle of the top of your ship. The skin is clearly too small to cover a useful area of the ship, so you wonder whether it will help at all.`
+			`	"Watch this," says Lilith smugly.`
+			`	When the crane releases the skin onto your ship, the skin quivers and shakes, as if it is pondering the same question that you were. Then it flattens and spreads out in tentacles along the ship's surface. It closes up holes in vulnerable areas, and you can see it repairing gashes from recent battle damage. In a few minutes, your hull is fully repaired and even the paint seems new. The alien skin is only visible as thin strands wrapping around your ship's hull.`
+			choice
+				`	(Continue.)`
+			`	"Let me show you your ship on a scanner," says Lilith. The scanner shows details of the entire room and the spaceport beyond, but the ship doesn't show up at all. It takes almost a minute for telltale signs of the ship's interior to emerge.`
+			`	"Now do you see why I don't want this to fall into the wrong hands?"`
+			`	You think to yourself how you could hide or destroy this, and the first word that comes to mind is, "Quarg."`
+
+outfit "Ancient Skin"
+	plural "Ancient Skins" # as in Bear skin or Bear skins from hunting terminology
+	category "Systems"
+	# FIXME: thumbnail "outfit/ancient skin dormant"
+	mass 25
+	outfit space -13
+	"energy consumption" 0.3
+	"hull repair rate" 0.6
+	"hull energy" 0.3
+	"hull heat" 0.3
+	"scan interference" 500
+	"radar jamming" 500
+	"ramscoop" 0.25
+	description "This skin is all that remains of a living ship that was old beyond reckoning. When it was fully active, the skin was nearly invincible and rendered the ship invisible. In its dormant state, it still blocks most scanners and radars, acts as a weak ramscoop, and slowly repairs your hull. There is a small, but constant, energy drain to provide the skin's nutritional needs. Unfortunately, it is also quite dense. The marauder scientist Lilith had a pang of conscience and asked you to find a way to hide or destroy this skin, lest it fall into the wrong hands."
+
+mission "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
+	name `Ancient Skin: <planet>`
+	description `Go to <destination> to ask about the ancient skin.`
+	landing
+	source
+		attributes quarg
+		not planet "Kuwaru Efreti"
+	destination "Kuwaru Efreti"
+	to offer
+		has "Ancient Skin [0] Installation: active"
+	on offer
+		require "Ancient Skin"
+		conversation
+			`There are Quarg here who might be able to help you find a way to destroy the ancient skin. Do you want to ask them?`
+			choice
+				`	(Yes.)`
+				`	(No.)`
+					defer
+			`	You seek the nearest Quarg who has time to talk to you and bring them to your ship to show them the skin.`
+			`	After a minute of contemplation, the Quarg responds, "I am merely a teacher of poetry and unwise in ways of science. I have heard of such a skin in legends of the Quarg. Great creatures in the sky taught the old races long before Quarg were born. The teachers were wise and ancient, old beyond reconing even by the measure of a Quarg. Destroying this skin would be a terrible tragedy.`
+			`	"Go to <destination> and ask our scientists. They may tell you more."`
+			`	The Quarg gives you what looks like a street address on a ringworld. Hopefully the Quarg on <planet> will know what it means.`
+	on defer
+		fail "Ancient Skin [0] Installation"
+
+mission "Ancient Skin [2] Quarg Scientist and Archon"
+	name `Ancient Skin: Archon`
+	description `Find an Archon and ask about the ancient skin.`
+	source "Kuwaru Efreti"
+	landing
+	to complete
+		has "identified skin"
+	to offer
+		has "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist: done"
+	on offer
+		require "Ancient Skin"
+		`You arrive on the station and ask a Quarg for assistance. You are ushered to a green sphere, about four meters in diameter. The surface of the sphere is transparent and you have no trouble stepping through. Once through, gravity vanishes and the surface becomes solid and nearly opaque.`
+		`	You can see vast swaths of ringworld rush by as you hover weightless in the middle of the sphere. After a few minutes, it stops at the opposite side of the solar system and you exit into a room with vaulted ceilings.`
+		`	Ahead, you can see machinery that is quite alien to your eyes. It looks like a cross between abstract art sculptures, biological specimens, and optical circuits. Some are pulsating within a wide range of colors you suspect go beyond your eyes' sensitivity. There are wild variations in temperature and pressure, yet somehow the air remains stable.`
+		choice
+			`	(Continue.)`
+		`	A Quarg notices your confusion and walks to you. "My name is Kalee-sen, a scientist of the Quarg. We know of your discovery and are analyzing it." You notice the skin has been removed from your ship and is on what looks like a hexagonal altar, seven meters wide.`
+		`	"None of our weapons can pierce the skin, nor can our instruments look within. We have means to destroy it, but we wish to avoid using such devastating devices.`
+		`	"The Drak are aware of the skin's presence. You are to bring it to an Archon near Korath space. They will decide its fate.`
+		`	"Return to your ship, and the skin will be there."`
+			accept
+			
+	# We stick to Archons in Korath space to avoid game bugs if
+	# the player is in the middle of the void sprite missions or
+	# hasn't done the Ildaria missions.
+	
+	on enter Fasitopfar
+		set "identified skin"
+		conversation "Archon ancient skin identification"
+	on enter Kasikfar
+		set "identified skin"
+		conversation "Archon ancient skin identification"
+	on enter Peresedersi
+		set "identified skin"
+		conversation "Archon ancient skin identification"
+	on enter Sayaiban
+		set "identified skin"
+		conversation "Archon ancient skin identification"
+
+
+
+outfit "Koor'alei Armor"
+	plural "Koor'alei Armor"
+	category "Systems"
+	# FIXME: thumbnail "outfit/ancient skin reawakened"
+	mass 25
+	outfit space -13
+	"energy consumption" 0.2
+	"hull repair rate" 1.2
+	"hull energy" 0.7
+	"hull heat" 0.5
+	"scan interference" 500
+	"radar jamming" 500
+	"ramscoop" 0.75
+	description "This skin is the last remains of a race of sages and teachers, the Koor'alei. According to the Drak, the skin chose you, and wants to protect you. After proving to the Drak that you are a peacemaker, they have reawakened the skin so you can deal with the troubles that lie ahead."
+
+mission "Ancient Skin [3] Archon Recharge Permission"
+	name `Ancient Skin: <planet>`
+	description `Visit the spaceport at <destination> to re-awaken the ancient skin.`
+	source
+		not planet "Kuwaru Efreti"
+	destination "Kuwaru Efreti"
+	to offer
+		has "Ancient Skin [2] Quarg Scientist and Archon: done"
+		has "main plot completed: done"
+		has "Wanderers: Unfettered Diplomacy 1C: done"
+		has "Remnant: Return the Samples 2: done"
+		"reputation: Drak" >= 0
+		random < 25
+	on offer
+		require "Ancient Skin"
+		`You feel a faint whisper in your head. The words are imperceptible, but they're accompanied by a powerful emotion. The meaning is clear: the Drak have judged you worthy, and will allow the ancient skin to be re-awakened. You must take it to Kuwaru Efreti.`
+			accept
+
+mission "Ancient Skin [4] Archon Recharge"
+	invisible
+	source "Kuwaru Efreti"
+	to offer
+		has "Ancient Skin [2] Quarg Scientist and Archon: done"
+		has "main plot completed: done"
+		has "Wanderers: Unfettered Diplomacy 1C: done"
+		has "Remnant: Return the Samples 2: done"
+		"reputation: Drak" >= 0
+		random < 25
+	on offer
+		require "Ancient Skin"
+		#FIXME
