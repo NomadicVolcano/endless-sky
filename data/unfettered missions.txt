@@ -1277,6 +1277,7 @@ mission "Warfeed Terraforming [R03] Haven Message"
 			`	On the terminal, you see a giant smiling face made of text characters. Examining closely, you see that they say, "Lilith Armor Haven," repeated over and over in the shape of a smile. The terminal goes black a few seconds later.`
 				accept
 	on complete
+		set "license: Marauder"
 		conversation
 			`You meet Lilith near the equator of Haven at what looks like a desert resort. Her two usual companions are sunbathing next to her, as she fiddles with gadgets and notebooks. She is so absorbed that she doesn't notice your approach until you're a few paces away.`
 			`	"Hi, <first>! I have... a bit of an apology, and two presents."`
