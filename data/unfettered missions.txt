@@ -20,7 +20,7 @@ mission "Acorn Delights: Part 1"
 				`	(See what she wants.)`
 				`	(Ignore her.)`
 					decline
-			`"My name is Eeeya, and I'm looking for my lost granddaughter, Anoo. She recently graduated medical school, and I was going to give her three tons of cookies, but she's gone! Please help me find my granddaughter."`
+			`	"My name is Eeeya, and I'm looking for my lost granddaughter, Anoo. She recently graduated medical school, and I was going to give her three tons of cookies, but she's gone! Please help me find my granddaughter."`
 				goto "actual questions"
 			label questions
 			`	"Please help me find my granddaughter."`
@@ -37,19 +37,19 @@ mission "Acorn Delights: Part 1"
 				`	"I have other places to be."`
 					decline
 			label tons
-			`"Well I... I don't know... I cook when I'm worried, and Anoo has been missing for three months! I've frozen all three tons of cookies. They should last a year or two. Maybe she'll share them with her friends? She has many friends! Tons of friends! They all miss her...`
+			`	"Well I... I don't know... I cook when I'm worried, and Anoo has been missing for three months! I've vacuum-sealed all three tons of cookies. They should last a year or two. Maybe she'll share them with her friends? She has many friends! Tons of friends! They all miss her...`
 				goto questions
 			label gone
-			`"Anoo graduated from a medical academy on Frostmark four months ago, near the top of her class! A prominent hospital on Hai-Home needed a new trauma surgeon and said she would be perfect for the job. She accepted the position and said she would be on vacation for a few weeks.`
+			`	"Anoo graduated from a medical academy on Frostmark four months ago, near the top of her class! A prominent hospital on Hai-Home needed a new trauma surgeon and said she would be perfect for the job. She accepted the position and said she would be on vacation for a few weeks.`
 			`	"A month later, she told them she won't be coming, and nobody has heard from her since.`
 				goto questions
 			label authorities
-			`"I talked to the Central Medical Bureau, and they told me she got clearance for practicing medicine anywhere in Hai space or beyond. They've heard nothing from her since she got clearance. She has to register new prescriptions with the Bureau, so they should have heard from her.`
+			`	"I talked to the Central Medical Bureau, and they told me she got clearance for practicing medicine anywhere in Hai space or beyond. They've heard nothing from her since she got clearance. She has to register new prescriptions with the Bureau, so they should have heard from her.`
 			`	"The police told me that several other people have reported Anoo missing, but wouldn't tell me anything else. They said I had to talk to the military. The military won't tell me anything.`
 			`	"Maybe she's involved in something secret? Or illegal? No, she'd never do that. Where is she?`
 				goto questions
 			label accept
-			`"She always talked about doing volunteer work, to help those who couldn't afford medical treatment. When she was little, her mother would take her to Stonebreak to help at local shelters. Let's start there."`
+			`	"She always talked about doing volunteer work, to help those who couldn't afford medical treatment. When she was little, her mother would take her to Stonebreak to help at local shelters. Let's start there."`
 				accept
 
 mission "Acorn Delights: Part 2"
@@ -92,6 +92,7 @@ mission "Acorn Delights: Part 4"
 	name "Acorns for Anoo"
 	description "Bring Eeeya to <destination> to deliver <cargo> to her missing granddaughter."
 	landing
+	clearance `After hearing the name Eeeya, the Darkcloak flight controller excitedly responds, "Acorn Delights!" and you're granted landing clearance.`
 	source Cloudfire
 	destination Darkcloak
 	passengers 1
@@ -117,14 +118,14 @@ mission "Acorn Delights: Part 4"
 				`	"Unfettered space is too dangerous for me. You will have to find another captain."`
 					decline
 			label mention
-			`"I was afraid it would scare you away. Humans are terrified of our ships, and the Unfettered are deadly warriors. Besides, the other places were more likely."`
+			`	"I was afraid it would scare you away. Humans are terrified of our ships, and the Unfettered are deadly warriors. Besides, the other places were more likely."`
 				goto questions
 			label warmonger
-			`"Anoo was always sympathetic to the cause of the Unfettered Hai. Not their pointless war - she hated that - but their drive to progress and their instinct for change. Our family tried to discourage her ideas, and we thought we succeeded, but... maybe...`
+			`	"Anoo was always sympathetic to the cause of the Unfettered Hai. Not their pointless war - she hated that - but their drive to progress and their instinct for change. Our family tried to discourage her ideas, and we thought we succeeded, but... maybe...`
 			`	"A trauma surgeon for the Unfettered Hai? I wonder if she planned this years in advance?"`
 				goto questions
 			label accept
-			`"If Anoo went anywhere, it would be Darkcloak. The largest Unfettered hospital is there. Many soldiers come back from raids injured on Darkcloak. A trauma surgeon would have a lot of work to do."`
+			`	"If Anoo went anywhere, it would be Darkcloak. The largest Unfettered hospital is there. Many soldiers come back from raids injured on Darkcloak. A trauma surgeon would have a lot of work to do."`
 				accept
 			
 mission "Acorn Delights: Part 5"
@@ -134,7 +135,6 @@ mission "Acorn Delights: Part 5"
 	source Darkcloak
 	passengers 1
 	cargo "acorn cookies" 3
-	clearance `After hearing the name Eeeya, the Darkcloak flight controller excitedly responds, "Acorn Delights!" and you're granted landing clearance.`
 	to offer
 		has "Acorn Delights: Part 4: done"
 	on visit
@@ -144,12 +144,17 @@ mission "Acorn Delights: Part 5"
 		payment 30000
 		log `Helped the famous Hai chef Eeeya find her granddaughter, a trauma surgeon named Anoo. Both joined the Unfettered hoping they can, "set them on a more productive path." Received shares of Acorn Delights stock which pay 500 credits a day in dividends.`
 		conversation
-			`You're ushered quickly from the landing platform to a private office in a nearby hospital. When the office door opens, Eeeya and Anoo run to each other's arms. After a few minutes, they begin to speak. Eventually, the conversation turns to Anoo's new occupation.`
+			`You're ushered quickly from the landing platform to a nearby hospital. Unfettered Hai nearby are muttering in their language, but you keep hearing the Hai word for, "cookies," as they eye Eeeya. Along the way, you notice an odd contrast of squalor and advanced machinery. It seems the Unfettered value function and progress, rather than aesthetics and comfort like their southern brethren.`
+			`	As you rise through the main tower of the hospital, you're surprised at how advanced it is. Despite their willingness to die in battle, the Unfettered seem to value the lives of the survivors. Perhaps this is to heal them quickly to fight again?`
+			`	You reach a high floor, filled with personal offices. Eeeya takes you to a door at the end of a long hallway.`
+			choice
+				`	(Continue.)`
+			`	 After the door opens, Eeeya and Anoo run to each other's arms. A few minutes later, they begin to speak. Eventually the conversation turns to Anoo's new occupation.`
 			`	"Why did you come here, Anoo? The Unfettered hate us."`
 			`	"They don't hate US, grandma. They hate what we've become: frivolous, uninventive, and self-important. Our race is fading into history through a slow death of mediocrity. Most Unfettered see warfare as our only salvation.`
 			`	"We think of them as mindless brutes, but they're not! They have scientists, doctors, musicians, and writers. Our resources dwarf theirs, but they thrive with what little they have. Soon the Unfettered will have many more planets and almost unlimited resources. The era of scarcity will be over, and they'll have the power to choose their future.`
 			`	"If enough good people join the Unfettered, we can change their minds; set them on a more productive path. They'll need good doctors."`
-			`	Eeeya smiles at her granddaughter, "They'll need a good cook to."`
+			`	Eeeya smiles at her granddaughter, "They'll need a good cook too."`
 			choice
 				`	(Continue.)`
 			`	Eeeya turns to you and says, "I've found my new home, Captain <last>. I suppose payment is in order. I'm the owner of Eeeya's Acorn Delights, a luxury baked goods company based on Allhome.`
