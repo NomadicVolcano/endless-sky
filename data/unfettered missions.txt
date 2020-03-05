@@ -10,7 +10,6 @@ mission "Warfeed Terraforming [H00] Intro"
 	to offer
 		has "First Contact: Unfettered: offered"
 		"combat rating" > 100
-		"reputation: Hai (Unfettered)" > -200
 		or
 			not "chosen sides"
 			has "main plot completed"
@@ -100,7 +99,7 @@ mission "Warfeed Terraforming [H01] Whispering Rose"
 				`	"What is your plan?"`
 				`	"I will not help the Unfettered Hai."`
 					decline
-			`	"A traveler told us that Follower in Human space tries to terraform. They have many supplies and much determination. They lack knowledge, and have simple equipment. We have knowledge and good equipment but no supplies. A trade would help us both.`
+			`	"Human planet Follower tries to terraform. They have many supplies and much determination. They lack knowledge, and have simple equipment. We have knowledge and good equipment but no supplies. A trade would help us both.`
 			`	"The True Hai cannot fly to Human space. The False Hai kill us when we try. We must smuggle supplies past the Fettered, beyond uninhabited wastes, deep into a Human Republic. That is too far for one ship's journey. The cargo is many thousands of tons."`
 			choice
 				`	"If it is too far for one ship, how do you propose to smuggle the goods?"`
@@ -132,7 +131,7 @@ mission "Warfeed Terraforming [H01] Whispering Rose"
 mission "Warfeed Terraforming [H02] White River"
 	landing
 	invisible
-	source Snowfeather
+	source Makerplace
 	to offer
 		has "Warfeed Terraforming [H01] Whispering Rose: done"
 	on offer
@@ -147,9 +146,9 @@ mission "Warfeed Terraforming [H02] White River"
 				`	"Nope. I'm done with this. The Unfettered can find another fool for their errand."`
 					decline
 			`	"I'll take care of smuggling through Hai space, so you just have to arrange the rest of the route.`
-			`	"Any operation of this scale will attract the attention of pirates. We'll have to make deals with them. You'll need to get an audiance at their 'capital,' of sorts: Greenrock.`
+			`	"Any operation of this scale will attract the attention of pirates. We'll have to make deals with them. You'll need to get an audience at their 'capital,' of sorts: Greenrock.`
 			`	"You will also need to pay a hefty bribe to Syndicate executives, and they'll want something bigger than money.`
-			`	"Even shielded by deuterium cells, a Navy scan might detect the terraforming equipment heading from Kraken Station to Follower. That means you have to convince them not to scan it... or come up with better shielding."`
+			`	"Even shielded by deuterium cells, a Navy scan might detect the terraforming equipment heading from Kraken Station to Follower. That means you have to convince them not to scan it... or find a courier the Navy won't scan."`
 			choice
 				`	"What, specifically, do I need to do?"`
 				`	"Nope. I'm done with this. The Unfettered can find another fool for their errand."`
@@ -164,8 +163,10 @@ mission "Warfeed Terraforming [H02] White River"
 					accept
 				`	"No, this is too dangerous for me."`
 					decline
-	on complete
-		payment 35000
+	to complete
+		has "Warfeed Terraforming [F01] Follower: offered"
+		has "Warfeed Terraforming [S01] Union Boss: offered"
+		has "Warfeed Terraforming [P01] Bounty: offered"
 
 ########################################################################
 
@@ -176,9 +177,9 @@ mission "Warfeed Terraforming [F01] Follower"
 	description "Meet the terraformers on <destination> who made a deal with the Unfettered. Payment is <payment>."
 	destination Follower
 	landing
-	source Snowfeather
+	source Makerplace
 	to offer
-		has "Warfeed Terraforming [H02] White River: done"
+		has "Warfeed Terraforming [H02] White River: active"
 	on fail
 		set "warfeed epic fail"
 	on complete
@@ -257,9 +258,9 @@ mission "Warfeed Terraforming [S01] Union Boss"
 	description "Meet union boss Guncrag Watson on <destination>. Payment is <payment>."
 	destination Shroud
 	landing
-	source Snowfeather
+	source Makerplace
 	to offer
-		has "Warfeed Terraforming [H02] White River: done"
+		has "Warfeed Terraforming [H02] White River: active"
 	on fail
 		set "warfeed epic fail"
 	on complete
@@ -294,7 +295,8 @@ mission "Warfeed Terraforming [S03] Syndicate Capture"
 	name "Warfeed Syndicate Smuggling: <planet>"
 	description "Get a list of White River's operatives from the Unfettered at <destination>. Payment is <payment>."
 	landing
-	source government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
 	destination Snowfeather
 	to offer
 		has "Warfeed Terraforming [S02] Syndicate Hunt: offered"
@@ -303,10 +305,10 @@ mission "Warfeed Terraforming [S03] Syndicate Capture"
 			not "chosen sides"
 			has "main plot completed"
 		or
-			"Warfeed Terraforming [P02s] Smeg Bounty: done"
-			"Warfeed Terraforming [P02e] Endless Epiphany: done"
-			"Warfeed Terraforming [P02w] Wonton Bounty: done"
-			"Warfeed Terraforming [P02n] Snuggles Bounty: done"
+			has "Warfeed Terraforming [P02s] Smeg Bounty: done"
+			has "Warfeed Terraforming [P02e] Endless Epiphany: done"
+			has "Warfeed Terraforming [P02w] Wonton Bounty: done"
+			has "Warfeed Terraforming [P02n] Snuggles Bounty: done"
 	on offer
 		conversation
 			`As you walk out your ship, the ground collapses from underneath your feet and you're trapped in a net. You feel a powerful electric shock, and you fall painfully asleep.`
@@ -429,26 +431,39 @@ mission "Warfeed Terraforming [P01] Bounty"
 	name "Warfeed North Smuggling: Bounty (<planet>)"
 	description `Fly to <destination> to pay the bounty hunter "Deviled Smegs" to hunt you. Payment is <payment>.`
 	landing
-	source Snowfeather
+	source Makerplace
 	destination Earth
 	to offer
-		has "Warfeed Terraforming [H02] White River: done"
+		has "Warfeed Terraforming [H02] White River: active"
 	on complete
 		conversation
 			`When you reach Earth, you head to the local security office to post a bounty on yourself. There are four names on White River's list. A database provides information about each bounty hunter. Which hunter will you hire to kill you?`
 			choice
 				`	"Deviled Smegs," who pilots a Marauder Firebird she's modified with Hai technology.`
-					set "smeg bounty"
-					accept
+					goto smeg
 				`	"Endless Epiphany," a Falcon pilot with a triad of Headhunters as escorts.`
-					set "endless bounty"
-					accept
+					goto endless
 				`	"Wonton Mastication," a retired chef who pilots a well-armed Shield Beetle.`
-					set "wonton bounty"
-					accept
+					goto wonton
 				`	"Sparkle Snuggles." The database says, "This bounty hunter's massive ship has defeated entire pirate fleets in seconds. WARNING: the hunter is dangerously unstable. Hire as a last resort, and maybe not even then."`
-					set "snuggles bounty"
-					accept
+					goto snuggles
+			label smeg
+			apply
+				set "smeg bounty"
+			accept
+			label endless
+			apply
+				set "endless bounty"
+			accept
+			label wonton
+			apply
+				set "wonton bounty"
+			accept
+			label snuggles
+			apply
+				set "snuggles bounty"
+			accept
+
 		payment 35000
 	on fail
 		set "warfeed epic fail"
@@ -545,119 +560,119 @@ mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
 			branch two
 				random < 5
 			`You receive a message from your pursuer, "I can see you. Come out so I can love you with my bombs!"`
-				fail
+				decline
 				
 			label two
 			branch three
 				random < 5
 			`You receive a message from your pursuer, "Gimme candy and I might let you live!"`
-				fail
+				decline
 				
 			label three
 			branch four
 				random < 6
 			`You receive a message from your pursuer, "Hug me, love me, snuggle me, Sparkles to the rescue!"`
-				fail
+				decline
 				
 			label four
 			branch five
 				random < 6
 			`You receive a message from your pursuer. It is a white cartoon cat with a dead person in its mouth, and blood running down its cheeks. Underneath the cat you see the words, "you look tasty."`
-				fail
+				decline
 				
 			label five
 			branch six
 				random < 6
 			`You receive a message from your pursuer, "I'mma gonna text-stalk you to death!"`
-				fail
+				decline
 				
 			label six
 			branch seven
 				random < 7
 			`You receive a message from your pursuer, "I can taste your fear. It tastes like chocolate chip ice cream with chocolate sparkles and chocolate fudge! Yum yum!"`
-				fail
+				decline
 				
 			label seven
 			branch eight
 				random < 7
 			`You receive a message from your pursuer, "Don't you want to play with me?"`
-				fail
+				decline
 				
 			label eight
 			branch nine
 				random < 8
 			`You receive a message from your pursuer, "Who wants snuggles?"`
-				fail
+				decline
 				
 			label nine
 			branch ten
 				random < 8
 			`You receive a message from your pursuer, "You don't play fair. I don't like you anymore."`
-				fail
+				decline
 				
 			label ten
 			branch eleven
 				random < 9
 			`You receive a message from your pursuer, "I'll be back soon. I gotta pee."`
-				fail
+				decline
 				
 			label eleven
 			branch twelve
 				random < 10
 			`You receive a message from your pursuer, "I'm bored. I won't hunt you any more."`
-				fail
+				decline
 				
 			label twelve
 			branch thirteen
 				random < 11
 			`You receive a message from your pursuer, "Make me pancakes and I'll forgive you for not playing with me. :-p"`
-				fail
+				decline
 				
 			label thirteen
 			branch fourteen
 				random < 13
 			`You receive a message from your pursuer, "I farted and it smelled like you."`
-				fail
+				decline
 				
 			label fourteen
 			branch fifteen
 				random < 14
 			`You receive a message from your pursuer, "Come here so I can tickle you!"`
-				fail
+				decline
 				
 			label fifteen
 			branch sixteen
 				random < 17
 			`You receive a message from your pursuer. It is a crayon drawing of a stick figure with a big ship above it. The ship is shooting the person with a dozen green rays. The stick figure is labeled, "<first> goes splat."`
-				fail
+				decline
 				
 			label sixteen
 			branch seventeen
 				random < 20
 			`You receive a message from your pursuer, "If you don't come out soon, I'll cry. People die when I cry. Lots of people."`
-				fail
+				decline
 				
 			label seventeen
 			branch eighteen
 				random < 25
 			`You receive a message from your pursuer, "Can you smile for me? I want to see you smile before you get blown up."`
-				fail
+				decline
 				
 			label eighteen
 			branch nineteen
 				random < 33
 			`You receive a message from your pursuer, "Your ship looks so cute and tiny! I want to make it, 'splat!' like a bug!"`
-				fail
+				decline
 				
 			label nineteen
 			branch twenty
 				random < 50
 			`You receive a message from your pursuer, "Gimme your toes and nose as my birday present! I wanna eat 'em! Nom nom nom."`
-				fail
+				decline
 				
 			label twenty
 			`You receive a message from your pursuer, "My boogers are cleaner than your face!"`
-				fail
+				decline
 
 
 mission "Warfeed Terraforming [P02w] Wonton Bounty"
@@ -708,7 +723,7 @@ ship "Shield Beetle" "Shield Beetle (Plasma)"
 
 mission "Warfeed Terraforming [P02e] Endless Epiphany"
 	name "Warfeed North Smuggling: Endless Epiphany"
-	description "Destroy Endless Epiphany's fleet, the bounty hunter you paid to kill you. Payment is <payment>.`
+	description `Destroy Endless Epiphany's fleet, the bounty hunter you paid to kill you. Payment is <payment>.`
 	source Earth
 	landing
 	to offer
@@ -721,14 +736,14 @@ mission "Warfeed Terraforming [P02e] Endless Epiphany"
 			choice
 				`	(Pay the bounty hunter Endless Epiphany to hunt you.)`
 				`	(Abort the mission. Let the Unfettered find someone else to do their dirty work.)`
-					fail
+					decline
 			`	A voice of indeterminate gender begins the conversation, "Name the deceased."`
 			`	You provide your pilot serial number.`
 			`	"An easy mark. 200,000 credits upon proof of death. Agreed?"`
 			choice
 				`	(Pay the bounty hunter Endless Epiphany to hunt you.)`
 				`	(Abort the mission. Let the Unfettered find someone else to do their dirty work.)`
-					fail
+					decline
 			`	"I'm eager to see the results of your work," you respond.`
 			`	The connection immediately cuts off.`
 				accept
@@ -796,7 +811,7 @@ mission "Warfeed Terraforming [P02s] Smeg Bounty"
 			choice
 				`	(Pay the bounty hunter Deviled Smegs to hunt you.)`
 				`	(Abort the mission. Let the Unfettered find someone else to do their dirty work.)`
-					fail
+					decline
 			`	He answers your call, "Who do you want, and how much will you pay?"`
 			choice
 				`	"I want you to kill <first> <last>, and I'll pay 250,000 credits for his head."`
@@ -905,7 +920,7 @@ mission "Warfeed Terraforming [P04] Blue Women"
 			`	Your pregnant guide takes you to a conference room where a stern-looking woman looks up at you.`
 			`	"That hunter was one of the Navy's most successful bounty hunters at catching accused Alphas. Thanks to you, I and my sisters can travel the galaxy in less fear than before. If you can help us one more time, we will pay you well."`
 				goto "actual questions"
-			label questions"
+			label questions
 			`	"If you can help us one more time, we will pay you well."`
 			label "actual questions"
 			choice
@@ -918,7 +933,7 @@ mission "Warfeed Terraforming [P04] Blue Women"
 				`	"Of course I'll help you."`
 					goto accept
 				`	"Sorry, but I'm done with this mission."`
-					fail
+					decline
 			label alphas
 			`	"We're the descendants of escaped laboratory specimens. During the era of the Alphas, there was a project to create women that could birth viable Alpha children. We can birth viable children of an Alpha, but the children are not Alphas. With a few more genetic tweaks, the scientists would have succeeded. The Republic found out about us and ordered the entire 'stock' destroyed; all of us. Some of us escaped, but the Republic has been hunting us since then.`
 			`	"We are different than normal Humans; better in some ways and worse in others. Our strength and agility is inferior to Alphas, but slightly superior to Humans. We lack the Alpha psychosis; instead we're chronically depressed. Our immune system is comparable to yours, but we have an extremely fast metabolism. Our lifespans are thirty to fifty years, and our body temperature is very high. Our main strength is our minds: we learn quickly, our memories are excellent, and the most foolish among us would be brilliant among Humans.`
@@ -984,7 +999,7 @@ mission "Warfeed Terraforming [P05] Lilith"
 				`	"Yes. Let's go."`
 					goto accept
 				`	"No, I'm done with this quest."`
-					fail
+					decline
 			label who
 			`	"I'm Lilith Ashwarden, born on the pirate planet Haven. I didn't want to live in a medical lab, so I ran away from home when I was thirteen. I've been running ever since, and I'll never be caught alive. My stealth inventions command a high price from the right clientele. Unfortunately... Deep Security shot me down when I was testing the limits of my latest interference plating."`
 			`	You recall the other blue woman said the Navy shot down Lilith's ship, and that she came from Freedom, not Haven.`
@@ -1152,7 +1167,7 @@ mission "Warfeed Terraforming [C05] Kraken Prep"
 			`	One of them looks slightly guilty and says something in a language you don't recognize; it sounds Eastern European, but you're not sure. Lilith begins to translate.`
 			`	"She says she's sorry about our immature behavior before." The girl talks some more. "She wasn't thinking clearly because she was eager to try my new invention on my- I'm not telling him that!" Both girls laugh.`
 			`	Lilith pulls herself away from her friends and talks in a more serious tone. "We have what we need to make the insulation for the pods. You need to take these papers to Kraken Station so they can prepare for our shipment. Then come back here.`
-			`	"Also, when you return, be ready to transport 207 tons in a single shipment. There will be no risk of detection though. The shipment will be 207 tons of scanner-proof padding. It will show up on Navy scanners as a bulk shipment of cheese."`
+			`	"Also, when you return, be ready to transport 207 tons in a single shipment. There will be no risk of detection though. The shipment will be 207 tons of scanner-proof padding. It will show up on Navy scanners as a bulk shipment of limburger cheese."`
 	on stopover
 		conversation
 			`A dockworker meets you and picks up the documents. "We'll be ready," he says. "Use gate 7 when you return. It is officially shut down, so nobody will look there until we're done."`
@@ -1195,7 +1210,7 @@ mission "Warfeed Terraforming [C06] Kraken Delivery"
 		has "Warfeed Terraforming [C05] Kraken Prep: done"
 	on offer
 		conversation
-			`Lilith is conspicuously absent when you pick up the <cargo>. A large group of pirates load it one package at a time. They explain that the packages have to be packed in a certain pattern to ensure they look like a bulk cheese shipment.`
+			`Lilith is conspicuously absent when you pick up the <cargo>. A large group of pirates load it one package at a time. They explain that the packages have to be packed in a certain pattern to ensure they look like a bulk limburger cheese shipment.`
 				accept
 	on complete
 		payment 35000
@@ -1220,10 +1235,11 @@ mission "Warfeed Terraforming [R01] Follower"
 		has "Warfeed Terraforming [C06] Kraken Delivery: done"
 	on complete
 		"salary: Terraformers" = 900
-		`You meet the Follower terraforming team shortly after landing.`
-		`	"You're a hero, Captain <last>. You've saved the lives of countless starving Unfettered Hai, advanced the lives of millions on Follower, and made numerous new jobs.`
-		`	"Our illicit funds are limited after this project, but our income isn't. From now on, you'll receive 900 credits per day from Follower, as your cut of the terraforming project you've created. You will also have permanent permission to land on our planet and use all of our facilities.`
-		`	"This arrangement will continue no matter what your relationship is with the Republic."`
+		conversation
+			`You meet the Follower terraforming team shortly after landing.`
+			`	"You're a hero, Captain <last>. You've saved the lives of countless starving Unfettered Hai, advanced the lives of millions on Follower, and made numerous new jobs.`
+			`	"Our illicit funds are limited after this project, but our income isn't. From now on, you'll receive 900 credits per day from Follower, as your cut of the terraforming project you've created. You will also have permanent permission to land on our planet and use all of our facilities.`
+			`	"This arrangement will continue no matter what your relationship is with the Republic."`
 
 
 mission "Warfeed Terraforming [R02] Snowfeather"
@@ -1236,16 +1252,18 @@ mission "Warfeed Terraforming [R02] Snowfeather"
 		has "Warfeed Terraforming [C06] Kraken Delivery: done"
 	on complete
 		payment 500000
-		`You head to Whispering Rose's shop but she is nowhere to be found. Her daughter is in the store, and she speaks to you.`
-		`	"Greetings, <first> <last>. You are a hero to the Unfettered Hai. In the future, we may be friends or enemies, but you will always be remembered as a savior. Many thousands will survive because of you, and we will become independent. No longer will we subsist on insulting deliveries from the False Hai. In a year, we will feed ourselves."`
-		`	You're stunned when you hear her words. "How did you learn our language so quickly?"`
-		`	"I'm not a normal Hai. I'm stronger and smarter. I know the difference between strength and brutality. Between pacifism and cowardice. Do not concern yourself with these matters."`
-		choice
-			`	(Continue.)`
-		`	"My mother is on Warfeed, finalizing arrangements. I have been given the honor of rewarding you for your good deeds.`
-		`	"From now on, Warfeed will be a safe haven for you. Dock there and hide whenever you need to. Even if you are at war with the True Hai, Warfeed will welcome you.`
-		`	"Your other reward is of a more mundane nature, but of great interest to a merchant." She hands you 500,000 credits.`
-		`	"You walk the path of life with courage, wisdom, and strength. You are as much a True Hai as any Human can be and I am blessed for having have known you."`
+		conversation
+			`You head to Whispering Rose's shop but she is nowhere to be found. Her daughter is in the store, and she speaks to you.`
+			`	"Greetings, <first> <last>. You are a hero to the Unfettered Hai. In the future, we may be friends or enemies, but you will always be remembered as a savior. Many thousands will survive because of you, and we will become independent. No longer will we subsist on insulting deliveries from the False Hai. In a year, we will feed ourselves."`
+			`	You're stunned when you hear her words. "How did you learn our language so quickly?"`
+			`	"I'm not a normal Hai. I'm stronger and smarter. I know the difference between strength and brutality. Between pacifism and cowardice. Do not concern yourself with these matters."`
+			choice
+				`	(Continue.)`
+			`	"My mother is on Warfeed, finalizing arrangements. I have been given the honor of rewarding you for your good deeds.`
+			`	"From now on, Warfeed will be a safe haven for you. Dock there and hide whenever you need to. Even if you are at war with the True Hai, Warfeed will welcome you.`
+			`	"Your other reward is of a more mundane nature, but of great interest to a merchant." She hands you 500,000 credits.`
+			`	"You walk the path of life with courage, wisdom, and strength. You are as much a True Hai as any Human can be and I am blessed for having have known you."`
+
 
 
 mission "Warfeed Terraforming [R03] Haven Message"
@@ -1280,18 +1298,16 @@ mission "Warfeed Terraforming [R03] Haven Message"
 		set "license: Marauder"
 		conversation
 			`You meet Lilith near the equator of Haven at what looks like a desert resort. Her two usual companions are sunbathing next to her, as she fiddles with gadgets and notebooks. She is so absorbed that she doesn't notice your approach until you're a few paces away.`
-			`	"Hi, <first>! I have... a bit of an apology, and two presents."`
-			`	"Here's the first present." She hands you a card. You see a skull and crossbones next to an anarchist symbol. To your horror, this appears to be a Marauder Outfit License.`
-			`	"As for the apology... let's discuss that in private."`
+			`	"Hi, <first>! I have... a bit of an apology, and a present. Let's talk in private."`
 			choice
 				`	(Continue.)`
 			`	Lilith takes you to her private suite, into a room that is packed with anti-surveillance gadgets. It seems she wants to be very certain nobody hears the conversation.`
 			`	"I've had a pang of conscience, and I have to come clean.`
-			`	"You've been played since the moment you got into this project. I work for a powerful group of marauders, and they set me up as an agent with White River. He helped me steal some alien tech and specs from the Syndicate so we could make new armor. The Veiled Suns were how he arranged my rescue. We shut down White River's connections to this project by having the Unfettered send a list of carefully-chosen names to the Syndicate. Now we have what we need to make thousands of tons of armor.`
+			`	"You've been played since the moment you got into this project. I work for a powerful group of marauders, and they set me up as an agent with White River. He helped me steal some alien tech and specs from the Syndicate so we could make new armor. The Veiled Suns were how he arranged my rescue. We shut down White River's connections to this project by having the Unfettered send a list of carefully-chosen names to the Syndicate. Now we have what we need to make thousands of tons of armor for an advanced, new, fleet of marauder ships.`
 			`	"Now I'll give you a second present." She leads you out of her suite through a secret door.`
 			choice
 				`	(Continue.)`
 			`	You're in a large room, and you see a pile of slimy reptile scales made of metal. It looks like a stronger version of the armor in Lilith's crashed ship.`
 			`	"This isn't the armor I invented. It isn't what we stole from the Syndicate either. This is the original. It is all that remains of a wrecked ship - a formerly living ship - on Stormhold.`
-			`	"It is very old. Impossibly old. Probably older than Earth. Telltale signs of hyperspace activity show it entered hyperspace millions of times. Judging from the radiation and scorch marks, it must have flown through the centers of stars. It may have even lived in them. When this... skin... was new, it would have been nearly invincible and could render the creature completely invisible. Even dead, it is the strongest material I know of.`
+			`	"It is very old. Impossibly old. Probably older than Earth. Telltale signs of hyperspace activity show it entered hyperspace millions of times. Judging from the radiation and scorch marks, it must have flown through the centers of stars. It may have even lived in them. When this... skin... was new, it would have been nearly invincible and could render the creature completely invisible. Even in its dormant state, this is the strongest material I know of.`
 			`	"I don't want to think about what would happen if the Marauders or Syndicate mastered its technology. Really, this technology is too advanced for anyone. Please take it away. Meet me in the spaceport when you have 13 tons of space free in your cargo hold."`
