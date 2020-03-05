@@ -171,6 +171,7 @@ mission "Warfeed Terraforming [H02] White River"
 		fail "Warfeed Terraforming [F01] Follower"
 		fail "Warfeed Terraforming [S01] Union Boss"
 		fail "Warfeed Terraforming [P01] Bounty"
+		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
 		set "warfeed epic fail"
 		
 
@@ -442,6 +443,20 @@ mission "Warfeed Terraforming [P01] Bounty"
 	to offer
 		has "Warfeed Terraforming [H01] Whispering Rose: done"
 	on complete
+		payment 35000
+	on fail
+		set "warfeed epic fail"
+
+mission "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
+	landing
+	name "Warfeed North Smuggling: Wait"
+	description "Wait for the bounty hunter to contact you."
+	source Earth
+	to complete
+		never
+	to offer
+		has "Warfeed Terraforming [P01] Bounty: done"
+	on offer
 		conversation
 			`When you reach Earth, you head to the local security office to post a bounty on yourself. There are four names on White River's list. A database provides information about each bounty hunter. Which hunter will you hire to kill you?`
 			choice
@@ -456,35 +471,37 @@ mission "Warfeed Terraforming [P01] Bounty"
 			label smeg
 			apply
 				set "smeg bounty"
-			"You look up the bounty hunter's contact information."
+			"You send a request to the bounty hunter. They say they'll contact you soon."
+				accept
 			label endless
 			apply
 				set "endless bounty"
-			"You look up the bounty hunter's contact information."
+			"You send a request to the bounty hunter. They say they'll contact you soon."
+				accept
 			label wonton
 			apply
 				set "wonton bounty"
-			"You look up the bounty hunter's contact information."
+			"You send a request to the bounty hunter. They say they'll contact you soon."
+				accept
 			label snuggles
 			apply
 				set "snuggles bounty"
-			"You look up the bounty hunter's contact information."
-
-		payment 35000
-	on fail
-		set "warfeed epic fail"
-
+			"You send a request to the bounty hunter. They say they'll contact you soon."
+				accept
 
 
 mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 	name "Warfeed North Smuggling: Sparkle Snuggles"
 	description "Disable Sparkle Snuggles's ship but don't destroy or capture it. Mudering children is wrong. Return to <destination> for <payment>."
-	source Earth
-	priority
+	landing
+	source
+		not attributes uninhabited
+	destination Earth
 	to offer
-		has "Warfeed Terraforming [P01] Bounty: done"
+		has "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger: offered"
 		has "snuggles bounty"
 	on offer
+		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
 		conversation
 			`You contact this mysterious bounty hunter and you get a video feed. She's a little girl, about six years old, cuddling a teddy bear. You notice several teenagers behind her, controlling alien turrets. They're laughing while ships explode on their monitors. It seems the girl, "Sparkle Snuggles," is their mascot.`
 			`	"I love you so much! I want to teach bad people to love. Who needs love?`
@@ -550,6 +567,32 @@ ship "Model 256" "Model 256 (Snuggle)"
 		"Fuel Processor"
 		"Pug Biodefenses" 5
 
+phrase "six-year-old text-stalking"
+	word
+		"You receive a message from your pursuer"
+	word
+		`, "I can see you. Come out so I can love you with my bombs!"`
+		`, "Gimme candy and I might let you live!"`
+		`, "Hug me, love me, snuggle me, Sparkles to the rescue!"`
+		`. It is a white cartoon cat with a dead person in its mouth, and blood running down its cheeks. Underneath the cat you see the words, "you look tasty."`
+		`, "I'mma gonna text-stalk you to death!"`
+		`, "I can taste your fear. It tastes like chocolate chip ice cream with chocolate sparkles and chocolate fudge! Yum yum!"`
+		`, "Don't you want to play with me?"`
+		`, "Who wants snuggles?"`
+		`, "You don't play fair. I don't like you anymore."`
+		`, "I'll be back soon. I gotta pee."`
+		`, "I'm bored. I won't hunt you any more."`
+		`, "Make me pancakes and I'll forgive you for not playing with me. :-p"`
+		`, "I farted and it smelled like you."`
+		`, "Come here so I can tickle you!"`
+		`. It is a crayon drawing of a stick figure with a big ship above it. The ship is shooting the person with a dozen green rays. The stick figure is labeled, "<first> goes splat."`
+		`, "If you don't come out soon, I'll cry. People die when I cry. Lots of people."`
+		`, "Can you smile for me? I want to see you smile before you get blown up."`
+		`, "Your ship looks so cute and tiny! I want to make it, 'splat!' like a bug!"`
+		`, "Gimme your toes and nose as my birday present! I wanna eat 'em! Nom nom nom."`
+		`, "My boogers are cleaner than your face!"`
+			
+
 # Text-stalking from a six-year-old girl with a super-weapon and serious emotional issues.
 # The mission ID must be lexically ordered last so the real missions will cancel it.
 mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
@@ -560,137 +603,23 @@ mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
 		not attributes uninhabited
 	to offer
 		has "Warfeed Terraforming [P02n] Snuggles Bounty: active"
-	on offer
-		conversation
-			# The random thresholds are chosen so each option has about a 1 in 20 chance
-			# of being selected
-			branch two
-				random < 5
-			`You receive a message from your pursuer, "I can see you. Come out so I can love you with my bombs!"`
-				decline
+	on complete
+		dialog phrase "six-year-old text-stalking"
 				
-			label two
-			branch three
-				random < 5
-			`You receive a message from your pursuer, "Gimme candy and I might let you live!"`
-				decline
-				
-			label three
-			branch four
-				random < 6
-			`You receive a message from your pursuer, "Hug me, love me, snuggle me, Sparkles to the rescue!"`
-				decline
-				
-			label four
-			branch five
-				random < 6
-			`You receive a message from your pursuer. It is a white cartoon cat with a dead person in its mouth, and blood running down its cheeks. Underneath the cat you see the words, "you look tasty."`
-				decline
-				
-			label five
-			branch six
-				random < 6
-			`You receive a message from your pursuer, "I'mma gonna text-stalk you to death!"`
-				decline
-				
-			label six
-			branch seven
-				random < 7
-			`You receive a message from your pursuer, "I can taste your fear. It tastes like chocolate chip ice cream with chocolate sparkles and chocolate fudge! Yum yum!"`
-				decline
-				
-			label seven
-			branch eight
-				random < 7
-			`You receive a message from your pursuer, "Don't you want to play with me?"`
-				decline
-				
-			label eight
-			branch nine
-				random < 8
-			`You receive a message from your pursuer, "Who wants snuggles?"`
-				decline
-				
-			label nine
-			branch ten
-				random < 8
-			`You receive a message from your pursuer, "You don't play fair. I don't like you anymore."`
-				decline
-				
-			label ten
-			branch eleven
-				random < 9
-			`You receive a message from your pursuer, "I'll be back soon. I gotta pee."`
-				decline
-				
-			label eleven
-			branch twelve
-				random < 10
-			`You receive a message from your pursuer, "I'm bored. I won't hunt you any more."`
-				decline
-				
-			label twelve
-			branch thirteen
-				random < 11
-			`You receive a message from your pursuer, "Make me pancakes and I'll forgive you for not playing with me. :-p"`
-				decline
-				
-			label thirteen
-			branch fourteen
-				random < 13
-			`You receive a message from your pursuer, "I farted and it smelled like you."`
-				decline
-				
-			label fourteen
-			branch fifteen
-				random < 14
-			`You receive a message from your pursuer, "Come here so I can tickle you!"`
-				decline
-				
-			label fifteen
-			branch sixteen
-				random < 17
-			`You receive a message from your pursuer. It is a crayon drawing of a stick figure with a big ship above it. The ship is shooting the person with a dozen green rays. The stick figure is labeled, "<first> goes splat."`
-				decline
-				
-			label sixteen
-			branch seventeen
-				random < 20
-			`You receive a message from your pursuer, "If you don't come out soon, I'll cry. People die when I cry. Lots of people."`
-				decline
-				
-			label seventeen
-			branch eighteen
-				random < 25
-			`You receive a message from your pursuer, "Can you smile for me? I want to see you smile before you get blown up."`
-				decline
-				
-			label eighteen
-			branch nineteen
-				random < 33
-			`You receive a message from your pursuer, "Your ship looks so cute and tiny! I want to make it, 'splat!' like a bug!"`
-				decline
-				
-			label nineteen
-			branch twenty
-				random < 50
-			`You receive a message from your pursuer, "Gimme your toes and nose as my birday present! I wanna eat 'em! Nom nom nom."`
-				decline
-				
-			label twenty
-			`You receive a message from your pursuer, "My boogers are cleaner than your face!"`
-				decline
 
 
 mission "Warfeed Terraforming [P02w] Wonton Bounty"
 	name "Warfeed North Smuggling: Wonton Mastication"
-	major
 	description "Destroy Wonton Mastication's ship, the bounty hunter you hired to kill you. Return to <destination> for <payment>."
-	source Earth
+	source
+		not attributes uninhabited
+	destination Earth
+	landing
 	to offer
-		has "Warfeed Terraforming [P01] Bounty: done"
+		has "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger: offered"
 		has "wonton bounty"
 	on offer
+		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
 		conversation
 			`Oddly, this bounty hunter's record mainly lists recipes. You notice a common ingredient is, "Human meat or similar." Each dish is named after a past bounty. She contacts you on a holographic channel, eating soup.`
 			`	"Yes, who do you need eliminated?"`
@@ -730,13 +659,16 @@ ship "Shield Beetle" "Shield Beetle (Plasma)"
 
 mission "Warfeed Terraforming [P02e] Endless Epiphany"
 	name "Warfeed North Smuggling: Endless Epiphany"
-	major
 	description `Destroy Endless Epiphany's fleet, the bounty hunter you paid to kill you. Return to <destination> for <payment>.`
-	source Earth
+	source
+		not attributes uninhabited
+	destination Earth
+	landing
 	to offer
-		has "Warfeed Terraforming [P01] Bounty: done"
+		has "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger: offered"
 		has "endless bounty"
 	on offer
+		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
 		conversation
 			`Detailed information on Endless Epiphany shows up on your screen immediately. Notably missing is a gender, or indeed any physical description. Their ships are fast, but mainly designed for forward firepower, with decent anti-missile defenses. There are three Headhunter light warships, and one Marauder Falcon heavy warship.`
 			`	A communication comes in to you. It appears Endless Epiphany has already contacted you.`
@@ -805,13 +737,16 @@ ship "Headhunter" "Headhunter (Plasma)"
 
 mission "Warfeed Terraforming [P02s] Smeg Bounty"
 	name "Warfeed North Smuggling: Deviled Smegs"
-	major
 	description `Kill "Deviled Smegs," the bounty hunter you hired to kill you. Return to <destination> for <payment>.`
-	source Earth
+	source
+		not attributes uninhabited
+	destination Earth
+	landing
 	to offer
-		has "Warfeed Terraforming [P01] Bounty: done"
+		has "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger: offered"
 		has "smeg bounty"
 	on offer
+		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
 		conversation
 			`"You search for contact information on the bounty hunter White River named, "Deviled Smegs." Apparently he has a dangerous record of catching pirate captains using a Marauder Firebird she modified. From the description, it has powerful, long-range, cannons, so you should avoid being in front of it. Its missile defenses are minimal."`
 			`	You can contact him almost immediately.`
