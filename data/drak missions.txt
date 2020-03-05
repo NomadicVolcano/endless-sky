@@ -117,17 +117,17 @@ mission "Ancient Skin [0] Installation"
 outfit "Ancient Skin"
 	plural "Ancient Skins" # as in Bear skin or Bear skins from hunting terminology
 	category "Systems"
-	# FIXME: thumbnail "outfit/ancient skin dormant"
+	# FIXME: thumbnail "outfit/ancient skin"
 	mass 25
 	outfit space -13
-	"energy consumption" 0.3
+	"energy consumption" 1.7
 	"hull repair rate" 0.6
-	"hull energy" 0.3
-	"hull heat" 0.3
+	"hull energy" 0.9
+	"hull heat" 0.4
 	"scan interference" 500
 	"radar jamming" 500
 	"ramscoop" 0.25
-	description "This skin is all that remains of a living ship that was old beyond reckoning. When it was fully active, the skin was nearly invincible and rendered the ship invisible. In its dormant state, it still blocks most scanners and radars, acts as a weak ramscoop, and slowly repairs your hull. There is a small, but constant, energy drain to provide the skin's nutritional needs. Unfortunately, it is also quite dense. The marauder scientist Lilith had a pang of conscience and asked you to find a way to hide or destroy this skin, lest it fall into the wrong hands."
+	description "This skin is all that remains of a living ship that was old beyond reckoning. When it was fully active, the skin was nearly invincible and rendered the ship invisible. In its dormant state, it still blocks most scanners and radars, acts as a weak ramscoop, and slowly repairs your hull. There is a small, but constant, energy drain to provide the skin's nutritional needs. Unfortunately, it is also quite dense. The marauder scientist Lilith had a pang of conscience and asked you to find a way to destroy this skin, lest it fall into the wrong hands."
 
 mission "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
 	name `Ancient Skin: <planet>`
@@ -142,7 +142,7 @@ mission "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
 	on offer
 		require "Ancient Skin"
 		conversation
-			`There are Quarg here who might be able to help you find a way to destroy the ancient skin. Do you want to ask them?`
+			`There are Quarg here who might be able to help you find a way to destroy the ancient skin, or at least understand what it is. Do you want to ask them?`
 			choice
 				`	(Yes.)`
 				`	(No.)`
@@ -179,6 +179,11 @@ mission "Ancient Skin [2] Quarg Scientist and Archon"
 	# We stick to Archons in Korath space to avoid game bugs if
 	# the player is in the middle of the void sprite missions or
 	# hasn't done the Ildaria missions.
+
+	# Stated another way, the job of an Archon is to enforce
+	# peace, and one aspect of enforcing peace is to prevent game
+	# bugs. Hence, they only want you to visit Korath-area
+	# Archons.
 	
 	on enter Fasitopfar
 		set "identified skin"
@@ -195,49 +200,65 @@ mission "Ancient Skin [2] Quarg Scientist and Archon"
 
 
 
-outfit "Koor'alei Armor"
-	plural "Koor'alei Armor"
+outfit "Koor'alei Skin"
+	plural "Koor'alei Skins" # as in Bear skin or Bear skins from hunting terminology
 	category "Systems"
-	# FIXME: thumbnail "outfit/ancient skin reawakened"
-	mass 25
+	# FIXME: thumbnail "outfit/ancient skin"
+	mass 29
 	outfit space -13
-	"energy consumption" 0.2
+	"energy consumption" 2.3
 	"hull repair rate" 1.2
-	"hull energy" 0.7
+	"hull energy" 1.6
 	"hull heat" 0.5
 	"scan interference" 500
 	"radar jamming" 500
-	"ramscoop" 0.75
-	description "This skin is the last remains of a race of sages and teachers, the Koor'alei. According to the Drak, the skin chose you, and wants to protect you. After proving to the Drak that you are a peacemaker, they have reawakened the skin so you can deal with the troubles that lie ahead."
+	"ramscoop" 1.25
+	description "This skin is the last remains of a race of sages and teachers, the Koor'alei. According to the Drak, the skin chose you, and wants to protect you. After proving to the Drak that you are a peacemaker, they have reawakened the skin so you can deal with the troubles that lie ahead. The skin now repairs and refuels your ship much faster. Unfortunately, this also increased the skin's energy consumption and mass."
 
-mission "Ancient Skin [3] Archon Recharge Permission"
+mission "Ancient Skin [3] Archon Recharge Trigger"
+	invisible
+	source
+		not attributes uninhabited
+	to offer
+		has "Ancient Skin [2] Quarg Scientist and Archon: done"
+		has "main plot completed: done"
+		has "Wanderers: Unfettered Diplomacy 1C: done"
+		has "Remnant: Return the Samples 2: done"
+		"reputation: Drak" >= 0
+	on offer
+		event "archon recharge allowed" 30
+		decline
+
+event "archon recharge allowed"
+
+mission "Ancient Skin [4] Archon Recharge Permission"
 	name `Ancient Skin: <planet>`
 	description `Visit the spaceport at <destination> to re-awaken the ancient skin.`
 	source
 		not planet "Kuwaru Efreti"
 	destination "Kuwaru Efreti"
+	to complete
+		has "Ancient Skin [5] Archon Recharge: declined"
 	to offer
-		has "Ancient Skin [2] Quarg Scientist and Archon: done"
-		has "main plot completed: done"
-		has "Wanderers: Unfettered Diplomacy 1C: done"
-		has "Remnant: Return the Samples 2: done"
+		has "event: archon recharge allowed"
 		"reputation: Drak" >= 0
-		random < 25
 	on offer
 		require "Ancient Skin"
 		`You feel a faint whisper in your head. The words are imperceptible, but they're accompanied by a powerful emotion. The meaning is clear: the Drak have judged you worthy, and will allow the ancient skin to be re-awakened. You must take it to Kuwaru Efreti.`
 			accept
 
-mission "Ancient Skin [4] Archon Recharge"
+mission "Ancient Skin [5] Archon Recharge"
 	invisible
+	landing
 	source "Kuwaru Efreti"
 	to offer
-		has "Ancient Skin [2] Quarg Scientist and Archon: done"
-		has "main plot completed: done"
-		has "Wanderers: Unfettered Diplomacy 1C: done"
-		has "Remnant: Return the Samples 2: done"
-		"reputation: Drak" >= 0
-		random < 25
+		has "Ancient Skin [4] Archon Recharge Permission: active"
 	on offer
 		require "Ancient Skin"
-		#FIXME
+		`You travel through the Quarg station using the same green orb elevator as before, and find yourself in a Quarg laboratory. The ancient skin is overing in mid air between two devices that don't look at all like Quarg construction. They're a pair of curved black columns with white spikes pointing in the direction of the armor. The columns look almost alive with pulsating veins and what looks like a heart. Are you witnessing Drak technology?`
+		`	The armor begins to glow brighter and brighter until it is bright as the sun; far too bright to look at. Before you can cover your eyes, a powerful shockwave eminates from the armor. You're thrown onto the floor and you can feel the room heating up. A loud humming and deep bass vibration are so powerful you can feel them in your bones.`
+		choice
+			`	(Continue.)`
+		`	The sensation immediately vanishes, and the armor appears as it did before. It seems that even the Quarg were surprised by the intensity of the effect. They look up in wonder at a device they scarcely understand, a relic of the ancient past, from an era of knowledge long forgotten.`
+		`	You can feel a sensation in your head, sent by a powerful telepathic entity. The sensation is different than an Archon. It is warm and welcoming, rather than the Archon's cold and demanding nature. You can feel a mix of hope, gratitude, and longing. Is this the last vestige of the mind of a Koor'alei; what little remains in this tiny scrap of skin?`
+			decline
