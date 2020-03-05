@@ -167,6 +167,12 @@ mission "Warfeed Terraforming [H02] White River"
 		has "Warfeed Terraforming [F01] Follower: offered"
 		has "Warfeed Terraforming [S01] Union Boss: offered"
 		has "Warfeed Terraforming [P01] Bounty: offered"
+	on decline
+		fail "Warfeed Terraforming [F01] Follower"
+		fail "Warfeed Terraforming [S01] Union Boss"
+		fail "Warfeed Terraforming [P01] Bounty"
+		set "warfeed epic fail"
+		
 
 ########################################################################
 
@@ -179,7 +185,7 @@ mission "Warfeed Terraforming [F01] Follower"
 	landing
 	source Makerplace
 	to offer
-		has "Warfeed Terraforming [H02] White River: active"
+		has "Warfeed Terraforming [H01] Whispering Rose: done"
 	on fail
 		set "warfeed epic fail"
 	on complete
@@ -260,7 +266,7 @@ mission "Warfeed Terraforming [S01] Union Boss"
 	landing
 	source Makerplace
 	to offer
-		has "Warfeed Terraforming [H02] White River: active"
+		has "Warfeed Terraforming [H01] Whispering Rose: done"
 	on fail
 		set "warfeed epic fail"
 	on complete
@@ -288,8 +294,8 @@ mission "Warfeed Terraforming [S02] Syndicate Hunt"
 	npc kill
 		government "Syndicate?"
 		personality nemesis harvests plunders
-		fleet "Large Syndicate" 2
-		fleet "Small Syndicate" 3
+		fleet "Large Syndicate" 1
+		fleet "Small Syndicate" 2
 
 mission "Warfeed Terraforming [S03] Syndicate Capture"
 	name "Warfeed Syndicate Smuggling: <planet>"
@@ -431,10 +437,10 @@ mission "Warfeed Terraforming [P01] Bounty"
 	name "Warfeed North Smuggling: Bounty (<planet>)"
 	description `Fly to <destination> to pay the bounty hunter "Deviled Smegs" to hunt you. Payment is <payment>.`
 	landing
-	source Makerplace
 	destination Earth
+	source Makerplace
 	to offer
-		has "Warfeed Terraforming [H02] White River: active"
+		has "Warfeed Terraforming [H01] Whispering Rose: done"
 	on complete
 		conversation
 			`When you reach Earth, you head to the local security office to post a bounty on yourself. There are four names on White River's list. A database provides information about each bounty hunter. Which hunter will you hire to kill you?`
@@ -450,19 +456,19 @@ mission "Warfeed Terraforming [P01] Bounty"
 			label smeg
 			apply
 				set "smeg bounty"
-			accept
+			"You look up the bounty hunter's contact information."
 			label endless
 			apply
 				set "endless bounty"
-			accept
+			"You look up the bounty hunter's contact information."
 			label wonton
 			apply
 				set "wonton bounty"
-			accept
+			"You look up the bounty hunter's contact information."
 			label snuggles
 			apply
 				set "snuggles bounty"
-			accept
+			"You look up the bounty hunter's contact information."
 
 		payment 35000
 	on fail
@@ -472,9 +478,9 @@ mission "Warfeed Terraforming [P01] Bounty"
 
 mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 	name "Warfeed North Smuggling: Sparkle Snuggles"
-	description "Disable Sparkle Snuggles's ship but don't destroy or capture it. Murdering children is wrong. Payment is <payment>."
+	description "Disable Sparkle Snuggles's ship but don't destroy or capture it. Mudering children is wrong. Return to <destination> for <payment>."
 	source Earth
-	landing
+	priority
 	to offer
 		has "Warfeed Terraforming [P01] Bounty: done"
 		has "snuggles bounty"
@@ -513,14 +519,14 @@ mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 	on fail
 		set "warfeed epic fail"
 		conversation
-			`You are a horrible person for killing those five children. Even the Syndicate has enough morals not to murder children. No more quest rewards for you.`
-	npc disable save
+			`You are a horrible person for killing those five children. Even the Syndicate has enough morals not to murder children.`
+	npc disable
 		government "Bounty Hunter"
 		personality nemesis plunders waiting target
 		system
 			distance 6 9
 		ship "Model 256 (Snuggle)" "Sparkle Snuggles"
-		dialog "You have disabled the ship, and the parents of these children will pick them up after you land. Pillage their ship if you must, but please don't capture it. You don't have to murder children."
+		dialog `You have disabled the ship, and the parents of these children will pick them up after you land. Pillage their ship if you must, but please don't capture it. You don't have to murder children.`
 
 ship "Model 256" "Model 256 (Snuggle)"
 	outfits
@@ -549,6 +555,7 @@ ship "Model 256" "Model 256 (Snuggle)"
 mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
 	invisible
 	repeat
+	landing
 	source
 		not attributes uninhabited
 	to offer
@@ -677,9 +684,9 @@ mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
 
 mission "Warfeed Terraforming [P02w] Wonton Bounty"
 	name "Warfeed North Smuggling: Wonton Mastication"
-	description "Destroy Wonton Mastication's ship, the bounty hunter you hired to kill you. Payment is <payment>."
+	major
+	description "Destroy Wonton Mastication's ship, the bounty hunter you hired to kill you. Return to <destination> for <payment>."
 	source Earth
-	landing
 	to offer
 		has "Warfeed Terraforming [P01] Bounty: done"
 		has "wonton bounty"
@@ -723,11 +730,11 @@ ship "Shield Beetle" "Shield Beetle (Plasma)"
 
 mission "Warfeed Terraforming [P02e] Endless Epiphany"
 	name "Warfeed North Smuggling: Endless Epiphany"
-	description `Destroy Endless Epiphany's fleet, the bounty hunter you paid to kill you. Payment is <payment>.`
+	major
+	description `Destroy Endless Epiphany's fleet, the bounty hunter you paid to kill you. Return to <destination> for <payment>.`
 	source Earth
-	landing
 	to offer
-		has "Warfeed Terraforming [P02] Bounty: done"
+		has "Warfeed Terraforming [P01] Bounty: done"
 		has "endless bounty"
 	on offer
 		conversation
@@ -798,11 +805,11 @@ ship "Headhunter" "Headhunter (Plasma)"
 
 mission "Warfeed Terraforming [P02s] Smeg Bounty"
 	name "Warfeed North Smuggling: Deviled Smegs"
-	description `Kill "Deviled Smegs," the bounty hunter you hired to kill you. Beware her modified Firebird. Payment is <payment>.`
+	major
+	description `Kill "Deviled Smegs," the bounty hunter you hired to kill you. Return to <destination> for <payment>.`
 	source Earth
-	landing
 	to offer
-		has "Warfeed Terraforming [P02] Bounty: done"
+		has "Warfeed Terraforming [P01] Bounty: done"
 		has "smeg bounty"
 	on offer
 		conversation
@@ -835,7 +842,6 @@ mission "Warfeed Terraforming [P02s] Smeg Bounty"
 				accept
 	on complete
 		payment 35000
-		set "Warfeed Terraforming [P02] Bounty (Any)"
 	npc kill
 		government "Bounty Hunter"
 		personality nemesis plunders waiting
