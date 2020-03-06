@@ -172,7 +172,6 @@ mission "Warfeed Terraforming [H02] White River"
 		fail "Warfeed Terraforming [F01] Follower"
 		fail "Warfeed Terraforming [S01] Union Boss"
 		fail "Warfeed Terraforming [P01] Bounty"
-		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
 		set "warfeed epic fail"
 		
 
