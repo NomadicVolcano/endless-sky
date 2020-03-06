@@ -105,7 +105,7 @@ mission "Warfeed Terraforming [H01] Whispering Rose"
 				`	"If it is too far for one ship, how do you propose to smuggle the goods?"`
 				`	"I will not help the Unfettered Hai."`
 					decline
-			`	"There are people among the False Hai with... unwell minds? They have no honor, no cause, except money. You might call them... mafias? gangs? cartels? They will take True Hai goods to Allhome.`
+			`	"There are people among the False Hai with... unwell minds? They have no honor, no cause, except money. You might call them... mafias? cartels? They will take True Hai goods to Allhome.`
 			`	"Merchants will fly goods to your Human Syndicate.`
 			`	"Humans in the Syndicate take bribes. The goods will find themselves at Kraken Station.`
 			`	"Our goods will hide in deuterium pods until Follower.`
@@ -280,7 +280,10 @@ mission "Warfeed Terraforming [S01] Union Boss"
 			`	You feel three fists hit you at once. The room vanishes after a minute of beatings, and you wake up at your ship.`
 			`	If the union informed the Syndicate, you might be hunted.`
 
-mission "Warfeed Terraforming [S02] Syndicate Hunt"
+# Player is hunted by "Syndicate?" government.
+
+# Stronger ships for stronger players.
+mission "Warfeed Terraforming [S02a] Syndicate Hunt"
 	invisible
 	landing
 	repeat 3
@@ -289,17 +292,42 @@ mission "Warfeed Terraforming [S02] Syndicate Hunt"
 		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent" "Pirate"
 	to offer
 		has "Warfeed Terraforming [S01] Union Boss: done"
-		not "Warfeed Terraforming [S02] Syndicate Hunt: active"
+		not "Warfeed Terraforming [S02a] Syndicate Hunt: active"
+		not "Warfeed Terraforming [S02b] Syndicate Hunt: active"
 		not "Warfeed Terraforming [S03] Syndicate Capture: offered"
 		not "warfeed epic fail"
 		random < 25
+		"combat rating" > 500
 	npc kill
 		government "Syndicate?"
 		personality nemesis harvests plunders
 		fleet "Large Syndicate" 1
 		fleet "Small Syndicate" 2
 		system
-			distance 4 10
+			distance 1 4
+
+# Weaker ships for weaker players.
+mission "Warfeed Terraforming [S02b] Syndicate Hunt"
+	invisible
+	landing
+	repeat 3
+	deadline 15
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent" "Pirate"
+	to offer
+		has "Warfeed Terraforming [S01] Union Boss: done"
+		not "Warfeed Terraforming [S02a] Syndicate Hunt: active"
+		not "Warfeed Terraforming [S02b] Syndicate Hunt: active"
+		not "Warfeed Terraforming [S03] Syndicate Capture: offered"
+		not "warfeed epic fail"
+		random < 25
+		"combat rating" <= 500
+	npc kill
+		government "Syndicate?"
+		personality nemesis harvests plunders
+		fleet "Small Syndicate" 2
+		system
+			distance 1 4
 
 mission "Warfeed Terraforming [S03] Syndicate Capture"
 	name "Warfeed Syndicate Smuggling: <planet>"
@@ -309,7 +337,9 @@ mission "Warfeed Terraforming [S03] Syndicate Capture"
 		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent" "Pirate"
 	destination Snowfeather
 	to offer
-		has "Warfeed Terraforming [S02] Syndicate Hunt: offered"
+		or
+			has "Warfeed Terraforming [S02a] Syndicate Hunt: offered"
+			has "Warfeed Terraforming [S02b] Syndicate Hunt: offered"
 		has "Warfeed Terraforming [F03] Refusal: done"
 		or
 			not "chosen sides"
@@ -322,7 +352,7 @@ mission "Warfeed Terraforming [S03] Syndicate Capture"
 	on offer
 		conversation
 			`As you walk out your ship, the ground collapses from underneath your feet and you're trapped in a net. You feel a powerful electric shock, and you fall painfully asleep.`
-			`	Not long after, you wake to a pair of Syndicate employees holding meat hooks and cattle prods. From the lack of farm animals in the room, you suspect the implements are intended for you.`
+			`	Not long after, you wake to a group of Syndicate employees holding meat hooks and cattle prods. From the lack of farm animals in the room, you suspect the implements are intended for you.`
 			`	"We don't take kindly to people killing Syndicate agents. Do you work for White River?"`
 			choice
 				`	"I didn't kill any Syndicate agents."`
@@ -418,7 +448,7 @@ mission "Warfeed Terraforming [S04] List of Names"
 		conversation
 			`You meet some eager Syndicate agents who had abused you before, and hand them the list of names.`
 			`	One says, "Yes, we can confirm some of these are correct. Others are new..."`
-			`	Another, "You've done well. Here's your payment as promised." He hands you 500,000 credits.`
+			`	Another adds, "You've done well. Here's your payment as promised." He hands you 500,000 credits.`
 			`	"Unfortunately," he continues, "we have no way to pass the goods between Kraken Station and Follower. Once you solve that problem, we'll all get a lot richer off those angry northern squirrels and over-payed Follower terraformers."`
 
 # White River is insanely wealthy, so he's had a chance to trade for,
@@ -464,27 +494,32 @@ mission "Warfeed Terraforming [P01] Bounty"
 	on fail
 		set "warfeed epic fail"
 
-mission "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
+mission "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger"
 	landing
 	name "Warfeed North Smuggling: Wait"
 	description "Wait for the bounty hunter to contact you."
 	source Furnace
+	repeat 7
 	to complete
 		never
 	to offer
 		has "Warfeed Terraforming [P01] Bounty: done"
+		not "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: active"
+		not "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger: active"
+		not "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: done"
+		not "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger: done"
 	on offer
 		conversation
-			`When you reach Furnace, you head to the local security office to post a bounty on yourself. There are four names on White River's list. A database provides information about each bounty hunter. Which hunter will you hire to kill you?`
+			`When you reach Furnace, you head to the local security office to post a bounty on yourself. There are four names on White River's list. A database provides information about each bounty hunter. The database says the first bounty is, "missing in action," but the other three are available. Which hunter will you hire to kill you?`
 			choice
 				`	"Deviled Smegs," who pilots a Marauder Firebird she's modified with Hai technology.`
 					goto smeg
 				`	"Endless Epiphany," a Falcon pilot with a triad of Headhunters as escorts.`
 					goto endless
-				`	"Wonton Mastication," a retired chef who pilots a well-armed Shield Beetle.`
+				`	"Wonton Mastication," a retired chef who pilots a Shield Beetle packed with plasma cannons.`
 					goto wonton
-				`	"Sparkle Snuggles." The database says, "This bounty hunter's massive ship has defeated entire pirate fleets in seconds. WARNING: the hunter is dangerously unstable. Hire as a last resort, and maybe not even then."`
-					goto snuggles
+				`	(No. Come back later.)`
+					decline
 			label smeg
 			apply
 				set "smeg bounty"
@@ -504,19 +539,74 @@ mission "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
 			"The officers send a request to the bounty hunter. They say you'll be contacted in the next few days, and you should go about your business until then."
 				accept
 
+# Second trigger activates the secret super-boss battle
+mission "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger"
+	landing
+	name "Warfeed North Smuggling: Wait"
+	description "Wait for the bounty hunter to contact you."
+	source Furnace
+	repeat
+	to complete
+		never
+	to offer
+		has "Warfeed Terraforming [P01] Bounty: done"
+		not "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: active"
+		not "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger: active"
+		not "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: done"
+		not "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger: done"
+		"00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: offered" >= 7
+	on offer
+		conversation
+			`When you reach Furnace, you head to the local security office to post a bounty on yourself. There are four names on White River's list. The bounty hunter that was missing before has reappeared and is available for hire. Which hunter will you hire to kill you?`
+			choice
+				`	"Sparkle Snuggles." The database says, "This bounty hunter's massive ship has defeated entire pirate fleets in seconds. WARNING: the hunter is dangerously unstable. Hire as a last resort, and maybe not even then."`
+					goto snuggles
+				`	"Deviled Smegs," who pilots a Marauder Firebird she's modified with Hai technology.`
+					goto smeg
+				`	"Endless Epiphany," a Falcon pilot with a triad of Headhunters as escorts.`
+					goto endless
+				`	"Wonton Mastication," a retired chef who pilots a Shield Beetle packed with plasma cannons.`
+					goto wonton
+				`	(No. Come back later.)`
+					decline
+			label smeg
+			apply
+				set "smeg bounty"
+			goto accept
+			label endless
+			apply
+				set "endless bounty"
+			goto accept
+			label wonton
+			apply
+				set "wonton bounty"
+			goto accept
+			label snuggles
+			apply
+				set "snuggles bounty"
+			`	The officers look at you as if you're crazy.`
+			`	One of them says, "Go about your business. Sparkle Snuggles will contact you soon, and you'll wish she hadn't." He shakes his head as you walk away.`
+				accept
+			label accept
+			`	The officers send a request to the bounty hunter. They say you'll be contacted in the next few days, and you should go about your business until then.`
+				accept
+
 
 mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 	name "Destroy Sparkle Snuggles's Ship"
-	description "Destroy or capture Sparkle Snuggles's ship, but let her escape pod go. Return to <destination> for <payment>."
+	description "Destroy or capture Sparkle Snuggles's ship but make sure her escape pod reaches safely. Return to <destination> for <payment>."
 	landing
 	source
 		not attributes uninhabited
 	destination Earth
 	to offer
-		has "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger: offered"
+		or
+			has "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: done"
+			has "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger: done"
 		has "snuggles bounty"
 	on offer
-		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
+		fail "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger"
+		fail "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger"
 		conversation
 			`You get a video feed from Sparkle Snuggles. She's a little girl, about six years old, cuddling a teddy bear. You notice two teenage boys and two men behind her laughing while ships explode on their monitors. It seems the girl, "Sparkle Snuggles," is their mascot.`
 			`	"I love you so much! I want to teach bad people to love. Who needs love?`
@@ -533,18 +623,22 @@ mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 					goto timeout
 			label love
 			`	"I love you too!" The child giggles and the feed cuts off.`
+			`	A separate text message on the same line (probably from an adult) tells you, "charge will be 500,000 credits upon proof of death."`
 				accept
 			label confused
 			`	The child looks very confused for a second.`
 			`	"Oh. I'll help you know me. I'll help you with my guns. Then you can love me."`
 			`	She smiles sweetly and the feed cuts off.`
+			`	A separate text message on the same line (probably from an adult) tells you, "charge will be 500,000 credits upon proof of death."`
 				accept
 			label brat
-			`	The child's face turns bright red and she screams, "You're so mean! I'll teach you love. I'll teach you real hard." She cackles maniacally and hugs her bear tightly as the feed cuts off.`
+			`	The child's face turns bright red and she screams, "You're so mean! I'll teach you love. I'll teach you real hard." She cackles maniacally and hugs her bear tightly as the feed cuts off. You think you may have seen a small tear run down her face.`
+			`	A separate text message on the same line (probably from an adult) tells you, "charge will be 700,000 credits upon proof of death."`
 				accept
 			label timeout
 			`	"No~o! I'll be good. I'll make <first> <last> go away forever. I promise."`
-			`	She looks very guilty as she cuts the feed.`
+			`	She looks very guilty and a little scared as the connection fades away.`
+			`	A separate text message on the same line (probably from an adult) tells you, "charge will be 500,000 credits upon proof of death."`
 				accept
 	on complete
 		payment 35000
@@ -557,6 +651,8 @@ mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 		ship "Model 256 (Snuggle)" "Sparkle Snuggles"
 		conversation
 			`One escape pod leaves the ship. Your scanners indicate the person inside is quite small, so it must be Sparkle Snuggles. Though the galaxy is filled with moral ambiguity, murdering helpless children is usually considered wrong. You decide against pulling the trigger.`
+			`	It seems likely she'll survive. Her escape pod is on a course to the nearest inhabited planet, her life-signs are strong, and she'll arrive long before she runs out of food. Hopefully she'll find a good therapist there, and better parents. Anywhere would be a better place to grow up than cramped quarters in Model 256 filled with psychos.`
+			`	You alert the authorities so they can pick up her escape pod as soon as possible. They say they always have a child therapist and medical team on call for this sort of event. Apparently young children often escape exploding pirate vessels, usually with the help of adults or older children. Perhaps, in the face of death, even the worst among us are capable of selfless acts of love?`
 			apply
 				set "snuggles escaped"
 
@@ -583,61 +679,101 @@ ship "Model 256" "Model 256 (Snuggle)"
 		"Fuel Processor"
 		"Korath Repeater Rifle" 4
 
-# Text-stalking from a six-year-old girl with a super-weapon and serious emotional issues.
+########################################################################
+
+# Threatening messages from Sparkle Snuggles as she hunts you down.
+# Anything she personally says or writes have grammar and spelling
+# errors. She is still six years old. Give her some time.
+
+phrase "six-year-old stalking you"
+	phrase
+		"six-year-old text-stalking"
+		"six-year-old video threats"
+		"six-year-old scary presents"
+
+# Text messages and occasional cards or pictures:
 phrase "six-year-old text-stalking"
 	word
-		"You receive a message from Sparkle Snuggles"
+		"You receive a threatening message from Sparkle Snuggles, "
 	word
-		`, "I can see you. Come out so I can love you with my bombs!"`
-		`, "Gimme candy and I might let you live!"`
-		`, "Hug me, love me, snuggle me, Sparkles to the rescue!"`
-		`. It is a white cartoon cat with a dead person in its mouth, and blood running down its cheeks. Underneath the cat you see the words, "yoo luk tasty."`
-		`, "I'mma gonna text-stalk you to death!"`
-		`, "I can taste your fear. It tastes like chocolate chip ice cream with chocolate sparkles and chocolate fudge! Yum yum!"`
-		`, "Don't you want to play with me?"`
-		`, "Who wants snuggles?"`
-		`, "You don't play fair. I don't like you anymore."`
-		`, "I'll be back soon. I gotta pee."`
-		`, "I'm bored. I won't hunt you any more."`
-		`, "Make me pancakes and I'll forgive you for not playing with me. :-p"`
-		`, "I farted and it smelled like you."`
-		`, "Come here so I can tickle you!"`
-		`. It is a crayon drawing of a stick figure with a big ship above it. The ship is shooting the person with a dozen green rays. The stick figure is labeled, "<first> goz splat."`
-		`, "If you don't come out soon, I'll cry. People die when I cry. Lots of people."`
-		`, "Can you smile for me? I want to see you smile before you get blown up."`
-		`, "Your ship looks so cute and tiny! I want to make it, 'splat!' like a bug!"`
-		`, "Gimme your toes and nose as my birthday present! I wanna eat 'em! Nom nom nom."`
-		`, "My boogers are cleaner than your face!"`
-		`, "Come here and I'll give you a big kiss!"`
+		`"I can see you. Come out so I can love you with my bombs!"`
+		`"Gimme candy and I might let you live!"`
+		`"Hug me, love me, snuggle me, Sparkles to the rescue!"`
+		`"I'mma gonna text-stalk you to death!"`
+		`"I can taste your fear. It tastes like chocolate chip ice cream with chocolate sparkles and chocolate fudge! Yum yum!"`
+		`"Don't you want to play with me?"`
+		`"Who wants snuggles?"`
+		`"You don't play fair. I don't like you anymore."`
+		`"I'll be back soon. I gotta pee."`
+		`"I'm bored. I won't hunt you any more."`
+		`"Make me pancakes and I'll forgive you for not playing with me. :-p"`
+		`"I farted and it smelled like you."`
+		`"Come here so I can tickle you!"`
+		`"If you don't come out soon, I'll cry. People die when I cry. Lots of people."`
+		`"Can you smile for me? I want to see you smile before you get blown up."`
+		`"Your ship looks so cute and tiny! I want to make it, 'splat!' like a bug!"`
+		`"Gimme your toes and nose as my birthday present! I wanna eat 'em! Nom nom nom."`
+		`"My boogers are cleaner than your face!"`
+		`"Come here and I'll give you a big kiss!"`
 		`. It is a crayon drawing of a toilet with a brown mass inside. Below, you see the words, "stop hidin poo hed!"`
-		`, "Gonna eatcha, gonna eatcha, gonna eatcha, gonna eatcha up."`
-		`, ":-* :-* :-* I've gotta kiss of doom!"`
-		`, "(^o^) I know where you are! (^o^)"`
-		`, "My guns will make you go, 'squish!'"`
-		`, "'Captain <first> dummy <last> the ker-splat!' That's gonna be on your grave."`
-		`, "(=.=) Just give up! (x.x)"`
-		`, "D'ya see my ship? It's bigger'n yours!"`
-		`, "I'm gonna pop you like a zit!"`
-		`, "You don't play fair. I'm not gonna hunt you."`
-		`, "You smell so bad, I don't wanna find you!"`
-		`, "Come out soon or I'll hunt someone else!"`
-		`, "My guns r' bigger n' yer ship!"`
-		`, "Awww. Poor baby gonna die? O.o o.O"`
-		`, "You make me sad. Stop hiding. </3"`
-		`. It's a large piece of paper with pair of footprints made from a six-year-old's paint-covered feet. Next to it, you see the words, "stomp u!"`
-		`, "I bet you get nightmares of me. Bed wetter! 8-O"`
-		`, "The best sushi is <first> <last> sushi!"`
-		`. It's a "get well soon" card where the word "well" has been replaced with "ded," written in crayon. Inside the card, there is a crayon drawing of a cat head eating a stick figure.`
-		`, It's a "happy birthday" card where "birth" has been replaced with "deth," written in crayon. Below that, you see the word "sune." Inside the card, you can see the words, "gona getcha" repeated over and over.`
-		`. It's a video of Sparkle Snuggles grinning maniacally. She's hugging her bear in one hand and pointing at you with the other. She doesn't blink or move for about 30 seconds and then rolls on the floor laughing.`
-		`. It's a video of Sparkle Snuggles. Someone baked her cookies that she's decorating with sprinkles. The patterns on the cookies look like your face. She eats them dramatically and growls angrily at the camera after ever few bites.`
-		`. It's a video of someone reading Sparkle Snuggles a, "bedtime story." The story is actually a recipe book where the reader is replacing each ingredient with "<first>" or "<last>." You can hear Sparkle Snuggles's maniacal giggling in the background.`
-		`. It's a video of Sparkle Snuggles dressed in a giant lizard suit. She's stomping violently through a room filled with paper buildings and paper people. The people all have your name on them.`
-		`. It's a video of Sparkle Snuggles playing with two toy ships. One looks like her ship, and one looks like your flagship. She wooshes them around in the air and then smashes your flagship into the ground. After doing this several times, she points at you and laughs meanly.`
-		`. It's a video of Sparkle Snuggles listing what she wants for her birthday presents. All of the wishes involve your body parts being removed, smashed, set on fire, or fed to various animals. She ends by blowing you a kiss.`
-		`. It's a video of Sparkle Snuggles dancing to symphonic black metal. She's an impressive dancer for her age. The floor has been colored in crayon with your name (misspelled eight different ways) and "ded" repeated over and over.`
-		`. It's a video of Sparkle Snuggles making a crude paper model of your flagship. She finishes and someone hands her a gadget with a trigger. She pulls the trigger and flame bursts out, reducing the model to ashes.`
-		`. It's a video of Sparkle Snuggles making person-shaped paper cutouts with your name on them. After she finishes each one, she throws it into a heat shunt where it catches fire and burns quickly to ashes.`
+		`"Gonna eatcha, gonna eatcha, gonna eatcha, gonna eatcha up."`
+		`":-* :-* :-* I've gotta kiss of doom!"`
+		`"(^o^) I know where you are! (^o^)"`
+		`"My guns will make you go, 'squish!'"`
+		`"'Captain <first> dummy <last> the ker-splat!' That's gonna be on your grave."`
+		`"(=.=) Just give up! (x.x)"`
+		`"D'ya see my ship? It's bigger'n yours!"`
+		`"I'm gonna pop you like a zit!"`
+		`"You don't play fair. I'm not gonna hunt you."`
+		`"You smell so bad, I don't wanna find you!"`
+		`"Come out soon or I'll hunt someone else!"`
+		`"My guns r' bigger n' yer ship!"`
+		`"Awww. Poor baby gonna die? O.o o.O"`
+		`"You make me sad. Stop hiding. </3"`
+		`"I bet you get nightmares of me. Bed wetter! 8-O"`
+		`"The best sushi is <first> <last> sushi!"`
+
+# Threatening presents from Sparkle Snuggles
+phrase "six-year-old scary presents"
+	word
+		"You receive an intimidating present from Sparkle Snuggles. "
+	word
+		`It's a large piece of paper with pair of footprints made from a six-year-old's paint-covered feet. Next to it, you see the words, "stomp yu!"`
+		`It's a "get well soon" card where the word "well" has been replaced with "ded," written in crayon. Inside the card, there is a crayon drawing of a cat head eating a stick figure.`
+		`It's a "happy birthday" card where "birth" has been replaced with "deth," written in crayon. Below that, you see the word "sune." Inside the card, you can see the words, "gona getcha" repeated over and over.`
+		`It is a crayon drawing of a stick figure with a big ship above it. The ship is shooting the person with a dozen green rays. The stick figure is labeled, "<first> goz splat."`
+		`It is a white cartoon cat with a dead person in its mouth, and blood running down its cheeks. Underneath the cat you see the words, "yoo luk tasty."`
+		`It's a doll with your face on it. One eye is hanging out of the face, and a fake knife is stuck in the doll's back.`
+		`It's a batch of cookies with words written in icing. Most of them say, "ded," "burn," or "soon." Your scanners say there are no poisons or toxins in the cookies, so you try a few. The cookies are delicious.`
+		`It's a scale model of her ship, made out of paper, plastic, and glue. Attached to it is a card that says, "minez biggern yers."`
+		`It's a cake that says, "happy deth day" on it. Your scanners say there are no poisons or toxins, so you try a bite. It is a mix of spicy avocado and chocolate, swirled together. The taste combination is a little strange, but oddly fulfilling.`
+		`It's card-stock paper covered by a finger-painted smiling face with, "<first>" written above it. It looks like someone stabbed the paper repeatedly with safety scissors. The back is covered with sparkly heart stickers and the words, "gonna find yu!"`
+		`It's a shirt that is exactly your size with the words, "Sparkle Snuggles Will Kill Me," printed on it.`
+		`It's a pair of pants exactly your size with a six-year-old's boot-print on the butt. Accompanied is a card with stickers and crayon writing that says, "out te air lok."`
+		`It is an urn that has been decorated with finger paint, sparkles, heart stickers, and skull-and-crossbones stickers. An attached letter says, "for yur ashez."`
+		`It is a recipe book. The meat dishes' ingredients have been corrected in red crayon. Instead of listing the type of animal to be cooked, it says, "<first>," misspelled in various ways.`
+		`It's a pile of pilot license cards with sparkly heart stickers on each one. You look up the license numbers and you see that the pilots were all killed by the same bounty hunter. Many of the hunted were not pirates or criminals, but had offended the Syndicate.`
+
+# Videos of Sparkle Snuggle living her life while threatening you:
+phrase "six-year-old video threats"
+	word
+		"You receive a threatening video from Sparkle Snuggles. "
+	word
+		`It opens with her grinning psychotically at the camera. She's hugging her bear in one hand and pointing at the camera with the other. She doesn't blink or move for about 30 seconds and then rolls on the floor laughing.`
+		`Someone baked her cookies that she's decorating with icing and sprinkles. The patterns on the cookies look like your face. She eats them dramatically and growls angrily at the camera after ever few bites.`
+		`The room is dark and you can hear someone reading Sparkle Snuggles a, "bedtime story." The story is actually a recipe book where the reader is replacing each ingredient with "<first>" or "<last>." You can hear Sparkle Snuggles's maniacal giggling in the background.`
+		`She is dressed in a giant lizard suit in a cramped room filled with paper buildings and paper people. She's stomping violently through the room, smashing everything. Occasionally, she stops to rip the head off of a paper person. The people all have your name on them.`
+		`She is sitting in bed, playing with two toy ships. One looks like her ship, and one looks like your flagship. She wooshes them around in the air and then smashes your flagship into the bed. After doing this several times, she points at you and laughs meanly.`
+		`She is sitting in a turret control chair, listing what she wants for her birthday presents. All of the wishes involve your body parts being removed, smashed, set on fire, or fed to various animals. She ends by blowing you a kiss.`
+		`She is in a cargo room, dancing to symphonic black metal. She's an impressive dancer for her age. The floor has been colored in crayon writing of your name (misspelled eight different ways) and "ded" repeated over and over.`
+		`She is at a steel table, making a crude paper model of your flagship. She finishes and someone hands her a gadget with a trigger. She pulls the trigger and flame bursts out, reducing the model to ashes. She smiles sweetly at you as the video fades to black.`
+		`You see her making person-shaped paper cutouts with your name on them. After she finishes each one, she throws it into a heat shunt where it catches fire and burns quickly to ashes.`
+		`She's in a cramped bathroom taking a bubble bath. She's almost fully submerged; only her face and one arm can be seen through the bubbles. In her hand, there is a person-shaped sponge. She looks at the camera and yells, "this you!" Then she dunks the person-sponge in water for a few seconds, pulls it out, smashes it repeatedly against the bathtub wall, and rips it in half. You hear about a half minute of maniacal giggling before she laughs so hard she falls all the way into the water. She emerges looking quite irate. The video fades to black as she grimaces at you.`
+		`She's prancing up and down an access shaft practicing the alphabet. "'A' is for anti-missile which make you helpless. 'B' is for bombs, which make you dead. 'C' is for cargo we'll steal from your ship. 'D' is for disruptors which make your shields useless. 'E' is for everyone whose gonna fear me..." She goes on like this for several minutes.`
+		`She's standing on her bed in a full-body cat suit, making "meow" and cat-hissing noises, clawing threateningly at the camera. She ends by biting the head off a doll. You notice the doll's face looks like yours.`
+		`She's sitting in a kitchen singing dark nursery rhymes while cutting out people shapes from paper. Each time she cuts one out, she writes your name on it, misspelled differently each time, and then rips the head off. This goes on for several minutes until she runs out of paper and wanders off eating a sandwich. She comes back a minute later and says, "oopes," and turns off the video recorder.`
+		`She's in a cargo bay, head-banging to death metal music. In the background, you can see a two-meter-tall picture of your face. Someone wrote on it, in large letters, "ded," using red finger paint. You look closely and see the girl's fingers are covered with red paint, and it's dripping onto the floor. This gives the impression of a pool of blood at her feet. When the music ends, she blows a kiss at you, which leaves her mouth and nose covered with a red hand-print. You hear maniacal giggling as the video fades to black.`
+		`She is napping in a turret control chair, wearing skull-and-crossbones pajamas. Crumbs and wrappers are sprinkled nearby from her recently-eaten food rations. You can hear her talking in her sleep. Most of the words are related to food, but you occasionally hear your name, followed by "burn." Eventually she rolls over and falls off the chair, awakens in mid-air, and stops herself from hitting the ground. She looks angrily at the camera, says your name, and then walks to a nearby bed. The sleep-mumbling resumes as the video fades to black.`
 
 # The mission ID must be lexically ordered last so the real missions will cancel it.
 mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
@@ -650,7 +786,7 @@ mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
 		has "Warfeed Terraforming [P02n] Snuggles Bounty: active"
 		not "snuggles escaped"
 	on complete
-		dialog phrase "six-year-old text-stalking"
+		dialog phrase "six-year-old stalking you"
 				
 
 
@@ -662,10 +798,13 @@ mission "Warfeed Terraforming [P02w] Wonton Bounty"
 	destination Earth
 	landing
 	to offer
-		has "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger: offered"
+		or
+			has "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: done"
+			has "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger: done"
 		has "wonton bounty"
 	on offer
-		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
+		fail "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger"
+		fail "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger"
 		conversation
 			`Oddly, this bounty hunter's record mainly lists recipes. You notice a common ingredient is, "Human meat or similar." Each dish is named after a past bounty. She contacts you on a holographic channel, eating soup.`
 			`	"Yes, who do you need eliminated?"`
@@ -681,6 +820,7 @@ mission "Warfeed Terraforming [P02w] Wonton Bounty"
 		system
 			distance 6 9
 		ship "Shield Beetle (Plasma)" "Wonton Mastication"
+		dialog "Now that you've destroyed Wonton Mastication's ship, it is time to return to <destination> to report the kill."
 	on fail
 		set "warfeed epic fail"
 
@@ -711,10 +851,13 @@ mission "Warfeed Terraforming [P02e] Endless Epiphany"
 	destination Earth
 	landing
 	to offer
-		has "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger: offered"
+		or
+			has "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: done"
+			has "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger: done"
 		has "endless bounty"
 	on offer
-		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
+		fail "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger"
+		fail "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger"
 		conversation
 			`Detailed information on Endless Epiphany shows up on your screen immediately. Notably missing is a gender, or indeed any physical description. Their ships are fast, but mainly designed for forward firepower, with decent anti-missile defenses. There are three Headhunter light warships, and one Marauder Falcon heavy warship.`
 			`	A communication comes in to you. It appears Endless Epiphany has already contacted you.`
@@ -743,6 +886,7 @@ mission "Warfeed Terraforming [P02e] Endless Epiphany"
 		ship "Headhunter (Plasma)" "The Wisest of Men"
 		ship "Headhunter (Plasma)" "Acid for your Eyes"
 		ship "Headhunter (Plasma)" "Within Lies Doom"
+		dialog "Now that you've destroyed Endless Epiphany's ships, it is time to return to <destination> to report the kill."
 	on fail
 		set "warfeed epic fail"
 
@@ -789,18 +933,20 @@ mission "Warfeed Terraforming [P02s] Smeg Bounty"
 	destination Earth
 	landing
 	to offer
-		has "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger: offered"
+		or
+			has "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: done"
+			has "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger: done"
 		has "smeg bounty"
 	on offer
-		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
+		fail "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger"
+		fail "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger"
 		conversation
-			`"You search for contact information on the bounty hunter White River named, "Deviled Smegs." Apparently he has a dangerous record of catching pirate captains using a Marauder Firebird he modified. From the description, it has powerful, long-range, cannons, so you should avoid being in front of it. Its missile defenses are minimal."`
-			`	You can contact him almost immediately.`
+			`You receive an audio link request from the bounty hunter you contacted, "Deviled Smegs." From the database entry he has a dangerous record of catching pirate captains using a Marauder Firebird he modified. From the description, it has powerful, long-range, cannons, so you should avoid being in front of it. Its missile defenses are minimal."`
 			choice
 				`	(Pay the bounty hunter Deviled Smegs to hunt you.)`
 				`	(Abort the mission. Let the Unfettered find someone else to do their dirty work.)`
 					decline
-			`	He answers your call, "Who do you want, and how much will you pay?"`
+			`	The audio link is established and the hunter asks, "Who do you want dead, and how much will you pay?"`
 			choice
 				`	"I want you to kill <first> <last>, and I'll pay 250,000 credits for his head."`
 				`	"I need you to capture <first> <last> for me, and I'll pay 250,000 credits."`
@@ -829,6 +975,7 @@ mission "Warfeed Terraforming [P02s] Smeg Bounty"
 		system
 			distance 6 9
 		ship "Marauder Firebird (Smeg)" "Deviled Smegs"
+		dialog "Now that you've destroyed Deviled Smegs's ship, it is time to return to <destination> to report the kill."
 	on fail
 		set "warfeed epic fail"
 
@@ -1093,8 +1240,8 @@ mission "Warfeed Terraforming [C02] Lilith's Inventions"
 				`	(Wait.)`
 			`	A few hours later, Lilith returns with a notebook.`
 			`	"Sorry. Here's what we need." She hands you technical specifications of a completely different part than before. "The one I handed you before was the vibration mechanism of... never mind.`
-			`	"One ton of these gadgets will make eleven tons of plating. Bring us 91 tons, and expect some fines when you're caught. Ironically, these bits are easy to scan until they're incorporated into the full plating.`
-			`	"This is an insanely-hard smuggling job: all the way from Unfettered Hai space to Greenrock with 91 tons of illegal goods. You'll be paid quite well. I can't give an exact figure without talking to my employers, but expect seven digits. Probably beginning with a one, but I'm pretty sure the second digit will be at least a four."`
+			`	"One ton of these gadgets will make fourteen tons of plating. Bring us 72 tons, and expect some fines when you're caught. Ironically, these bits are easy to scan until they're incorporated into the full plating.`
+			`	"This is an insanely-hard smuggling job: all the way from Unfettered Hai space to Greenrock with 72 tons of illegal goods. You'll be paid quite well. I can't give an exact figure without talking to my employers, but expect seven digits. Probably beginning with a one, but I'm pretty sure the second digit will be at least a four."`
 				accept
 	on complete
 		payment 35000
@@ -1130,7 +1277,7 @@ mission "Warfeed Terraforming [C03] Shipment Negotiation"
 			`Unfettered Hai engineers meet you at the landing platform. They're quite irate when they realize you can't speak Hai. You wait for about an hour with a pair of angry Hai staring you down. Eventually someone on an intercom directs you to a nearby office.`
 			`	"You are a good agent, <first> <last>. Skilled at your job. Yes. You are here for pirate parts? They are prepared.`
 			`	"The Humans and False Hai forbid this cargo. You need a fast ship with ramscoops. Take a Jump Drive or Scram Drive. I can help no further.`
-			`	"When you are ready, load 91 tons at the Spaceport."`
+			`	"When you are ready, load 72 tons at the Spaceport."`
 	on decline
 		set "warfeed epic fail"
 	on fail
@@ -1142,7 +1289,7 @@ mission "Warfeed Terraforming [C04] Greenrock Delivery"
 	clearance "You hear Lilith's excited voice on the line telling you where to land."
 	source Darkcloak
 	destination Greenrock
-	cargo "Hai reactor insulation" 91
+	cargo "Hai reactor insulation" 72
 	illegal 65000
 	to offer
 		has "Warfeed Terraforming [C03] Shipment Negotiation: done"
@@ -1172,7 +1319,7 @@ mission "Warfeed Terraforming [C05] Kraken Prep"
 			`	One of them looks slightly guilty and says something in a language you don't recognize; it sounds Eastern European, but you're not sure. Lilith begins to translate.`
 			`	"She says she's sorry about our immature behavior before." The girl talks some more. "She wasn't thinking clearly because she was eager to try my new invention on my- I'm not telling him that!" Both girls laugh.`
 			`	Lilith pulls herself away from her friends and talks in a more serious tone. "We have what we need to make the insulation for the pods. You need to take these papers to Kraken Station so they can prepare for our shipment. Then come back here.`
-			`	"Also, when you return, be ready to transport 207 tons in a single shipment. There will be no risk of detection though. The shipment will be 207 tons of scanner-proof padding. It will show up on Navy scanners as a bulk shipment of limburger cheese."`
+			`	"Also, when you return, be ready to transport 133 tons in a single shipment. There will be no risk of detection though. The shipment will show up on Navy scanners as a bulk shipment of limburger cheese."`
 				accept
 	on stopover
 		conversation
@@ -1181,18 +1328,18 @@ mission "Warfeed Terraforming [C05] Kraken Prep"
 	on complete
 		payment 35000
 		conversation
-			`Lilith meets you next to a roll of insulation and a group of engineers. "We've prepared 207 tons of insulation, enough for the entire project. Come to the spaceport when you're ready."`
+			`Lilith meets you next to a roll of insulation and a group of engineers. "We've prepared 133 tons of insulation, enough for the entire project. Come to the spaceport when you're ready."`
 			label questions
 			choice
-				`	"Sure thing. I'll go to the spaceport as soon as I have 207 tons of cargo space free."`
+				`	"Sure thing. I'll go to the spaceport as soon as I have 133 tons of cargo space free."`
 					accept
-				`	"Why 207 tons?"`
+				`	"Why 133 tons?"`
 					goto "i know how to math"
 				`	"Who were those two girls?"`
 					goto girls
 			label "i know how to math"
 			`	"Right. I forgot you're a pilot. You have a memory and know how to multiply. I'm too used to dealing with pirates.`
-			`	"Yes, 91 tons of reactor parts times 11 is 1001 tons of insulation. We're only giving 207 tons to the terraformers. That's how much they need to pad all of the deuterium pods. The rest of the shipment is for pirate business. It will be incorporated into advanced ceramics to make scan-resistant, radar-jamming, armor for marauders and pirates."`
+			`	"Yes, 72 tons of reactor parts times 14 is 1008 tons of insulation. We're only giving 133 tons to the terraformers. That's how much they need to pad all of the deuterium pods. The rest of the shipment is for pirate business. It will be incorporated into advanced ceramics to make scan-resistant, radar-jamming, armor for marauders and pirates."`
 				goto questions
 			label girls
 			`	"Good advice to follow on Greenrock is, 'If you want to stay alive, don't pry into a pirate's love life.' That's a free lesson from me. Other pirates would charge you one life for that lesson."`
@@ -1211,12 +1358,12 @@ mission "Warfeed Terraforming [C06] Kraken Delivery"
 	clearance
 	source Greenrock
 	destination "Kraken Station"
-	cargo "scan-blocking insulation" 207
+	cargo "scan-blocking insulation" 133
 	to offer
 		has "Warfeed Terraforming [C05] Kraken Prep: done"
 	on offer
 		conversation
-			`Lilith is conspicuously absent when you pick up the <cargo>. A large group of pirates load it one package at a time. They explain that the packages have to be packed in a certain pattern to ensure they look like a bulk limburger cheese shipment.`
+			`Lilith is conspicuously absent when you pick up the <cargo>. A large group of pirates load it one package at a time. They explain that the packages have to be packed in a certain pattern to ensure they look like a bulk limburger cheese shipment. They show you a few pieces of actual cheese interspersed in the packages; apparently the insulation is arranged to magnify the cheese on a scan.`
 				accept
 	on complete
 		payment 35000

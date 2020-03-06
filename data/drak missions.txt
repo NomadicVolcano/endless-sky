@@ -191,7 +191,7 @@ mission "Ancient Skin [2] Quarg Scientist and Archon"
 	on complete
 		conversation
 			`You return to <planet> expecting to enter the Quarg's green transport orb, but you find Kalee-sen at the entrance to the station.`
-			`	"Welcome <first> <last>, what did you learn?" From the tone of voice, you suspect he already knows, but it can be hard to judge emotions of a Quarg.`
+			`	"Welcome <first> <last>, what did you learn?" From the tone of voice, you suspect he already knows, but it can be hard to read a person so alien as a Quarg.`
 			`	You explain your experience with the Archon and Kalee-sen responds, "We will be ready when you are ready. Walk towards peace, <first> <last>."`
 
 	on enter Fasitopfar
@@ -238,7 +238,7 @@ mission "Ancient Skin [3] Archon Reawaken Trigger"
 		has "Remnant: Return the Samples 2: done"
 		"reputation: Drak" > 0
 	on offer
-		event "archon reawaken allowed" 3
+		event "archon reawaken allowed" 30
 		fail
 
 event "archon reawaken allowed"
@@ -262,10 +262,10 @@ mission "Ancient Skin [4] Archon Reawakening Permission"
 		outfit "Ancient Skin" -1
 		outfit "Koor'alei Skin" 1
 		conversation
-			`You travel through the Quarg station using the same green orb elevator as before, and find yourself in a Quarg laboratory. The ancient skin is overing in mid air between two devices that don't look at all like Quarg construction. They're a pair of curved black columns with white spikes pointing in the direction of the armor. The columns look almost alive with pulsating veins and what looks like a heart. Are you witnessing Drak technology?`
-			`	The armor begins to glow brighter and brighter until it is bright as the sun; far too bright to look at. Before you can cover your eyes, a powerful shockwave eminates from the armor. You're thrown onto the floor and you can feel the room heating up. A loud humming and deep bass vibration are so powerful you can feel them in your bones.`
+			`You travel through the Quarg station using the same green orb elevator as before, and find yourself in a Quarg laboratory. The ancient skin is hovering in mid air between two devices that don't look at all like Quarg construction. They're a pair of curved black columns with white spikes pointing in the direction of the armor. The columns look almost alive with pulsating veins and what looks like a heart. Are you witnessing Drak technology?`
+			`	The armor begins to glow brighter and brighter until it is bright as the sun; far too bright to look at. Before you can cover your eyes, a powerful shockwave emanates from the armor. You're thrown onto the floor and you can feel the room heating up. At rising volume, you hear loud humming and deep bass vibration so powerful you can feel them in your bones.`
 			choice
 				`	(Continue.)`
-			`	The sensation immediately vanishes, and the armor appears as it did before. It seems that even the Quarg were surprised by the intensity of the effect. They look up in wonder at a device they scarcely understand, a relic of the ancient past, from an era of knowledge long forgotten.`
+			`	The spectacle ends after a few seconds, and the skin appears as it did before. It seems that even the Quarg were surprised by the intensity of the effect. They look up in wonder at a device they scarcely understand, a relic of the ancient past, from an era of knowledge long forgotten.`
 			`	You can feel a sensation in your head, sent by a powerful telepathic entity. The sensation is different than an Archon. It is warm and welcoming, rather than the Archon's cold and demanding nature. It sends you a mix of hope, gratitude, and longing. Is this the last vestige of the mind of a Koor'alei; what little remains in this tiny scrap of skin?`
 				decline
