@@ -1,3 +1,13 @@
+# Copyright (c) 2015 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
 mission "Acorn Delights: Part 1"
 	name "Acorns for Anoo"
 	description "Bring Eeeya to <destination> to deliver <cargo> to her missing granddaughter."
@@ -15,12 +25,12 @@ mission "Acorn Delights: Part 1"
 		dialog "You forgot Eeeya or some of her mountains of cookies. Maybe they're in one of your escorts?"
 	on offer
 		conversation
-			`As you pass by a kitchen supply store in the spaceport, a elderly Hai looks towards you with a face of deep concern. She waves you down.`
+			`As you pass by a kitchen supply store in the spaceport, an elderly Hai looks towards you with a face of deep concern. She waves you down.`
 			choice
 				`	(See what she wants.)`
 				`	(Ignore her.)`
 					decline
-			`	"My name is Eeeya, and I'm looking for my lost granddaughter, Anoo. She recently graduated medical school, and I was going to give her three tons of cookies, but she's gone! Please help me find my granddaughter."`
+			`	"My name is Eeeya, and I'm looking for my lost granddaughter, Anoo. She recently graduated from medical school, and I was going to give her three tons of cookies, but she's gone! Please help me find my granddaughter."`
 				goto "actual questions"
 			label questions
 			`	"Please help me find my granddaughter."`
@@ -67,7 +77,7 @@ mission "Acorn Delights: Part 2"
 	on offer
 		conversation
 			`You spend several hours flying Eeeya between the massive communities of Stonebreak. She checked every homeless shelter, volunteer ward, woman's shelter, and low-income hospital. None had seen of Anoo in years, though some remembered the energetic little girl she was in her youth.`
-			`	After a few moments of crushing despair, Eeeya's ears perk up and she says, "sometimes very gifted students are allowed to study with the Quarg for a year after they graduate. There are trillions of Quarg on Alta Hai, so it wouldn't be surprising if she got lost. Let's go there next."`
+			`	After a few moments of crushing despair, Eeeya's ears perk up, and she says, "sometimes very gifted students are allowed to study with the Quarg for a year after they graduate. There are trillions of Quarg on Alta Hai, so it wouldn't be surprising if she got lost. Let's go there next."`
 				accept
 
 mission "Acorn Delights: Part 3"
@@ -159,5 +169,5 @@ mission "Acorn Delights: Part 5"
 				`	(Continue.)`
 			`	Eeeya turns to you and says, "I've found my new home, Captain <last>. I suppose payment is in order. I'm the owner of Eeeya's Acorn Delights, a luxury baked goods company based on Allhome.`
 			`	"I only have 30,000 credits with me, but I'll transfer some Acorn Delights stocks to your name. Your quarterly dividends will be divided into daily payments of 500 credits."`
-			`	Before you leave, Eeeya unpacks a feast of cookies for Anoo and her patients. Their aromatic fragrance quickly overpowers the wounds and suffering of war. Every cookie has perfect imperfections of crackled texture over the chewy center which melts into your mouth. If food could win wars, this would be the Unfettered's secret weapon.`
+			`	Before you leave, Eeeya unpacks a feast of cookies for Anoo and her patients. Their aromatic fragrance quickly overpowers the wounds and suffering from war. Every cookie has perfect imperfections of crackled texture over the chewy center which melts into your mouth. If food could win wars, this would be the Unfettered's secret weapon.`
 				decline
