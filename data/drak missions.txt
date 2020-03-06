@@ -116,10 +116,9 @@ mission "Ancient Skin [0] Installation"
 				`	(Continue.)`
 			`	"Let me show you your ship on a scanner," says Lilith. The scanner shows details of the entire room and the spaceport beyond, but the ship doesn't show up at all. It takes almost a minute for telltale signs of the ship's interior to emerge.`
 			`	"Now do you see why I don't want this to fall into the wrong hands?"`
-			`	You think to yourself how you could hide or destroy this, and the first word that comes to mind is, "Quarg."`
+			`	You think to yourself how you could destroy this, and the first word that comes to mind is, "Quarg."`
 
 outfit "Ancient Skin"
-	plural "Ancient Skins" # as in Bear skin or Bear skins from hunting terminology
 	category "Systems"
 	# FIXME: thumbnail "outfit/ancient skin"
 	mass 25
@@ -184,16 +183,15 @@ mission "Ancient Skin [2] Quarg Scientist and Archon"
 			
 	on enter Fasitopfar
 		set "identified skin"
+		log `The Drak say the skin I found was from the Koor'alei, an ancient race that died long ago protecting the Drak and others from a great threat. The Drak will "reawaken" the skin, giving it "new-found strength," if I prove to be a good peacemaker.`
 		conversation
 			`You feel an intense rush of sensation in your mind, and a white light surrounds you. After a moment, the light and sensation vanish and you hear the voice of a Drak Archon.`
-			`	"The skin you found is that of a Koor'alei, ancient sages and teachers of the Drak. Their race is long dead, protecting the Drak and many others from a great threat. We thought no vestige remained, until you found that skin.`
-			`	"It is no accident that it came upon you; it has chosen you. The Drak cannot interfere with that. You will not seek to destroy the skin, and you will protect it.`
-			`	"Should you prove yourself a worthy peacemaker, we will bestow a gift upon you. The Koor'alei skin will reawaken, and its newfound strength will be yours."`
-			`	The voice vanishes, and the Archon appears to lose interest.`
+			`	"The skin you found is that of a Koor'alei, ancient sages and teachers of the Drak. Their species is long dead, protecting the Drak and many others from a great threat. We thought no vestige remained, until now.`
+			`	"The skin has found you, so you will protect it. Should you prove yourself a worthy peacemaker, we will bestow a gift upon you. We will reawaken the Koor'alei skin, and its new-found strength will be yours as well. When the time is right, you will know, and you will return to Kuwaru Efreti with the skin."`
+			`	The voice vanishes, and the Archon appears to lose interest in speaking with you.`
 
 
 outfit "Koor'alei Skin"
-	plural "Koor'alei Skins" # as in Bear skin or Bear skins from hunting terminology
 	category "Systems"
 	# FIXME: thumbnail "outfit/ancient skin"
 	mass 29
@@ -205,9 +203,9 @@ outfit "Koor'alei Skin"
 	"scan interference" 500
 	"radar jamming" 500
 	"ramscoop" 1.25
-	description "This skin is the last remains of an ancient species of sages and teachers, the Koor'alei. According to the Drak, the skin chose you, and wants to protect you. After proving to the Drak that you are a peacemaker, they have reawakened the skin so you can deal with the troubles that lie ahead. The skin now repairs and refuels your ship much faster. Unfortunately, this also increased the skin's energy consumption and mass."
+	description `This skin is the last remains of an ancient species of sages and teachers, the Koor'alei. According to the Drak, the skin chose you, and wants to protect you. After proving to the Drak that you are a peacemaker, they have "reawakened" the skin so you can deal with the troubles that lie ahead. The skin now repairs and refuels your ship much faster. Unfortunately, this also increased the skin's energy consumption and mass.`
 
-mission "Ancient Skin [3] Archon Recharge Trigger"
+mission "Ancient Skin [3] Archon Reawaken Trigger"
 	invisible
 	source
 		not attributes uninhabited
@@ -218,34 +216,34 @@ mission "Ancient Skin [3] Archon Recharge Trigger"
 		has "Remnant: Return the Samples 2: done"
 		"reputation: Drak" >= 0
 	on offer
-		event "archon recharge allowed" 30
+		event "archon reawaken allowed" 30
 		fail
 
-event "archon recharge allowed"
+event "archon reawaken allowed"
 
-mission "Ancient Skin [4] Archon Recharge Permission"
+mission "Ancient Skin [4] Archon Reawakening Permission"
 	name `Ancient Skin: <planet>`
-	description `Visit the spaceport at <destination> to re-awaken the ancient skin.`
+	description `Visit the spaceport at <destination> to reawaken the ancient skin.`
 	source
 		not planet "Kuwaru Efreti"
 	destination "Kuwaru Efreti"
 	to complete
-		has "Ancient Skin [5] Archon Recharge: declined"
+		has "Ancient Skin [5] Archon Reawakening: declined"
 	to offer
-		has "event: archon recharge allowed"
+		has "event: archon reawaken allowed"
 		"reputation: Drak" >= 0
 	on offer
 		require "Ancient Skin"
 		conversation
-			`You feel a faint whisper in your head. The words are imperceptible, but they're accompanied by a powerful emotion. The meaning is clear: the Drak have judged you worthy, and will allow the ancient skin to be re-awakened. You must take it to Kuwaru Efreti.`
+			`You feel a faint whisper in your head. The words are imperceptible, but they're accompanied by a powerful emotion. The meaning is clear: the Drak have judged you worthy, and will allow the ancient skin to be reawakened. You must take it to Kuwaru Efreti, as they instructed before.`
 				accept
 
-mission "Ancient Skin [5] Archon Recharge"
+mission "Ancient Skin [5] Archon Reawakening"
 	invisible
 	landing
 	source "Kuwaru Efreti"
 	to offer
-		has "Ancient Skin [4] Archon Recharge Permission: active"
+		has "Ancient Skin [4] Archon Reawakening Permission: active"
 	on offer
 		require "Ancient Skin"
 		conversation
@@ -254,5 +252,5 @@ mission "Ancient Skin [5] Archon Recharge"
 			choice
 				`	(Continue.)`
 			`	The sensation immediately vanishes, and the armor appears as it did before. It seems that even the Quarg were surprised by the intensity of the effect. They look up in wonder at a device they scarcely understand, a relic of the ancient past, from an era of knowledge long forgotten.`
-			`	You can feel a sensation in your head, sent by a powerful telepathic entity. The sensation is different than an Archon. It is warm and welcoming, rather than the Archon's cold and demanding nature. You can feel a mix of hope, gratitude, and longing. Is this the last vestige of the mind of a Koor'alei; what little remains in this tiny scrap of skin?`
+			`	You can feel a sensation in your head, sent by a powerful telepathic entity. The sensation is different than an Archon. It is warm and welcoming, rather than the Archon's cold and demanding nature. It sends you a mix of hope, gratitude, and longing. Is this the last vestige of the mind of a Koor'alei; what little remains in this tiny scrap of skin?`
 				decline

@@ -208,11 +208,8 @@ mission "Warfeed Terraforming [F02] Deep"
 		conversation
 			`You quickly find the headquarters of Follower's terraforming efforts, as it is the largest operation on the planet. The shuffle you to a private room to meet with the executives who plan to smuggle goods.`
 			`	"This is a good deed that you do, <first> <last>. You'll save a lot of lives and make numerous new jobs. It's a pity that it's all illegal.`
-			`	"We've been analyzing options for transporting goods. The shear quantity, hundreds of thousands of tons a year, is beyond what any smugglers can handle. That means we need to set up a large-scale operation, which means we need governments behind us.`
-			`	"The best option is to find a group that can transport goods without being scanned by the Navy. In this area, that would be the Navy, Navy Intelligence, Republic Intelligence, and Deep Security."`
-			choice
-				`	(Continue.)`
-			`	"Navy and Republic are right out, but Deep Sky may be interested in alien terraforming equipment. They hold a lot of sway with Deep Security, so they could arrange something, if they're interested.`
+			`	"We've been analyzing options for transporting goods. The shear quantity, hundreds of thousands of tons a year, is beyond what any smugglers can handle. That means we need to set up a large-scale operation, which means we need governments behind us. The Navy or Republic authorities would turn us in. That leaves the Syndicate and Deep Security.`
+			`	"Deep Sky may be interested in alien terraforming equipment. They hold a lot of sway with Deep Security, so they could arrange something, if they're interested.`
 			`	"We'll consider the Syndicate to be a backup plan. They'll want a high price, but they know how to keep secrets. We've... done business with them before.`
 			`	"For now, we need you to go to <destination> to talk to atmospheric physics researchers about their interest in Hai technology."`
 			choice
@@ -235,13 +232,13 @@ mission "Warfeed Terraforming [F03] Refusal"
 		set "warfeed epic fail"
 	on offer
 		conversation
-			`It takes a while to find the atmospheric physics researchers among the thousands of research projects on Valhalla. Eventually you find an intern studying the use of polygonal eyewalls in persistent polar storms on gas giants to determine details of the giants' solid cores. Her words are hard to parse, as many of them are technical jargon, four to eight syllables long. After a few minutes, she stops talking long enough for you to explain your problem. Her eyes glow like a lightbulb and she takes you to the head of her research group.`
-			`	The tallest pregnant woman the human race has ever produced stands before you, next to a giant panel of equations and plots. You recognize some of the equations from your pilot training. One group of equations are the laws of motion of matter exiting hyperspace. Another group is the Navier-Stokes equations. Somehow the two groups of equations mix to terraform a planet, though you can't follow the reasoning. The math is a decade or two of education beyond your introductory knowledge.`
+			`It takes a while to find the atmospheric physics researchers among the thousands of research projects on Valhalla. Eventually you find an intern studying the use of polygonal eyewalls in persistent polar storms on gas giants to determine details of the giants' solid cores. Her words are hard to parse; many of them are technical jargon, four to eight syllables long. After a few minutes, she stops talking long enough for you to explain your problem. Her eyes glow like a lightbulb and she takes you to the head of her research group.`
+			`	You find the research head standing next to a giant panel of equations and plots, manipulating them using a computer algebra system. You recognize some of the equations from your pilot training. One group of equations are the laws of motion of matter exiting hyperspace. Another group is the Navier-Stokes equations. Somehow the two groups of equations mix to terraform a planet, though you can't follow the reasoning. The math is a decade or two of education beyond your introductory knowledge.`
 			choice
 				`	(Continue.)`
 			`	You explain the matter in detail to the research group head, who turns out to be a better listener than her intern.`
-			`	"Of course we want Hai terraforming technology, but you need to understand Deep Security's limitations. The reason they have permission to travel without Navy surveillance is that they never smuggle goods. Breaking that rule would cause long-term harm to all of The Deep. I wish I could help Follower, but I can't.`
-			`	"Your only option left is the Syndicate. The Paradise Planets would turn you in if you even suggested such a plan, and the Navy is to honorable to smuggle.`
+			`	"Of course we want alien terraforming technology, but you need to understand Deep Security's limitations. The reason they have permission to travel without Navy surveillance is that they never smuggle goods. Breaking that rule would cause long-term harm to all of The Deep. I wish I could help Follower, but I can't.`
+			`	"Your only option left is the Syndicate. The Paradise Planets would turn you in if you even suggested such a plan, and the Navy is too honorable to smuggle.`
 			`	"Please convey my apology to the terraformers on Follower."`
 	on complete
 		payment 135000
@@ -356,7 +353,7 @@ mission "Warfeed Terraforming [S03] Syndicate Capture"
 				`	"I won't tell you anything"`
 					goto die
 			`	"Yes, that's White River's style of manipulation. Layers upon layers of duplicity leading to a trap.`
-			`	"You're deal will be profitable for the Syndicate, but we know White River will back-stab us. Help us shut down his corporate espionage operation, and we'll make sure the goods get to Kraken station.`
+			`	"Your deal will be profitable for the Syndicate, but we know White River will back-stab us. Help us shut down his corporate espionage operation, and we'll make sure the goods get to Kraken station.`
 			`	"You'll still need to find a way to get the goods from Kraken to Follower. I can't see any way the Syndicate can help you with that. Try Deep Security or the Navy. Or get creative."`
 			choice
 				`	"How do I shut down White River's corporate espionage operations?"`
@@ -471,28 +468,26 @@ mission "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
 			label smeg
 			apply
 				set "smeg bounty"
-			"You send a request to the bounty hunter. They say they'll contact you soon."
-				accept
+			goto accept
 			label endless
 			apply
 				set "endless bounty"
-			"You send a request to the bounty hunter. They say they'll contact you soon."
-				accept
+			goto accept
 			label wonton
 			apply
 				set "wonton bounty"
-			"You send a request to the bounty hunter. They say they'll contact you soon."
-				accept
+			goto accept
 			label snuggles
 			apply
 				set "snuggles bounty"
-			"You send a request to the bounty hunter. They say they'll contact you soon."
+			label accept
+			"The officers send a request to the bounty hunter. They say you'll be contacted in the next few days, and you should go about your business."
 				accept
 
 
 mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 	name "Warfeed North Smuggling: Sparkle Snuggles"
-	description "Disable Sparkle Snuggles's ship but don't destroy or capture it. Mudering children is wrong. Return to <destination> for <payment>."
+	description "Destroy or capture Sparkle Snuggles's ship, but let her escape pod go. Mudering children is wrong. Return to <destination> for <payment>."
 	landing
 	source
 		not attributes uninhabited
@@ -503,9 +498,9 @@ mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 	on offer
 		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
 		conversation
-			`You contact this mysterious bounty hunter and you get a video feed. She's a little girl, about six years old, cuddling a teddy bear. You notice several teenagers behind her, controlling alien turrets. They're laughing while ships explode on their monitors. It seems the girl, "Sparkle Snuggles," is their mascot.`
+			`You get a video feed from Sparkle Snuggles. She's a little girl, about six years old, cuddling a teddy bear. You notice two teenage boys and two men behind her laughing while ships explode on their monitors. The lighting is poor, but it looks like the adults and teenagers may have green skin, though the girl doesn't. It seems the girl, "Sparkle Snuggles," is their mascot.`
 			`	"I love you so much! I want to teach bad people to love. Who needs love?`
-			`	You provide your pilot license number to the little darling. Whoever gave these kids a warship was insane.`
+			`	You provide your pilot license number to the little darling.`
 			`	"Awwww. This person needs love. I'll love them a lot. I have big guns of happiness! No money for this. I just need love. How much do you love me?"`
 			choice
 				`	"I love you sooooo much."`
@@ -525,7 +520,7 @@ mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 			`	She smiles sweetly and the feed cuts off.`
 				accept
 			label brat
-			`	The child's face turns bright red and she screams, "You're so mean! I'll teach you love. I'll teach you real hard." She cackles maniacally as the feed cuts off.`
+			`	The child's face turns bright red and she screams, "You're so mean! I'll teach you love. I'll teach you real hard." She cackles maniacally and hugs her bear tightly as the feed cuts off.`
 				accept
 			label timeout
 			`	"No~o! I'll be good. I'll make <first> <last> go away forever. I promise."`
@@ -535,15 +530,14 @@ mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 		payment 35000
 	on fail
 		set "warfeed epic fail"
-		conversation
-			`You are a horrible person for killing those five children. Even the Syndicate has enough morals not to murder children.`
-	npc disable
+	npc kill
 		government "Bounty Hunter"
 		personality nemesis plunders waiting target
 		system
 			distance 6 9
 		ship "Model 256 (Snuggle)" "Sparkle Snuggles"
-		dialog `You have disabled the ship, and the parents of these children will pick them up after you land. Pillage their ship if you must, but please don't capture it. You don't have to murder children.`
+		dialog `One escape pod leaves the ship. Your scanners indicate the person inside is quite small, so it must be Sparkle Snuggles. Though the galaxy is filled with moral ambiguity, murdering helpless children is usually considered wrong. You decide against pulling the trigger.`
+
 
 ship "Model 256" "Model 256 (Snuggle)"
 	outfits
@@ -565,8 +559,9 @@ ship "Model 256" "Model 256 (Snuggle)"
 		"Korath Disruptor" 2
 		"Command Center"
 		"Fuel Processor"
-		"Pug Biodefenses" 5
+		"Korath Repeater Rifle" 4
 
+# Text-stalking from a six-year-old girl with a super-weapon and serious emotional issues.
 phrase "six-year-old text-stalking"
 	word
 		"You receive a message from your pursuer"
@@ -574,7 +569,7 @@ phrase "six-year-old text-stalking"
 		`, "I can see you. Come out so I can love you with my bombs!"`
 		`, "Gimme candy and I might let you live!"`
 		`, "Hug me, love me, snuggle me, Sparkles to the rescue!"`
-		`. It is a white cartoon cat with a dead person in its mouth, and blood running down its cheeks. Underneath the cat you see the words, "you look tasty."`
+		`. It is a white cartoon cat with a dead person in its mouth, and blood running down its cheeks. Underneath the cat you see the words, "yoo luk tasty."`
 		`, "I'mma gonna text-stalk you to death!"`
 		`, "I can taste your fear. It tastes like chocolate chip ice cream with chocolate sparkles and chocolate fudge! Yum yum!"`
 		`, "Don't you want to play with me?"`
@@ -585,15 +580,44 @@ phrase "six-year-old text-stalking"
 		`, "Make me pancakes and I'll forgive you for not playing with me. :-p"`
 		`, "I farted and it smelled like you."`
 		`, "Come here so I can tickle you!"`
-		`. It is a crayon drawing of a stick figure with a big ship above it. The ship is shooting the person with a dozen green rays. The stick figure is labeled, "<first> goes splat."`
+		`. It is a crayon drawing of a stick figure with a big ship above it. The ship is shooting the person with a dozen green rays. The stick figure is labeled, "<first> goz splat."`
 		`, "If you don't come out soon, I'll cry. People die when I cry. Lots of people."`
 		`, "Can you smile for me? I want to see you smile before you get blown up."`
 		`, "Your ship looks so cute and tiny! I want to make it, 'splat!' like a bug!"`
 		`, "Gimme your toes and nose as my birday present! I wanna eat 'em! Nom nom nom."`
 		`, "My boogers are cleaner than your face!"`
-			
+		`, "Come here and I'll give you a big kiss!"`
+		`. It is a crayon drawing of a toilet with a brown mass inside. Below, you see the words, "stop hidin poo hed!"`
+		`, "Gonna eatcha, gonna eatcha, gonna eatcha, gonna eatcha up."`
+		`, "I <3 KILLIN' LOL!"`
+		`, ":-* :-* :-* I've gotta kiss of doom!"`
+		`, "(^o^) I know where you are! (^o^)"`
+		`, "My guns will make you go, 'squish!'"`
+		`, "'Captain <first> dummy <last> the ker-splat!' That's gonna be on your grave."`
+		`, "(=_=) Just give up! (x_x)"`
+		`, "D'ya see my ship? It's bigger'n yours!"`
+		`, "I'm gonna pop you like a zit!"`
+		`, "You don't play fair. I'm not gonna hunt you."`
+		`, "You smell so bad, I don't wanna find you!"`
+		`, "Come out soon or I'll hunt someone else!"`
+		`, "My guns r' bigger n' yer ship!"`
+		`, "Awww. Poor baby gonna die? O_o o_O"`
+		`, "You make me sad. Stop hiding. </3"`
+		`. It's a large piece of paper with pair of footprints made from a six-year-old's paint-covered feet. Next to it, you see the words, "stomp u!"`
+		`, "I bet you get nightmares of me. Bed wetter! 8-O"`
+		`, "The best sushi is <first> <last> sushi!"`
+		`. It's a "get well soon" card where the word "well" has been replaced with "ded," written in crayon. Inside the card, there is a crayon drawing of a cat head eating a stick figure.`
+		`, It's a "happy birthday" card where "birth" has been replaced with "deth," written in crayon. Below that, you see the word "sune." Inside the card, you can see the words, "gona getcha" repeated over and over.`
+		`. It's a video of Sparkle Snuggles grinning maniacally. She's hugging her bear in one hand and pointing at you with the other. She doesn't blink or move for about 30 seconds and then rolls on the floor laughing.`
+		`. It's a video of Sparkle Snuggles. The teenagers baked her cookies that she's decorating with sprinkles. The patterns on the cookies look like your face. She eats them dramatically and growls angrily at the camera after ever few bites.`
+		`. It's a video of one of the teenagers reading Sparkle Snuggles a, "bedtime story." The story is actually a recipe book where the teenager is replacing each ingredient with "<first>" or "<last>." You can hear Sparkle Snuggles's maniacal giggling in the background.`
+		`. It's a video of Sparkle Snuggles dressed in a giant lizard suit. She's stomping violently through a room filled with paper buildings and paper people. The people all have your name on them.`
+		`. It's a video of Sparkle Snuggles playing with two toy ships. One looks like her ship, and one looks like your flagship. She wooshes them around in the air and then smashes your flagship into the ground. After doing this several times, she points at you and laughs meanly.`
+		`. It's a video of Sparkle Snuggles listing what she wants for her birthday presents. All of the wishes involve your body parts being removed, smashed, set on fire, or fed to various animals. She ends by blowing you a kiss.`
+		`. It's a video of Sparkle Snuggles dancing to symphonic black metal. She's an impressive dancer for her age. The floor has been colored in crayon with your name (misspelled eight different ways) and "ded" repeated over and over.`
+		`. It's a video of Sparkle Snuggles making a crude paper model of your flagship. She finishes and someone hands her a gadget with a trigger. She pulls the trigger and flame bursts out, reducing the model to ashes.`
+		`. It's a video of Sparkle Snuggles making person-shaped paper cutouts with your name on them. After she finishes each one, she throws it into a heat shunt where it catches fire and burns quickly to ashes.`
 
-# Text-stalking from a six-year-old girl with a super-weapon and serious emotional issues.
 # The mission ID must be lexically ordered last so the real missions will cancel it.
 mission "Warfeed Terraforming [ZZ] Snuggles Stalking"
 	invisible
@@ -748,7 +772,7 @@ mission "Warfeed Terraforming [P02s] Smeg Bounty"
 	on offer
 		fail "00 Warfeed Terraforming [P01b] Bounty Hunter Trigger"
 		conversation
-			`"You search for contact information on the bounty hunter White River named, "Deviled Smegs." Apparently he has a dangerous record of catching pirate captains using a Marauder Firebird she modified. From the description, it has powerful, long-range, cannons, so you should avoid being in front of it. Its missile defenses are minimal."`
+			`"You search for contact information on the bounty hunter White River named, "Deviled Smegs." Apparently he has a dangerous record of catching pirate captains using a Marauder Firebird he modified. From the description, it has powerful, long-range, cannons, so you should avoid being in front of it. Its missile defenses are minimal."`
 			`	You can contact him almost immediately.`
 			choice
 				`	(Pay the bounty hunter Deviled Smegs to hunt you.)`
@@ -929,7 +953,7 @@ mission "Warfeed Terraforming [P05] Lilith"
 			`	You explain yourself and wait a while. You begin to wonder whether she'll say anything at all.`
 			`	"You poor, gullible, fool." She helps you up. You turn around and see a blue-haired teenager, perhaps seventeen years of age.`
 			`	She returns your gun and explains, "You were sent by a rival laboratory to catch me. All they do is medical research; they have no contact with the pirate leadership. They want you to take me to them so my invention can be theirs. You won't get any help from them after that.`
-			`	"I can give you a better deal. Unlike the Veiled Sun, I do have the ears of the pirates: I'm negotiating a price for my new interference plating. I can negotiate a deal for White River as well. I'll give you 800,000 credits after our negotiations at Greenrock."`
+			`	"I can give you a better deal. Unlike the Veiled Suns, I do have the ears of the pirates: I'm negotiating a price for my new interference plating. I can negotiate a deal for White River as well. I'll give you 800,000 credits after our negotiations at Greenrock."`
 			label questions
 			`	"Will you let me help you?"`
 			choice
@@ -1244,11 +1268,11 @@ mission "Warfeed Terraforming [R03] Haven Message"
 				`	(Continue.)`
 			`	Lilith takes you to her private suite, into a room that is packed with anti-surveillance gadgets. It seems she wants to be very certain nobody hears the conversation.`
 			`	"I've had a pang of conscience, and I have to come clean.`
-			`	"You've been played since the moment you got into this project. I work for a powerful group of marauders, and they set me up as an agent with White River. He helped me steal some alien tech and specs from the Syndicate so we could make new armor. The Veiled Suns were how he arranged my rescue. We shut down White River's connections to this project by having the Unfettered send a list of carefully-chosen names to the Syndicate. Now we have what we need to make thousands of tons of armor for an advanced, new, fleet of marauder ships.`
-			`	"Now I'll give you a second present." She leads you out of her suite through a secret door.`
+			`	"You've been played since the moment you got into this project. I work for a powerful group of marauders, and they set me up as an agent with White River. He helped me steal some alien tech and specs from the Syndicate so we could make new armor. The Veiled Suns were how he arranged my rescue. We shut down White River's connections to this project by having the Unfettered send a list of carefully-chosen names to the Syndicate through you. Now we have what we need to make thousands of tons of armor for an advanced, new, fleet of marauder ships.`
+			`	"Now I'll give you a present." She leads you out of her suite through a secret door.`
 			choice
 				`	(Continue.)`
 			`	You're in a large room, and you see a pile of slimy reptile scales made of metal. It looks like a stronger version of the armor in Lilith's crashed ship.`
-			`	"This isn't the armor I invented. It isn't what we stole from the Syndicate either. This is the original. It is all that remains of a wrecked ship - a formerly living ship - on Stormhold.`
-			`	"It is very old. Impossibly old. Probably older than Earth. Telltale signs of hyperspace activity show it entered hyperspace millions of times. Judging from the radiation and scorch marks, it must have flown through the centers of stars. It may have even lived in them. When this... skin... was new, it would have been nearly invincible and could render the creature completely invisible. Even in its dormant state, this is the strongest material I know of.`
-			`	"I don't want to think about what would happen if the Marauders or Syndicate mastered its technology. Really, this technology is too advanced for anyone. Please find a way to destroy it. Meet me in the spaceport when you have 13 tons of outfit space free."`
+			`	"This isn't the armor I invented. It isn't what we stole from the Syndicate either. This is the original. It is all that remains of a wrecked ship - a formerly living ship - on Stormhold. It was found in an deep core archaeology dig; we suspect it crashed millions of years ago and got buried by tectonic activity.`
+			`	"It is very old. Impossibly old. Maybe older than Earth. Telltale signs of hyperspace activity on the hull show it entered hyperspace millions of times. Judging from the type of radiation, it must have flown through the centers of stars. It may have even lived in them. When this... skin... was new, it would have been nearly invincible and could render the creature completely invisible. Even in its dormant state, this is the strongest material I know of.`
+			`	"I don't want to think about what would happen if the Marauders or Syndicate mastered its technology. Really, this technology is too advanced for anyone. Please find a way to destroy it. Meet me in the spaceport when you have 13 tons of outfit space free and I'll give it to you."`
