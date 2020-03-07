@@ -1,5 +1,6 @@
 ### Warfeed Smuggling: introduction missions
 
+
 mission "Warfeed Terraforming [H00] Intro"
 	name "Terraform Warfeed: <planet>"
 	description "Visit <planet> to discuss a secret terraforming operation."
@@ -55,25 +56,6 @@ mission "Warfeed Terraforming [H00] Intro"
 			label accept
 			`	"Excellent. Whispering Rose awaits you at <destination>."`
 				accept
-
-
-mission "00 Warfeed Epic Fail (landing)"
-	invisible
-	landing
-	to offer
-		has "warfeed epic fail"
-	on offer
-		fail "Warfeed Terraforming [H01] Whispering Rose"
-		fail "Warfeed Terraforming [H02] White River"
-		fail "Warfeed Terraforming [P01] Bounty"
-		fail "Warfeed Terraforming [P02n] Snuggles Bounty"
-		fail "Warfeed Terraforming [P02w] Wonton Bounty"
-		fail "Warfeed Terraforming [P02e] Endless Epiphany"
-		fail "Warfeed Terraforming [P02s] Smeg Bounty"
-		fail "Warfeed Terraforming [P03] Anarchist Letter"
-		fail "Warfeed Terraforming [P04] Blue Women"
-		fail "Warfeed Terraforming [P05] Lilith"
-		# FIXME: FINISH THIS LIST
 
 mission "Warfeed Terraforming [H01] Whispering Rose"
 	name "Terraform Warfeed: <planet>"
@@ -450,10 +432,9 @@ mission "Warfeed Terraforming [S04] List of Names"
 			`	"Unfortunately," he continues, "we have no way to pass the goods between Kraken Station and Follower. Once you solve that problem, we'll all get a lot richer off those angry northern squirrels and over-payed Follower terraformers."`
 
 # White River is insanely wealthy, so he's had a chance to trade for,
-# steal, or smuggle, advanced outfits. The Hai pillaged Korath
-# outfits during the Korath raids, and White River obtained them
-# through illicit means. The Jump Drive was purchased from the
-# Unfettered at great cost. Human coolers were imported legally.
+# steal, or smuggle, advanced outfits. The Hai pillaged Korath outfits
+# during the Korath raids, and White River obtained them through
+# illicit means. Human coolers were imported legally.
 
 ship "Shield Beetle" "Shield Beetle (Toss)"
 	outfits
@@ -461,13 +442,13 @@ ship "Shield Beetle" "Shield Beetle (Toss)"
 		"Korath Grab-Strike" 2
 		"Chameleon Anti-Missile" 2
 		"Outfits Expansion" 3
-		"Jump Drive"
+		"Hyperdrive"
 		"Quantum Keystone"
 		"Hai Diamond Regenerator" 2
 		"Liquid Helium Cooler"
 		"Liquid Nitrogen Cooler"
 		"Fuel Pod"
-		"Fuel Processor"
+		"Ramscoop"
 		"Thruster (Planetary Class)"
 		`"Bufaer" Atomic Steering`
 		"Boulder Reactor" 2
@@ -767,7 +748,7 @@ phrase "six-year-old video threats"
 		`Sparkle Snuggles is in a cramped bathroom taking a bubble bath. She's almost fully submerged; only her face and one arm can be seen through the bubbles. In her hand, there is a person-shaped sponge. She looks at the camera and yells, "this you!" Then she dunks the person-sponge in water for a few seconds, pulls it out, smashes it repeatedly against the bathtub wall, and rips it in half. You hear about a half minute of maniacal giggling before she laughs so hard she falls all the way into the water. She emerges looking quite irate. The video fades to black as she grimaces at you.`
 		`She's prancing up and down an hallway practicing the alphabet. "'A' is for anti-missile which make you helpless. 'B' is for bombs, which make you dead. 'C' is for cargo we'll steal from your ship. 'D' is for disruptors which make your shields useless. 'E' is for everyone whose gonna fear me..." She goes on like this for several minutes.`
 		`She's standing on her bed in a full-body cat suit, making "meow" and cat-hissing noises, clawing threateningly at the camera. She ends by biting the head off a doll. You notice the doll's face looks like yours.`
-		`She's sitting in a kitchen singing dark nursery rhymes while making people-shaped cutouts from paper. Each time she cuts one out, she writes your name on it, misspelled differently each time, and then rips the head off. This goes on for several minutes until she runs out of paper and wanders off eating a sandwich. She comes back a minute later and says, "oopes," and turns off the video recorder.`
+		`She's sitting in a kitchen singing dark nursery rhymes while making people-shaped cutouts from paper. Each time she cuts one out, she writes your name on it (misspelled differently each time) and then rips the head off. This goes on for several minutes until she runs out of paper and wanders off eating a sandwich. She comes back a minute later and says, "oopes," and turns off the video recorder.`
 		`She's in a large room, head-banging to death metal music. In the background, you can see a two-meter-tall picture of your face. Someone wrote on it, in large letters, "ded," using red finger paint. You look closely and see the girl's fingers are covered with red paint, and it's dripping onto the floor. This gives the impression of a pool of blood at her feet. When the music ends, she blows a kiss at you, which leaves her mouth and nose covered with a red hand-print. You hear maniacal giggling as the video fades to black.`
 		`She is napping in a chair, wearing skull-and-crossbones pajamas. Crumbs and wrappers are sprinkled nearby from her recently-eaten food rations. You can hear her talking in her sleep. Most of the words are related to food, but you occasionally hear your name, followed by "burn." Eventually she rolls over and falls off the chair, awakens in mid-air, and stops herself from hitting the ground. She looks angrily at the camera, says your name, and then walks to a nearby bed. The sleep-mumbling resumes as the video fades to black.`
 
@@ -1539,3 +1520,92 @@ conversation "Lilith Meeting"
 	`	"This isn't the armor I invented. It isn't what we stole from the Syndicate either. This is the original. It is all that remains of a wrecked ship - a formerly living ship - on Stormhold. It was found in a deep-core archaeology dig; we suspect it crashed millions of years ago and got buried by tectonic activity.`
 	`	"It is very old. Impossibly old. Maybe older than Earth. Telltale signs of hyperspace activity on the hull show it entered hyperspace millions of times. It is mildly radioactive. From the type of radiation, it is clear that it flew through the centers of stars. It may have even lived in them. When this... skin... was new, it would have been nearly invincible and could render the creature completely invisible. Even in its dormant state, this is the strongest material I know of.`
 	`	"I don't want to think about what would happen if the Marauders or Syndicate mastered its technology. Really, this technology is too advanced for anyone. Please find a way to destroy it. Meet me in the spaceport when you have 13 tons of outfit space free and I'll give it to you."`
+
+
+########################################################################
+
+# Magic to fail all missions if one mission fails. This is only needed
+# for parts of the story where two or more plot lines are active at once.
+
+mission "000 Warfeed Epic Fail (landing)"
+	invisible
+	landing
+	to offer
+		has "warfeed epic fail"
+		or
+			 has "Warfeed Terraforming [F01] Follower: failed"
+			 has "Warfeed Terraforming [F02] Deep: failed"
+			 has "Warfeed Terraforming [F03] Refusal: failed"
+			 has "Warfeed Terraforming [S01] Union Boss: failed"
+			 has "Warfeed Terraforming [S03] Syndicate Capture: failed"
+			 has "Warfeed Terraforming [S04] List of Names: failed"
+			 has "Warfeed Terraforming [P01] Bounty: failed"
+			 has "Warfeed Terraforming [P02n] Snuggles Bounty: failed"
+			 has "Warfeed Terraforming [P02w] Wonton Bounty: failed"
+			 has "Warfeed Terraforming [P02e] Endless Epiphany: failed"
+			 has "Warfeed Terraforming [P02s] Smeg Bounty: failed"
+			 has "Warfeed Terraforming [P03] Anarchist Letter: failed"
+			 has "Warfeed Terraforming [P04] Blue Women: failed"
+			 has "Warfeed Terraforming [P05] Lilith: failed"
+			 has "Warfeed Terraforming [R01] Follower: failed"
+			 has "Warfeed Terraforming [R02] Snowfeather: failed"
+
+	on offer
+		fail "Warfeed Terraforming [F01] Follower"
+		fail "Warfeed Terraforming [F02] Deep"
+		fail "Warfeed Terraforming [F03] Refusal"
+		fail "Warfeed Terraforming [S01] Union Boss"
+		fail "Warfeed Terraforming [S03] Syndicate Capture"
+		fail "Warfeed Terraforming [S04] List of Names"
+		fail "Warfeed Terraforming [P01] Bounty"
+		fail "Warfeed Terraforming [P02n] Snuggles Bounty"
+		fail "Warfeed Terraforming [P02w] Wonton Bounty"
+		fail "Warfeed Terraforming [P02e] Endless Epiphany"
+		fail "Warfeed Terraforming [P02s] Smeg Bounty"
+		fail "Warfeed Terraforming [P03] Anarchist Letter"
+		fail "Warfeed Terraforming [P04] Blue Women"
+		fail "Warfeed Terraforming [P05] Lilith"
+		fail "Warfeed Terraforming [R01] Follower"
+		fail "Warfeed Terraforming [R02] Snowfeather"
+		fail
+
+mission "000 Warfeed Epic Fail (spaceport)"
+	invisible
+	to offer
+		has "warfeed epic fail"
+		or
+			 has "Warfeed Terraforming [F01] Follower: failed"
+			 has "Warfeed Terraforming [F02] Deep: failed"
+			 has "Warfeed Terraforming [F03] Refusal: failed"
+			 has "Warfeed Terraforming [S01] Union Boss: failed"
+			 has "Warfeed Terraforming [S03] Syndicate Capture: failed"
+			 has "Warfeed Terraforming [S04] List of Names: failed"
+			 has "Warfeed Terraforming [P01] Bounty: failed"
+			 has "Warfeed Terraforming [P02n] Snuggles Bounty: failed"
+			 has "Warfeed Terraforming [P02w] Wonton Bounty: failed"
+			 has "Warfeed Terraforming [P02e] Endless Epiphany: failed"
+			 has "Warfeed Terraforming [P02s] Smeg Bounty: failed"
+			 has "Warfeed Terraforming [P03] Anarchist Letter: failed"
+			 has "Warfeed Terraforming [P04] Blue Women: failed"
+			 has "Warfeed Terraforming [P05] Lilith: failed"
+			 has "Warfeed Terraforming [R01] Follower: failed"
+			 has "Warfeed Terraforming [R02] Snowfeather: failed"
+
+	on offer
+		fail "Warfeed Terraforming [F01] Follower"
+		fail "Warfeed Terraforming [F02] Deep"
+		fail "Warfeed Terraforming [F03] Refusal"
+		fail "Warfeed Terraforming [S01] Union Boss"
+		fail "Warfeed Terraforming [S03] Syndicate Capture"
+		fail "Warfeed Terraforming [S04] List of Names"
+		fail "Warfeed Terraforming [P01] Bounty"
+		fail "Warfeed Terraforming [P02n] Snuggles Bounty"
+		fail "Warfeed Terraforming [P02w] Wonton Bounty"
+		fail "Warfeed Terraforming [P02e] Endless Epiphany"
+		fail "Warfeed Terraforming [P02s] Smeg Bounty"
+		fail "Warfeed Terraforming [P03] Anarchist Letter"
+		fail "Warfeed Terraforming [P04] Blue Women"
+		fail "Warfeed Terraforming [P05] Lilith"
+		fail "Warfeed Terraforming [R01] Follower"
+		fail "Warfeed Terraforming [R02] Snowfeather"
+		fail
