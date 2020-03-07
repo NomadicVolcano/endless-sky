@@ -110,7 +110,7 @@ mission "Ancient Skin [0] Installation"
 		log `Lilith installed skin from an ancient alien ship. It clung to my hull, repairing it in minutes, and rendered my ship invisible to scanners and radar. She asked me to destroy it so it does not fall into the wrong hands.`
 		conversation
 			`You see Lilith waiting for you at the entrance to the spaceport.`
-			`	"Move your ship and I'll demonstrate how the armor works. You should visit the outfitter before you leave to decide whether to install it or put it in your cargo hold."`
+			`	"Move your ship and I'll demonstrate how the skin works. You should visit the outfitter before you leave to decide whether to install it or put it in your cargo hold."`
 			choice
 				`	(Continue.)`
 			`Lilith has you move your ship to a bay where the alien skin is attached to a crane. It is slowly lowered to the middle of the top of your ship. The skin is clearly too small to cover a useful area of the ship, so you wonder whether it will help at all.`
@@ -134,7 +134,7 @@ outfit "Ancient Skin"
 	"scan interference" 30
 	"radar jamming" 300
 	"ramscoop" 0.5
-	description "This skin is all that remains of a living ship that was old beyond reckoning. When it was fully active, the skin was nearly invincible and rendered the ship invisible. In its dormant state, it still blocks most scanners and radars, acts as a weak ramscoop, and slowly repairs your hull. There is a small, but constant, energy drain to provide the skin's nutritional needs. Unfortunately, it is also quite dense. The marauder scientist Lilith had a pang of conscience and asked you to find a way to destroy this skin, lest it fall into the wrong hands."
+	description "This skin is all that remains of a living ship that crashed millions of years ago on Stormhold. When it was fully active, the skin was nearly invincible and rendered the ship invisible. In its dormant state, it still blocks most scanners and radars, acts as a weak ramscoop, and slowly repairs your hull. There is a small, but constant, energy drain to provide the skin's nutritional needs. Unfortunately, it is also quite dense. The marauder scientist Lilith had a pang of conscience and asked you to find a way to destroy this skin, lest it fall into the wrong hands."
 
 mission "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
 	name `Ancient Skin: <planet>`
@@ -213,7 +213,7 @@ outfit "Koor'alei Skin"
 	mass 31
 	"outfit space" -13
 
-	# The energy consumption must be the same as Ancient Armor or
+	# The energy consumption must be the same as Ancient Skin or
 	# the player may be stranded on Kuwaru Efreti.  Instead, the
 	# balance comes from a disproportionate increase in hull heat
 	# and a significant increase in mass.
@@ -262,10 +262,13 @@ mission "Ancient Skin [4] Archon Reawakening Permission"
 		outfit "Ancient Skin" -1
 		outfit "Koor'alei Skin" 1
 		conversation
-			`You travel through the Quarg station using the same green orb elevator as before, and find yourself in a Quarg laboratory. The ancient skin is hovering in midair between two devices that don't look at all like Quarg construction. They're a pair of curved black columns with white spikes pointing in the direction of the armor. The columns look almost alive with pulsating veins and what looks like a heart. Are you witnessing Drak technology?`
-			`	The armor begins to glow brighter and brighter until it is bright as the sun; far too bright to look at. Before you can cover your eyes, a powerful shockwave emanates from the armor. You're thrown onto the floor and you can feel the room heating up. At rising volume, you hear loud humming and deep bass vibration so powerful you can feel them in your bones.`
+			`You travel through the Quarg station using the same green orb elevator as before, and find yourself in the Quarg laboratory. Its entire contents have been rearranged, and there are far more Quarg than before. A collection of scientists stands before you, with a wide assortment of devices.`
 			choice
 				`	(Continue.)`
-			`	The spectacle ends after a few seconds, and the skin appears as it did before. It seems that even the Quarg were surprised by the intensity of the effect. They look up in wonder at a device they scarcely understand, a relic of the ancient past, from an era of knowledge long forgotten.`
-			`	You can feel a sensation in your head, sent by a powerful telepathic entity. The sensation is different from an Archon's touch. It is warm and welcoming, rather than the Archon's cold and demanding nature. It sends you a mix of hope, gratitude, and longing. Is this the last vestige of the mind of a Koor'alei; what little remains in this tiny scrap of skin?`
+			`	The ancient skin is hovering in midair between two devices that don't look at all like Quarg construction. They're a pair of curved black columns with white spikes pointing in the direction of the skin. The columns look almost alive with pulsating veins and what looks like a heart. Are you witnessing Drak technology?`
+			`	The skin begins to glow brighter and brighter until it is bright as the sun; far too bright to look at. Before you can cover your eyes, a powerful shockwave emanates from the skin. You're thrown onto the floor and you can feel the room heating up. At rising volume, you hear loud humming and deep bass vibration so powerful you can feel them in your bones.`
+			choice
+				`	(Continue.)`
+			`	The spectacle ends after a few seconds when the room turns almost pitch black. The lights turn back on and the skin appears no different han before, but there is now a distinct... sensation eminating off of it. It seems that even the Quarg were surprised by the intensity of the effect. They look up in wonder at a device they scarcely understand, and a relic of the ancient past, from an era of knowledge long forgotten.`
+			`	You can feel a presence in your head, sent by a powerful telepathic entity. It feels different than the touch of an Archon's mind. It is warm and welcoming, rather than the Archon's cold and demanding nature. It sends you a mix of hope, gratitude, and longing. Is this the last vestige of the mind of a Koor'alei; what little remains in this tiny scrap of skin?`
 				decline
