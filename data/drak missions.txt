@@ -99,6 +99,7 @@ mission "Ancient Skin [0] Installation"
 	description "Ask the Quarg about the ancient skin. Visit a Quarg world or station with the skin outfitted on your ship."
 	source "Buccaneer Bay"
 	clearance "When hailing the planet, you receive only landing coordinates."
+	blocked "You can't pick up Lilith's present yet. Return when you have either 13 outfit space or 13 cargo space free."
 	to offer
 		or
 			has "Warfeed Terraforming [R03] Secret Message (Definite): done"
@@ -118,7 +119,7 @@ mission "Ancient Skin [0] Installation"
 			`	When the crane releases the skin onto your ship, the skin quivers and shakes, as if it is pondering the same question that you were. Then it flattens and spreads out in tentacles along the ship's surface. It closes up holes in vulnerable areas, and you can see it repairing gashes from recent battle damage. In a few minutes, your hull is fully repaired and even the paint seems new. The alien skin is only visible as thin strands wrapping around your ship's hull.`
 			choice
 				`	(Continue.)`
-			`	"Let me show you your ship on a scanner," says Lilith. The scanner shows details of the entire room and the spaceport beyond, but the ship doesn't show up at all. It takes almost a minute for telltale signs of the ship's interior to emerge.`
+			`	"Let me show you your ship on a scanner," says Lilith. The scanner shows the outline of your ship, details of the landing bay, and the spaceport beyond, but nothing within your ship. It takes almost a minute for telltale signs of the ship's interior to emerge.`
 			`	"Now do you see why I don't want this to fall into the wrong hands?"`
 			`	You think to yourself how you could destroy this, and the first word that comes to mind is, "Quarg."`
 				accept
@@ -129,14 +130,15 @@ outfit "Ancient Skin"
 	mass 25
 	"outfit space" -13
 	"energy consumption" 1.2
-	"hull repair rate" 0.6
+	"hull repair rate" 0.4
 	"hull heat" 0.7
-	"scan interference" 30
-	"radar jamming" 300
+	"scan interference" 20
+	"radar jamming" 200
 	"ramscoop" 0.5
 	description "This skin is all that remains of a living ship that crashed millions of years ago on Stormhold. When it was fully active, the skin was nearly invincible and rendered the ship invisible. In its dormant state, it still blocks most scanners and radars, acts as a weak ramscoop, and slowly repairs your hull. There is a small, but constant, energy drain to provide the skin's nutritional needs. Unfortunately, it is also quite dense. The marauder scientist Lilith had a pang of conscience and asked you to find a way to destroy this skin, lest it fall into the wrong hands."
 
-mission "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
+# Has "ZZ" so it is after the Quarg first contact:
+mission "ZZ Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
 	name `Ancient Skin: <planet>`
 	description `Go to <destination> to ask about the ancient skin.`
 	landing
@@ -146,7 +148,7 @@ mission "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
 	to offer
 		has "Ancient Skin [0] Installation: active"
 	on visit
-		dialog `You could get information about your ancient skin here, if you remembered to bring the skin.`
+		dialog `You could get information about your ancient skin here, if you remember to bring the skin.`
 	on offer
 		require "Ancient Skin"
 		conversation
@@ -173,14 +175,14 @@ mission "Ancient Skin [2] Quarg Scientist and Archon"
 		has "identified skin"
 	to offer
 		or
-			has "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist: done"
-			has "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist: active"
+			has "ZZ Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist: done"
+			has "ZZ Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist: active"
 			has "Ancient Skin [0] Installation: active"
 	on visit
-		dialog `You could get information about your ancient skin here, if you remembered to bring the skin.`
+		dialog `You could get information about your ancient skin here, if you remember to bring the skin.`
 	on offer
 		require "Ancient Skin"
-		fail "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
+		fail "ZZ Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
 		conversation
 			`You head to what looks like a transit hub and show a Quarg the address you were provided. You are ushered to a green sphere, about four meters in diameter. The surface of the sphere is transparent and you have no trouble stepping through. Once through, gravity vanishes and the surface becomes solid and nearly opaque.`
 			`	You can see vast swaths of ringworld rush by as you hover weightless in the middle of the sphere. After a few minutes, it stops at the opposite side of the solar system and you exit into a room with vaulted ceilings.`
@@ -218,16 +220,16 @@ outfit "Koor'alei Skin"
 	"outfit space" -13
 
 	# The energy consumption must be the same as Ancient Skin or
-	# the player may be stranded on Kuwaru Efreti.  Instead, the
+	# the player may be stranded on Kuwaru Efreti. Instead, the
 	# balance comes from a disproportionate increase in hull heat
-	# and a significant increase in mass.
+	# and an increase in mass.
 
 	"energy consumption" 1.2
-	"hull repair rate" 1.5
-	"hull heat" 2
-	"scan interference" 50
-	"radar jamming" 500
-	"ramscoop" 1
+	"hull repair rate" 1.6
+	"hull heat" 5
+	"scan interference" 20
+	"radar jamming" 200
+	"ramscoop" 0.5
 	description `This skin is the last remains of an ancient species of sages and teachers, the Koor'alei. According to the Drak, the skin chose you and wants to protect you. After proving to the Drak that you are a peacemaker, they have "reawakened" the skin so you can deal with the troubles that lie ahead. The skin now repairs and refuels your ship much faster. Unfortunately, this also made the skin denser.`
 
 mission "Ancient Skin [3] Archon Reawaken Trigger"
@@ -258,7 +260,7 @@ mission "Ancient Skin [4] Archon Reawakening Permission"
 		has "event: archon reawaken allowed"
 		"reputation: Drak" >= 0
 	on visit
-		dialog `You could reawaken your ancient skin here, if you remembered to bring it.`
+		dialog `You could reawaken your ancient skin here, if you remember to bring it.`
 	on offer
 		require "Ancient Skin"
 		conversation
