@@ -130,8 +130,8 @@ outfit "Ancient Skin"
 	mass 25
 	"outfit space" -13
 	"energy consumption" 1.2
-	"hull repair rate" 0.4
-	"hull heat" 0.7
+	"hull repair rate" 0.5
+	"hull heat" 0.6
 	"scan interference" 20
 	"radar jamming" 200
 	"ramscoop" 0.5
@@ -184,7 +184,7 @@ mission "Ancient Skin [2] Quarg Scientist and Archon"
 		require "Ancient Skin"
 		fail "ZZ Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
 		conversation
-			`You head to what looks like a transit hub and show a Quarg the address you were provided. You are ushered to a green sphere, about four meters in diameter. The surface of the sphere is transparent and you have no trouble stepping through. Once through, gravity vanishes and the surface becomes solid and nearly opaque.`
+			`You head to what looks like a transit hub and show a Quarg the address you were provided. You are ushered to a green sphere, about four meters in diameter. The surface of the sphere is transparent and you have no trouble stepping through. Once through, gravity vanishes, the surface solidifies, and is nearly opaque.`
 			`	You can see vast swaths of ringworld rush by as you hover weightless in the middle of the sphere. After a few minutes, it stops at the opposite side of the solar system and you exit into a room with vaulted ceilings.`
 			`	Ahead, you can see machinery that is quite alien to your eyes. It looks like a cross between abstract art sculptures, biological specimens, and optical circuits. Some are pulsating within a wide range of colors you suspect go beyond your eyes' sensitivity. There are wild variations in temperature and pressure, yet somehow the air remains stable.`
 			choice
@@ -227,9 +227,9 @@ outfit "Koor'alei Skin"
 	"energy consumption" 1.2
 	"hull repair rate" 1.6
 	"hull heat" 5
-	"scan interference" 20
-	"radar jamming" 200
-	"ramscoop" 0.5
+	"scan interference" 30
+	"radar jamming" 300
+	"ramscoop" 1
 	description `This skin is the last remains of an ancient species of sages and teachers, the Koor'alei. According to the Drak, the skin chose you and wants to protect you. After proving to the Drak that you are a peacemaker, they have "reawakened" the skin so you can deal with the troubles that lie ahead. The skin now repairs and refuels your ship much faster. Unfortunately, this also made the skin denser.`
 
 mission "Ancient Skin [3] Archon Reawaken Trigger"
@@ -277,6 +277,6 @@ mission "Ancient Skin [4] Archon Reawakening Permission"
 			`	The skin begins to glow brighter and brighter until it is bright as the sun; far too bright to look at. Before you can cover your eyes, a powerful shockwave emanates from the skin. You're thrown onto the floor and you can feel the room heating up. At rising volume, you hear loud humming and deep bass vibration so powerful you can feel them in your bones.`
 			choice
 				`	(Continue.)`
-			`	The spectacle ends after a few seconds when the room turns almost pitch black. The lights turn back on and the skin appears no different han before, but there is now a distinct... sensation eminating off of it. It seems that even the Quarg were surprised by the intensity of the effect. They look up in wonder at a device they scarcely understand, and a relic of the ancient past, from an era of knowledge long forgotten.`
+			`	The spectacle ends after a few seconds when the room turns almost pitch black. It seems that even the Quarg were surprised by the intensity of the effect. They look up in wonder at a device they scarcely understand, and a relic of the ancient past, from an era of knowledge long forgotten.`
 			`	You can feel a presence in your head, sent by a powerful telepathic entity. It feels different than the touch of an Archon's mind. It is warm and welcoming, rather than the Archon's cold and demanding nature. It sends you a mix of hope, gratitude, and longing. Is this the last vestige of the mind of a Koor'alei; what little remains in this tiny scrap of skin?`
 				decline

@@ -1840,7 +1840,7 @@ conversation "Lilith Meeting"
 	`	You're in a large room, and you see a pile of slimy reptile scales made of metal. It looks like a stronger version of the armor in Lilith's crashed ship.`
 	`	"This isn't the armor I invented. It isn't what we stole from the Syndicate either. This is the original. We believe this is the remains of a wrecked ship - a formerly living ship - on Stormhold. It was found in a deep-core archaeology dig; we suspect it crashed millions of years ago and got buried by tectonic activity.`
 	`	"It is very old. Impossibly old. Maybe older than Earth. Telltale signs of hyperspace activity on the hull show it entered hyperspace millions of times. It is mildly radioactive. From the type of radiation, it appears it spent a lot of time inside stars. It may have even lived in them. When this... skin... was new, it would have been nearly invincible and could render the creature completely invisible. Even in its dormant state, this is the strongest material I know of. I can't imagine what was able to shoot this ship down.`
-	`	"I don't want to think about what would happen if the Marauders or Syndicate mastered its technology. Really, this technology is too advanced for anyone. Please find a way to destroy it. Meet me in the spaceport when you have 13 tons of outfit space free and I'll give it to you."`
+	`	"I don't want to think about what would happen if the Marauders or Syndicate mastered its technology. Really, this technology is too advanced for anyone. Please find a way to destroy it. Meet me in the spaceport when you have 13 tons of outfit or cargo space free and I'll give it to you."`
 
 ########################################################################
 
