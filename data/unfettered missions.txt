@@ -86,7 +86,7 @@ mission "Warfeed Terraforming [H00] Intro (Pirate not Freedom)"
 	to offer
 		has "First Contact: Unfettered: offered"
 		"combat rating" > 100
-		random < 30
+		random < 60
 		or
 			not "chosen sides"
 			has "main plot completed"
@@ -113,7 +113,7 @@ mission "Warfeed Terraforming [H00] Intro (Pirate Freedom)"
 		conversation "warfeed pirate intro"
 
 
-conversation "warfeed hai intro"
+conversation "warfeed pirate intro"
 	`As you walk from a bar to salon, a cloaked man approaches you. He's especially short, and you can see a small amount of fur from under the hood. This may be a Hai.`
 	`	When he gets closer, he says, "I have a business proposition. Let's speak in private."`
 	choice
@@ -121,7 +121,7 @@ conversation "warfeed hai intro"
 		`	(Decline the invitation.)`
 			defer
 	`	`
-	`	He takes you deeper into the stairwell and explains himself, pausing to choose his words. "I represent... a consortium that is interested in terraforming... a Hai planet. We need... an enterprising captain that is willing to... make arrangements in Human space."`
+	`	He takes you into an alley and explains himself, pausing to choose his words. "I represent... a consortium that is interested in terraforming... a Hai planet. We need... an enterprising captain that is willing to... make arrangements in Human space."`
 	choice
 		`	"Is this something illegal?"`
 			goto illegal
@@ -1634,6 +1634,44 @@ conversation "Lilith Meeting"
 	`	"This isn't the armor I invented. It isn't what we stole from the Syndicate either. This is the original. It is all that remains of a wrecked ship - a formerly living ship - on Stormhold. It was found in a deep-core archaeology dig; we suspect it crashed millions of years ago and got buried by tectonic activity.`
 	`	"It is very old. Impossibly old. Maybe older than Earth. Telltale signs of hyperspace activity on the hull show it entered hyperspace millions of times. It is mildly radioactive. From the type of radiation, it is clear that it flew through the centers of stars. It may have even lived in them. When this... skin... was new, it would have been nearly invincible and could render the creature completely invisible. Even in its dormant state, this is the strongest material I know of.`
 	`	"I don't want to think about what would happen if the Marauders or Syndicate mastered its technology. Really, this technology is too advanced for anyone. Please find a way to destroy it. Meet me in the spaceport when you have 13 tons of outfit space free and I'll give it to you."`
+
+########################################################################
+
+# Magic to allow permanent access to Follower and Warfeed
+
+mission "Access to Follower"
+	name "Access to Follower"
+	description `Access to Follower`
+	repeat
+	landing
+	source
+		not attributes uninhabited
+	invisible
+	destination Follower
+	clearance
+	to offer
+		has "Warfeed Terraforming [R01] Follower: done"
+	to complete
+		never
+	to fail
+		never
+
+mission "Access to Warfeed"
+	name "Access to Warfeed"
+	description `Access to Warfeed`
+	repeat
+	landing
+	source
+		not attributes uninhabited
+	invisible
+	destination Warfeed
+	clearance
+	to offer
+		has "Warfeed Terraforming [R02] Snowfeather: done"
+	to complete
+		never
+	to fail
+		never
 
 
 ########################################################################
