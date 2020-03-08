@@ -130,7 +130,7 @@ outfit "Ancient Skin"
 	"outfit space" -13
 	"energy consumption" 1.2
 	"hull repair rate" 0.6
-	"hull heat" 0.3
+	"hull heat" 0.7
 	"scan interference" 30
 	"radar jamming" 300
 	"ramscoop" 0.5
@@ -145,6 +145,8 @@ mission "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
 	destination "Kuwaru Efreti"
 	to offer
 		has "Ancient Skin [0] Installation: active"
+	on visit
+		dialog `You could get information about your ancient skin here, if you remembered to bring the skin.`
 	on offer
 		require "Ancient Skin"
 		conversation
@@ -174,6 +176,8 @@ mission "Ancient Skin [2] Quarg Scientist and Archon"
 			has "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist: done"
 			has "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist: active"
 			has "Ancient Skin [0] Installation: active"
+	on visit
+		dialog `You could get information about your ancient skin here, if you remembered to bring the skin.`
 	on offer
 		require "Ancient Skin"
 		fail "Ancient Skin [1] Quarg Poetry Teacher and Quarg Scientist"
@@ -220,7 +224,7 @@ outfit "Koor'alei Skin"
 
 	"energy consumption" 1.2
 	"hull repair rate" 1.5
-	"hull heat" 1.2
+	"hull heat" 2
 	"scan interference" 50
 	"radar jamming" 500
 	"ramscoop" 1
@@ -253,6 +257,8 @@ mission "Ancient Skin [4] Archon Reawakening Permission"
 	to offer
 		has "event: archon reawaken allowed"
 		"reputation: Drak" >= 0
+	on visit
+		dialog `You could reawaken your ancient skin here, if you remembered to bring it.`
 	on offer
 		require "Ancient Skin"
 		conversation
