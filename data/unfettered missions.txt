@@ -1,12 +1,29 @@
 ### Warfeed Smuggling: introduction missions
 
 
-mission "Warfeed Terraforming [H00] Intro"
+mission "Warfeed Terraforming [H00] Intro (Hai not Makerplace)"
 	name "Terraform Warfeed: <planet>"
 	description "Visit <planet> to discuss a secret terraforming operation."
 	source
 		attributes "hai"
-		not planet Snowfeather
+		not planet Snowfeather Makerplace
+	destination Snowfeather
+	to offer
+		has "First Contact: Unfettered: offered"
+		"combat rating" > 100
+		random < 20
+		or
+			not "chosen sides"
+			has "main plot completed"
+	on fail
+		set "warfeed epic fail"
+	on offer
+		conversation "warfeed hai intro"
+
+mission "Warfeed Terraforming [H00] Intro (Hai at Makerplace)"
+	name "Terraform Warfeed: <planet>"
+	description "Visit <planet> to discuss a secret terraforming operation."
+	source Makerplace
 	destination Snowfeather
 	to offer
 		has "First Contact: Unfettered: offered"
@@ -17,54 +34,139 @@ mission "Warfeed Terraforming [H00] Intro"
 	on fail
 		set "warfeed epic fail"
 	on offer
-		conversation
-			`As you peruse the spaceport establishments, an Hai beckons you from a dark stairwell.`
-			choice
-				`	(See what he wants.)`
-				`	(Walk away.)`
-					defer
-			`	He takes you deeper into the stairwell and explains himself, pausing to choose his words. "I represent... a consortium that is interested in terraforming... a planet near here. We need... an enterprising captain that is willing to... make arrangements in Human space."`
-			choice
-				`	"Is this something illegal?"`
-					goto illegal
-				`	"What company do you represent?"`
-					goto details
-				`	"What arrangements do you need in Human space?"`
-					goto details
-				`	"I'll do it."`
-					goto accept
-				`	"You'll have to find a different captain."`
-					decline
-			label illegal
-			`	"Yes, illegal, yes, but not immoral. Just terraforming supplies and terraforming equipment. The worst that will happen to you is a few fines; the payment should be greater."`
-			choice
-				`	"What company do you represent?"`
-					goto details
-				`	"What arrangements do you need in Human space?"`
-					goto details
-				`	"I'll do it."`
-					goto accept
-				`	"You'll have to find a different captain."`
-					decline
-			label details
-			`	"No more details here. If you're interested, go to <destination> and find Whispering Rose."`
-			choice
-				`	"I'll do it."`
-					accept
-				`	"You'll have to find a different captain."`
-					decline
-			label accept
-			`	"Excellent. Whispering Rose awaits you at <destination>."`
-				accept
+		conversation "warfeed hai intro"
+
+conversation "warfeed hai intro"
+	`As you peruse the spaceport establishments, an Hai beckons you from a dark stairwell.`
+	choice
+		`	(See what he wants.)`
+		`	(Walk away.)`
+			defer
+	`	He takes you deeper into the stairwell and explains himself, pausing to choose his words. "I represent... a consortium that is interested in terraforming... a planet near here. We need... an enterprising captain that is willing to... make arrangements in Human space."`
+	choice
+		`	"Is this something illegal?"`
+			goto illegal
+		`	"What company do you represent?"`
+			goto details
+		`	"What arrangements do you need in Human space?"`
+			goto details
+		`	"I'll do it."`
+			goto accept
+		`	"You'll have to find a different captain."`
+			decline
+	label illegal
+	`	"Yes, illegal, yes, but not immoral. Just terraforming supplies and terraforming equipment. The worst that will happen to you is a few fines; the payment should be greater."`
+	choice
+		`	"What company do you represent?"`
+			goto details
+		`	"What arrangements do you need in Human space?"`
+			goto details
+		`	"I'll do it."`
+			goto accept
+		`	"You'll have to find a different captain."`
+			decline
+	label details
+	`	"No more details here. If you're interested, go to <destination> and find Whispering Rose."`
+	choice
+		`	"I'll do it."`
+			accept
+		`	"You'll have to find a different captain."`
+			decline
+	label accept
+	`	"Excellent. Whispering Rose awaits you at <destination>."`
+		accept
+
+
+mission "Warfeed Terraforming [H00] Intro (Pirate not Freedom)"
+	name "Terraform Warfeed: <planet>"
+	description "Visit <planet> to discuss a secret terraforming operation."
+	source
+		planet Haven Zenith Stormhold "Deadman's Cove" "Buccaneer Bay" Covert 
+	destination Snowfeather
+	to offer
+		has "First Contact: Unfettered: offered"
+		"combat rating" > 100
+		random < 30
+		or
+			not "chosen sides"
+			has "main plot completed"
+	on fail
+		set "warfeed epic fail"
+	on offer
+		conversation "warfeed pirate intro"
+
+mission "Warfeed Terraforming [H00] Intro (Pirate Freedom)"
+	name "Terraform Warfeed: <planet>"
+	description "Visit <planet> to discuss a secret terraforming operation."
+	source
+		planet Freedom
+	destination Snowfeather
+	to offer
+		has "First Contact: Unfettered: offered"
+		"combat rating" > 100
+		or
+			not "chosen sides"
+			has "main plot completed"
+	on fail
+		set "warfeed epic fail"
+	on offer
+		conversation "warfeed pirate intro"
+
+
+conversation "warfeed hai intro"
+	`As you walk from a bar to salon, a cloaked man approaches you. He's especially short, and you can see a small amount of fur from under the hood. This may be a Hai.`
+	`	When he gets closer, he says, "I have a business proposition. Let's speak in private."`
+	choice
+		`	(See what he wants.)`
+		`	(Decline the invitation.)`
+			defer
+	`	`
+	`	He takes you deeper into the stairwell and explains himself, pausing to choose his words. "I represent... a consortium that is interested in terraforming... a Hai planet. We need... an enterprising captain that is willing to... make arrangements in Human space."`
+	choice
+		`	"Is this something illegal?"`
+			goto illegal
+		`	"What company do you represent?"`
+			goto details
+		`	"What arrangements do you need in Human space?"`
+			goto details
+		`	"I'll do it."`
+			goto accept
+		`	"You'll have to find a different captain."`
+			decline
+	label illegal
+	`	He raises an eyebrow and says, "This is an anarchist planet. Nothing is illegal."`
+	choice
+		`	"What company do you represent?"`
+			goto details
+		`	"What arrangements do you need in Human space?"`
+			goto details
+		`	"I'll do it."`
+			goto accept
+		`	"You'll have to find a different captain."`
+			decline
+	label details
+	`	"No more details here. If you're interested, go to <destination> and find Whispering Rose."`
+	choice
+		`	"I'll do it."`
+			accept
+		`	"You'll have to find a different captain."`
+			decline
+	label accept
+	`	"Excellent. Whispering Rose awaits you at <destination>."`
+		accept
+
 
 mission "Warfeed Terraforming [H01] Whispering Rose"
 	name "Terraform Warfeed: <planet>"
 	description `Meet "White River" at <destination>. Payment is <payment>.`
 	source Snowfeather
 	destination Makerplace
+	clearance "The authorities immediately clear you to land. Apparently this has been arranged in advance."
 	landing
 	to offer
-		has "Warfeed Terraforming [H00] Intro: done"
+		or
+			has "Warfeed Terraforming [H00] Intro (Hai not Makerplace)"
+			has "Warfeed Terraforming [H00] Intro (Hai at Makerplace)"
 	on offer
 		conversation
 			`You struggle to find a person or place called "Whispering Rose" to no avail. Eventually you stumble upon a red store that sells wind chimes, and has a rose as its emblem. The rose originates from Human space, so it is suspiciously out-of-place here.`
@@ -114,6 +216,7 @@ mission "Warfeed Terraforming [H02] White River"
 	landing
 	invisible
 	source Makerplace
+	clearance "The authorities immediately clear you to land. Apparently this has been arranged in advance."
 	to offer
 		has "Warfeed Terraforming [H01] Whispering Rose: done"
 	on offer
@@ -138,7 +241,7 @@ mission "Warfeed Terraforming [H02] White River"
 			`	"I see. You're the kind of person that needs everything spelled out for you."`
 			`	"Your best contact with the Syndicate is Guncrag Watson, the boss of the Argoth Corporation employee's union on Shroud. The Syndicate secretly funds its competitor's unions, so he can introduce you to his Syndicate contact.`
 			`	"As for the pirates, there are bounty hunters near Freedom that they despise. Here's a list," he says, handing you a piece of paper. "Pick one of these.`
-			`	"They're not available in the usual listings on Earth; they're... specialists. Visit Furnace and arrange for a bounty on yourself. Take down the hunter and report it at the central database on Earth. Then you may get noticed by someone who is heard at Greenrock.`
+			`	"They're not available in the usual listings on Earth; they're... specialists. Visit Furnace and arrange for a bounty on yourself. Take down the hunter and report it to Syndicate security at Maker. Then you may get noticed by someone who is heard at Greenrock.`
 			`	"Talk to the terraformers at Follower to find a way to smuggle their goods at the last leg of the journey.`
 			`	"Now begone. Other people are waiting for me to solve their problems."`
 			choice
@@ -167,6 +270,7 @@ mission "Warfeed Terraforming [F01] Follower"
 	destination Follower
 	landing
 	source Makerplace
+	clearance "You explain, in the most vague terms possible, your business proposition. The authorities inform you of the location of the research facilities and clear you to land."
 	to offer
 		has "Warfeed Terraforming [H01] Whispering Rose: done"
 	on fail
@@ -178,6 +282,7 @@ mission "Warfeed Terraforming [F02] Deep"
 	name "Terraform Warfeed: <planet>"
 	description "Meet with Deep Sky on <destination> to arrange a smuggling route. Payment is <payment>."
 	destination Valhalla
+	clearance "Authorities tell you Follower already contacted them to arrange clearance for you. You may land."
 	landing
 	source Follower
 	to offer
@@ -209,7 +314,8 @@ mission "Warfeed Terraforming [F03] Refusal"
 	# spontaneous 100,000 credit bribe they can't anticipate.
 	destination Follower
 	landing
-	source Valhalla 
+	source Valhalla
+	clearance "The terraformers on Follower are eager to hear The Deep's response. You are cleared to land."
 	to offer
 		has "Warfeed Terraforming [F02] Deep: done"
 	on fail
@@ -247,6 +353,7 @@ mission "Warfeed Terraforming [S01] Union Boss"
 	description "Meet union boss Guncrag Watson on <destination>. Payment is <payment>."
 	destination Shroud
 	landing
+	clearance "White River, or his representatives, must have contacted Shroud already; you've been granted clearance in advance by a bakery expecting a delivery."
 	source Makerplace
 	to offer
 		has "Warfeed Terraforming [H01] Whispering Rose: done"
@@ -317,6 +424,7 @@ mission "Warfeed Terraforming [S03] Syndicate Capture"
 	source
 		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent" "Pirate"
 	destination Snowfeather
+	clearance "Whispering Rose has arranged clearance for you."
 	to offer
 		or
 			has "Warfeed Terraforming [S02a] Syndicate Hunt: offered"
@@ -327,7 +435,7 @@ mission "Warfeed Terraforming [S03] Syndicate Capture"
 			has "main plot completed"
 		or
 			has "Warfeed Terraforming [P02s] Smeg Bounty: done"
-			has "Warfeed Terraforming [P02e] Endless Epiphany: done"
+			has "Warfeed Terraforming [P02e] Stinking Bounty: done"
 			has "Warfeed Terraforming [P02w] Wonton Bounty: done"
 			has "Warfeed Terraforming [P02n] Snuggles Bounty: done"
 	on offer
@@ -400,6 +508,7 @@ mission "Warfeed Terraforming [S04] List of Names"
 	landing
 	source Snowfeather
 	destination Maker
+	clearance `Your "friends" among the "off-shoot of the Syndicate" have arranged clearance for you to land.`
 	to offer
 		has "Warfeed Terraforming [S03] Syndicate Capture: done"
 	on offer
@@ -463,6 +572,7 @@ ship "Shield Beetle" "Shield Beetle (Toss)"
 mission "Warfeed Terraforming [P01] Bounty"
 	name "Terraform Warfeed: <planet>"
 	description `Fly to <destination> to contract a bounty hunter to hunt you. Payment is <payment>.`
+	clearance `You explain you want to hire a bounty and the authorities allow you to land.`
 	landing
 	destination Furnace
 	source Makerplace
@@ -493,8 +603,8 @@ mission "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger"
 			choice
 				`	"Deviled Smegs," who pilots a Marauder Firebird she's modified with Hai technology.`
 					goto smeg
-				`	"Endless Epiphany," a Falcon pilot with a triad of Headhunters as escorts.`
-					goto endless
+				`	"Stinking Shadows," a Falcon pilot with a triad of Headhunters as escorts.`
+					goto stinking
 				`	"Wonton Mastication," a retired chef who pilots a Shield Beetle packed with plasma cannons.`
 					goto wonton
 				`	(No. Come back later.)`
@@ -503,9 +613,9 @@ mission "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger"
 			apply
 				set "smeg bounty"
 			goto accept
-			label endless
+			label stinking
 			apply
-				set "endless bounty"
+				set "stinking bounty"
 			goto accept
 			label wonton
 			apply
@@ -542,8 +652,8 @@ mission "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger"
 					goto snuggles
 				`	"Deviled Smegs," who pilots a Marauder Firebird she's modified with Hai technology.`
 					goto smeg
-				`	"Endless Epiphany," a Falcon pilot with a triad of Headhunters as escorts.`
-					goto endless
+				`	"Stinking Shadows," a Falcon pilot with a triad of Headhunters as escorts.`
+					goto stinking
 				`	"Wonton Mastication," a retired chef who pilots a Shield Beetle packed with plasma cannons.`
 					goto wonton
 				`	(No. Come back later.)`
@@ -552,9 +662,9 @@ mission "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger"
 			apply
 				set "smeg bounty"
 			goto accept
-			label endless
+			label stinking
 			apply
-				set "endless bounty"
+				set "stinking bounty"
 			goto accept
 			label wonton
 			apply
@@ -577,7 +687,7 @@ mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 	landing
 	source
 		not attributes uninhabited
-	destination Earth
+	destination Maker
 	to offer
 		or
 			has "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: active"
@@ -802,7 +912,7 @@ mission "Warfeed Terraforming [P02w] Wonton Bounty"
 	description "Destroy Wonton Mastication's ship, the bounty hunter you hired to kill you. Return to <destination> for <payment>."
 	source
 		not attributes uninhabited
-	destination Earth
+	destination Maker
 	landing
 	to offer
 		or
@@ -850,33 +960,33 @@ ship "Shield Beetle" "Shield Beetle (Plasma)"
 
 
 
-mission "Warfeed Terraforming [P02e] Endless Epiphany"
+mission "Warfeed Terraforming [P02e] Stinking Bounty"
 	name "Terraform Warfeed: Bounty Hunter"
-	description `Destroy Endless Epiphany's fleet, the bounty hunter you paid to kill you. Return to <destination> for <payment>.`
+	description `Destroy Stinking Shadows's fleet, the bounty hunter you paid to kill you. Return to <destination> for <payment>.`
 	source
 		not attributes uninhabited
-	destination Earth
+	destination Maker
 	landing
 	to offer
 		or
 			has "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger: active"
 			has "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger: active"
-		has "endless bounty"
+		has "stinking bounty"
 	on offer
 		fail "00 Warfeed Terraforming [P01b1] Bounty Hunter Trigger"
 		fail "00 Warfeed Terraforming [P01b2] Bounty Hunter Trigger"
 		conversation
-			`Detailed information on Endless Epiphany shows up on your screen immediately. Notably missing is a gender, or indeed any physical description. Their ships are fast, but mainly designed for forward firepower, with decent anti-missile defenses. There are three Headhunter light warships, and one Marauder Falcon heavy warship.`
-			`	A communication comes in to you. It appears Endless Epiphany has already contacted you.`
+			`Detailed information on Stinking Shadows shows up on your screen immediately. Notably missing is a gender, or indeed any physical description. Their ships are fast, but mainly designed for forward firepower, with decent anti-missile defenses. There are three Headhunter light warships, and one Marauder Falcon heavy warship.`
+			`	A communication comes in to you. It appears Stinking Shadows has already contacted you.`
 			choice
-				`	(Pay the bounty hunter Endless Epiphany to hunt you.)`
+				`	(Pay the bounty hunter Stinking Shadows to hunt you.)`
 				`	(Abort the mission. Let the Unfettered find someone else to do their dirty work.)`
 					decline
 			`	A voice of indeterminate gender begins the conversation, "Name the deceased."`
 			`	You provide your pilot serial number.`
 			`	"An easy mark. 200,000 credits upon proof of death. Agreed?"`
 			choice
-				`	(Pay the bounty hunter Endless Epiphany to hunt you.)`
+				`	(Pay the bounty hunter Stinking Shadows to hunt you.)`
 				`	(Abort the mission. Let the Unfettered find someone else to do their dirty work.)`
 					decline
 			`	"I'm eager to see the results of your work," you respond.`
@@ -889,11 +999,11 @@ mission "Warfeed Terraforming [P02e] Endless Epiphany"
 		personality nemesis plunders waiting target unconstrained
 		system
 			distance 6 9
-		ship "Marauder Falcon (Particle)" "Endless Epiphany"
+		ship "Marauder Falcon (Particle)" "Stinking Shadows"
 		ship "Headhunter (Plasma)" "The Wisest of Men"
 		ship "Headhunter (Plasma)" "Acid for your Eyes"
 		ship "Headhunter (Plasma)" "Within Lies Doom"
-		dialog "Now that you've destroyed Endless Epiphany's ships, it is time to return to <destination> to report the kill."
+		dialog "Now that you've destroyed Stinking Shadows's ships, it is time to return to <destination> to report the kill."
 	on fail
 		set "warfeed epic fail"
 
@@ -937,7 +1047,7 @@ mission "Warfeed Terraforming [P02s] Smeg Bounty"
 	description `Kill "Deviled Smegs," the bounty hunter you hired to kill you. Return to <destination> for <payment>.`
 	source
 		not attributes uninhabited
-	destination Earth
+	destination Maker
 	landing
 	to offer
 		or
@@ -1025,7 +1135,7 @@ mission "Warfeed Terraforming [P03] Anarchist Letter"
 	to offer
 		or
 			has "Warfeed Terraforming [P02n] Snuggles Bounty: done"
-			has "Warfeed Terraforming [P02e] Endless Bounty: done"
+			has "Warfeed Terraforming [P02e] Stinking Bounty: done"
 			has "Warfeed Terraforming [P02w] Wonton Bounty: done"
 			has "Warfeed Terraforming [P02s] Smeg Bounty: done"
 	on offer
@@ -1046,6 +1156,7 @@ mission "Warfeed Terraforming [P04] Blue Women"
 	landing
 	source Freedom
 	destination Alfheim
+	clearance "A message comes through an unusual frequency giving you an alternative landing vector."
 	infiltrating
 	to offer
 		has "Warfeed Terraforming [P03] Anarchist Letter: done"
@@ -1109,6 +1220,7 @@ mission "Warfeed Terraforming [P05] Lilith"
 	landing
 	source Alfheim
 	destination Greenrock
+	clearance "The pirates are excited to hear Lilith was found and gladly grant you permission to land."
 	passengers 1
 	illegal 75000
 	to offer
@@ -1174,7 +1286,7 @@ mission "ZZ Warfeed Terraforming [C00] Failure"
 	name "Terraform Warfeed: <planet>"
 	description "Head to <destination> to report your failure to the terraformers. Payment is <payment>."
 	destination Follower
-	clearance "When you describe the lucrative plan to the pirates, they eagerly let you land."
+	clearance "The authorities have been expecting you, and grant you priority landing permission."
 	landing
 	source
 		not attributes uninhabited
@@ -1223,7 +1335,7 @@ mission "Warfeed Terraforming [C01] Discussion"
 mission "Warfeed Terraforming [C02] Lilith's Inventions"
 	name "Terraform Warfeed: <planet>"
 	description "Fly to <destination> to arrange a shipment of materials. Payment is <payment>."
-	clearance "When you describe the lucrative plan to the pirates, they eagerly clear you to land."
+	clearance "Whispering Rose has arranged clearance for you."
 	landing
 	source Greenrock
 	destination Snowfeather
@@ -1316,7 +1428,7 @@ mission "Warfeed Terraforming [C04] Greenrock Delivery"
 mission "Warfeed Terraforming [C05] Kraken Prep"
 	name "Terraform Warfeed: <planet>"
 	description `Deliver documents to <stopovers> and return to <destination>. Payment is <payment>.`
-	clearance
+	clearance "The authorities instruct radio silence and tell you to land in a bay that has not been used for a half century."
 	source Greenrock
 	stopover "Kraken Station"
 	landing
@@ -1364,7 +1476,7 @@ mission "Warfeed Terraforming [C05] Kraken Prep"
 mission "Warfeed Terraforming [C06] Kraken Delivery"
 	name "Terraform Warfeed: <planet>"
 	description `Deliver <cargo> to <destination>. Payment is <payment>.`
-	clearance
+	clearance "Authorities instruct radio silence. You are cleared to land in the same bay as before."
 	source Greenrock
 	destination "Kraken Station"
 	cargo "scan-blocking insulation" 133
@@ -1392,6 +1504,7 @@ mission "Warfeed Terraforming [C06] Kraken Delivery"
 mission "Warfeed Terraforming [R01] Follower"
 	name "Terraform Warfeed: <planet>"
 	description `Visit Follower to finalize terraforming arrangements.`
+	clearance "The team at Follower has arranged permanent landing clearance for you and your fleet at this planet."
 	source "Kraken Station"
 	destination Follower
 	landing
@@ -1410,6 +1523,7 @@ mission "Warfeed Terraforming [R02] Snowfeather"
 	name "Terraform Warfeed: <planet>"
 	description `Visit Follower to finalize terraforming arrangements.`
 	source "Kraken Station"
+	clearance "Whispering Rose has arranged clearance for you."
 	destination Snowfeather
 	landing
 	to offer
@@ -1433,7 +1547,7 @@ mission "Warfeed Terraforming [R03a] Secret Message Trigger"
 	name "Visit Lilith on <planet>"
 	description "You received a cryptic message about armor from Lilith on <destination>."
 	source
-		planet Follower Snowfeather Makerplace Greenrock "Kraken Station" Earth
+		planet Follower Snowfeather Makerplace Greenrock "Kraken Station" Maker
 	destination "Buccaneer Bay"
 	landing
 	clearance "When hailing the planet, you receive only landing coordinates."
@@ -1451,7 +1565,7 @@ mission "Warfeed Terraforming [R03] Secret Message (Definite)"
 	name "Visit Lilith on <planet>"
 	description "You received a cryptic message about armor from Lilith on <destination>."
 	source
-		planet Follower Snowfeather Makerplace Greenrock "Kraken Station" Earth
+		planet Follower Snowfeather Makerplace Greenrock "Kraken Station" Maker
 	destination "Buccaneer Bay"
 	landing
 	clearance "When hailing the planet, you receive only landing coordinates."
@@ -1471,7 +1585,7 @@ mission "Warfeed Terraforming [R03] Secret Message (Chance)"
 	description "You received a cryptic message about armor from Lilith on <destination>."
 	source
 		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent" "Pirate" "Hai" "Hai (Unfettered)"
-		not planet Follower Snowfeather Makerplace Greenrock "Kraken Station" Earth
+		not planet Follower Snowfeather Makerplace Greenrock "Kraken Station" Maker
 		not attributes uninhabited
 	destination "Buccaneer Bay"
 	landing
@@ -1542,7 +1656,7 @@ mission "000 Warfeed Epic Fail (landing)"
 			has "Warfeed Terraforming [P01] Bounty: failed"
 			has "Warfeed Terraforming [P02n] Snuggles Bounty: failed"
 			has "Warfeed Terraforming [P02w] Wonton Bounty: failed"
-			has "Warfeed Terraforming [P02e] Endless Epiphany: failed"
+			has "Warfeed Terraforming [P02e] Stinking Bounty: failed"
 			has "Warfeed Terraforming [P02s] Smeg Bounty: failed"
 			has "Warfeed Terraforming [P03] Anarchist Letter: failed"
 			has "Warfeed Terraforming [P04] Blue Women: failed"
@@ -1560,7 +1674,7 @@ mission "000 Warfeed Epic Fail (landing)"
 		fail "Warfeed Terraforming [P01] Bounty"
 		fail "Warfeed Terraforming [P02n] Snuggles Bounty"
 		fail "Warfeed Terraforming [P02w] Wonton Bounty"
-		fail "Warfeed Terraforming [P02e] Endless Epiphany"
+		fail "Warfeed Terraforming [P02e] Stinking Bounty"
 		fail "Warfeed Terraforming [P02s] Smeg Bounty"
 		fail "Warfeed Terraforming [P03] Anarchist Letter"
 		fail "Warfeed Terraforming [P04] Blue Women"
@@ -1583,7 +1697,7 @@ mission "000 Warfeed Epic Fail (spaceport)"
 			has "Warfeed Terraforming [P01] Bounty: failed"
 			has "Warfeed Terraforming [P02n] Snuggles Bounty: failed"
 			has "Warfeed Terraforming [P02w] Wonton Bounty: failed"
-			has "Warfeed Terraforming [P02e] Endless Epiphany: failed"
+			has "Warfeed Terraforming [P02e] Stinking Bounty: failed"
 			has "Warfeed Terraforming [P02s] Smeg Bounty: failed"
 			has "Warfeed Terraforming [P03] Anarchist Letter: failed"
 			has "Warfeed Terraforming [P04] Blue Women: failed"
@@ -1601,7 +1715,7 @@ mission "000 Warfeed Epic Fail (spaceport)"
 		fail "Warfeed Terraforming [P01] Bounty"
 		fail "Warfeed Terraforming [P02n] Snuggles Bounty"
 		fail "Warfeed Terraforming [P02w] Wonton Bounty"
-		fail "Warfeed Terraforming [P02e] Endless Epiphany"
+		fail "Warfeed Terraforming [P02e] Stinking Bounty"
 		fail "Warfeed Terraforming [P02s] Smeg Bounty"
 		fail "Warfeed Terraforming [P03] Anarchist Letter"
 		fail "Warfeed Terraforming [P04] Blue Women"
