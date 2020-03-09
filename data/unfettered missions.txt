@@ -1781,8 +1781,7 @@ mission "Warfeed Terraforming [R02] Snowfeather"
 
 
 mission "Warfeed Terraforming [R03a] Secret Message Trigger"
-	name "Visit Lilith on <planet>"
-	description "You received a cryptic message about armor from Lilith on <destination>."
+	invisible
 	source
 		planet Follower Snowfeather Makerplace Greenrock "Kraken Station" Furnace
 	destination "Buccaneer Bay"
