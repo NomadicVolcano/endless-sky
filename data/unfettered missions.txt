@@ -220,6 +220,8 @@ mission "Warfeed Terraforming [H01] Whispering Rose"
 					decline
 	on fail
 		set "warfeed epic fail"
+	on accept
+		log "The Unfettered Hai asked me to help them terraform the planet of Warfeed. They say the Hai refused to assist out of fear that it would make the Unfettered too strong. I am to set up a smuggling operation sending supplies from Follower to Warfeed, and terraforming equipment back to Follower, benefiting both planets."
 	on complete
 		payment 35000
 
@@ -266,6 +268,8 @@ mission "Warfeed Terraforming [H02] White River"
 		has "Warfeed Terraforming [F01] Follower: offered"
 		has "Warfeed Terraforming [S01] Union Boss: offered"
 		has "Warfeed Terraforming [P01] Bounty: offered"
+	on accept
+		log `Met with White River, a Hai the Unfettered refer to as having an "unwell mind" and being in a Hai cartel or mafia. He agreed to smuggle goods through Hai space. I am to contact pirates at Greenrock, the Syndicate, and Follower to arrange the rest of the smuggling route.`
 	on decline
 		fail "Warfeed Terraforming [F01] Follower"
 		fail "Warfeed Terraforming [S01] Union Boss"
@@ -346,6 +350,7 @@ mission "Warfeed Terraforming [F03] Refusal"
 				accept
 	on complete
 		payment 135000
+		log `Was unable to convince The Deep to smuggle goods between Kraken and Follower. They suggest I ask the Syndicate instead.`
 		conversation
 			`	You're quickly led to the terraformers, who had already guessed your answer.`
 			`	"Yes, our only hope is the Syndicate. Your best option is for them to come to you. Get noticed, and then explain our problem."`
@@ -374,6 +379,7 @@ mission "Warfeed Terraforming [S01] Union Boss"
 		set "warfeed epic fail"
 	on complete
 		payment 35000
+		log `Guncrag Watson, the union boss on Shroud, alerted the Syndicate to my intent and it seems they are sending bounty hunters in Syndicate-marked ships.`
 		conversation
 			`The union is hard to find; they have many reasons to hide on a planet with no labor rights laws. Eventually you locate them. You begin to describe the problem and you're immediately interrupted.`
 			`	"Our arrangement with the Syndicate is precarious. If we betray them, they'll hand us over to Argoth Corporation."`
@@ -504,7 +510,9 @@ mission "Warfeed Terraforming [S03] Syndicate Capture"
 					goto die
 			`	"You will, of course, be paid quite well for this information."`
 				accept
-
+	on accept
+		log `Men from an, "offshoot of the Syndicate," hit me until I agreed to help get a list of White River's associates. I suspect they planned to kill me if I refused. They promise to negotiate a smuggling route from the northern part of Syndicate territory to Kraken Station if I succeed.`
+		
 mission "Warfeed Terraforming [S04] List of Names"
 	name "Terraform Warfeed: <planet>"
 	description "Land on <destination> when White River's spy is absent from the system (and don't destroy the spy's ship). Payment is <payment>."
@@ -530,12 +538,13 @@ mission "Warfeed Terraforming [S04] List of Names"
 				accept
 	on visit
 		dialog "To complete this mission, you must land on this planet when White River's spy is not in the system."
-	npc evade save
+	npc evade
 		government " Hai "
 		personality target harvests plunders disables mute
 		system Sol
 		ship "Shield Beetle (Toss)" "White River's Spy"
 	on complete
+		log `Men from an, "offshoot of the Syndicate," arranged an agreement with the Syndicate to smuggle goods from the north part of Syndicate space to Kraken Station.`
 		"reputation: Syndicate" += 5
 		payment 535000
 		conversation
@@ -760,6 +769,8 @@ mission "Warfeed Terraforming [P02n] Snuggles Bounty"
 				accept
 	on complete
 		payment 35000
+	on accept
+		log `Hired a bounty hunter, "Sparkle Snuggles," to hunt me so I can destroy her powerful ship and gain the attention of pirates in Greenrock. It appears she is a kidnapped six-year-old girl who is the mascot and spokeswoman of a group of especially cruel Bounty Hunters. There are escape pods on the ship. I should make sure her pod lands safely.`
 	on fail
 		set "warfeed epic fail"
 	npc kill
@@ -958,7 +969,7 @@ phrase "six-year-old threatening hails"
 		`The best sushi is <first> <last> sushi!`
 		`Stop running. I'll make this quick!`
 		`My crew's greener than yours!`
-		`Yer just a sassy little Beta!`
+		`Yer just a sassy lil' Beta!`
 
 # Disabled hails. Sparkle Snuggles realizes the end has come and wants
 # her mommy back.  She reaches an escape pod and begs you to destroy
@@ -1006,12 +1017,12 @@ phrase "six-year-old disabled hails"
 		`The men are fighting. `
 		`I want to leave the mean men. `
 		`They'll find me soon. `
-		`I don't want them to hit me. `
+		`I don't want the men to hit me. `
 		`Make the bad men go away. `
 		`Make the green men go away. `
 		`I'm too cute to die. `
 		`My name is Rosa. `
-		`I live on New Boston. `
+		`My mommy is on New Boston. `
 		`I'm too young to die. `
 		`I wanna live. `
 	word
@@ -1070,6 +1081,7 @@ mission "Warfeed Terraforming [ZZ] Snuggles Rescue Message"
 	on offer
 		fail
 	on fail
+		log `The little girl who I paid to hunt me, "Sparkle Snuggles," turned out to be a six-year-old girl named Rosa. She is now reunited with her mother and receiving medical attention. She appears to be in good health, physically and mentally, and is grateful for the rescue. I should visiter her one day.`
 		conversation
 			`You receive a message from Sparkle Snuggles. She's in a room with six other children, playing with blocks. She looks at the camera, and says, "I'm Rosa and yer ma hero!" A few friendly-looking adults are nearby, including a nurse. A young woman, perhaps 20 years old, is crying so hard that she's almost unable to say the words, "thank you for freeing my daughter."`
 				
@@ -1104,6 +1116,8 @@ mission "Warfeed Terraforming [P02w] Wonton Bounty"
 				accept
 	on complete
 		payment 35000
+	on accept
+		log `Paid a (possibly cannibalistic) bounty hunter, Wonton Mastication to hunt me. I need to kill her to attract the attention of pirates in Greenrock. She has a well-outfitted Shield Beetle.`
 	npc kill
 		government "Bounty Hunter"
 		personality nemesis plunders waiting target unconstrained
@@ -1169,6 +1183,8 @@ mission "Warfeed Terraforming [P02e] Stinking Bounty"
 				accept
 	on complete
 		payment 35000
+	on accept
+		log `Contracted a bounty hunter, Stinking Shadows to hunt me. I need to kill the hunter to attract the attention of pirates in Greenrock. They have a Falcon and three Headhuters, all very fast.`
 	npc kill
 		government "Bounty Hunter"
 		personality nemesis plunders waiting target unconstrained
@@ -1263,6 +1279,8 @@ mission "Warfeed Terraforming [P02s] Smeg Bounty"
 				accept
 	on complete
 		payment 35000
+	on accept
+		log `Contracted a bounty hunter of dubious intelligence, Deviled Smegs to hunt me. I need to kill him to attract the attention of pirates in Greenrock. He has a well-outfitted Marauder Firebird.`
 	npc kill
 		government "Bounty Hunter"
 		personality nemesis plunders waiting target unconstrained
@@ -1388,9 +1406,11 @@ mission "Warfeed Terraforming [P04] Blue Women"
 				accept
 	on complete
 		payment 35000
+		log `Rescued Lilith, a mad scientist around age seventeen, from her crashed ship. It was shot down by Deep Security while she was testing her new technology. Some things she told me contradict words of the blue-haired women on Freedom.`
 	on fail
 		set "warfeed epic fail"
-
+	on accept
+		log `Met a group of blue-haired women on Freedom who claim to be genetically engineered, but gave an implausible story with little evidence. Was sent to find one of their, "sisters," named "Lilith" who is working on stealth technology.`
 
 
 mission "Warfeed Terraforming [P05] Lilith"
@@ -1447,9 +1467,12 @@ mission "Warfeed Terraforming [P05] Lilith"
 				accept
 	on complete
 		payment 835000
-		"reputation: Pirate" += 20
+		"reputation: Pirate" += 10
+		log `Lilith arranged a deal with the pirates to leave Unfettered and Follower smugglers untouched so long as the planets pay 70 credits per ton of cargo to a protection fund.`
 		conversation
 			`You arrive at Greenrock with a teenage mad scientist. She presents her new interference plating to pirates who drool with delight at the thought of hiding forbidden riches. Soon after, you're brought to a room entirely black but for one spotlight in the middle. You sit on a chair in the darkness while Lilith speaks in the light.`
+			choice
+				`	(Continue.)`
 			`	The conversation goes on for almost ten minutes as the shadow-veiled audience inquires about the invention, and the proposed deal with the Hai. They seem extremely intelligent, level-headed, and well-informed, not traits of the pirate stereotype.`
 			`	Eventually Lilith negotiates two settlements. There will be mass-production of her interference plating with 9% of sales going to her. The Unfettered smuggling operation will be off-limits to pirates, so long as the sending planet (Follower or Warfeed) pay 70 credits per ton of cargo.`
 			`	Your newly-rich friend hands you 800,000 credits and a contract from the pirates. "Come find me on Greenrock again sometime. Good luck with your terraforming project!"`
@@ -1540,7 +1563,7 @@ mission "Warfeed Terraforming [C02] Lilith's Inventions"
 				`	(Wait.)`
 			`	A few hours later, Lilith returns with a notebook.`
 			`	"Sorry. Here's what we need." She hands you technical specifications of a completely different part than before. "The one I handed you before was the vibration mechanism of... never mind.`
-			`	"One ton of these gadgets will make fourteen tons of plating. Bring us 72 tons, and expect some fines when you're caught. Ironically, these bits are easy to scan until they're incorporated into the full plating.`
+			`	"One ton of these gadgets will make fourteen tons of plating. We can make the insulation very quickly once we have these parts. Ironically, these bits are easy to scan until they're incorporated into the full plating. Bring us 72 tons, and expect some fines when you're caught.`
 			`	"This is an insanely-hard smuggling job: all the way from Unfettered Hai space to Greenrock with 72 tons of illegal goods. Every time you're caught, you're fined 115,000 credits. You'll be paid quite well. I can't give an exact figure without talking to my employers, but expect seven digits. Probably beginning with a one, but I'm pretty sure the second digit will be at least a four."`
 				accept
 	on complete
@@ -1549,8 +1572,9 @@ mission "Warfeed Terraforming [C02] Lilith's Inventions"
 		set "warfeed epic fail"
 	on fail
 		set "warfeed epic fail"
-
-
+	on accept
+		log `Arranged with Lilith on Greenrock to create scan-blocking insulation to shield Follower-Unfettered cargo from scans. They'll line deuterium fuel pods with the scan-blocker and put the smuggled goods within.`
+		
 mission "Warfeed Terraforming [C03] Shipment Negotiation"
 	name "Terraform Warfeed: <planet>"
 	description "Fly to <destination> to arrange a shipment of materials. Payment is <payment>."
@@ -1601,7 +1625,7 @@ mission "Warfeed Terraforming [C04] Greenrock Delivery"
 	clearance "You hear Lilith's excited voice on the line telling you where to land."
 	source Darkcloak
 	destination Greenrock
-	cargo "Hai reactor insulation" 72
+	cargo "Boulder Reactor insulation" 72
 	blocked "You don't have room for the <cargo>. Sell items or get more ships and come back."
 	illegal 115000
 	to offer
@@ -1644,6 +1668,11 @@ mission "Warfeed Terraforming [C05] Kraken Prep"
 			`	You thank him for the information and prepare to return to <destination>.`
 	on complete
 		payment 35000
+		
+		"reputation: Pirate" += 20
+		"reputation: Pirate" >?= -40
+
+		log `Obtained the insulation I need for the Follower-Unfettered smuggling route. Apparently seven eighths of the material will go into tens of thousands of tons of scan-blocking ship armor. The pirates seem quite pleased with me; I suspect their smuggling operations will be more successful thanks to me.`
 		conversation
 			`Lilith meets you next to a roll of insulation and a group of engineers. "We've prepared 133 tons of insulation, enough for the entire project. Come to the spaceport when you're ready."`
 			label questions
@@ -1697,6 +1726,7 @@ mission "Warfeed Terraforming [C06] Kraken Delivery"
 		dialog `It seems you left some of the <cargo> in your escorts. You should for them to arrive and land again.`
 	on complete
 		payment 35000
+		log `Now that the pods are being prepared, every step of the terraforming smuggling route is arranged. All that is left is to visit Follower and Whispering Rose to finalize arrangements, and hopefully get paid.`
 		conversation
 			`Now that the pods are being prepared, every step of the terraforming smuggling route is arranged. All that is left is to visit Follower and Whispering Rose to finalize arrangements, and hopefully get paid.`
 	on decline
@@ -1762,6 +1792,7 @@ mission "Warfeed Terraforming [R03a] Secret Message Trigger"
 		has "Warfeed Terraforming [R01] Follower: done"
 		has "Warfeed Terraforming [R02] Snowfeather: done"
 	on offer
+		log `Successfully set up a smuggling operation to trade terraforming supplies from Follower for terraforming equipment from Warfeed. That will accelerate terraforming on both planets. Maybe it will contribute to peace among the Unfettered Hai now that their food needs are less desperate.`
 		event "lilith secret message" 7
 		fail
 
@@ -1837,7 +1868,7 @@ conversation "Lilith Meeting"
 	`	"Now I'll give you a present." She leads you out of her suite through a secret door.`
 	choice
 		`	(Continue.)`
-	`	You're in a large room, and you see a pile of slimy reptile scales made of metal. It looks like a stronger version of the armor in Lilith's crashed ship.`
+	`	You're in a large room, and you see a pile of rusty, green, reptile, scales. It looks like a stronger version of the armor in Lilith's crashed ship.`
 	`	"This isn't the armor I invented. It isn't what we stole from the Syndicate either. This is the original. We believe this is the remains of a wrecked ship - a formerly living ship - on Stormhold. It was found in a deep-core archaeology dig; we suspect it crashed millions of years ago and got buried by tectonic activity.`
 	`	"It is very old. Impossibly old. Maybe older than Earth. Telltale signs of hyperspace activity on the hull show it entered hyperspace millions of times. It is mildly radioactive. From the type of radiation, it appears it spent a lot of time inside stars. It may have even lived in them. When this... skin... was new, it would have been nearly invincible and could render the creature completely invisible. Even in its dormant state, this is the strongest material I know of. I can't imagine what was able to shoot this ship down.`
 	`	"I don't want to think about what would happen if the Marauders or Syndicate mastered its technology. Really, this technology is too advanced for anyone. Please find a way to destroy it. Meet me in the spaceport when you have 13 tons of outfit or cargo space free and I'll give it to you."`
