@@ -74,17 +74,15 @@ void PlanetPanel::Step()
 		return;
 	}
 	
-	// Handle offering, completion, failure, or unblocking of one mission.
-	// The IsTop(bank.get()) handles a corner case: if the player starts a
-	// new game, exits the shipyard without buying anything, clicks to the
-	// bank, then returns to the shipyard and buys a ship, make sure
-	// they are shown an intro mission.
+	// If the player starts a new game, exits the shipyard without buying
+	// anything, clicks to the bank, then returns to the shipyard and buys a
+	// ship, make sure they are shown an intro mission.
 	if(GetUI()->IsTop(this) || GetUI()->IsTop(bank.get()))
 	{
 		Mission *mission = player.MissionToOffer(Mission::LANDING);
 		if(mission)
 			mission->Do(Mission::OFFER, player, GetUI());
-		else if(!player.RecheckMissions(GetUI()))
+		else
 			player.HandleBlockedMissions(Mission::LANDING, GetUI());
 	}
 }
@@ -235,10 +233,6 @@ void PlanetPanel::TakeOffIfReady()
 		return;
 	}
 	
-	// Update the completion and failure status of missions:
-	if(player.RecheckMissions(GetUI()))
-		return;
-
 	// Check whether the player should be warned before taking off.
 	if(player.ShouldLaunch())
 	{
