@@ -216,7 +216,7 @@ mission "Ancient Skin [2] Quarg Scientist and Archon"
 
 outfit "Koor'alei Skin"
 	category "Systems"
-	thumbnail "outfit/ancient scales"
+	thumbnail "outfit/ancient scales blue"
 	mass 31
 	"outfit space" -13
 
