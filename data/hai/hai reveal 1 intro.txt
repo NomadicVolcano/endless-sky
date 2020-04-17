@@ -29,13 +29,13 @@ mission "event: pug media coverage"
 	to offer
 		has "event: pug media coverage"
 	on offer
+		event "hai secret leaks" 10 15
 		conversation
 			`It's been weeks now but as you walk through the spaceport you can't help but notice that coverage on the events of the Pug invasion still continues to dominate headlines.`
 			`	As you look around you see that experts and officials have given way to talking heads and theorists. Some of them are saying what you yourself suspect, that the Pug invasion was a ploy to cause humanity to band together, learn to resolve differences without conflict and learn not to tolerate the sorts of extremism that lead to the events that precipitated the war.`
 			`	Others...`
 			`	You sigh deeply as you watch some paranoid fringe world politician demand that the edges of human space be better understood, that threats and even potential threats must clearly exist beyond what is already known and that it was the responsibility of the government to find out and inform the people.`
 			`	Your thoughts, you keep to yourself.`
-			event "hai secret leaks" 10 15
 				decline
 
 event "hai secret leaks"
@@ -66,7 +66,7 @@ mission "event: hai secret leaks A"
 			`	A clip of alien space ships in combat with weapons quite unlike anything produced in human space is shown, and you recognise shield beetles hammering away at each other.`
 			`	It is only after this that the anchorwoman reveals that, while this was initially treated as a hoax, one of their own reporters posed a timely question to a well-respected trader and caused quite the stir when he slipped up and confirmed the existance of the aliens known as 'Hai'.`
 			`	You suspect it might be time to go visit your Hai friends again and see what's going on.`
-		fail
+				fail
 	
 mission "event: hai secret leaks B"
 	landing
@@ -95,7 +95,7 @@ mission "event: hai secret leaks B"
 			`	A clip of alien space ships in combat with weapons quite unlike anything produced in human space is shown, and you recognise shield beetles hammering away at each other.`
 			`	When it's finished the young man, who is very well presented, but clearly has a bit of the paranoid about him that is plain to see even through a screen is encouraged to talk about where he got the footage. he talks at length about an ongoing conflict that threatens to spill over and drag all of humanity back to war. A war waged by an alien species known as the 'Hai'.`
 			`	You suspect it might be time to go visit your Hai friends again and see what's going on.`
-		fail
+				fail
 		
 event "pirates investigate leaks"
 	system "Waypoint"
@@ -160,7 +160,7 @@ mission "leaks 1A unfettered A"
 			`	She sighs deeply, "Everyone is just a bit shaken and distrustful at the moment."`
 			`	"Oh that's awful!" you say.`
 			`	She nods, "This is why we're all wearing pink, just a little show of local solidarity."`
-			goto main
+				goto main
 			label pink
 			`	A sad smile crosses her face and her expression goes sombre as she explains, "A pirate marauder snuck down onto the planet recently, stole a Geocoris and kidnapped a number of Hai, probably into slavery. Everyone is a bit shaken up so the locals are wearing pink in solidarity, and so we're not mistaken for a security risk."`
 			label main
@@ -249,10 +249,10 @@ mission "leaks 2B: envoy accepted"
 			`	For a second you wonder if it's a joke but they look as serious as Hai can look.`
 			choice
 				`	"Oh I really don't think that's necessary."`
-				goto nevertheless
+					goto nevertheless
 				`	"Oh, I'm honoured, thankyou."`
 			`	"If you have any stake in the current information crisis please head directly to Hai-home. Someone would very much like to talk to you."`
-			goto main
+				goto main
 			label nevertheless
 			`	"You may not think it's necessary, but sometimes that is the price of fame."`
 			`	The officious looking Hai shrugs, "In any event please head directly to Hai-home. Someone would very much like to talk to you."`
@@ -282,7 +282,7 @@ mission "leaks tour 1"
 			`As you are leaving the Merchant and the Hai, the Hai calls out as an afterthought, "Oh Captain, if you really want to see what the Hai are like, you should go viit Stonebreak."`
 			choice
 				`	"Thanks, I'll do that!"`
-				accept
+					accept
 	on complete
 		conversation
 			`Stonebreak is home to some of the largest cities in Hai space aside from their homeworld: massive planned communities built in concentric rings, where housing space and community buildings alternate with zones of factories and shipyards. This star system has an unusual number of metallic asteroids, which the Hai harvest for the raw materials for Stonebreak's industries.`
@@ -367,10 +367,10 @@ mission "leaks tour 5"
 			`	For a second you wonder if it's a joke but they look as serious as Hai can look.`
 			choice
 				`	"Oh I really don't think that's necessary."`
-				goto nevertheless
+					goto nevertheless
 				`	"Oh, I'm honoured, thankyou."`
 			`	"If you have any stake in the current information crisis please head directly to Hai-home. Someone would very much like to talk to you."`
-			goto main
+				goto main
 			label nevertheless
 			`	"You may not think it's necessary, but sometimes that is the price of fame."`
 			`	The officious looking Hai shrugs, "In any event please head directly to Hai-home. Someone would very much like to talk to you."`
@@ -395,9 +395,9 @@ mission "leaks response 1"
 			`As you come into land on Hai-home you find that a reasonable security detachment has been assigned to your designated landing berth. The Hai aren't usually ones to be concerned about such things, but you suspect that as an apparent "war hero" that this may be more for the benefit of appearances on your part than anything else.`
 			`	Word of your status in human space seems to have spread ahead of you, especially with you beng known on many Hai worlds as one of the view significant human visitors. A small crowd of Hai have gathered to peek at you on the short walk from the Spaceport to the government building you are led to.`
 			branch karma
-			karma > 1
+				karma > 1
 			`	As you are making the walk you hear questions posed and rumours stated. Occasionally you hear words like "survivor" and "dangerous" thrown in amongst the babble.`
-			goto main
+				goto main
 			label karma
 			`	As you are making the walk you hear questions posed and rumours stated. Occasionally you hear words like "honourable" and "reasonable" thrown in amongst the babble.`
 			label main
@@ -406,7 +406,7 @@ mission "leaks response 1"
 			`	After a moment to let you ponder, she continues, "Our reports tell us that you are a well-known individual, respected both by your own government and abroad in the other human governments. Our reports also tell us that 'Hai' is quickly becoming a buzzword in your space. A few traders brought the news ahead of you."`
 			`	She pauses and looks at you seriously.`
 			`	"We think it would be prudent for you to represent your people as our point of contact. Would you accept such a role?"`
-			`You give it a moment of thought.`
+			`	You give it a moment of thought.`
 			choice
 				`	"It certainly seems rather practical."`
 			`	"Fantastic," she says, though her tone is much more business like than the wording would imply, "In that case, if you could please take this to Earth and communicate with your various governments we can begin a dialogue on how best to deal with this current scenario."`
@@ -438,10 +438,10 @@ mission "leaks response 2"
 			choice
 				`	"It was a brutal business, but someone had to do it. For the people."`
 				`	"Please, it was far less dramatic than it's made out to be."`
-				goto humble
+					goto humble
 			`	You play the part and do your best attempt at looking noble. Mr Yang seems more than happy to embody respect for the hero of his preferred narrative.`
 			`	"You're every inch what I expected," he assures you before moving to take his seat.`
-			goto sit
+				goto sit
 			label humble
 			`	You spread your hands in an appeasing gesture and explain, "You should listen to the xenoanthropologists, the Pug really were just here to test us, to make us really consider what mattered to our species."`
 			`	For a moment his expression falters and then he seems almost relieved, "You may be a better man than I expected to meet."`
@@ -460,8 +460,8 @@ mission "leaks response 2"
 			`	He smiles warmly, "Apologies Captain <Last>, do excuse the cloak and dagger, but in the current media climate you and I are both too well known to be seen meeting without causing the rumour mill to grind out a new story."`
 			`	"Now, allow me to introduce you to my protege Terry Adrianopolous, he will be accompanying you as the Syndicate representative."`
 			`	The young woman goes from calculating to gregarious in the blink of an eye as your attention shifts to her. She's pleasant and approachable, and very articulate, but from your brief glimpse beforehand you have no doubt she's cut from the sort of cloth that makes her future CEO material. You resolve not to get on her bad side if at all possible.`
-			`"Oh by the way," says Alastair, pausing briefly as he turns to depart, "The navy and my security forces are working jointly to get some of our message relays up in the far north to link through Ultima Thule. The pirates are wont to destroy them whenever they find them but we should be able to rely on at least basic communication to get through if you need it. Rather than flying back and forth for literally every question. That's all."`
-			`After which he finally, actually, departs for good.`
+			`	"Oh by the way," says Alastair, pausing briefly as he turns to depart, "The navy and my security forces are working jointly to get some of our message relays up in the far north to link through Ultima Thule. The pirates are wont to destroy them whenever they find them but we should be able to rely on at least basic communication to get through if you need it. Rather than flying back and forth for literally every question. That's all."`
+			`	After which he finally, actually, departs for good.`
 	on visit
 		dialog phrase "generic stopover on visit"
 	on complete
@@ -482,11 +482,11 @@ mission "leaks response 2"
 			`	He checks the date, "Our most optimistic estimates suggest the Republic will be forced to acknowledge the existence of the Hai within three months or lose so much credibility as to compromise elctoral stability, the actual time limit is probably sooner."`
 			choice
 				`"Would that be so bad?"`
-			`"It is always bad to be forced into acknowledging a secret, if we act sooner we may control the manner of that secret's release."`
-			`Sayari looks at you, "We will have to come up with a plan, and quickly, but for the moment may I ask a favour of the war hero in the room? Please meet up with the security forces converging on Allhome, help them route the pirates back to the other side of the wormhole it will buy us some breathing space and some options."`
-			`It is so hard to say "no" to a Hai and their cute squirrelly features.`
+			`	"It is always bad to be forced into acknowledging a secret, if we act sooner we may control the manner of that secret's release."`
+			`	Sayari looks at you, "We will have to come up with a plan, and quickly, but for the moment may I ask a favour of the war hero in the room? Please meet up with the security forces converging on Allhome, help them route the pirates back to the other side of the wormhole it will buy us some breathing space and some options."`
+			`	It is so hard to say "no" to a Hai and their cute squirrelly features.`
 			choice
-				`"I'll do what I can."`
+				`	"I'll do what I can."`
 #If a republic/syndicate campaign gets added this on complete text will need variants.
 	
 	
@@ -574,7 +574,7 @@ mission "leaks response 4"
 			`	The poor Captain seems desperate.`
 			choice
 				`	We shall bring them safely home.`
-			accept
+					accept
 	npc accompany
 		government "Hai"
 		personality escort disables heroic
@@ -596,7 +596,7 @@ mission "leaks response 4"
 		conversation
 			`When you return the Hai Captain thanks you profusely, "Please, the Allhome government has authorised a reward of <payment> for routing the problem."`
 			branch "saved geocoris"
-			not has "leaks response 4a: failed"
+				not has "leaks response 4a: failed"
 			`	He sighs deeply, "It is a shame though that the kidnapped Hai could not be saved, but the other Hai captains tell me it was a mess out there."`
 			`	He places one of his furry hands comfortingly on your shoulder, "I'm sure you did all you could."`
 				goto end
@@ -635,8 +635,7 @@ mission "leaks response 4a"
 		personality staying nemesis
 		system "Waypoint"
 		ship "Geodesic Geocoris (Phylactery)" "Phylactery"
-		dialog
-			`After successfully boarding the Geocoris and defeating its pirate crews you are greeted by the relieved captive Hai. You promise them that they will be safely on Allhome before long.`
+		dialog `After successfully boarding the Geocoris and defeating its pirate crews you are greeted by the relieved captive Hai. You promise them that they will be safely on Allhome before long.`
 	on fail
 		dialog `You have failed to recover the Geocoris. This is not critical, but does have long-term consequences. If you want the heroic ending, revert to the autosave or another earlier snapshot of the game.`
 	on complete
@@ -764,15 +763,15 @@ mission "leaks response 5"
 				`	"But what may I do about it?"`
 			`	"You are well-known, and must be canny to have got where you are. A Hai in trouble might recognise you, or you might perceive them when others would not. It would be in the interests of both our people to be sure that there is no such issue. Would you look for me? For both our sakes?"`
 			branch "about that"
-			"hai slave prereq" >= 1
+				"hai slave prereq" >= 1
 			choice
 				`	"Sure, I can have a look around."`
-				accept	
+					accept	
 			label "about that"
 			`	"Well, about that," you say, "I think I might have already come across some evidence of this before."`
 			`	Sayuri's hood nearly slips off as she looks up at you with a horrified expression, "Surely not?!"`
 			`	You rush to reassure her, "Nothing concrete, of course I shall go and have a look to be sure."`
-			accept
+				accept
 	to complete
 		"hai slave prereq" >= 3
 	on complete
