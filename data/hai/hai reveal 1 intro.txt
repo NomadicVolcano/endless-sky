@@ -66,13 +66,15 @@ mission "Event: Hai Secret Leaks A"
 			`	A clip of alien space ships in combat with weapons quite unlike anything produced in human space is shown, and you recognise shield beetles hammering away at each other.`
 			`	It is only after this that the anchorwoman reveals that, while this was initially treated as a hoax, one of their own reporters posed a timely question to a well-respected trader and caused quite the stir when he slipped up and confirmed the existance of the aliens known as 'Hai'.`
 			`	You suspect it might be time to go visit your Hai friends again and see what's going on.`
-				fail
+				decline
 	
 mission "Event: Hai Secret Leaks B"
 	landing
 	source
 		government "Free Worlds"
 		attributes "spaceport"
+	waypoint "Ultima Thule"
+	destination "Allhome"
 	to offer
 		has "event: hai secret leaks"
 		not "Event: Hai Secret Leaks A: offered"
@@ -95,7 +97,7 @@ mission "Event: Hai Secret Leaks B"
 			`	A clip of alien space ships in combat with weapons quite unlike anything produced in human space is shown, and you recognise shield beetles hammering away at each other.`
 			`	When it's finished the young man, who is very well presented, but clearly has a bit of the paranoid about him that is plain to see even through a screen is encouraged to talk about where he got the footage. he talks at length about an ongoing conflict that threatens to spill over and drag all of humanity back to war. A war waged by an alien species known as the 'Hai'.`
 			`	You suspect it might be time to go visit your Hai friends again and see what's going on.`
-				fail
+				decline
 		
 event "pirates investigate leaks"
 	system "Waypoint"
@@ -106,35 +108,36 @@ event "pirates investigate leaks"
 
 mission "Leaks 1A: Visit the Hai"
 	name "Visit the Hai on Allhome"
-	description "It seems like events may be taking away the hai's valued secrecy, best see if things are ok."
+	description "It seems like events may be taking away the Hai's valued secrecy, best see if things are ok."
 	landing
+	source
+		government "Republic" "Syndicate" "Free Worlds"
+		attributes "spaceport"
+	waypoint "Ultima Thule"
 	destination "Allhome"
 	to offer
 		has "event: hai secret leaks"
-	to fail
-		or
-			has "Event: Hai Secret Leaks A: declined"
-			has "Event: Hai Secret Leaks B: declined"
-	to complete
-		has "Leaks 1B: Investigate the Hai: failed"
+		has "First Contact: Hai: offered"
+	on offer
+		fail "Leaks 1B: Investigate the Hai"
 	
 mission "Leaks 1B: Investigate the Hai"
 	name "Investigate the Hai"
 	description "A secret and violent alien race that Traders have known about for ages? Preposterous; go find out what's really going on."
 	landing
+	source
+		government "Republic" "Syndicate" "Free Worlds"
+		attributes "spaceport"
 	waypoint "Ultima Thule"
 	destination "Allhome"
 	to offer
 		has "event: hai secret leaks"
-	to fail
-		or
-			has "Event: Hai Secret Leaks A: failed"
-			has "Event: Hai Secret Leaks B: failed"
-	to complete
-		has "Leaks 1A: Visit the Hai: failed"
+		not "First Contact: Hai: offered"
+	on offer
+		fail "Leaks 1A: Visit the Hai"
 	
 	
-#Branch A is if you already have Hai first contact - sends you directly to Hai Home (detour if you haven't visited Wah Ki yet).
+#Branch A is if you already have Hai first contact - sends you directly to Hai-home (detour if you haven't visited Wah Ki yet).
 
 mission "Leaks 1A Unfettered A"
 	name "Witness the Unfettered"
@@ -166,11 +169,12 @@ mission "Leaks 1A Unfettered A"
 			label main
 			`	"Unfortunately it's taking a while for them to redistribute an appropriately resourced security force thanks to the Unfettered."`
 			choice
-				`	"That is a serious problem." (If you already know about them.)`
-				`	"Who are the Unfettered?" (Go and find out.)`
+				# Rewrote question so it makes sense whether you met them or not
+				`	"What are these 'Unfettered' doing?"`
 					goto rebels
+				`	"That is a serious problem."`
 			`	Your conversation is interrupted suddenly by a small group of somewhat official-looking Hai.`
-			`	"Are you Captain <Last>?" one of them asks you, "Don't worry you're not in trouble or anything."`
+			`	"Are you Captain <last>?" one of them asks you, "Don't worry you're not in trouble or anything."`
 			`	You nod your affirmation.`
 			`	"Your reputation precedes you Captain, if you have any stake in the current information crisis please head directly to Hai-home. Someone would very much like to talk to you. As a person of note, you are presently being treated as an Envoy."`
 			`	They leave without waiting for your agreement, but then, you did come here to see what was going on.`
@@ -244,7 +248,7 @@ mission "Leaks 2B: Envoy Accepted"
 			`	At a table nearby you hear a Hai staffmember exclaim, "Oh that's awful!"`
 			`	The rumours must be spreading further by the day you think, no doubt something will soon have to be done.`
 			`	This thought has no sooner crossed your mind when your solitude is interrupted by a small group of somewhat official-looking Hai.`
-			`	"Are you Captain <Last>?" one of them asks you, "Don't worry you're not in trouble or anything."`
+			`	"Are you Captain <last>?" one of them asks you, "Don't worry you're not in trouble or anything."`
 			`	You nod your affirmation.`
 			`	"Your reputation precedes you Captain. As a person of note at home who we hear has now been travelling all over Hai space, you are presently being treated as an Envoy."`
 			`	For a second you wonder if it's a joke but they look as serious as Hai can look.`
@@ -361,7 +365,7 @@ mission "Leaks Tour 5"
 			`	At a table nearby you hear a Hai staffmember exclaim, "Oh that's awful!"`
 			`	The rumours must be spreading further by the day you think, no doubt something will soon have to be done.`
 			`	This thought has no sooner crossed your mind when your solitude is interrupted by a small group of somewhat official-looking Hai.`
-			`	"Are you Captain <Last>?" one of them asks you, "Don't worry, you're not in trouble or anything."`
+			`	"Are you Captain <last>?" one of them asks you, "Don't worry, you're not in trouble or anything."`
 			`	You nod your affirmation.`
 			`	"Your reputation precedes you Captain. As a person of note at home who we hear has now been travelling all over Hai space, you are presently being treated as an Envoy."`
 			`	For a second you wonder if it's a joke but they look as serious as Hai can look.`
@@ -434,7 +438,7 @@ mission "Leaks Response 2"
 		conversation
 			`On approach to the spaceport on Earth you communicate your need to speak to an official of significant standing on diplomatic business. Since you are not a diplomat this does cause some minor kerfuffle in the process, but thanks to your renown from the Pug war you are able to blow past such petty objections sufficiently so as to shortcut the process. The diplomatic ID from the box Sayari gave you doesn't hurt either.`
 			`	The Republic Deputy Minister for Foreign Affairs meets you in a hired, private room at the spaceport.`
-			`	"Captain <Last>," he steps around the table to grasp your hand in a firm handshake, "Xilin Yang, it's an honour to meet a war hero like yourself."`
+			`	"Captain <last>," he steps around the table to grasp your hand in a firm handshake, "Xilin Yang, it's an honour to meet a war hero like yourself."`
 			choice
 				`	"It was a brutal business, but someone had to do it. For the people."`
 				`	"Please, it was far less dramatic than it's made out to be."`
@@ -457,7 +461,7 @@ mission "Leaks Response 2"
 	on stopover
 		conversation
 			`Landing on Foundry you are communicated to on a private encrypted channel and directed to a private hangar where you are greeted personally by CEO Alastair Korban.`
-			`	He smiles warmly, "Apologies Captain <Last>, do excuse the cloak and dagger, but in the current media climate you and I are both too well known to be seen meeting without causing the rumour mill to grind out a new story."`
+			`	He smiles warmly, "Apologies Captain <last>, do excuse the cloak and dagger, but in the current media climate you and I are both too well known to be seen meeting without causing the rumour mill to grind out a new story."`
 			`	"Now, allow me to introduce you to my protege Terry Adrianopolous, he will be accompanying you as the Syndicate representative."`
 			`	The young woman goes from calculating to gregarious in the blink of an eye as your attention shifts to her. She's pleasant and approachable, and very articulate, but from your brief glimpse beforehand you have no doubt she's cut from the sort of cloth that makes her future CEO material. You resolve not to get on her bad side if at all possible.`
 			`"Oh by the way," says Alastair, pausing briefly as he turns to depart, "The Navy and my security forces are working jointly to get some of our message relays up in the Far North to link through Ultima Thule. The pirates are wont to destroy them whenever they find them but we should be able to rely on at least basic communication to get through if you need it. Rather than flying back and forth for literally every question. That's all."`
@@ -516,7 +520,7 @@ mission "Leaks Response 2A"
 		has "Leaks Response 2: active"
 	on offer
 		conversation
-			`When you land on Deep Katya is there waiting for you along with Alondo, "<First> it's so good to see you again! When the Republic briefed the council we were very concerned by the lack of ability to reach you, but of course you would somehow manage to be in the thick of it before we even knew what was going on."`
+			`When you land on Deep Katya is there waiting for you along with Alondo, "<first> it's so good to see you again! When the Republic briefed the council we were very concerned by the lack of ability to reach you, but of course you would somehow manage to be in the thick of it before we even knew what was going on."`
 			`	You hug them both in turn and return the greeting as you look from one to the other, "I thought it seemed odd when they said I was meeting you for this Katya, but it makes much more sense if you were just easier to get a hold of than Alondo here."`
 			`	"Oh it was always going to be Alondo," she says, "but there's never a bad excuse for travelling with an old friend, especially when you're meeting other friends too."`
 			`	"Do we have time for a drink before we must rush off?" asks Alondo.`
@@ -569,7 +573,7 @@ mission "Leaks Response 4"
 				`	"I had heard about the kidnapping."`
 			`	He nods, "Unfortunately it's taking a while for them to redistribute an appropriately resourced defence force thanks to the Unfettered."`
 			`	"Even more unfortunately," he continues, "it seems that the overabundance of these pirates is a result of one particular individual's success. His ship, called the Black Lich, is hanging out in Waypoint with the stolen Geocoris that we hear might have been converted into some kind of semi-stable weapons platform and now be being used as a temporary base."`
-			`	"Fortunately this gives us an opportunity though. If the kidnapped hai are still on board we might be able to rescue them, and if we can defeat the Black Lich we may stem the tide of opportunists that are swarming through the wormhole."`
+			`	"Fortunately this gives us an opportunity though. If the kidnapped Hai are still on board we might be able to rescue them, and if we can defeat the Black Lich we may stem the tide of opportunists that are swarming through the wormhole."`
 			`	"What do you say?"`
 			`	The poor Captain seems desperate.`
 			choice
