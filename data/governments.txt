@@ -802,6 +802,12 @@ government "Test Dummy"
 	"hostile hail" "test dummy"
 	"hostile disabled hail" "disabled test dummy"
 
+# For space objects of unknown origin, to ensure the player can't land:
+government "Unknown"
+	swizzle 1
+	color .4 .4 .4
+	"player reputation" -1000
+
 government "Uninhabited"
 	color .4 .4 .4
 
