@@ -582,12 +582,12 @@ event "pirates respond to leaks"
 		add fleet "Small Core Pirates" 420
 		remove fleet "Small Hai"
 		remove fleet "Large Hai"
-		add fleet "Anti-Pirate Hai" 2000
+		add fleet "Anti-Pirate Hai (Wormhole Travel)" 2000
 	system "Heia Due"
 		add fleet "Marauder fleet IX" 900
 		add fleet "Large Northern Pirates" 600
 		add fleet "Large Core Pirates" 600
-		add fleet "Anti-Pirate Hai" 3000
+		add fleet "Anti-Pirate Hai (Wormhole Travel)" 3000
 		
 	
 #If a republic/syndicate campaign gets added this text will need variants.

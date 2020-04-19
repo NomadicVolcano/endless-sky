@@ -29,6 +29,10 @@ mission "HRF 01 Summoned to Mountaintop"
 		not attributes "uninhabited"
 	destination "Mountaintop"
 	to offer
+		
+		#This makes sure that the background missions for the danger of travelling to Hai space can still happen (as they definitely don't work after this section).
+		#This also means that a lot of great content doesn't get excluded for players who don't find the Hai before finishing the main plot just because new content has been added.
+		
 		has "event: hai-human treaty prepared"
 		has "Pirate Troubles [4]: done"
 
@@ -36,11 +40,9 @@ mission "HRF 01 Summoned to Mountaintop"
 		# delay for some players
 		#has "Nanachi 4: done"
 		
-		#This makes sure that the background missions for the danger of travelling to Hai space can still happen (as they definitely don't work after this section).
-		#This also means that a lot of great content doesn't get excluded for players who don't find the Hai before finishing the main plot just because new content has been added.
-		
 		# Expanding Business still works since the salesman is exaggerating the
-		# danger, and the pirates chasing the ships are likely to be destroyed.
+		# danger, and the pirates chasing the ships are likely to be destroyed
+		# regardless of whether this story is done first.
 		#has "Expanding Business [4]: done"
 	on offer
 		conversation
