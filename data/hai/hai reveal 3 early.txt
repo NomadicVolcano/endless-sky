@@ -12,17 +12,95 @@
 
 event "secret mountaintop"
 	system "Ultima Thule"
+		pos -336 -211
+		government Republic
+		habitable 2560
+		belt 1635
+		link Rajak
+		asteroids "small rock" 2 2.4966
+		asteroids "medium rock" 22 1.9836
+		asteroids "large rock" 6 2.7018
+		asteroids "small metal" 63 4.788
+		asteroids "medium metal" 15 4.2066
+		asteroids "large metal" 1 4.2408
+		minables iron 16 6.44991
+		minables neodymium 5 4.94979
+		trade Clothing 378
+		trade Electronics 665
+		trade Equipment 580
+		trade Food 407
+		trade "Heavy Metals" 1045
+		trade Industrial 601
+		trade "Luxury Goods" 1245
+		trade Medical 732
+		trade Metal 417
+		trade Plastic 360
+		fleet "Small Hai" 1200
+		fleet "Large Hai" 2500
+		object
+			sprite star/f0
+			period 10
+		object
+			sprite planet/desert5
+			distance 200
+			period 22.3607
+		object
+			sprite planet/europa-b
+			distance 403.41
+			period 64.056
+		object
+			sprite planet/desert7-b
+			distance 824.9
+			period 187.302
+		object
+			sprite planet/gas1
+			distance 1706.99
+			period 557.553
+			object
+				sprite planet/ice8-b
+				distance 216
+				period 11.1964
 		object "Wormhole Alpha"
 			sprite planet/wormhole
 			distance 4208.63
 			period 2158.5
-			add object Mountaintop
+			object Mountaintop
 				distance 115
 				period 11.1964
 	planet Mountaintop
-		description `How did you even get here? There's nothing here, go away.`
+		government "Neutral"
+		description `You see a standard space buoy orbiting the wormhole, of a type typically used to mark construction sites. Perhaps someone intends to build a space station here?`
 
-mission "building mountaintop 1"
+mission "Hai Building Mountaintop [0] Message"
+	landing
+	name "Message from <planet>"
+	description "You received a message from <destination> asking for help with a construction project."
+	repeat
+	invisible
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent" "Hai"
+		not attributes "uninhabited"
+	destination "Hai-home"
+	to offer
+		not "event: role-play station"
+	on offer
+		conversation
+			`Upon landing, you receive an urgent message through long-range hyperwave, asking you to go to <destination> to help the Hai with an important project. The message is sparse on details; the project might be secret.`
+				accept
+
+mission "Hai Building Mountaintop [0A] Buoy"
+	landing
+	repeat
+	invisible
+	source Mountaintop
+	to offer
+		not "event: role-play station"
+	on offer
+		conversation
+			`You see a standard space buoy orbiting the wormhole, of a type typically used to mark construction sites. Perhaps someone intends to build a space station here?`
+				flee
+
+mission "Hai Building Mountaintop [1] Construction Fleet"
 	name "Escort construction fleet to Ultima Thule"
 	description "Escort the construction fleet to the Ultima Thule construction site to prevent a confrontation."
 	autosave
@@ -118,14 +196,14 @@ mission "building mountaintop 1"
 			`	The Geocoris leave you and get to their work, you hang around for a while until the initial 'unfolding' has completed. Time to return to Hai-home.`
 
 
-mission "building mountaintop 1a"
+mission "Hai Building Mountaintop [1a] Construction Escorts"
 	landing
 	invisible
 	repeat
 	source "Makerplace"
 	destination "Mountaintop"
 	to offer
-		has "building mountaintop 1: active"
+		has "Hai Building Mountaintop [1] Construction Fleet: active"
 	npc accompany save
 		personality escort timid
 		government "Hai"
@@ -141,8 +219,62 @@ mission "building mountaintop 1a"
 event "role-play station"
 	unvisit "Ultima Thule"
 	system "Ultima Thule"
-		object Mountaintop
-			sprite planet/station2
+		pos -336 -211
+		government Republic
+		habitable 2560
+		belt 1635
+		link Rajak
+		asteroids "small rock" 2 2.4966
+		asteroids "medium rock" 22 1.9836
+		asteroids "large rock" 6 2.7018
+		asteroids "small metal" 63 4.788
+		asteroids "medium metal" 15 4.2066
+		asteroids "large metal" 1 4.2408
+		minables iron 16 6.44991
+		minables neodymium 5 4.94979
+		trade Clothing 378
+		trade Electronics 665
+		trade Equipment 580
+		trade Food 407
+		trade "Heavy Metals" 1045
+		trade Industrial 601
+		trade "Luxury Goods" 1245
+		trade Medical 732
+		trade Metal 417
+		trade Plastic 360
+		fleet "Small Hai" 1200
+		fleet "Large Hai" 2500
+		object
+			sprite star/f0
+			period 10
+		object
+			sprite planet/desert5
+			distance 200
+			period 22.3607
+		object
+			sprite planet/europa-b
+			distance 403.41
+			period 64.056
+		object
+			sprite planet/desert7-b
+			distance 824.9
+			period 187.302
+		object
+			sprite planet/gas1
+			distance 1706.99
+			period 557.553
+			object
+				sprite planet/ice8-b
+				distance 216
+				period 11.1964
+		object "Wormhole Alpha"
+			sprite planet/wormhole
+			distance 4208.63
+			period 2158.5
+			object Mountaintop
+				sprite planet/station2
+				distance 115
+				period 11.1964
 	planet Mountaintop
 		attributes hai 
 		landscape land/station0
@@ -150,7 +282,7 @@ event "role-play station"
 		security 0.2
 
 
-mission "building mountaintop 2"
+mission "Hai Building Mountaintop [2] Recruits"
 	name "Encourage recruits for Mountaintop"
 	description "Now that the station is going ahead, the Hai need to recruit some people to play the part. Someone needs to sell it to them though."
 	landing
@@ -174,7 +306,7 @@ mission "building mountaintop 2"
 	on visit
 		dialog `You have arrived at the Mountaintop construction site but it isn't finished or staffed yet.`
 	to offer
-		has "building mountaintop 1: done"
+		has "Hai Building Mountaintop [1] Construction Fleet: done"
 	passengers 1
 	blocked `Terry contacts you and says, "Captain, you're going to need a bunk free for me. Do you have space?" You do not, so you should complete or abort another mission to make room for her, then return here.`
 	on offer
@@ -206,7 +338,7 @@ mission "building mountaintop 2"
 		dialog `Upon landing you receive a ping informing you that <payment> has been deposited into your account. Terry must've set it up to happen automatically.`
 		payment 10000000
 
-mission "building mountaintop 2a"
+mission "Hai Building Mountaintop [2a] Sales Job"
 	landing
 	invisible
 	repeat
@@ -216,13 +348,13 @@ mission "building mountaintop 2a"
 		not planet "Darkwaste"
 		government "Hai"
 	to offer
-		has "building mountaintop 2: active"
+		has "Hai Building Mountaintop [2] Recruits: active"
 	on offer
 		dialog `You land on the world of <origin> and do your part to sell the opportunity on Mountaintop.`
 
 
 
-mission "building mountaintop 3"
+mission "Hai Building Mountaintop [3] Furnishings"
 	name "Retrieve human furnishings."
 	description "The volunteers are so numerous, that they've worked out that the Hai aren't going to be able to coordinate a realistic access"
 	autosave
@@ -233,7 +365,7 @@ mission "building mountaintop 3"
 	on visit
 		dialog `You have arrived at the Mountaintop construction site but it isn't finished or staffed yet.`
 	to offer
-		has "building mountaintop 2: done"
+		has "Hai Building Mountaintop [2] Recruits: done"
 	cargo "human furnishings" 600
 	blocked `Sayari contacts you and says, "<first>, you're going to need six hundred tons of cargo space for this." You should return here after freeing up <capacity>.`
 	on offer
