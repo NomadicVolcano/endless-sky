@@ -30,11 +30,18 @@ mission "HRF 01 Summoned to Mountaintop"
 	destination "Mountaintop"
 	to offer
 		has "event: hai-human treaty prepared"
-		has "Expanding Business [4]: done"
 		has "Pirate Troubles [4]: done"
-		has "Nanachi 4: done"
+
+		# This one can't happen until 3019, which will be an extremely long
+		# delay for some players
+		#has "Nanachi 4: done"
+		
 		#This makes sure that the background missions for the danger of travelling to Hai space can still happen (as they definitely don't work after this section).
 		#This also means that a lot of great content doesn't get excluded for players who don't find the Hai before finishing the main plot just because new content has been added.
+		
+		# Expanding Business still works since the salesman is exaggerating the
+		# danger, and the pirates chasing the ships are likely to be destroyed.
+		#has "Expanding Business [4]: done"
 	on offer
 		conversation
 			#A message summons you for the treaty resolution.

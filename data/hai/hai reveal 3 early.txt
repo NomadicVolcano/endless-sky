@@ -33,7 +33,7 @@ mission "building mountaintop 1"
 	on visit
 		dialog `You have arrived at the Mountaintop construction site but the Geocoris haven't arrived yet.`
 	to offer
-		has "leaks response 5: done"
+		has "Hai Leaks Response 6: done"
 	on offer
 		event "role-play fleet deception"
 		conversation

@@ -815,7 +815,6 @@ mission "Expanding Business [5]"
 	destination "Greenwater"
 	to offer
 		has "event: request for a shipyard"
-		has "event: hai-human treaty signed"
 	on offer
 		dialog `You receive a message from David Turner when you land. "Hello, Captain. I hope you've been enjoying your share in the outfitter. I have a new proposition for you, as I've bought out the rest of the park around the outfitter. Meet me on <destination> if you'd like to hear about it."`
 
