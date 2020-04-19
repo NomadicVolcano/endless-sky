@@ -500,6 +500,7 @@ mission "Hai Leaks Response 2"
 	stopover "Deep"
 	stopover "Foundry"
 	destination "Hai-home"
+	blocked "You have a mission here for the Hai, but you need thee bunks free."
 	clearance
 	to offer
 		has "Hai Leaks Response 1: done"
@@ -615,7 +616,7 @@ mission "Hai Leaks Response 2B"
 #This gets picked up silently on Hai-home when landing for response 2 - leads to go kill pirates mission with chat on Allhome.
 mission "Hai Leaks Response 3"
 	name "Meet with Security Forces on Allhome"
-	description "Meet with the Security Forces on Allhome before fightin the pirates."
+	description "Meet with the Security Forces on Allhome before fighting the pirates."
 	landing
 	source "Hai-home"
 	destination "Allhome"
@@ -624,11 +625,12 @@ mission "Hai Leaks Response 3"
 
 #Go kill pirates mission with chat on Allhome.
 mission "Hai Leaks Response 4"
-	name "Defeat the Black Lich and board the Geocoris"
-	description "Defeat the marauder capatain and rescue the captured Hai from his stolen Geocoris."
+	name "Defeat the Black Lich"
+	description "Defeat Black Lich's Marauder Leviathan at Waypoint."
 	autosave
 	landing
 	source "Allhome"
+	waypoint "Waypoint"
 	destination "Allhome"
 	to offer
 		has "Hai Leaks Response 3: done"
@@ -650,37 +652,37 @@ mission "Hai Leaks Response 4"
 			choice
 				`	We shall bring them safely home.`
 					accept
-	npc accompany
+	npc
 		government "Hai"
 		personality escort disables heroic
-		fleet 9
+		fleet 16
 			names "hai"
 			variant
-				"Lightning Bug" 4
-				"Pond Strider" 3
-				"Shield Beetle (Police)" 2
-				# help on this? not sure if this is right at all.
+				"Shield Beetle (Six Ion)"
+			variant
+				"Shield Beetle (Durable Pulse)"
 	npc kill
 		government "Pirate"
-		personality staying nemesis
+		personality staying marked target
 		system "Waypoint"
 		ship "Marauder Leviathan (Weapons)" "Black Lich"
 	on complete
 		payment 1000000
 		event "waypoint pirates vanquished"
 		conversation
-			`When you return the Hai Captain thanks you profusely, "Please, the Allhome government has authorised a reward of <payment> for routing the problem."`
-			branch "saved geocoris"
-				not "Hai Leaks Response 4a: failed"
-			`	He sighs deeply, "It is a shame though that the kidnapped Hai could not be saved, but the other Hai captains tell me it was a mess out there."`
-			`	He places one of his furry hands comfortingly on your shoulder, "I'm sure you did all you could."`
-				goto end
-			label "saved geocoris"
-			`	"Your rescue of our kidnapped people is deeply appreciated also. Lucky for you, the merchant who owned the Geocoris has already filed the insurance claim, so you get to keep the ship as a trophy."`
-			`	"I do need to do a full security scan of it before I let it go though, just to complete all the incident paperwork, so if you have any business on world here then you should take your time."`
-			label end
-			`	"In any event, let us hope a more permanent solution can be devised soon. In the meantime, I'm sure they'll be waiting for you back on Hai-home before too long."`
-			`	With a final nod of thanks he departs to attend to business, leaving you free to wander the spaceport until they release your new ship.`
+			`When you return the Hai Captain thanks you profusely, "Please, the Allhome government has authorised a reward of <payment> for routing the problem. Let us hope a more permanent solution can be devised soon. In the meantime, I'm sure they'll be waiting for you back on Hai-home before too long."`
+			
+			# branch "saved geocoris"
+			# 	not "Hai Leaks Response 4a: failed"
+			# `	He sighs deeply, "It is a shame though that the kidnapped Hai could not be saved, but the other Hai captains tell me it was a mess out there."`
+			# `	He places one of his furry hands comfortingly on your shoulder, "I'm sure you did all you could."`
+			# 	goto end
+			# label "saved geocoris"
+			# `	"Your rescue of our kidnapped people is deeply appreciated also. Lucky for you, the merchant who owned the Geocoris has already filed the insurance claim, so you get to keep the ship as a trophy."`
+			# `	"I do need to do a full security scan of it before I let it go though, just to complete all the incident paperwork, so if you have any business on world here then you should take your time."`
+			# label end
+			# `	"In any event, let us hope a more permanent solution can be devised soon. In the meantime, I'm sure they'll be waiting for you back on Hai-home before too long."`
+			# `	With a final nod of thanks he departs to attend to business, leaving you free to wander the spaceport until they release your new ship.`
 	
 	
 event "waypoint pirates vanquished"
@@ -697,24 +699,28 @@ event "waypoint pirates vanquished"
 		remove fleet "Large Northern Pirates" 600
 		remove fleet "Large Core Pirates" 600
 
-		
-mission "Hai Leaks Response 4A"
-	landing
-	invisible
-	source "Allhome"
-	to offer
-		has "Hai Leaks Response 3: done"
-	npc board save
-		government "Pirate"
-		personality staying nemesis
-		system "Waypoint"
-		ship "Geodesic Geocoris (Phylactery)" "Phylactery"
-		dialog `After successfully boarding the Geocoris and defeating its pirate crews you are greeted by the relieved captive Hai. You promise them that they will be safely on Allhome before long.`
-	on fail
-		dialog `You have failed to recover the Geocoris. This is not critical, but does have long-term consequences. If you want the heroic ending, revert to the autosave or another earlier snapshot of the game.`
-	on complete
-		event "returned geocoris" 365
-		#The Geodesic Geocoris may become available to purchase specially later on.
+# It is impossible to implement a "capture and return npc"
+# mission. Once the ship is captured, the NPC is gone and the mission
+# is failed.
+#
+# mission "Hai Leaks Response 4A"
+# 	name "Recover the Geocoris"
+# 	description "Recover the stolen Geocoris, somewhere near Hai space."
+# 	landing
+# 	source "Allhome"
+# 	to offer
+# 		has "Hai Leaks Response 3: done"
+# 	npc board
+# 		government "Non-combatant Pirate"
+# 		personality staying nemesis marked mute
+# 		system "Waypoint"
+# 		ship "Geodesic Geocoris (Phylactery)" "Phylactery"
+# 		dialog `After successfully boarding the Geocoris and defeating its pirate crews you are greeted by the relieved captive Hai. You promise to escort their ship to Allhome.`
+# 	on fail
+# 		dialog `You have failed to recover the Geocoris. This is not critical, but does have long-term consequences. If you want the heroic ending, revert to the autosave or another earlier snapshot of the game.`
+# 	on complete
+# 		event "returned geocoris" 365
+# 		#The Geodesic Geocoris may become available to purchase specially later on.
 		
 event "returned geocoris"
 		
@@ -802,6 +808,16 @@ ship "Geodesic Geocoris" "Geodesic Geocoris (Phylactery)"
 	turret "Electron Turret"
 
 mission "Hai Leaks Response 5"
+	landing
+	name "Talk to Hai authorities to <planet>"
+	description "Meet Hai authorities on <destination>."
+	source "Allhome"
+	clearance
+	destination "Hai-home"
+	to offer
+		has "Hai Leaks Response 4: done"
+
+mission "Hai Leaks Response 6"
 	name "Investigate rumours of kidnapped Hai."
 	description "It's a statistical oddity, but Sayuri's friend thinks someone is kidnapping Hai and wants you to check out a possible smuggling operation across the nearby parts of human space to disprove it."
 	autosave
@@ -822,8 +838,8 @@ mission "Hai Leaks Response 5"
 			`	Some hours later you leave the fancy cocktail bar Alondo took you to and begin making your way back to your ship to sleep, your cabin by far seems to be the best place to not be bothered.`
 			`	Part way there though a hooded figure suddenly falls in step beside you.`
 			choice
-				`	Keep walking.`
-				`	Ask them who they are.`
+				`	(Keep walking.)`
+				`	(Ask them who they are.)`
 			`	"Sssshhhh!" says the voice at your elbow, "do not react, and do not be alarmed, it is merely I."`
 			`	You look at the figure out of the corner of your eye and connect the whispered voice to the squirrelly muzzle poking out. To your surprise it is Sayuri.`
 			`	"I should not be coming to you with this, so you must promise to say nothing of this to anyone just yet."`
