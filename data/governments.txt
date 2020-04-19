@@ -596,7 +596,6 @@ government "Pirate"
 		"Merchant" -.1
 		"Syndicate" -.01
 		"Hai (Friendly Unfettered)" -.01
-		"Non-combatant Pirate" 1.0
 	"bribe" .05
 	"fine" 0
 	"friendly hail" "friendly pirate"
