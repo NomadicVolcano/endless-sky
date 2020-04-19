@@ -365,6 +365,7 @@ mission "Hai Reveal [D05] Cleanup"
 				accept
 	on complete
 		event "hai-human resolution announced"
+		event "wandering nightmare map" 7
 		conversation
 			`When you return to mountaintop you reassure Sayari and Xilin that there is nothing more to do. The danger is over, for good.`
 			`	As it happens the summit has functionally concluded by the time you return. The diplomats had been running interference to prolong things in fact, knowing that your return had critical consequences. Now that you're here, the remaining agenda items miraculously get resolved within hours, and late in the day you find yourself once again  Where Mountains Touch The Sky as the successful resolution is announced.`
@@ -373,6 +374,7 @@ mission "Hai Reveal [D05] Cleanup"
 			`	At last, it really is over and you can get back to your own life.`
 			`	Maybe you'll have to find out who the Unfettered were stealing their other technolgies from. They mentioned, "Wanderers."`
 
+event "wandering nightmare map"
 
 mission "Hai Reveal [D05A] Spare Terry"
 	landing
