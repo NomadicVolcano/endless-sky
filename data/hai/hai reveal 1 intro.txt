@@ -711,8 +711,8 @@ event "waypoint pirates vanquished"
 # 	to offer
 # 		has "Hai Leaks Response 3: done"
 # 	npc board
-# 		government "Non-combatant Pirate"
-# 		personality staying nemesis marked mute
+# 		government "Pirate"
+# 		personality staying marked mute
 # 		system "Waypoint"
 # 		ship "Geodesic Geocoris (Phylactery)" "Phylactery"
 # 		dialog `After successfully boarding the Geocoris and defeating its pirate crews you are greeted by the relieved captive Hai. You promise to escort their ship to Allhome.`
@@ -827,6 +827,8 @@ mission "Hai Leaks Response 6"
 		has "Hai Leaks Response 4: done"
 	on offer
 		event "role-play fleet deception"
+		# Hai like you a lot now, and as a result, you have permanent access to Hai-home:
+		"reputation: Hai" >?= 100
 		conversation
 			`When you return to Hai-home you are met by a group of relieved diplomats.`
 			`	Of all of them Alondo seems to be the least tired and takes the time to let you know what's been going on, "Captain <last>! You've missed quite the palava. Still, I doubt you lost much by missing out on trying to explain to Sayuri what a 'furry' is."`

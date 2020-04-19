@@ -603,19 +603,6 @@ government "Pirate"
 	"hostile hail" "hostile pirate"
 	raid "pirate raid"
 
-# Pirate that nobody can damage except the player
-government "Non-combatant Pirate"
-	"display name" "Pirate"
-	swizzle 6
-	color .78 0 0
-	
-	"player reputation" -10
-	"bribe" .05
-	"fine" 0
-	"friendly hail" "friendly pirate"
-	"hostile hail" "hostile pirate"
-	raid "pirate raid"
-
 government "Pirate (Devil-Run Gang)"
 	swizzle 6
 	color .78 0 0
