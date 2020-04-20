@@ -8,6 +8,19 @@
 # WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
 # PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
+mission "Make Vara K'chrai Accessible"
+	landing
+	invisible
+	to offer
+		has "event: hai-human resolution announced"
+	on offer
+		event "Vara K'chrai is accessible"
+
+event "Vara K'chrai is accessible"
+	# You can now begin the Wanderers campaign.
+	planet "Vara K'chrai"
+		"required reputation" 0
+
 mission "First Contact: Wanderer (Before Hai)"
 	landing
 	source
@@ -97,7 +110,6 @@ mission "Wanderers: Hai Diplomat"
 	clearance
 	to offer
 		has "First Contact: Wanderer: offered"
-		has "hai-human treaty signed"
 		not "Wanderers: Diplomacy: offered"
 	on offer
 		conversation

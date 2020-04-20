@@ -521,6 +521,7 @@ fleet "Free Worlds Friendly Wormhole Guards"
 		"Bastion (Heavy)"
 
 event "hai-human resolution announced"
+	
 	# Fleet build-up is gone, no more smugglers, and everyone is monitoring
 	# everyone else.
 
