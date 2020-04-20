@@ -35,7 +35,7 @@ mission "HRF 00 Resolution Timer"
 	landing
 	invisible
 	to offer
-		has "hai-human resolution announced"
+		has "event: hai-human resolution announced"
 	on offer
 		event "hai-human treaty prepared" 160 200
 		fail
@@ -45,6 +45,8 @@ event "hai-human treaty prepared"
 
 mission "HRF 01 Summoned to Mountaintop"
 	landing
+	name "Treaty at <planet>"
+	description "Go to <destination> to witness signing of the Hai-human treaty."
 	source
 		government "Republic" "Syndicate" "Free Worlds" "Hai"
 		not attributes "uninhabited"
@@ -75,7 +77,7 @@ mission "HRF 01 Summoned to Mountaintop"
 			`	The message has travelled a very long way and filtered through a great many buffers and relays to reach you, but it is nice that you can safely send messages across the wormhole now.`
 			label haispace
 			`	The content of the message is very simple. The Hai-human treaty, which both peoples' governments resolved to work on, has reached its final stages of drafting and acceptance. Apparently there's something they want you to assist with to get it over the line. They'll be waiting for you on Mountaintop when you're ready.`
-			accept
+				accept
 	
 	
 	
