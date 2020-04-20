@@ -372,7 +372,7 @@ event "role-play station active"
 	planet Mountaintop
 		government "Neutral"
 		attributes station tourism
-		landscape land/station0
+		landscape land/station5
 		description `This brand new station is built with wide spacious interiors, though that is largely because it was built for having expansion room inside it to accomodate the Hai's preferred geometric development pattern and long-term perspectives. At the moment there is a number of hai pretending to be humans in costume, and a number of volunteer humans from Hai space helping to make up the act. A powerful holoprojection system is projecting an 'anomaly' into space nearby as a novelty. Some 'investigators' following rumours of the Hai are being entertained at most any time.`
 		spaceport `The spaceport is a spacious docking assembly sheltered under broad carapace-like structures which are arrayed around the lower decks like petals. It is designed to look impressive and still has that shiny look and freshly oiled smell of a newly minted construction, though it has only basic facilities and services.`
 		security 0.7
