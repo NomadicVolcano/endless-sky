@@ -286,6 +286,7 @@ mission "Hai Building Mountaintop [2] Recruits"
 mission "Hai Building Mountaintop [2a] Sales Job"
 	landing
 	invisible
+	repeat
 	source 
 		not planet "Hai-home"
 		not planet "Mountaintop"
