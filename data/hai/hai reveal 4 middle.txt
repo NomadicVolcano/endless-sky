@@ -10,7 +10,7 @@
 
 ########################################################################
 
-# Part 1: Search Korath and human space for the missing researchers
+# Part 4: Search Korath and human space for the missing researchers
 
 mission "Hai Rescue [A01] Visit Darkwaste"
 	landing

@@ -1524,9 +1524,12 @@ mission "Nanachi 1"
 	name "Escort Nanachi to <planet>"
 	description "Help Nanachi, a Hai who just bought her first ship, make a simple delivery to <destination> by <date>."
 	minor
-	source "Giverstone"
+	source
+		# This is a mandatory mission, so the range is as far as a
+		# Heavy Shuttle can reach (500 fuel)
+		near "Wah Ki" 1 5
 	destination "Cloudfire"
-	deadline
+	deadline 2 1
 	to offer
 		or
 			has "Hai Leaks Response 6: offered"
