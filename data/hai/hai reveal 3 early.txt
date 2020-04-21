@@ -358,7 +358,9 @@ event "role-play station active"
 				distance 216
 				period 11.1964
 		object "Wormhole Alpha"
-			sprite planet/wormhole
+			sprite planet/wormhole-syndicate-ad
+				"frame rate" 1
+				"random start frame"
 			distance 4208.63
 			period 2158.5
 			object Mountaintop
