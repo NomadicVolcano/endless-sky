@@ -713,7 +713,7 @@ mission "Hai Leaks Response 4"
 	npc
 		government "Hai"
 		personality escort disables heroic
-		fleet "Anti-Pirate Hai (No Wormhole Travel)" 16
+		fleet "Anti-Pirate Hai (No Wormhole Travel)" 9
 	npc kill
 		government "Pirate"
 		personality staying marked target
@@ -740,7 +740,7 @@ mission "Hai Leaks Response 4"
 	
 	
 event "waypoint pirates vanquished"
-	#Add pirate spawns to Waypoint and Heia Due
+	#Update pirate and anti-pirate spawns in Waypoint and Heia Due
 	system "Waypoint"
 		government "Hai"
 		add fleet "Anti-Pirate Hai (Wormhole Travel)" 2000
