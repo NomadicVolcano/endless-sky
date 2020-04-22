@@ -441,6 +441,89 @@ ship "Lightning Bug" "Lightning Bug (Surveillance)"
 
 
 
+ship "Ladybug"
+	sprite "ship/hai ladybug"
+	thumbnail "thumbnail/hai ladybug"
+	attributes
+		category "Medium Warship"
+		"cost" 4950000
+		"shields" 12300
+		"hull" 3600
+		"required crew" 9
+		"bunks" 33
+		"mass" 250
+		"drag" 4.1
+		"heat dissipation" .85
+		"fuel capacity" 900
+		"cargo space" 63
+		"outfit space" 460
+		"weapon capacity" 177
+		"engine capacity" 120
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Ion Cannon" 2
+		"Hai Tracker Pod" 2
+		"Tracker Storage Pod" 2
+		"Hai Tracker" 168
+		"Chameleon Anti-Missile"
+
+		"Hai Diamond Regenerator"
+		"Hai Williwaw Cooling" 2
+		"Hai Fissure Batteries"
+		"Supercapacitor"
+		"Boulder Reactor"
+		"Pulse Rifle" 7
+		
+		`"Bondir" Atomic Steering`
+		`"Biroo" Atomic Thruster`
+		"Hyperdrive"
+
+	gun 0 -62.5
+	gun -8 -62.5 "Ion Cannon"
+	gun 8 -63.5 "Ion Cannon"
+	gun -14 -62.5 "Hai Tracker Pod"
+	gun 14 -62.5 "Hai Tracker Pod"
+	turret 0 25 "Chameleon Anti-Missile"
+	engine -36 56 0.8
+	engine 36 56 0.8
+	engine -51 53 0.6
+	engine 51 53 0.6
+	explode "tiny explosion" 20
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 10
+	"final explode" "final explosion large"
+	description "In a more peaceful era, the Hai used these as exploration vessels. Today, the Ladybug's single turret mount isn't enough to support a full Hai arsenal. However, this ship has seen combat in recent years against human pirates who fall to its superior maneuverability."
+
+ship "Ladybug" "Ladybug (Three Ion)"
+	outfits
+		"Ion Cannon" 3
+		"Chameleon Anti-Missile"
+
+		"Hai Diamond Regenerator"
+		"Hai Williwaw Cooling" 2
+		"Hai Fissure Batteries"
+		"Hai Chasm Batteries" 2
+		"Supercapacitor" 2
+		"Boulder Reactor"
+		"Pulse Rifle" 7
+		
+		`"Bondir" Atomic Steering`
+		`"Biroo" Atomic Thruster`
+		"Hyperdrive"
+	gun 0 -62.5 "Ion Cannon"
+	gun -8 -62.5 "Ion Cannon"
+	gun 8 -63.5 "Ion Cannon"
+	gun -14 -62.5
+	gun 14 -62.5
+	turret 0 25 "Chameleon Anti-Missile"
+
+
 ship "Pond Strider"
 	sprite "ship/hai pond strider"
 	thumbnail "thumbnail/hai pond strider"
