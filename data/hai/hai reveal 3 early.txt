@@ -338,7 +338,9 @@ mission "Hai Building Mountaintop [2a] Sales Job"
 	to offer
 		has "Hai Building Mountaintop [2] Recruits: active"
 	on offer
-		dialog `You land on the world of <origin> and do your part to sell the opportunity on Mountaintop.`
+		conversation
+			`You land on the world of <planet> and do your part to sell the opportunity on Mountaintop.`
+				decline
 
 
 
