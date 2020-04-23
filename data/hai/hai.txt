@@ -215,12 +215,6 @@ fleet "Anti-Pirate Hai (Wormhole Travel)"
 		"Shield Beetle (Durable Pulse)"
 		"Ladybug (Three Ion)" 2
 	variant
-		"Ladybug"
-		"Ladybug (Pulse)"
-		"Ladybug (Three Ion)"
-	variant
-		"Ladybug (Tracker)" 3
-	variant
 		"Shield Beetle (Durable Pulse)" 2
 		
 fleet "Anti-Pirate Hai (No Wormhole Travel)"
@@ -244,12 +238,6 @@ fleet "Anti-Pirate Hai (No Wormhole Travel)"
 	variant
 		"Shield Beetle (Durable Pulse)"
 		"Ladybug (Tracker)" 2
-	variant
-		"Ladybug"
-		"Ladybug (Pulse)"
-		"Ladybug (Three Ion)"
-	variant
-		"Ladybug (Tracker)" 3
 	variant
 		"Shield Beetle (Durable Pulse)" 2
 
