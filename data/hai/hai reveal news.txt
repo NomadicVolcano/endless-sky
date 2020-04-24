@@ -1,3 +1,14 @@
+# Copyright (c) 2020 by Nomadic Volcano
+# Based on earlier text copyright (c) 2017 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
 mission "news: add alien paranoia"
 	landing
 	invisible
@@ -39,7 +50,6 @@ event "news: add alien paranoia"
 			portrait/human42
 			portrait/human48
 			portrait/human54
-			portrait/human60
 			portrait/human66
 			portrait/human69
 			portrait/human80
@@ -86,7 +96,6 @@ event "news: add alien paranoia"
 			portrait/human42
 			portrait/human48
 			portrait/human54
-			portrait/human60
 			portrait/human66
 			portrait/human69
 			portrait/human80
@@ -145,7 +154,6 @@ event "news: add alien paranoia"
 			portrait/human42
 			portrait/human48
 			portrait/human54
-			portrait/human60
 			portrait/human66
 			portrait/human69
 			portrait/human80
@@ -198,7 +206,6 @@ event "news: add alien paranoia"
 			portrait/human42
 			portrait/human48
 			portrait/human54
-			portrait/human60
 			portrait/human66
 			portrait/human69
 			portrait/human80
@@ -252,7 +259,6 @@ event "news: add alien paranoia"
 			portrait/human42
 			portrait/human48
 			portrait/human54
-			portrait/human60
 			portrait/human66
 			portrait/human69
 			portrait/human80
@@ -272,7 +278,6 @@ event "news: add alien paranoia"
 				"I saw a man walking down the street... or I thought it was a man, until it walked past a transformer. The man flickered; it was a hologram covering some kind of fuzzy creature."
 				"I saw Nuclear Martini playing at a concert on Prime, and I swear the hairy drummer is some kind of giant squirrel."
 				"There's these game conventions up in the paradise worlds, and I see a lot of short kids wearing full-body squirrel outfits. I'm starting to wonder if they're really aliens."
-				"Someone posted a video of a bunch of white castle ships fighting each other. They look alien. If it was real, why hasn't anyone gone public with it?"
 				"There was a crashed ship near me, and I heard rumors of some crazy squirrel inside. The police cleaned it up really quick and now all we see is some scorch marks. The authorities won't say anything."
 				"The pickled acorns they sell in the store taste so good they can't possibly be of human manufacture."
 
@@ -314,7 +319,7 @@ event "news: add alien paranoia"
 				"It's odd, but some of the buildings near here bear a striking resemblance to ancient Minoan architecture. We also found tablets with Sanskrit writing and samples of ancient cave paintings. How long have the Pug been manipulating us?"
 				"We're still studying what lies beyond the wormhole. There's a never-ending slue of discoveries from the Quarg ruins that are almost as valuable as what we found on this planet."
 				"There are residual space-time distortions at the Quarg ringworld past the wormhole. We suspect it was moved in minutes. The energy required would be more than the total energy ever produced by the human race."
-				"A ringworld is such a stupid idea. If you break clean through one piece, the centrifugal force tears the whole ring apart. If the Quarg were smart, they would've a Dyson swarm instead."
+				"A ringworld is such a stupid idea. If you break clean through one piece, the centrifugal force tears the whole ring apart. If the Quarg were smart, they would've made a Dyson swarm instead."
 
 	# Visual suggestion: dangerous mofos, lunatics, reavers
 	news "pirate: smug about Pug"
@@ -651,3 +656,208 @@ phrase "person you could suspect to be aliens"
 
 
 
+
+event "news: hai video clip published"
+
+	news "Hai video: human response"
+		location
+			government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent" "Pirate"
+		name
+			word
+				"Concerned citizen"
+				"Reporter"
+				"Merchant captain"
+				"Worried parent"
+				"Bystander"
+				"Pug war survivor"
+				"Conspiracy theorist"
+		portrait
+			portrait/human01
+			portrait/human05
+			portrait/human08
+			portrait/human09
+			portrait/human13
+			portrait/human16
+			portrait/human20
+			portrait/human23
+			portrait/human27
+			portrait/human29
+			portrait/human36
+			portrait/human40
+			portrait/human42
+			portrait/human48
+			portrait/human54
+			portrait/human66
+			portrait/human69
+			portrait/human80
+			portrait/human83
+			portrait/human89
+			portrait/human92
+			portrait/human105
+			portrait/human108
+			portrait/human111
+			portrait/human116
+			portrait/human121
+			portrait/human125
+		message
+			word
+				"Did you see that video of the alien ships fighting? I heard that my sister's best friend's husband saw a bunch of those ships near Cardax."
+				"I saw that video of the alien ships fighting, and it looked a lot like another ship I saw one time. It was a teardrop-shaped luxury liner. The captain called it a Centipede, but wouldn't say where it came from."
+				"That ship video was amazing. I saw those ships in a game called, 'Boundless Frontiers.' The 'Death-Squirrel' and 'Hippie Love Squirrel' factions both use them in a non-stop battle above the planet 'Skyflame.' It's clear some fan is pulling a giant prank."
+				"Did you see that alien ship video? Whoever those aliens are, I hope they sell those huge shield-shaped ships to us. We could really use those to protect our merchant caravans near pirate space."
+				"I hope the aliens in that video don't invade us. We've had enough alien trouble already."
+				"That alien ship video was so fake. I could see the strings the ship models were flying along. Sloppy job."
+				"I know a fake video when I see one. There's enough real alien problems in the galaxy to worry about without thinking about a FAKE group of aliens."
+				"Did you see the alien ship fight video? I swear, I was using Blender version 17.47, and I found 3D models of those ships made back in the 21st century. Am I losing my mind?"
+
+
+event "news: hai video clip debunked"
+	news "Hai video: human response"
+		remove location
+	news "Hai roleplay station: human response"
+		location
+			government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent" "Pirate"
+		name
+			word
+				"Concerned citizen"
+				"Reporter"
+				"Merchant captain"
+				"Worried parent"
+				"Bystander"
+				"Pug war survivor"
+				"Conspiracy theorist"
+		portrait
+			portrait/human01
+			portrait/human05
+			portrait/human08
+			portrait/human09
+			portrait/human13
+			portrait/human16
+			portrait/human20
+			portrait/human23
+			portrait/human27
+			portrait/human29
+			portrait/human36
+			portrait/human40
+			portrait/human42
+			portrait/human48
+			portrait/human54
+			portrait/human66
+			portrait/human69
+			portrait/human80
+			portrait/human83
+			portrait/human89
+			portrait/human92
+			portrait/human105
+			portrait/human108
+			portrait/human111
+			portrait/human116
+			portrait/human121
+			portrait/human125
+		message
+			word
+				"I visited the new Syndicate station at Ultima Thule. It's hilarious. They have alien-looking architecture and a huge ad banner."
+				"It turns out the alien video was just a marketing gimmick for the new Syndicate station."
+				"We're supposed to believe this absurd story about the alien ships past Ultima Thule? There's no wormhole there. It was all a Syndicate marketing gimmick."
+				"I don't like how the Syndicate tricked us with that fake alien video as a silly marketing gimmick, but at least they're not trying to nuke Earth or destroy starlanes."
+
+
+
+event "news: hai are public"
+	news "Hai sightings: generic citizen"
+		remove location
+	news "Hai roleplay station: human response"
+		remove location
+		
+	news "Hai news: generic citizen"
+		location
+			government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		name
+			word
+				"Reporter"
+				"Citizen"
+				"Parent"
+		portrait
+			portrait/human01
+			portrait/human05
+			portrait/human08
+			portrait/human09
+			portrait/human13
+			portrait/human16
+			portrait/human20
+			portrait/human23
+			portrait/human27
+			portrait/human29
+			portrait/human36
+			portrait/human40
+			portrait/human42
+			portrait/human48
+			portrait/human54
+			portrait/human66
+			portrait/human69
+			portrait/human80
+			portrait/human83
+			portrait/human89
+			portrait/human92
+			portrait/human105
+			portrait/human108
+			portrait/human111
+			portrait/human116
+			portrait/human121
+			portrait/human125
+		message
+			word
+				"Did you try the Hai beer made of fermented nuts? It's amazing."
+				"I always knew those pickled acorns were too good to be of human manufacture."
+				"My daughter saw a Hai on the news and asked for one as a pet. I've been trying to explain that they're people, but she's too young to understand. All she sees is their cuteness."
+				"I wonder if Hai have pirates of their own, like we do?"
+				"I hear Hai defensive technology is amazing. I hope we start using it on merchant vessels. We'll lose much fewer ships to pirates."
+				"Did you hear there's a completed Quarg ringworld in Hai space? Can you imagine the size of such a thing? It must have taken a thousand years to build."
+				"How did the Hai hide themselves from us for so long? Did our government help them?"
+				"I love the Hai. They're not psychotic like the Pug or anti-social like the Quarg."
+				"I'm in a joint Hai-human sewing club. We send clothing to each other. They look so cute in mittens."
+				"The Hai look like cute little stuffed animals, until you see their fencing matches. I bet a Hai could out-maneuver an Alpha if they had to."
+				"Hopefully meeting a friendly and peaceful alien species will send our society's development ahead a few years. Between this and the Pug technology discoveries, I think we've gotten very lucky."
+				"I hear the Hai let pirates live in their territory, as part of reformation programs. That may not be the wisest decision they've ever made, but it's certainly a compassionate one."
+				"I hope nobody is smuggling Hai technology to the pirates. I don't want to think of what would happen if pirates got their hands on that stuff."
+
+
+	# Visual suggestion: a bit quirky or weird; expression is content, confident, or stoic
+	news "Hai news: merchant captain"
+		location
+			government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		name
+			word
+				"Merchant captain"
+		portrait
+			portrait/human02
+			portrait/human04
+			portrait/human06
+			portrait/human10
+			portrait/human15
+			portrait/human17
+			portrait/human31
+			portrait/human58
+			portrait/human63
+			portrait/human72
+			portrait/human73
+			portrait/human76
+			portrait/human79
+			portrait/human98
+			portrait/human112
+		message
+			word
+				"I wonder if Hai have pirates of their own, like we do?"
+				"I hear Hai defensive technology is amazing. I'm going to stock up on shields and anti-missile turrets when I get there. Hopefully I'll lose fewer ships when I fly near pirate space."
+				"Ever since I got my hands on a Shield Beetle, I've taken up bounty hunting. Replace those wimpy Hai weapons with some particle or plasma cannons, and the ships are unstoppable."
+				"I hear the Hai let pirates live in their territory, as part of reformation programs. That may not be the wisest decision they've ever made, but it's certainly a compassionate one."
+				"I hope nobody is smuggling Hai technology to the pirates. I don't want to think of what would happen if pirates got their hands on that stuff."
+				"I've flown through Cardax many times. How did I not notice there was a wormhole just a few systems away?"
+				"I've made a fortune flying acorn cookies back here from Hai space. It's amazing how many people love them."
+				"Last time I flew to Hai space, I visited the Quarg ringworld. If you fly to the inner edge of the ring and look out, the panorama is awe-inspiring."
+				"The alloys Hai use in their ships are way beyond our technology. They're twice as strong with half the weight. No wonder their ships are so fast."
+
+				"Don't go too far north in Hai space. They have their own pirates, and they're much more powerful than anything we're used to in human space."
+				"I hear Hai space wasn't peaceful a few centuries ago when some reptilian aliens were raiding the place. I wonder where they went?"
+
+				
