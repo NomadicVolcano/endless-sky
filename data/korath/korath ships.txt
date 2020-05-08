@@ -1418,7 +1418,6 @@ ship "Korath Haven"
 		"Thruster (Planetary Class)"
 		"Grav-Steering (Nebula Class)"
 		"Hyperdrive"
-
 	turret -47 -404 "Korath Digger Turret"
 	turret 47 -404 "Korath Digger Turret"
 	turret -131 -349 "Korath Inferno"
