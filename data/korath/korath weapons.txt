@@ -772,7 +772,7 @@ outfit "Korath Heaver"
 	"outfit space" -46
 	"weapon capacity" -46
 	# Built-in fuel storage is a reservoir used during firing.
-	"fuel capacity" 300
+	"fuel capacity" 200
 	"turret mounts" -1
 	"required crew" 1
 	weapon
