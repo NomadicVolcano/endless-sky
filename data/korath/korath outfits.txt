@@ -207,8 +207,8 @@ outfit "Control Transceiver"
 #   afterburner energy = thruster energy
 #   afterburner heat = 3.5 * thruster heat
 #   afterburner thrust = 1.5 * thruster thrust
-#   afterburner fuel = ( heat + energy + space ) / 300
 #   afterburner space = 0.8 * thruster space rounded down
+#   afterburner fuel = ( heat + energy + space ) / 300
 
 outfit "Afterburner (Asteroid Class)"
 	plural "Afterburners (Asteroid Class)"
@@ -270,12 +270,32 @@ outfit "Afterburner (Planetary Class)"
 	"outfit space" -55
 	"engine capacity" -55
 	"afterburner thrust" 120
-	"afterburner energy" 4.9
+	"afterburner energy" 8.9
 	"afterburner heat" 79.45
-	"afterburner fuel" 0.46
+	"afterburner fuel" 0.478
 	"afterburner effect" "afterburner"
 	"flare sound" "plasma medium"
 	description "Korath afterburners pump super-heated hyperspace fuel directly into a thruster's plasma stream, resulting in a phenominal explosion that nearly melts the thruster."
+	description "These enormous afterburners have a dedicated reaction chamber with cooling vents to keep the fuel-plasma explosion from destroying the thruster."
+
+outfit "Afterburner (Stellar Class)"
+	plural "Afterburners (Stellar Class)"
+	category "Engines"
+	"cost" 3280000
+	thumbnail "outfit/huge korath afterburner"
+	"mass" 94
+	"outfit space" -94
+	"engine capacity" -94
+	"afterburner thrust" 230.1
+	"afterburner energy" 15.8
+	"afterburner heat" 149.1
+	"afterburner fuel" 0.863
+	"afterburner effect" "afterburner"
+	"flare sound" "plasma medium"
+	description "Korath afterburners pump super-heated hyperspace fuel directly into a thruster's plasma stream, resulting in a phenominal explosion that nearly melts the thruster."
+	description "The very largest of Korath afterburners have integrated active cooling systems, powered by the fuel-plasma explosion, to keep the reaction chambers from melting."
+
+
 
 outfit "Engine (Meteor Class)"
 	plural "Engine (Meteor Class)"

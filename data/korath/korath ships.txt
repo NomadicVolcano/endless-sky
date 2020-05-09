@@ -1234,8 +1234,8 @@ ship "Korath Dredger"
 		"heat dissipation" .55
 		"fuel capacity" 800
 		"cargo space" 480
-		"outfit space" 786
-		"weapon capacity" 280
+		"outfit space" 795
+		"weapon capacity" 270
 		"engine capacity" 175
 		
 		# Capabilities of built-in nanite factory:
