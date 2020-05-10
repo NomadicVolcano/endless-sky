@@ -276,7 +276,7 @@ outfit "Afterburner (Planetary Class)"
 	"afterburner effect" "afterburner"
 	"flare sound" "plasma medium"
 	description "Korath afterburners pump super-heated hyperspace fuel directly into a thruster's plasma stream, resulting in a phenominal explosion that nearly melts the thruster."
-	description "These enormous afterburners have a dedicated reaction chamber with cooling vents to keep the fuel-plasma explosion from destroying the thruster."
+	description "These enormous afterburners have dedicated reaction chambers with cooling vents to keep the fuel-plasma explosion from destroying the thruster."
 
 outfit "Afterburner (Stellar Class)"
 	plural "Afterburners (Stellar Class)"
