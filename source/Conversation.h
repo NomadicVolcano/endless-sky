@@ -72,11 +72,21 @@ public:
 	bool IsApply(int node) const;
 	const ConditionSet &Conditions(int node) const;
 	const std::string &Text(int node, int choice = 0) const;
+	const ConditionSet &TextConditions(int node, int choice = 0) const;
 	const Sprite *Scene(int node) const;
 	int NextNode(int node, int choice = 0) const;
 	
 	
 private:
+	class TextData {
+	public:
+		explicit TextData(const std::string &text, int next) : text(text), next(next) {}
+		explicit TextData(const std::string &text, const ConditionSet &showIf, int next) : text(text), conditions(conditions), next(next)
+		
+		std::string text;
+		ConditionSet showIf;
+		int next;
+	};
 	// The conversation is a network of "nodes" that you travel between by
 	// making choices (or by automatic branches that depend on the condition
 	// variable values for the current player).
@@ -90,8 +100,9 @@ private:
 		ConditionSet conditions;
 		// The actual conversation text. If this node is not a choice, there
 		// will only be one entry in the vector. Each entry also stores the
-		// number of the node to go to next.
-		std::vector<std::pair<std::string, int>> data;
+		// number of the node to go to next and any conditions that must be
+		// met to display the text.
+		std::vector<TextData> data;
 		// A "choice" node can have only one option, so rather than checking if
 		// data.size() != 1 we must explicitly store whether this is a choice:
 		bool isChoice;
@@ -104,9 +115,9 @@ private:
 	
 	
 private:
-	// Parse the children of the given node to see if then contain any "gotos."
-	// If so, link them up properly. Return true if gotos were found.
-	bool LoadGotos(const DataNode &node);
+	// Parse the children of the given node to see if then contain any "gotos" or conditions.
+	// If so, link them up properly. Return true if any were found.
+	bool LoadChildren(const DataNode &node);
 	// Add a label, pointing to whatever node is created next.
 	void AddLabel(const std::string &label, const DataNode &node);
 	// Set up a "goto". Depending on whether the named label has been seen yet

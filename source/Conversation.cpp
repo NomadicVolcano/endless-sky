@@ -119,9 +119,10 @@ void Conversation::Load(const DataNode &node)
 				// Store the text of this choice. By default, the choice will
 				// just bring you to the next node in the script.
 				nodes.back().data.emplace_back(grand.Token(0), nodes.size());
-				nodes.back().data.back().first += '\n';
+				nodes.back().data.back().text += '\n';
 				
-				LoadGotos(grand);
+				bool hasGotos, hasConditions;
+				LoadGotosAndConditions(grand, hasGotos, hasConditions);
 			}
 			if(nodes.back().data.empty())
 			{
@@ -152,7 +153,7 @@ void Conversation::Load(const DataNode &node)
 					if(!index)
 						Goto(child.Token(i), nodes.size() - 1, i - 1);
 					else if(index < 0)
-						nodes.back().data.back().second = index;
+						nodes.back().data.back().next = index;
 				}
 			}
 		}
@@ -173,31 +174,40 @@ void Conversation::Load(const DataNode &node)
 				AddNode();
 			
 			// Always append a newline to the end of the text.
-			nodes.back().data.back().first += child.Token(0);
-			nodes.back().data.back().first += '\n';
+			nodes.back().data.back().text += child.Token(0);
+			nodes.back().data.back().text += '\n';
 			
 			// Check whether there is a goto attached to this block of text. If
 			// so, future nodes can't merge onto this one.
-			if(LoadGotos(child))
+			bool hasGotos, hasConditions;
+			LoadGotosAndConditions(child,hasGotos,hasConditions);
+			if(hasGotos)
+			{
+				if(hasConditions)
+				{
+					child.printTrace("Conversation nodes with a \"show if\" cannot have gotos or endpoints:");
+					nodes.back().data.back().showIf.Clear();
+				}
 				nodes.back().canMergeOnto = false;
+			}
 		}
 	}
 	
 	// Display a warning if a label was not resolved.
 	if(!unresolved.empty())
 		for(const auto &it : unresolved)
-			node.PrintTrace("Conversation contains unrecognized label \"" + it.first + "\":");
+			node.PrintTrace("Conversation contains unrecognized label \"" + it.text + "\":");
 	
 	// Check for any loops in the conversation.
 	for(const auto &it : labels)
 	{
-		int nodeIndex = it.second;
+		int nodeIndex = it.next;
 		while(nodeIndex >= 0 && Choices(nodeIndex) <= 1)
 		{
 			nodeIndex = NextNode(nodeIndex);
-			if(nodeIndex == it.second)
+			if(nodeIndex == it.next)
 			{
-				node.PrintTrace("Conversation contains infinite loop beginning with label \"" + it.first + "\":");
+				node.PrintTrace("Conversation contains infinite loop beginning with label \"" + it.text + "\":");
 				nodes.clear();
 				return;
 			}
@@ -231,9 +241,9 @@ void Conversation::Save(DataWriter &out) const
 				// The only thing differentiating a "branch" from an "apply" node
 				// is that a branch has two data entries instead of one.
 				if(node.data.size() > 1)
-					out.Write("branch", TokenName(node.data[0].second), TokenName(node.data[1].second));
+					out.Write("branch", TokenName(node.data[0].next), TokenName(node.data[1].next));
 				else
-					out.Write("apply", TokenName(node.data[0].second));
+					out.Write("apply", TokenName(node.data[0].next));
 				
 				// Write the condition set as a child of this node.
 				out.BeginChild();
@@ -251,10 +261,10 @@ void Conversation::Save(DataWriter &out) const
 			for(const auto &it : node.data)
 			{
 				// Break the text up into paragraphs.
-				for(const string &line : Format::Split(it.first, "\n"))
+				for(const string &line : Format::Split(it.text, "\n"))
 					out.Write(line);
 				// Check what node the conversation goes to after this.
-				int index = it.second;
+				int index = it.next;
 				if(index > 0 && static_cast<unsigned>(index) >= nodes.size())
 					index = Conversation::DECLINE;
 				
@@ -284,7 +294,7 @@ Conversation Conversation::Substitute(const map<string, string> &subs) const
 	Conversation result = *this;
 	for(Node &node : result.nodes)
 		for(pair<string, int> &choice : node.data)
-			choice.first = Format::Replace(choice.first, subs);
+			choice.text = Format::Replace(choice.text, subs);
 	return result;
 }
 
@@ -356,7 +366,7 @@ const string &Conversation::Text(int node, int choice) const
 			|| static_cast<unsigned>(choice) >= nodes[node].data.size())
 		return empty;
 	
-	return nodes[node].data[choice].first;
+	return nodes[node].data[choice].text;
 }
 
 
@@ -379,7 +389,7 @@ int Conversation::NextNode(int node, int choice) const
 			|| static_cast<unsigned>(choice) >= nodes[node].data.size())
 		return DECLINE;
 	
-	return nodes[node].data[choice].second;
+	return nodes[node].data[choice].next;
 }
 
 
@@ -391,6 +401,12 @@ bool Conversation::LoadGotos(const DataNode &node)
 	bool hasGoto = false;
 	for(const DataNode &child : node)
 	{
+		if(child.Size() == 1 && child.Token(0) == "show if" && child.HasChildren())
+		{
+			for(const DataNode &grand : child)
+				std::get<1>(nodes.back().data.back()).Add(grand);
+			continue;
+		}
 		if(hasGoto)
 			child.PrintTrace("Ignoring extra text in conversation choice:");
 		else if(child.Size() == 2 && child.Token(0) == "goto")
@@ -405,7 +421,7 @@ bool Conversation::LoadGotos(const DataNode &node)
 			int index = TokenIndex(child.Token(0));
 			if(child.Size() == 1 && index < 0)
 			{
-				nodes.back().data.back().second = index;
+				nodes.back().data.back().next = index;
 				hasGoto = true;
 			}
 			else
@@ -431,7 +447,7 @@ void Conversation::AddLabel(const string &label, const DataNode &node)
 	auto range = unresolved.equal_range(label);
 	
 	for(auto it = range.first; it != range.second; ++it)
-		nodes[it->second.first].data[it->second.second].second = nodes.size();
+		nodes[it->second.first].data[it->second.second].next = nodes.size();
 	
 	unresolved.erase(range.first, range.second);
 	
@@ -450,7 +466,7 @@ void Conversation::Goto(const string &label, int node, int choice)
 	if(it == labels.end())
 		unresolved.insert({label, {node, choice}});
 	else
-		nodes[node].data[choice].second = it->second;
+		nodes[node].data[choice].next = it->next;
 }
 
 

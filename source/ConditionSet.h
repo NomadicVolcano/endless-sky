@@ -39,6 +39,8 @@ public:
 	// Save a set of conditions.
 	void Save(DataWriter &out) const;
 	
+	void Clear();
+	
 	// Check if there are any entries in this set.
 	bool IsEmpty() const;
 	

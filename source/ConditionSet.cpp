@@ -263,6 +263,13 @@ void ConditionSet::Save(DataWriter &out) const
 
 
 
+void ConditionSet::Clear()
+{
+	*this = ConditionSet();
+}
+
+
+
 // Check if there are any entries in this set.
 bool ConditionSet::IsEmpty() const
 {
