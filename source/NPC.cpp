@@ -403,6 +403,20 @@ bool NPC::HasFailed() const
 
 
 
+bool NPC::CanStopover(const System *playerSystem) const
+{
+	return !checkAtStopovers || HasSucceeded(playerSystem);
+}
+
+
+
+bool NPC::CanWaypoint(const System *playerSystem) const
+{
+	return !checkAtWaypoints || HasSucceeded(playerSystem);
+}
+
+
+
 // Create a copy of this NPC but with the fleets replaced by the actual
 // ships they represent, wildcards in the conversation text replaced, etc.
 NPC NPC::Instantiate(map<string, string> &subs, const System *origin, const System *destination) const

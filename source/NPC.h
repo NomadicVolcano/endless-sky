@@ -61,6 +61,9 @@ public:
 	bool IsLeftBehind(const System *playerSystem) const;
 	bool HasFailed() const;
 	
+	bool CanStopover(const System *playerSystem) const;
+	bool CanWaypoint(const System *playerSystem) const;
+	
 	// Create a copy of this NPC but with the fleets replaced by the actual
 	// ships they represent, wildcards in the conversation text replaced, etc.
 	NPC Instantiate(std::map<std::string, std::string> &subs, const System *origin, const System *destination) const;
@@ -100,6 +103,8 @@ private:
 	bool mustEvade = false;
 	bool mustAccompany = false;
 	std::map<const Ship *, int> actions;
+	bool checkAtWaypoints = false;
+	bool checkAtStopovers = false;
 };
 
 

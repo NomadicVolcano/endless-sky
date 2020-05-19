@@ -70,7 +70,7 @@ public:
 	// Find out where this mission is offered.
 	enum Location {SPACEPORT, LANDING, JOB, ASSISTING, BOARDING};
 	bool IsAtLocation(Location location) const;
-	
+
 	// Information about what you are doing.
 	const Planet *Destination() const;
 	const std::set<const System *> &Waypoints() const;
@@ -106,6 +106,8 @@ public:
 	bool HasSpace(const Ship &ship) const;
 	bool CanComplete(const PlayerInfo &player) const;
 	bool IsSatisfied(const PlayerInfo &player) const;
+	bool CanStopover(const PlayerInfo &player) const;
+	bool CanWaypoint(const PlayerInfo &player) const;
 	bool HasFailed(const PlayerInfo &player) const;
 	bool IsFailed() const;
 	// Mark a mission failed (e.g. due to a "fail" action in another mission).
@@ -115,6 +117,13 @@ public:
 	// calling this function, any future calls to it will return an empty string
 	// so that you do not display the same message multiple times.
 	std::string BlockedMessage(const PlayerInfo &player);
+	// Get a string to show the mission cannot meet waypoint or stopover conditions.
+	std::string CannotStopoverMessage(const PlayerInfo &player);
+	std::string CannotWaypointMessage(const PlayerInfo &player);
+	bool WarnedStopoverImpossible() const;
+	void SetWarnedStopoverImpossible(bool) const;
+)	bool WarnedWaypointImpossible() const;
+	void SetWarnedWaypointImpossible(bool) const;
 	// Check if this mission recommends that the game be autosaved when it is
 	// accepted. This should be set for main story line missions that have a
 	// high chance of failing, such as escort missions.
@@ -159,12 +168,25 @@ private:
 	// locations, so move that parsing out to a helper function.
 	bool ParseContraband(const DataNode &node);
 	
+	// The logic for checking CanStopover() and CanWaypoint() is almost identical,
+	// so they have a common implementation function.
+	bool CheckStopoverOrWaypoint(const PlayerInfo &player, bool waypoint) const;
+	std::string CannotStopoverOrWaypointMessage(const PlayerInfo &player, bool waypoint);
+	
+	// Generate the subs map for text substitution, in the general case.
+	std::map<std::string, std::string> MakeSubs(const PlayerInfo &player, const System *waypoint, const System *stopoverSystem, const Planet *stopoverPlanet, const shared_ptr<Ship> &boardingShip, bool setNpc);	
 	
 private:
 	std::string name;
 	std::string displayName;
 	std::string description;
 	std::string blocked;
+	std::string cannotWaypointMessage;
+	std::string cannotStopoverMessage;
+	
+	// Cached copy of subs["<npc>"] since it will be lost in space if the ship is destroyed.
+	std::string npcFlagship;
+	
 	Location location = SPACEPORT;
 	
 	bool hasFailed = false;
@@ -208,6 +230,12 @@ private:
 	std::list<LocationFilter> stopoverFilters;
 	std::set<const Planet *> visitedStopovers;
 	std::set<const System *> visitedWaypoints;
+	
+	bool stopoverRequiresCargo = false;
+	bool stopoverRequiresPassengers = false;
+	
+	bool waypointRequiresCargo = false;
+	bool waypointRequiresPassengers = false;
 	
 	// NPCs:
 	std::list<NPC> npcs;

@@ -676,6 +676,20 @@ bool Mission::IsSatisfied(const PlayerInfo &player) const
 
 
 
+bool Mission::CanStopover(const PlayerInfo &player) const
+{
+	return CheckStopoverOrWaypoint(player,false);
+}
+
+
+
+bool Mission::CanWaypoint(const PlayerInfo &player) const
+{
+	return CheckStopoverOrWaypoint(player,true);
+}
+
+
+
 bool Mission::HasFailed(const PlayerInfo &player) const
 {
 	if(!toFail.IsEmpty() && toFail.Test(player.Conditions()))
@@ -755,6 +769,112 @@ string Mission::BlockedMessage(const PlayerInfo &player)
 	blocked.clear();
 	return message;
 }
+
+
+
+string CannotStopoverOrWaypointMessage(const PlayerInfo &player, bool waypoint)
+{
+	const string &message = waypoint ? cannotWaypointMessage : cannotStopoverMessage;
+	if(message.empty())
+		return string();
+	
+	const System *playerSystem = player.System();
+	const Planet *playerPlanet = player.Planet();
+	
+	map<string, string> subs = MakeSubs(player, (waypoint ? playerSystem : nullptr), (!waypoint : playerSystem : nullptr), (!waypoint : playerPlanet : nullptr), nullptr, true);
+	
+	return Format::Replace(cannotStopoverMessage, subs);
+}
+
+
+
+map<string, string> MakeSubs(const PlayerInfo &player, const System *waypoint, const System *stopoverSystem, const Planet *stopoverPlanet, const shared_ptr<Ship> &boardingShip, bool setNpc)
+{
+	map<string, string> subs;
+	
+	const System *playerSystem = player.System();
+	const Planet *playerPlanet = player.Planet();
+	if(playerSystem)
+		subs["<local system>"] = playerSystem.Name();
+	if(playerPlanet)
+		subs["<local planet>"] = playerPlanet.Name();
+	if(playerSystem && playerPlanet)
+		subs["<locality>"] = subs["local planet"] + " in the " + subs["local system"] + " system";
+	
+	subs["<first>"] = player.FirstName();
+	subs["<last>"] = player.LastName();
+	if(flagship)
+		subs["<ship>"] = flagship->Name();
+	
+	subs["<commodity>"] = cargo;
+	subs["<tons>"] = to_string(cargoSize) + (cargoSize == 1 ? " ton" : " tons");
+	subs["<cargo>"] = subs["<tons>"] + " of " + subs["<commodity>"];
+	subs["<bunks>"] = to_string(passengers);
+	subs["<passengers>"] = (passengers == 1) ? "passenger" : "passengers";
+	subs["<fare>"] = (passengers == 1) ? "a passenger" : (subs["<bunks>"] + " passengers");
+	
+	if(source)
+		subs["<origin>"] = source->Name();
+	else if(boardingShip)
+		subs["<origin>"] = boardingShip->Name();
+	
+	subs["<planet>"] = result.destination ? result.destination->Name() : "";
+	subs["<system>"] = result.destination ? result.destination->GetSystem()->Name() : "";
+	subs["<destination>"] = subs["<planet>"] + " in the " + subs["<system>"] + " system";
+	subs["<date>"] = result.deadline.ToString();
+	subs["<day>"] = result.deadline.LongString();
+	
+	if(waypoint)
+		subs["<waypoint>"] = waypoint->Name();
+	if(stopoverSystem)
+		subs["<stopover system>"] = stopoverSystem->Name();
+	if(stopoverPlanet)
+		subs["<stopover planet>"] = stopoverPlanet->Name();
+	if(stopoverSystem && stopoverPlanet)
+		subs["<stopover planet>"] + " in the " + subs["<stopover system>"] + " system";
+	if(player.GetPlanet())
+		subs["<origin>"] = player.GetPlanet()->Name();
+	else if(boardingShip)
+		subs["<origin>"] = boardingShip->Name();
+	
+	// Stopover and waypoint substitutions: iterate by reference to the
+	// pointers so we can check when we're at the very last one in the set.
+	// Stopovers: "<name> in the <system name> system" with "," and "and".
+	if(!result.stopovers.empty())
+	{
+		string planets;
+		const Planet * const *last = &*--result.stopovers.end();
+		int count = 0;
+		for(const Planet * const &planet : result.stopovers)
+		{
+			if(count++)
+				planets += (&planet != last) ? ", " : (count > 2 ? ", and " : " and ");
+			planets += planet->Name() + " in the " + planet->GetSystem()->Name() + " system";
+		}
+		subs["<stopovers>"] = planets;
+	}
+	// Waypoints: "<system name>" with "," and "and".
+	if(!result.waypoints.empty())
+	{
+		string systems;
+		const System * const *last = &*--result.waypoints.end();
+		int count = 0;
+		for(const System * const &system : result.waypoints)
+		{
+			if(count++)
+				systems += (&system != last) ? ", " : (count > 2 ? ", and " : " and ");
+			systems += system->Name();
+		}
+		subs["<waypoints>"] = systems;
+	}
+	
+	if(setNpc)
+		subs["<npc>"] = npcFlagship;
+	
+	return subs;
+}
+
+
 
 
 
@@ -1106,56 +1226,13 @@ Mission Mission::Instantiate(const PlayerInfo &player, const shared_ptr<Ship> &b
 	result.toFail = toFail;
 	
 	// Generate the substitutions map.
-	map<string, string> subs;
-	subs["<commodity>"] = result.cargo;
-	subs["<tons>"] = to_string(result.cargoSize) + (result.cargoSize == 1 ? " ton" : " tons");
-	subs["<cargo>"] = subs["<tons>"] + " of " + subs["<commodity>"];
-	subs["<bunks>"] = to_string(result.passengers);
-	subs["<passengers>"] = (result.passengers == 1) ? "passenger" : "passengers";
-	subs["<fare>"] = (result.passengers == 1) ? "a passenger" : (subs["<bunks>"] + " passengers");
-	if(player.GetPlanet())
-		subs["<origin>"] = player.GetPlanet()->Name();
-	else if(boardingShip)
-		subs["<origin>"] = boardingShip->Name();
-	subs["<planet>"] = result.destination ? result.destination->Name() : "";
-	subs["<system>"] = result.destination ? result.destination->GetSystem()->Name() : "";
-	subs["<destination>"] = subs["<planet>"] + " in the " + subs["<system>"] + " system";
-	subs["<date>"] = result.deadline.ToString();
-	subs["<day>"] = result.deadline.LongString();
-	// Stopover and waypoint substitutions: iterate by reference to the
-	// pointers so we can check when we're at the very last one in the set.
-	// Stopovers: "<name> in the <system name> system" with "," and "and".
-	if(!result.stopovers.empty())
-	{
-		string planets;
-		const Planet * const *last = &*--result.stopovers.end();
-		int count = 0;
-		for(const Planet * const &planet : result.stopovers)
-		{
-			if(count++)
-				planets += (&planet != last) ? ", " : (count > 2 ? ", and " : " and ");
-			planets += planet->Name() + " in the " + planet->GetSystem()->Name() + " system";
-		}
-		subs["<stopovers>"] = planets;
-	}
-	// Waypoints: "<system name>" with "," and "and".
-	if(!result.waypoints.empty())
-	{
-		string systems;
-		const System * const *last = &*--result.waypoints.end();
-		int count = 0;
-		for(const System * const &system : result.waypoints)
-		{
-			if(count++)
-				systems += (&system != last) ? ", " : (count > 2 ? ", and " : " and ");
-			systems += system->Name();
-		}
-		subs["<waypoints>"] = systems;
-	}
+	map<string, string> subs = MakeSubs(player, nullptr, nullptr, nullptr, boardingShip, false);
 	
 	// Instantiate the NPCs. This also fills in the "<npc>" substitution.
 	for(const NPC &npc : npcs)
 		result.npcs.push_back(npc.Instantiate(subs, source, result.destination->GetSystem()));
+	
+	npcFlagship = subs["<npc>"];
 	
 	// Instantiate the actions. The "complete" action is always first so that
 	// the "<payment>" substitution can be filled in.
@@ -1218,6 +1295,64 @@ bool Mission::ParseContraband(const DataNode &node)
 		failIfDiscovered = true;
 	else
 		return false;
+	
+	return true;
+}
+
+
+
+// Determine if stopover conditions are met for this system.
+bool Mission::CheckStopoverOrWaypoint(const PlayerInfo &player, bool waypoint) const
+{
+	bool requireCargo = stopover ? stopoverRequiresCargo : waypointRequiresCargo;
+	bool requirePassengers = stopover ? stopoverRequiresPassengers : waypointRequiresPassengers;
+	
+	const System *playerSystem = player.GetSystem();
+	
+	// Is there a stopover/waypoint at this system?
+	bool correctSystem = false;
+	if(waypoint)
+	{
+		for(const auto &it : waypoints)
+			if(it == playerSystem)
+				correctSystem=true;
+	}
+	else
+		for(const auto &it : stopovers)
+			if(it == playerSystem)
+				correctSystem=true;
+	if(!correctSystem)
+		return false;
+	
+	// All NPCs must satisfy their own requirements.
+	for(const NPC &npc : npcs)
+		if(waypoint && !npc.CanWaypoint(playerSystem))
+			return false;
+		else if(!waypoint && !npc.CanStopover(playerSystem))
+			return false;
+	
+	if(!requireCargo && !requirePassengers)
+		return true;
+	
+	// If any of the cargo for this mission is being carried by a ship that is
+	// not in this system, the mission cannot be completed right now.
+	for(const auto &ship : player.Ships())
+	{
+		// Skip in-system ships, and carried ships whose parent is in-system.
+		if(ship->GetSystem() == player.GetSystem() || (!ship->GetSystem() && ship->CanBeCarried()
+				&& ship->GetParent() && ship->GetParent()->GetSystem() == player.GetSystem()))
+			continue;
+		
+		if(requirePassengers && ship->Cargo().GetPassengers(this))
+			return false;
+		if(requireCargo)
+		{
+			// Check for all mission cargo, including that which has 0 mass.
+			auto &cargo = ship->Cargo().MissionCargo();
+			if(cargo.find(this) != cargo.end())
+				return false;
+		}
+	}
 	
 	return true;
 }
