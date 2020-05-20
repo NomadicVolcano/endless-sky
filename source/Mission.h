@@ -15,6 +15,7 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 #include "ConditionSet.h"
 #include "Date.h"
+#include "Illegal.h"
 #include "LocationFilter.h"
 #include "MissionAction.h"
 #include "NPC.h"
@@ -24,6 +25,7 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 #include <memory>
 #include <set>
 #include <string>
+#include <vector>
 
 class DataNode;
 class DataWriter;
@@ -79,8 +81,7 @@ public:
 	const std::set<const Planet *> &VisitedStopovers() const;
 	const std::string &Cargo() const;
 	int CargoSize() const;
-	int IllegalCargoFine() const;
-	std::string IllegalCargoMessage() const;
+	const Illegal *IllegalFor(const std::string &governmentName) const;
 	bool FailIfDiscovered() const;
 	int Passengers() const;
 	// The mission must be completed by this deadline (if there is a deadline).
@@ -185,8 +186,6 @@ private:
 	// Parameters for generating random cargo amounts:
 	int cargoLimit = 0;
 	double cargoProb = 0.;
-	int illegalCargoFine = 0;
-	std::string illegalCargoMessage;
 	bool failIfDiscovered = false;
 	int passengers = 0;
 	// Parameters for generating random passenger amounts:
@@ -211,6 +210,9 @@ private:
 	
 	// NPCs:
 	std::list<NPC> npcs;
+	
+	// Description of which governments consider the mission illegal, and how illegal.
+	std::vector<Illegal> illegal;
 	
 	// Actions to perform:
 	std::map<Trigger, MissionAction> actions;

@@ -264,6 +264,16 @@ void Mission::Load(const DataNode &node)
 
 
 
+bool Mission::GetIllegalFor(const string &governmentName) const
+{
+	for(const auto &it : illegal)
+		if(illegal.IsIllegalFor(governmentName))
+			return &illegal;
+	return nullptr;
+}
+
+
+
 // Save a mission. It is safe to assume that any mission that is being saved
 // is already "instantiated," so only a subset of the data must be saved.
 void Mission::Save(DataWriter &out, const string &tag) const
@@ -283,7 +293,20 @@ void Mission::Save(DataWriter &out, const string &tag) const
 		if(passengers)
 			out.Write("passengers", passengers);
 		if(illegalCargoFine)
+		{
 			out.Write("illegal", illegalCargoFine, illegalCargoMessage);
+			if(!illegalFor.empty() || !legalFor.empty())
+			{
+				out.BeginChild();
+				{
+					for(const auto &it : illegalFor)
+						out.Write("illegal for", it);
+					for(const auto &it : legalFor)
+						out.Write("legal for", it);
+				}
+				out.EndChild();
+			}
+		}
 		if(failIfDiscovered)
 			out.Write("stealth");
 		if(!isVisible)
@@ -1207,17 +1230,13 @@ void Mission::Enter(const System *system, PlayerInfo &player, UI *ui)
 // locations, so move that parsing out to a helper function.
 bool Mission::ParseContraband(const DataNode &node)
 {
-	if(node.Token(0) == "illegal" && node.Size() == 2)
-		illegalCargoFine = node.Value(1);
-	else if(node.Token(0) == "illegal" && node.Size() == 3)
+	if(node.Token(0) == "illegal")
 	{
-		illegalCargoFine = node.Value(1);
-		illegalCargoMessage = node.Token(2);
+		illegal.emplace(node);
+		return true;
 	}
 	else if(node.Token(0) == "stealth")
 		failIfDiscovered = true;
 	else
 		return false;
-	
-	return true;
 }

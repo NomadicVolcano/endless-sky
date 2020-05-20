@@ -237,6 +237,9 @@ string Politics::Fine(PlayerInfo &player, const Government *gov, int scan, const
 					if(mission.IsFailed())
 						continue;
 					
+					if(!mission.IsIllegalFor(gov->Name()))
+						continue;
+					
 					// Append the illegalCargoMessage from each applicable mission, if available
 					string illegalCargoMessage = mission.IllegalCargoMessage();
 					if(!illegalCargoMessage.empty())
