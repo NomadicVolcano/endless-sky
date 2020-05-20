@@ -173,8 +173,7 @@ private:
 	bool isMinor = false;
 	bool autosave = false;
 	Date deadline;
-	int deadlineBase = 0;
-	int deadlineMultiplier = 0;
+	MissionRandomValue deadlineCalculation;
 	std::string clearance;
 	LocationFilter clearanceFilter;
 	bool hasFullClearance = true;

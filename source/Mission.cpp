@@ -86,6 +86,7 @@ Mission::Mission(const DataNode &node)
 // Load a mission, either from the game data or from a saved game.
 void Mission::Load(const DataNode &node)
 {
+	bool deadlineSpecified = false;
 	// All missions need a name.
 	if(node.Size() < 2)
 	{
@@ -111,16 +112,35 @@ void Mission::Load(const DataNode &node)
 			description = child.Token(1);
 		else if(child.Token(0) == "blocked" && child.Size() >= 2)
 			blocked = child.Token(1);
-		else if(child.Token(0) == "deadline" && child.Size() >= 4)
-			deadline = Date(child.Value(1), child.Value(2), child.Value(3));
 		else if(child.Token(0) == "deadline")
 		{
-			if(child.Size() == 1)
-				deadlineMultiplier += 2;
-			if(child.Size() >= 2)
-				deadlineBase += child.Value(1);
-			if(child.Size() >= 3)
-				deadlineMultiplier += child.Value(2);
+			if(deadlineSpecified)
+				child.PrintTrace("Skipping duplicate deadline specification:");
+			else if(child.Size() >= 4)
+				deadline = Date(child.Value(1), child.Value(2), child.Value(3));
+			else
+			{
+				if(child.Size() >= 1 || !child.HasChildren())
+				{
+					
+					int base = 0, multiplier = 0;
+					bool usePayload = false;
+					deadlineCalculation.GetDistanceCalculation(base, multiplier, usePayload);
+					
+					if(child.Size() == 1)
+						multiplier += 2;
+					if(child.Size() >= 2)
+						base += child.Value(1);
+					if(child.Size() >= 3)
+						multiplier += child.Value(2);
+					
+					deadlineCalculation.SetDistanceCalculation(base, multiplier, false);
+				}
+				
+				for(const auto &grand : child)
+					if(!deadlineCalculation.Load(child, false))
+						grand.PrintTrace("Skipping unrecognized deadline attribute:");
+			}
 		}
 		else if(child.Token(0) == "cargo" && child.Size() >= 3)
 		{

@@ -85,8 +85,8 @@ private:
 	std::map<const GameEvent *, std::pair<int, int>> events;
 	std::map<const Outfit *, int> gifts;
 	std::map<const Outfit *, int> requiredOutfits;
+	MissionRandomValue paymentCalculation;
 	int64_t payment = 0;
-	int64_t paymentMultiplier = 0;
 	
 	// When this action is performed, the missions with these names fail.
 	std::set<std::string> fail;
